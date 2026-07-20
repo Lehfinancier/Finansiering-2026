@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=1.0]
+  % akser
+  \draw[->, thick] (0,0) -- (8.6,0) node[below left] {løbetid (år)};
+  \draw[->, thick] (0,0) -- (0,4.4) node[left] {rente};
+  % referencekurve
+  \draw[very thick, blue!60!black] (0.3,1.0) .. controls (2.5,2.2) and (5,2.8) .. (8.2,3.1);
+  \node[blue!60!black, font=\small, above] at (7.2,3.15) {referencekurve};
+  % obligationens afkastkrav
+  \filldraw[red!70!black] (5,3.55) circle (2.2pt);
+  \node[red!70!black, font=\small, above] at (4.6,3.65) {obligationens afkastkrav};
+  % spænd
+  \draw[<->, thick] (5,2.70) -- (5,3.45);
+  \node[font=\small, right] at (5.1,3.05) {spænd};
+  % hjælpelinje
+  \draw[dashed, gray] (5,0) -- (5,2.70);
+  \node[font=\scriptsize, below] at (5,-0.05) {5};
+\end{tikzpicture}

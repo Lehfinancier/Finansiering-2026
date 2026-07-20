@@ -1,0 +1,9 @@
+/*-- scss:rules --*/
+
+div p.lang-tag {
+  margin: 0.2rem;               /* space around the element */
+  text-align: left;             /* align text to the left */
+  font-size: 0.8rem;            /* smaller font size */
+  font-weight: bolder;          /* bold text */
+  color: var(--quarto-hl-co-color); /* use a Quarto theme variable for color */
+}

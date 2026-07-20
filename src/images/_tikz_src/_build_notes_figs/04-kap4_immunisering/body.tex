@@ -1,0 +1,27 @@
+  \begin{tikzpicture}[
+      x=0.88cm, y=0.72cm, font=\small,
+      axis/.style={-{Latex[length=2.5mm]}, line width=0.9pt, draw=scannavy}
+  ]
+    \draw[axis] (0,0) -- (11.3,0) node[right] {tid};
+    \draw[axis] (0,0) -- (0,6.4) node[above] {kurs};
+    \draw[scannavy, very thick]
+      (0,2.15) .. controls (3.2,2.55) and (5.7,3.45) .. (7,4.0)
+      .. controls (8.2,4.55) and (9.2,5.05) .. (10.2,5.45);
+    \draw[scannavy, very thick, dashed]
+      (0,3.25) .. controls (3.2,3.10) and (5.8,3.65) .. (7,4.0)
+      .. controls (8.2,4.25) and (9.2,4.55) .. (10.2,4.78);
+    \draw[scannavy, very thick, dotted]
+      (0,1.15) .. controls (3.0,1.65) and (5.7,3.20) .. (7,4.0)
+      .. controls (8.2,4.75) and (9.2,5.55) .. (10.2,6.05);
+    \draw[scanteal, dashed, line width=1pt] (7,0) -- (7,5.95);
+    \node[font=\scriptsize, anchor=e] at (-0.12,2.15) {98,696};
+    \node[font=\scriptsize, anchor=north, align=center] at (7,-0.15) {8,867 år};
+    \node[font=\scriptsize, anchor=west] at (0.45,3.43) {rentefald};
+    \node[font=\scriptsize, anchor=west, rotate=19] at (1.0,1.45) {rentestigning};
+    \draw[decorate, decoration={brace, amplitude=4pt}, scannavy]
+      (0.15,6.05) -- (6.8,6.05)
+      node[midway, yshift=9pt, font=\scriptsize] {kursrisiko størst};
+    \draw[decorate, decoration={brace, amplitude=4pt}, scannavy]
+      (7.2,6.05) -- (10.6,6.05)
+      node[midway, yshift=9pt, font=\scriptsize] {reinvesteringsrisiko størst};
+  \end{tikzpicture}

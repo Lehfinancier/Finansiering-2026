@@ -1,0 +1,38 @@
+<!-- MathJax v3 config MUST come before the loader -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      tags: 'ams',
+      macros: {
+        vect: ["\\mathbf{#1}", 1],
+        mat: ["\\mathbf{#1}", 1],
+
+        bA: "\\boldsymbol{A}", bB: "\\boldsymbol{B}", bC: "\\boldsymbol{C}",
+        bD: "\\boldsymbol{D}", bE: "\\boldsymbol{E}", bF: "\\boldsymbol{F}",
+        bG: "\\boldsymbol{G}", bH: "\\boldsymbol{H}", bI: "\\boldsymbol{I}",
+        bJ: "\\boldsymbol{J}", bK: "\\boldsymbol{K}", bL: "\\boldsymbol{L}",
+        bM: "\\boldsymbol{M}", bN: "\\boldsymbol{N}", bO: "\\boldsymbol{O}",
+        bP: "\\boldsymbol{P}", bQ: "\\boldsymbol{Q}", bR: "\\boldsymbol{R}",
+        bS: "\\boldsymbol{S}", bT: "\\boldsymbol{T}", bU: "\\boldsymbol{U}",
+        bV: "\\boldsymbol{V}", bW: "\\boldsymbol{W}", bX: "\\boldsymbol{X}",
+        bY: "\\boldsymbol{Y}", bZ: "\\boldsymbol{Z}",
+
+        balpha: "\\boldsymbol{\\alpha}",  bbeta: "\\boldsymbol{\\beta}",
+        bgamma: "\\boldsymbol{\\gamma}",  bdelta: "\\boldsymbol{\\delta}",
+        blambda: "\\boldsymbol{\\lambda}", bmu: "\\boldsymbol{\\mu}",
+        brho: "\\boldsymbol{\\rho}", bsigma: "\\boldsymbol{\\sigma}",
+        btheta: "\\boldsymbol{\\theta}", bphi: "\\boldsymbol{\\phi}",
+
+        abs: ["\\left\\lvert #1 \\right\\rvert", 1],
+        norm: ["\\left\\lVert #1 \\right\\rVert", 1],
+        argmin: "\\operatorname*{argmin}",
+        argmax: "\\operatorname*{argmax}",
+        var: "\\mathrm{var}",
+        cov: "\\mathrm{cov}"
+      }
+    }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>

@@ -1,0 +1,51 @@
+\documentclass[border=6pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.98]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{../../../../../../exercises_lecturenotes/lecture_notes/kurs100_lektionsnoter/}}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, calc, positioning, fit, backgrounds, shapes.geometric}
+\usepgfplotslibrary{groupplots,fillbetween}
+\definecolor{scanpink}{HTML}{E5006D}
+\definecolor{scanteal}{HTML}{00A6A6}
+\definecolor{scannavy}{HTML}{243746}
+\definecolor{scanlightgray}{HTML}{F1F2F3}
+\definecolor{ScanBlue}{RGB}{24,73,169}
+\definecolor{ScanGreen}{RGB}{55,140,75}
+\definecolor{ScanOrange}{RGB}{235,120,40}
+\definecolor{ScanDark}{RGB}{45,45,45}
+\definecolor{ScanGray}{RGB}{130,130,130}
+\begin{document}
+\begin{tikzpicture}[
+    box/.style={draw, rounded corners=2pt, align=center, minimum height=9mm,
+                text width=20mm, font=\small},
+    rateb/.style={box, fill=blue!8},
+    behav/.style={box, fill=orange!12},
+    cfb/.style={box, fill=green!10},
+    arr/.style={->, thick},
+    darr/.style={->, thick, dashed}
+]
+\node[rateb] (r)   at (0,0)    {Rentesti\\\(r_t\)};
+\node[behav] (g)   at (2.7,0)  {\(Gain_t\)};
+\node[behav] (cpr) at (5.4,0)  {\(CPR_t\)};
+\node[cfb]   (udt) at (8.1,0)  {\(UDT_t\)};
+\node[cfb]   (cf)  at (10.8,0) {Cash flow\\på terminen};
+\node[behav, text width=26mm] (b) at (5.4,-2.0) {\(Burnout_t\)\\(låntagerpuljen)};
+\node[rateb, text width=24mm] (lys) at (2.7,1.8) {Refi-kurve\\(swap + \(LYS\))};
+
+\draw[arr] (r) -- (g);
+\draw[arr] (lys) -- (g);
+\draw[arr] (g) -- (cpr);
+\draw[arr] (cpr) -- (udt);
+\draw[arr] (udt) -- (cf);
+\draw[arr] (cpr.south west) to[out=-120,in=120] (b.north west);
+\draw[darr] (b.north east) to[out=60,in=-60]
+    node[right, font=\scriptsize, align=left] {huskes til\\næste termin}
+    (cpr.south east);
+\end{tikzpicture}
+\end{document}

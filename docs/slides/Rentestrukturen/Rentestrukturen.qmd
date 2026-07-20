@@ -1,0 +1,353 @@
+---
+title: "Rentestrukturen"
+subtitle: "Kursets vigtigste værktøj"
+author: "Niklas Lehmann Jensen"
+format:
+  revealjs:
+    width: 1150
+    logo: ../../themes/favicon.ico
+    footer: "Finansiering — Rentestrukturen"
+    theme: ../../themes/slides_themes.scss
+    include-in-header: ../../themes/mathjax.html
+    slide-number: true
+    incremental: true
+slide-level: 4
+title-slide-attributes:
+  data-background-color: "#045D5D"
+  data-footer: " "
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+## Introduktion {background-color="#00100F"}
+
+#### Dagens spørgsmål {background="#43464B"}
+
+::: {.nonincremental}
+- Hvorfor er **én effektiv rente** ikke nok, når betalingerne ligger spredt i tid?
+- Hvad er en **nulkuponrente** (spotrente), og hvordan udledes den?
+- Hvorfor kan kurven være **stejl, flad eller invers**?
+- Hvilken kurve priser markedet efter — og hvad er forskellen på **spænd** og **tillæg**?
+:::
+
+::: {.notes}
+Framing for hele forelæsningen. Rentekurven er det fundament, resten af kurset hviler på — priser OG risiko. Lidt dramatisk: fremtiden for den globale økonomi kan læses i dens form. *Gud velsigne rentekurven.* Svar ikke endnu; det er rejsen i dag. De fire spørgsmål er præcis kapitlets fire mål.
+:::
+
+#### Læringsmål {background="#43464B"}
+
+::: {.nonincremental}
+- Hvorfor effektiv rente er en **opsummering**, ikke et entydigt afkastmål
+- Nulkuponrente (spotrente) og diskonteringsfaktor
+- Udlede nulkuponrenter fra kuponobligationer (**bootstrapping**)
+- Beregne en **teoretisk kurs** og sammenligne med markedskursen
+- Forklare kurvens form: forventninger, løbetidspræmier, segmentering
+- Hvorfor markedet i praksis priser af **swapkurven**
+- Skelne **referencekurve, spænd** og **rentetillæg**
+:::
+
+::: {.notes}
+Verbatim fra kapitlets mål. Understreg det sidste punkt: spread-familien (spænd vs tillæg) er en tråd, der løber gennem hele kurset og bliver central i kapitel 5 og 7. Vi bygger værktøjet i dag; vi bruger det resten af kurset.
+:::
+
+## Fra én rente til en kurve {background-color="#00100F"}
+
+#### Effektiv rente blander niveau og profil {background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+- Effektiv rente $y$ = **én** rente lagt ned over **alle** betalinger
+- Holder kun som afkastmål ved hold-til-udløb + geninvestering til $y$
+- To obligationer, **samme løbetid**, kan have forskellig $y$ — alene pga. betalingsprofilen
+:::
+::: {.column width="48%"}
+![](/images/chapters/chapter_3/kap3_vertikal_horisontal.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+Den effektive rente er et nyttigt opsummeringstal, men netop en opsummering — samme gennemsnitsrente uanset om betalingen falder om 1 eller 30 år. Figuren adskiller de to spørgsmål, kapitlet handler om: **horisontal** struktur = hvordan renten afhænger af løbetiden (rentekurven, kapitlets hovedperson); **vertikal** struktur = hvorfor to obligationer med samme løbetid har forskellig rente (fx 30-årig stat vs realkredit). Den vertikale forskel hedder **spænd** og kommer igen til sidst — og bliver central i kapitel 5 og 7. Vi mangler et rentebegreb, der IKKE blander niveau og profil: nulkuponrenten.
+:::
+
+#### Nulkuponrenten (spotrenten) {background="#43464B"}
+
+::: {.callout-note icon=false title="Definition"}
+**Effektiv rente:** ens for alle en obligations betalinger, men varierer fra obligation til obligation.
+**Nulkuponrente:** ens for alle betalinger på samme termin — uanset hvilken obligation de kommer fra.
+:::
+
+- Én betaling → **entydig** rente; hører til ét *tidspunkt*, ikke én obligation
+- Kaldes også **spotrenten** — byggestenen i kapitel 6 og 7
+
+::: {.notes}
+Nulkuponobligationen: én betaling ved udløb, ingen kuponer → dens interne rente er entydig. Det er nulkuponrenten, og den er knyttet til terminen, ikke til papiret. Advar mod den klassiske forveksling med effektiv rente: alle betalinger, der forfalder om 2 år, diskonteres med $z_2$, uanset hvilken obligation de kommer fra. Spotrente = samme ting; I møder ordet igen som byggesten i prisfastsættelsesmodellerne.
+:::
+
+#### Kuponobligation = portefølje af nulkuponer {background="#43464B"}
+
+En 3-årig 10 %-obligation (hovedstol 1.000) = tre nulkuponer:
+
+| Betaling | År 1 | År 2 | År 3 |
+|---|---:|---:|---:|
+| Kuponobligation | 100 | 100 | 1.100 |
+| 1-årig nulkupon | 100 | | |
+| 2-årig nulkupon | | 100 | |
+| 3-årig nulkupon | | | 1.100 |
+
+- **Loven om én pris:** samme betalinger → samme pris, ellers **arbitrage**
+
+::: {.notes}
+Hvorfor gælder nulkuponrenter også for kuponobligationer? Fordi enhver kuponobligation kan opsplittes i en portefølje af nulkuponbetalinger. Porteføljen matcher betalingerne 1:1 → den *skal* koste det samme. Var kuponobligationen dyrere, sælg den, køb porteføljen, stik forskellen i lommen uden risiko. Det er fundamentet under hele bootstrap-metoden på næste slide.
+:::
+
+## Byg kurven {background-color="#00100F"}
+
+#### Bootstrapping: nulkuponrenter fra priser {background="#43464B"}
+
+::: {.smaller}
+| Løbetid | Kupon | Kurs | Eff. rente |
+|---|---:|---:|---:|
+| 1 år | 5 % | 100,96 | 4,00 % |
+| 2 år | 6 % | 101,91 | 4,97 % |
+| 3 år | 7 % | 102,92 | 5,91 % |
+:::
+
+. . .
+
+$$100{,}96 = \frac{105}{1+z_1}\ \Rightarrow\ z_1 = 4{,}00\%$$
+
+. . .
+
+$$101{,}91 = \frac{6}{1{,}04} + \frac{106}{(1+z_2)^2}\ \Rightarrow\ z_2 = 5{,}00\%$$
+
+. . .
+
+$$102{,}92 = \frac{7}{1{,}04} + \frac{7}{1{,}05^2} + \frac{107}{(1+z_3)^3}\ \Rightarrow\ z_3 = 6{,}00\%$$
+
+::: {.notes}
+Regn baglæns fra priserne. Byg trinvis: (1) den 1-årige har kun én betaling → nulkupon → $z_1$ direkte; (2) diskontér den 2-åriges første betaling med det kendte $z_1$, løs for $z_2$; (3) diskontér de to første med $z_1,z_2$, løs for $z_3$. Nøglepointe — læs de to talrækker mod hinanden: de effektive renter (4,00 / 4,97 / 5,91) er **gennemsnit**; nulkuponrenterne (4,00 / 5,00 / 6,00) er de **rene byggesten**, én pr. termin. Parswaprenter behandles ens: swappens faste ben = en kuponobligation til kurs 100.
+:::
+
+#### Diskonteringsfaktorer {background="#43464B"}
+
+$$d_t = \frac{1}{(1+z_t)^t}$$
+
+$$d_1 = 0{,}9615 \qquad d_2 = 0{,}9070 \qquad d_3 = 0{,}8396$$
+
+- $d_t$ = **prisen i dag på 1 kr. til tid $t$** — en krone om 3 år koster knap 84 øre
+- Har man dem, kan enhver betalingsrække prissættes ved at gange og lægge sammen
+
+::: {.notes}
+Når nulkuponrenterne er fundet, følger diskonteringsfaktorerne af sig selv. Den konkrete fortolkning er guld værd: $d_t$ er nutidsprisen på 1 kr. leveret på termin $t$. De falder med løbetiden (ved positive renter). Det er præcis sådan, de bruges i kapitel 6 og 7, hvor de også skrives $DF_t$. Når vi resten af kurset siger "rentestrukturen" eller "rentekurven", mener vi nulkuponrentestrukturen.
+:::
+
+#### Fra punkter til kurve {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+- Ægte nulkuponer findes stort set kun helt korte → udled resten fra kuponobligationer
+- Punkter → **glat** kurve via interpolation (lineær / cubic spline)
+- Savtakket kurve → ustabile faktorer, **falske arbitragesignaler**
+:::
+::: {.column width="50%"}
+![](/images/chapters/chapter_3/kap3_interpolationsmetoder.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+Vi kan ikke aflæse en hel nulkuponkurve direkte — der er kun helt korte nulkuponpapirer. Men renten på fx en 10-årig ligger *gemt* i den 10-årige kuponobligations pris (bootstrap). En rentekurve er dog mere end en håndfuld punkter: til prisfastsættelse skal den være glat og sammenhængende for alle løbetider. Metodedetaljerne er ikke pensum — valgkriteriet er det vigtige: **glathed**. Kurven re-estimeres hver dag, i takt med at markedspriserne flytter sig.
+:::
+
+## Priser med kurven {background-color="#00100F"}
+
+#### Teoretisk kurs vs. markedskurs {background="#43464B"}
+
+::: {.columns}
+::: {.column width="54%"}
+$$K^{*} + v = \sum_{t=1}^{N}\frac{CF_t}{(1+z_t)^{t}}$$
+
+- $z_t$ = ren tidsværdi fra kurven · $y$ = markedets rente for *denne* obligation
+- **NPV** $= K^{*}-K$: $>0$ **billig**, $<0$ **dyr** relativt til kurven
+:::
+::: {.column width="46%"}
+![](/images/chapters/chapter_3/kap3_teoretiske_markedspriser.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+Kapitlets vigtigste regnestykke. Den teoretiske kurs $K^*$ diskonterer hver betaling med nulkuponrenten for netop dens termin; markedskursen $K$ svarer til én effektiv rente $y$. Forskellen er hele pointen: $z_t$ prissætter ren tidsværdi, mens $y$ indbygger alt det andet (kredit, likviditet, egenskaber). I pris-rum (figuren): ligger en trekant UNDER den teoretiske kurslinje, er obligationen billig; over → dyr. I rente-rum vender det om: en billig obligation har effektiv rente OVER kurven. Advar: små afvigelser er ofte støj/likviditet/model, ikke gratis penge.
+:::
+
+#### Eksempel: dansk 10-årig statsobligation {background="#43464B"}
+
+- 2,25 %-statsobligation, diskonteret på **swapkurven** → teoretisk clean-kurs $K^{*} = 95{,}92$
+- Markedskurs samtidig $K = 100{,}63$
+
+. . .
+
+$$100{,}63 - 95{,}92 = 4{,}71 \text{ kurspoint dyrere}$$
+
+- Fejlprissat? **Nej** — statspapirer handles med en **præmie** (sikkerhed, likviditet, regulering)
+
+::: {.notes}
+Konkret taleksempel (DK0009924961, valør 7. feb 2025). Den fulde 11-terminstabel med NV'er hører til backup/noter; her tæller konklusionen. Gabet på 4,71 kurspoint betyder IKKE, at markedets mest likvide papir er fejlprissat. Det fortæller, at statsobligationer systematisk handles til *lavere* renter end swapkurven: investorer betaler en præmie for sikkerhed, likviditet og regulatoriske egenskaber. Pointe: NPV afhænger af, hvilken kurve man måler imod — et vedvarende gab er typisk en præmie, ikke en gevinst.
+:::
+
+#### Gabet = et forvarsel om OAS {background="#43464B"}
+
+::: {.callout-tip icon=false title="Indsigt"}
+Et gab mellem teoretisk kurs og markedskurs kan skyldes **kredit, likviditet eller model** — ikke kun fejlprissætning.
+:::
+
+- I kapitel 7 lukkes gabet ikke ved at kalde obligationen "forkert"…
+- …men ved at lægge et **spænd på diskonteringskurven** = **OAS**
+
+::: {.notes}
+Broen til kapitel 7. Vi gør tanken systematisk dér: i stedet for at kalde en konverterbar realkreditobligation fejlprissat, lægger vi et konstant spænd oven på diskonteringskurven, så modelprisen rammer markedskursen. Det spænd hedder OAS. Læg mærke til, at det er den samme idé som statsobligationseksemplet — bare vendt til et værktøj.
+:::
+
+## Kurvens form {background-color="#00100F"}
+
+#### Rentekurvens tre former {background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+- **Stigende (stejl)** — det normale
+- **Flad**
+- **Invers** (kort > lang) — sjælden; ofte læst som **recessionssignal**
+:::
+::: {.column width="48%"}
+![](/images/chapters/chapter_3/kap3_rentekurveformer.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+Tre grundformer. Den inverse — hvor de korte renter ligger over de lange — ses relativt sjældent og læses ofte som et signal om forventede rentefald og svagere aktivitet. Formen er ikke tilfældig; tre klassiske forklaringer følger på næste slide.
+:::
+
+#### Tre hypoteser om formen {background="#43464B"}
+
+::: {.callout-note icon=false title="Definition"}
+- **Forventningshypotesen:** lange renter afspejler forventede fremtidige korte renter.
+- **Løbetidspræferencehypotesen:** investorer kræver en løbetidspræmie for at binde sig længere.
+- **Markedssegmentering:** udbud/efterspørgsel i bestemte løbetidssegmenter påvirker formen.
+:::
+
+- De tre **udelukker ikke hinanden** — i praksis bidrager alle tre
+
+::: {.notes}
+Forventning: forklarer især den korte ende (Fisher-relationen fra kapitel 1 — højere ventet inflation → højere nominel rente). Løbetidspræmie: lange obligationers priser er mere følsomme over for renteændringer (varigheden, kapitel 4) → investorer kræver en præmie, der vokser med løbetiden. Segmentering: banker vil have korte papirer (likviditet/regulering), pension/forsikring vil have lange (matcher lange forpligtelser) → udbud og efterspørgsel i hvert segment. Advar mod at behandle dem som gensidigt udelukkende.
+:::
+
+#### Løbetidspræmie & segmentering {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+![Løbetidspræmie oven på forventninger](/images/chapters/chapter_3/kap3_loebetidspraemie.svg){.tikz-figure width="100%"}
+:::
+::: {.column width="50%"}
+![Segmenter: kort / mellem / langt](/images/chapters/chapter_3/kap3_segmentering.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+Venstre: kurven *med* løbetidspræmier ligger over kurven med forventninger alene, og afstanden vokser med løbetiden. Højre: renten stiger gennem det korte og mellemlange segment, men flader af i det lange, hvor pensions/forsikrings-efterspørgsel og likviditet begrænser den ekstra rente. Begge figurer er stiliserede — pointen er mekanismen, ikke præcise tal.
+:::
+
+#### Kurven flytter sig sjældent parallelt {background="#43464B"}
+
+- Forventninger flytter typisk den **korte ende**
+- Præmier og segmentefterspørgsel flytter den **lange ende**
+- → derfor måler kapitel 4 følsomhed over for **enkelte punkter** (nøglerentevarighed)
+
+::: {.notes}
+Vigtig konsekvens og bro til kapitel 4. Fordi de tre kræfter rammer forskellige dele af kurven, flytter den sig sjældent parallelt. Ét samlet varighedstal kan derfor ikke skelne positioner, der er eksponeret mod forskellige dele af kurven — det motiverer nøglerentevarigheder og delta-vektorer i næste kapitel. (Denne pointe demonstreres i øvelse 6, "Bro til kapitel 4".)
+:::
+
+## Hvilken kurve? {background-color="#00100F"}
+
+#### Statskurven vs. swapkurven {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+**Statskurven**
+
+- Tæt på risikofri, let at forstå
+- Men: **få punkter** + sikkerheds/likviditets­præmie
+:::
+::: {.column width="50%"}
+**Swapkurven**
+
+- Mange løbetider, meget **likvid**, dagligt kvoteret
+- Uafhængig af enkeltseriers særheder → **praktikerens kurve**
+:::
+:::
+
+- Swapkurven = kursets fundament: kap. 6's initielle kurve, kap. 7's **prisningskurve** $z^{\text{swap}}_t$
+
+::: {.notes}
+Indtil nu har vi talt om "rentekurven" som om der kun er én — god pædagogik, upræcist i praksis. Statskurven er det oplagte førstevalg, men har få danske punkter OG en sikkerheds/likviditetspræmie (præcis de 4,71 kurspoint fra før). Professionelle bruger derfor swapkurven: en renteswap bytter fast mod variabel rente, kvoteres dagligt for mange løbetider → et næsten ideelt råmateriale. Når I i kapitel 7 hører "swapkurven plus et spænd", er det dette kapitels $z_t$ plus en konstant.
+:::
+
+#### Referencekurve + spænd {background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+$$\text{Afkastkrav} \approx \text{referencekurve} + \text{spænd}$$
+
+- Spændet = kompensation for kredit, likviditet, regulering, option, udbud/efterspørgsel
+- = den **vertikale** struktur fra kapitlets start
+:::
+::: {.column width="48%"}
+![](/images/chapters/chapter_3/kap3_referencekurve_spaend.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+En referencekurve er målestokken. Siger en investor "20 basispunkter spænd", betyder det altid 20 bp *i forhold til en bestemt referencekurve* (1 bp = 0,01 procentpoint) — uden kurven er tallet meningsløst. Genkend billedet: det er den vertikale rentestruktur fra kapitlets start, målt som en afstand over kurven. Spændet er merbetalingen for alt det, referencekurven ikke allerede indeholder.
+:::
+
+#### Spænd ≠ tillæg {background="#43464B"}
+
+::: {.callout-note icon=false title="Definition"}
+**Tillæg** = *kontraktstørrelse* — står i kuponformlen, ligger fast.
+**Spænd** = *målestørrelse* — merafkast vs. en referencekurve, ændrer sig dagligt med kursen.
+:::
+
+- Referencer i praksis: **statskurve · swap/OIS · RTL/fleks · CIBOR**
+
+::: {.notes}
+Kursets mest forvekslede par — brug tid her. En floater med kupon = CIBOR 6M + $q$: $q$ er tillægget (fast, i kontrakten). Men om $q$ er højt eller lavt afgøres ved at måle obligationen mod en referencekurve → det er spændet (bevægeligt). Den sondring bliver central i kapitel 5 (variabelt forrentede realkreditobligationer). Professionel rækkefølge: vælg referencekurve → fastlæg ønsket spænd → omsæt til det tillæg, der skal stå i kuponformlen. Trin 3's korrektioner er ikke pensum; intuitionen er det.
+:::
+
+## Afrunding {background-color="#00100F"}
+
+#### The Takeaways {background="#43464B"}
+
+::: {.nonincremental}
+1. Effektiv rente er et **gennemsnit**; nulkuponrenter (spotrenter) er byggestenene — én pr. termin — og $d_t$ er prisen i dag på 1 kr. til tid $t$.
+2. Kuponobligationer = nulkuponbetalinger → kurven kan **bootstrappes** og bruges til teoretiske kurser.
+3. Gabet teoretisk vs. marked er ikke nødvendigvis fejlprissætning — ofte en **præmie**; i kap. 7 måles det som **OAS**.
+4. Praksis priser af **swapkurven**; obligationer måles mod referencekurver: spænd = målestørrelse, tillæg = kontraktstørrelse.
+:::
+
+::: {.notes}
+Luk løkken tilbage til dagens spørgsmål. Det vigtigste at tage med: rentekurven bruges ikke kun til priser, men til risiko — for prisændringer opstår, når kurven flytter sig. Med det fundament kan kapitel 4 måle renterisiko med varighed og konveksitet.
+:::
+
+#### Øvelser {background="#43464B"}
+
+::: {.nonincremental}
+1. Samme løbetid, forskellig effektiv rente
+2. Bootstrapping med en nulkupon som startpunkt
+3. Teoretisk kurs på swapkurven
+4. Rentekurvens form: mere end én mekanisme
+5. Find fejlen: spænd eller tillæg?
+6. Bro til kapitel 4: når kurven ikke flytter sig parallelt
+:::
+
+::: {.notes}
+Gennemgås primært i øvelsestimerne. Opgave 5 (spænd vs tillæg) og opgave 6 (ikke-parallelt skift → nøglerentevarighed) rammer de to vigtigste tråde ind i kapitel 4 og 5 — brug dem som formativ test.
+:::

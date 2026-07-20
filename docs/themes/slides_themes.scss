@@ -1,0 +1,146 @@
+/*-- scss:defaults --*/
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
+
+// General typography
+$font-family-sans-serif: "Noto Sans", sans-serif !default;
+$presentation-heading-font: "Roboto Slab", sans-serif !default;
+
+$body-color: #333 !default;
+$body-bg: #ffffff !default;
+
+// *** Justerede størrelser ***
+$presentation-h1-font-size: 2.2em !default;   // før: 3em
+$presentation-h2-font-size: 1.7em !default;   // før: 2.4em
+$presentation-h3-font-size: 1.4em !default;   // før: 2em
+$presentation-h4-font-size: 1.1em !default;
+
+$presentation-heading-color: $body-color !default;  
+$presentation-heading-font-weight: 700 !default;
+$presentation-heading-text-shadow: none !default;
+
+$link-color: #045D5D !default;
+$accent: $link-color !default;
+$selection-bg: #ffae00 !default;
+
+$overlayElementBgColor: 0, 0, 0 !default;
+$overlayElementFgColor: 240, 240, 240 !default;
+
+$dark-bg-text-color: #fff !default;
+
+// Code
+$code-color: $accent !default; 
+$code-block-border-color: lighten($link-color, 0%) !default;
+$code-block-bg: transparent !default;
+
+/*-- scss:rules --*/
+
+// Mindre standard font
+.reveal {
+  font-size: 26px;   // default er ~36px
+  line-height: 1.3;  // gør afsnit mere kompakte
+}
+
+// Fix links so they are not cut off
+.reveal a {
+  line-height: 1.3em;
+}
+
+// Logo in slides
+.reveal .slide-logo {
+  height: 25px !important;
+  width: 25px !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+// Exported TikZ/diagram SVGs are transparent. Keep their dark labels readable
+// on every slide background while retaining contrast with white figure elements.
+.reveal img.tikz-figure {
+  background-color: #f4f3ef;
+  border-radius: 4px;
+}
+
+// Title slide left-align
+$presentation-title-slide-text-align: left;
+
+// Beamer-style button
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  cursor: pointer;
+  background-color: $accent;
+  border: 1px solid $accent;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: darken($accent, 5%);
+  border-color: darken($accent, 5%);
+}
+
+.button::before {
+  content: "▶";
+  margin-right: 5px;
+}
+
+// Highlights
+.highlight {
+  color: $accent; 
+}
+
+// Rounded box
+.rounded-box {
+  border: 2px solid #ccc;
+  padding: 9px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+// Lists
+.reveal ul {
+  font-weight: lighter;
+  padding-left: 16px;
+  line-height: 1.25;   // lidt mere kompakt
+
+  li::marker {
+    color: mix($accent, white, 70%);
+  }
+}
+
+.reveal ul ul {
+  list-style: none;
+
+  li:before { 
+    content: "•";
+    color: mix($accent, white, 60%);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    margin-right: 0.5em;
+  }
+}
+
+.reveal ol {
+  font-weight: lighter;
+  padding-left: 16px;
+  line-height: 1.25;
+
+  li::marker {
+    color: $accent;
+  }
+}
+
+/*-- scss:mixins --*/
+
+// Background generator
+@mixin bodyBackground() {
+  @include radial-gradient(#ececec, #ffffff);
+}

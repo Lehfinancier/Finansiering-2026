@@ -1,0 +1,6 @@
+# requirements.txt
+numpy==1.26.4
+matplotlib==3.9.2
+pandas==2.2.3
+jupyter==1.0.0
+pyyaml

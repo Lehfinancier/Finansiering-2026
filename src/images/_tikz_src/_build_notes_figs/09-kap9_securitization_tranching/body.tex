@@ -1,0 +1,199 @@
+\begin{tikzpicture}[
+    x=1cm,
+    y=1cm,
+    font=\small,
+    line cap=round,
+    line join=round,
+    houseoutline/.style={
+        draw=scanrateNavy,
+        line width=0.7pt
+    },
+    processarrow/.style={
+        -{Latex[length=2.8mm,width=2.1mm]},
+        draw=scanrateNavy,
+        line width=1.15pt
+    },
+    tranchebrace/.style={
+        decorate,
+        decoration={brace,amplitude=5pt},
+        draw=scanrateNavy,
+        line width=0.8pt
+    }
+]
+
+\newcommand{\mbshouse}[6]{%
+    \begin{scope}[shift={(#1,#2)},scale=#3]
+        \ifcase#6
+            \path[houseoutline,fill=#4]
+                (-0.72,-0.48) rectangle (0.72,0.30);
+            \path[houseoutline,fill=#5]
+                (-0.88,0.30) -- (0,0.92) -- (0.88,0.30) -- cycle;
+            \path[houseoutline,fill=white]
+                (-0.15,-0.48) rectangle (0.15,0.05);
+            \path[houseoutline,fill=white]
+                (-0.55,-0.05) rectangle (-0.30,0.17);
+            \path[houseoutline,fill=white]
+                (0.30,-0.05) rectangle (0.55,0.17);
+        \or
+            \path[houseoutline,fill=#4]
+                (-0.56,-0.48) rectangle (0.56,0.58);
+            \path[houseoutline,fill=#5]
+                (-0.66,0.58) -- (0,0.96) -- (0.66,0.58) -- cycle;
+            \path[houseoutline,fill=white]
+                (-0.13,-0.48) rectangle (0.13,0.03);
+            \foreach \xx in {-0.35,0.35}{
+                \path[houseoutline,fill=white]
+                    (\xx-0.11,0.18) rectangle (\xx+0.11,0.40);
+            }
+        \or
+            \path[houseoutline,fill=#4]
+                (-0.82,-0.48) rectangle (0.82,0.22);
+            \path[houseoutline,fill=#5]
+                (-0.96,0.22) -- (-0.42,0.64) -- (0.62,0.64)
+                -- (0.96,0.22) -- cycle;
+            \path[houseoutline,fill=white]
+                (-0.54,-0.08) rectangle (-0.30,0.13);
+            \path[houseoutline,fill=white]
+                (0.30,-0.48) rectangle (0.58,0.03);
+        \fi
+
+        \draw[scanrateNavy!35,line width=0.5pt]
+            (-0.93,-0.50) -- (0.93,-0.50);
+    \end{scope}%
+}
+
+% Separate overskriftsfelter forhindrer, at de to lange overskrifter overlapper.
+\node[
+    text=scanrateNavy,
+    font=\bfseries\large,
+    align=center,
+    text width=5.6cm
+] at (-4.10,8.05)
+{1. Boliglån samles\\i en MBS};
+
+\node[
+    text=scanrateNavy,
+    font=\bfseries\large,
+    align=center,
+    text width=5.6cm
+] at (4.10,8.05)
+{2. MBS'en opdeles\\i trancher};
+
+\node[text=scanrateNavy,font=\bfseries\small] at (-3.95,7.10)
+{Forskellige boliglån};
+
+\mbshouse{-6.05}{6.25}{0.68}{scanrateTeal!18}{scanrateNavy!72}{0}
+\mbshouse{-3.95}{6.25}{0.68}{scanrateGold!22}{scanrateGold!78}{1}
+\mbshouse{-1.85}{6.25}{0.68}{scanrateTeal!28}{scanrateTeal!78}{2}
+
+\draw[
+    decorate,
+    decoration={brace,mirror,amplitude=5pt},
+    draw=scanrateNavy,
+    line width=0.9pt
+] (-6.83,5.62) -- (-1.07,5.62);
+
+\draw[processarrow] (-3.95,5.38) -- (-3.95,4.93);
+
+\path[
+    draw=scanrateNavy,
+    line width=1.05pt,
+    rounded corners=7pt,
+    fill=scanrateLight
+] (-7.25,0.15) rectangle (-0.65,4.73);
+
+\path[fill=scanrateNavy,rounded corners=6pt]
+    (-7.25,3.97) rectangle (-0.65,4.73);
+\path[fill=scanrateNavy]
+    (-7.25,3.97) rectangle (-0.65,4.35);
+
+\node[text=white,font=\bfseries\normalsize] at (-3.95,4.35)
+{Pulje af boliglån (MBS)};
+
+\mbshouse{-6.43}{3.23}{0.48}{white}{scanrateNavy!72}{0}
+\mbshouse{-4.78}{3.23}{0.47}{scanrateGold!18}{scanrateGold!78}{1}
+\mbshouse{-3.12}{3.23}{0.48}{white}{scanrateTeal!78}{2}
+\mbshouse{-1.47}{3.23}{0.47}{scanrateTeal!19}{scanrateNavy!72}{1}
+
+\mbshouse{-6.43}{1.88}{0.47}{scanrateGold!18}{scanrateTeal!78}{2}
+\mbshouse{-4.78}{1.88}{0.48}{white}{scanrateNavy!72}{0}
+\mbshouse{-3.12}{1.88}{0.47}{scanrateTeal!19}{scanrateGold!78}{1}
+\mbshouse{-1.47}{1.88}{0.48}{white}{scanrateTeal!78}{0}
+
+\mbshouse{-6.43}{0.56}{0.48}{white}{scanrateGold!78}{1}
+\mbshouse{-4.78}{0.56}{0.47}{scanrateTeal!19}{scanrateTeal!78}{0}
+\mbshouse{-3.12}{0.56}{0.48}{white}{scanrateNavy!72}{2}
+\mbshouse{-1.47}{0.56}{0.47}{scanrateGold!18}{scanrateGold!78}{1}
+
+\draw[processarrow] (-0.45,2.77) -- (0.84,2.77);
+\node[
+    text=scanrateNavy,
+    font=\bfseries\scriptsize,
+    align=center,
+    text width=1.35cm,
+    fill=white,
+    inner sep=2pt
+] at (0.20,3.13)
+{Tranche-\\ring};
+
+\path[draw=scanrateNavy,line width=1.05pt,fill=scanrateTeal!14]
+    (1.10,2.55) rectangle (5.50,6.95);
+\node[text=scanrateNavy,font=\bfseries\Large] at (3.30,4.75)
+{AAA (75\%)};
+
+\path[draw=scanrateNavy,line width=1.05pt,fill=scanrateGold!15]
+    (1.10,1.30) rectangle (5.50,2.55);
+\node[text=scanrateNavy,font=\bfseries\normalsize] at (3.30,1.925)
+{AA (13\%) \qquad A (5\%)};
+
+\path[draw=scanrateNavy,line width=1.05pt,fill=scanrateGold!30]
+    (1.10,0.70) rectangle (5.50,1.30);
+\node[text=scanrateNavy,font=\bfseries\footnotesize] at (3.30,1.00)
+{BBB m.fl. (4,5\%)};
+
+\path[draw=scanrateNavy,line width=1.05pt,fill=scanrateGold!72]
+    (1.10,0.15) rectangle (5.50,0.70);
+\node[text=scanrateNavy,font=\bfseries\footnotesize] at (3.30,0.425)
+{Equity (2,5\%)};
+
+\draw[tranchebrace] (5.72,2.58) -- (5.72,6.92);
+\node[anchor=west,text=scanrateNavy,font=\bfseries\normalsize]
+    at (6.08,4.75) {Senior};
+
+\draw[tranchebrace] (5.72,0.73) -- (5.72,2.52);
+\node[anchor=west,text=scanrateNavy,font=\bfseries\normalsize]
+    at (6.08,1.63) {Mezzanine};
+
+\draw[tranchebrace] (5.72,0.18) -- (5.72,0.67);
+\node[anchor=west,text=scanrateNavy,font=\bfseries\normalsize]
+    at (6.08,0.425) {Equity};
+
+\draw[
+    -{Latex[length=2.4mm,width=1.8mm]},
+    draw=scanrateTeal,
+    line width=1.0pt
+] (1.72,-0.06) -- (1.72,-1.10);
+
+\node[
+    anchor=west,
+    text=scanrateTeal,
+    font=\bfseries\footnotesize,
+    align=left
+] at (1.98,-0.58)
+{Betalinger:\\senior først};
+
+\draw[
+    -{Latex[length=2.4mm,width=1.8mm]},
+    draw=scanrateGold!90!black,
+    line width=1.0pt
+] (4.12,-1.10) -- (4.12,-0.06);
+
+\node[
+    anchor=west,
+    text=scanrateGold!90!black,
+    font=\bfseries\footnotesize,
+    align=left
+] at (4.38,-0.58)
+{Tab:\\equity først};
+
+\end{tikzpicture}%

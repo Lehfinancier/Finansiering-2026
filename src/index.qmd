@@ -1,0 +1,143 @@
+---
+title: "Finansiering 2026"
+description: "Finansiering giver en grundlæggende og anvendelsesorienteret introduktion til renter, obligationer, realkredit, risikostyring i banker og regulering heraf."
+page-layout: article
+toc: false
+format: html
+---
+
+## I slide format
+
+::: {=html}
+<div class="slide-embed">
+  <iframe
+    src="slides/organizational/intro.html"
+    title="Course Introduction slides"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+:::
+
+::: {=html}
+<style>
+.slide-embed iframe{
+  width:100%;
+  max-width:1150px;
+  aspect-ratio:16/9;
+  border:0;
+  display:block;
+  margin-inline:auto;
+}
+</style>
+:::
+
+  
+## Kursusinformation
+
+**Forelæser:** Niklas Lehmann Jensen  
+**Email:** nlj@econ.au.dk (niklas@scanrate.dk)  
+**Kontor:** Intet kontor på AU  
+**Kontakt tidspunkter:** I skriver bare en mail  
+**Kursus hjemmeside:** Brightspace og denne side  
+**Forelæsninger:** Tirsdag (8:15–10:00) og torsdag (14:15–16:00) i M1  
+
+**Niveau:** Bachelor  
+**Forudsætninger:** Ingen formelle krav, men basal forståelse for matematik og økonomi er en fordel
+
+---
+
+# Finansiering del 2 (HA.jur)
+
+<img src="images/finance-header-img-fixed.png" alt="Finansiering" style="width: 100%;  border-radius: 15px; margin-bottom: 6px;">
+
+Kurset **Finansiering** giver de studerende en introduktion til de vigtigste begreber, modeller og institutioner inden for fastforrentede instrumenter. Vi arbejder både med teoretiske værktøjer og praktiske eksempler fra danske og internationale finansielle markeder.  
+
+Kurset er designet til HA(jur.)-studerende, og lægger vægt på at gøre de tekniske koncepter spiselige og intuitive.  
+
+---
+
+
+## Kursusindhold
+
+Kurset er struktureret som følger:
+
+1. **Renter og rentedannelse**
+   - Real- og nominelle renter  
+   - Inflation og Fisher-ligningen  
+   - Pengepolitik og institutionelle forhold i Danmark  
+
+2. **Obligationer**
+   - Nulkupon- og kuponobligationer  
+   - Direkte rente, effektiv rente og diskontering  
+   - Sammenhæng mellem kurs, rente og afkast  
+
+3. **Rentestruktur og prisfastsættelse**
+   - Rentekurven og arbitrage  
+   - Estimation af rentestrukturen  
+   - Rentestrukturen og prisfastsættelse
+
+4. **Renterisiko**
+   - Varighed og konveksitet  
+   - Immunisering og risikomål  
+   - Porteføljer af obligationer  
+
+5. **Dansk realkredit**
+   - Realkreditsystemets opbygning og regulering  
+   - Konvertering og præpayment-modeller  
+   - Option Adjusted Spread (OAS)  
+
+6. **Performance og regulering**
+   - Obligationsafkast og performanceattribution  
+   - Finanskrisen 2008 og reguleringsbølgen (Basel III mm.)  
+   - Case: Silicon Valley Bank og renterisiko  
+
+
+## Lektionsplan
+
+| Lektion | Uge | Emne                              | Underemne                                              | Litteratur                       | Øvelser |
+|---------|-----|----------------------------------|--------------------------------------------------------|----------------------------------|---------|
+| 1       | 43  | Renter, obligationer og risiko   | Intro + fundamentet for rentedannelsen                | Lektionsnoten, kapitel 1         |         |
+| 2       | 43  |                                  | Obligationer                                           | Lektionsnoten, kapitel 2         |         |
+| 3       | 44  |                                  | Rentestrukturen                                        | Lektionsnoten, kapitel 3         |         |
+| 4       | 44  |                                  | Renterisiko                                            | Lektionsnoten, kapitel 4         |         |
+| 5       | 45  | Realkredit                       | Intro til dansk realkredit                             | Lektionsnoten, kapitel 5         | [OS1](exercises/Opgave%201/OS1.pdf){target=_blank} |
+| 6       | 45  |                                  | Modellering af konverteringsadfærd                     | Lektionsnoten, kapitel 6         |         |
+| 7       | 46  |                                  | Prisfastsættelse og nøgletal på konverterbare obligationer | Lektionsnoten, kapitel 7     | [OS2](exercises/Opgave%202/OS2.pdf){target=_blank} |
+| 8       | 46  | Performanceevaluering            | Obligationsafkast                                      | Lektionsnoten, kapitel 8         |         |
+| 9       | 47  | Regulering                       | Finanskrisens udvikling og eftervirkninger             | Lektionsnoten, kapitel 9         | [OS3](exercises/Opgave%203/OS3.pdf){target=_blank} |
+| 10      | 47  |                                  | Pengeinstitutters risikostyring                        | Lektionsnoten, kapitel 10        |         |
+| 11      | 48  |                                  | Buffer?                                                |                                  | [OS4](exercises/Opgave%204/OS4.pdf){target=_blank} |
+| 12      | 48  |                                  | Buffer?                                                |                                  |         |
+|         | 49  |                                  |                                                        |                                  | [OS5](exercises/Opgave%205/OS5.pdf){target=_blank} |
+
+
+
+## Kursusmateriale
+
+**Pensum** består primært af:  
+
+- Egenudviklede lektionsnoter i finansiering  
+- Evt. supplerende artikler og cases om finanskrisen  
+
+Derudover kan følgende lærebøger anbefales som opslagsværk:  
+   - Tanggaard: *Finansielle instrumenter og deres markeder*  
+   - Just Andresen: *Finansiel risikostyring*  
+   - Christensen: *Obligationsinvestering: Teori og praksis anvendelse*  
+
+---
+
+## Andet vigtig gøjl
+
+**Eksamen og karakter**  
+Karakteren gives på baggrund af en 4 timers skriftlig eksamen (uden internet). Dato d. 12/01/2026
+
+**Deltagelse under forelæsninger og øvelsestimer**  
+Deltagelse anbefales stærkt, da undervisningen bygger på dialog og øvelser.  
+
+**Akademisk integritet**  
+Universitetets regler om eksamenssnyd og plagiering gælder.  
+
+**Særlige behov**  
+Studerende med særlige behov bør kontakte universitetets kontor tidligt i semestret.  

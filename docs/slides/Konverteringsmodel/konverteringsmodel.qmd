@@ -1,0 +1,565 @@
+---
+title: "Modellering af konverteringsadfærd"
+subtitle: "Maskinrummet bag betalingsrækken"
+author: "Niklas Lehmann Jensen"
+format:
+  revealjs:
+    width: 1150
+    logo: ../../themes/favicon.ico
+    footer: "Finansiering — Konverteringsmodel"
+    theme: ../../themes/slides_themes.scss
+    include-in-header: ../../themes/mathjax.html
+    slide-number: true
+    incremental: true
+slide-level: 4
+title-slide-attributes:
+  data-background-color: "#045D5D"
+  data-footer: " "
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+## Introduktion {background-color="#00100F"}
+
+#### Hvor vi er: fra produkt til pris {background="#43464B"}
+
+::: {.nonincremental}
+- **Kapitel 5:** produktet og konverteringsretten
+- **Kapitel 6:** låntageradfærd → forventede cash flows
+- **Kapitel 7:** cash flows → pris, OAS og risikomål
+:::
+
+::: {.notes}
+Placér kapitlet i realkredit-trilogien. Kapitel 5 viste maskinen og optionen; nu bygger vi adfærdsmotoren, der bestemmer betalingsrækken. Først i kapitel 7 sætter vi pris på resultatet. Den typiske fejl er at hoppe direkte fra rente til pris uden at modellere, at renten også ændrer cash flowet. Broen til næste slide er derfor: hvilke spørgsmål skal motoren kunne besvare?
+:::
+
+#### Dagens spørgsmål {background="#43464B"}
+
+::: {.nonincremental}
+- Hvordan bliver rentestier og låntageradfærd til forventede cash flows?
+- Hvordan hænger $CPR_t$, $ORD_t$, $EXT_t$ og $UDT_t$ sammen?
+- Hvorfor reagerer låntagere forskelligt på samme $Gain_t$?
+- Hvad er burnout — og hvorfor gør det modellen sti-afhængig?
+:::
+
+::: {.notes}
+Brug spørgsmålene som forelæsningens kontrakt. De går fra rente, via adfærd og udtræk, til den tilstand modellen skal huske. Svar ikke endnu. Fremhæv især det sidste spørgsmål: samme rente kan give forskellig CPR, hvis låntagerpuljen har forskellig historie. Før vi bygger modellen, skal vi først se det problem, den skal løse.
+:::
+
+#### Læringsmål {background="#43464B"}
+
+::: {.nonincremental}
+- Forklare samspillet mellem rentestrukturmodel og prepaymentmodel
+- Beregne $CPR_t$, $EXT_t$ og $UDT_t$ pr. termin
+- Bruge CK95 og CK92 til henholdsvis facit og låntagerfordeling
+- Skelne gevinstkrav-modellen fra mikstur-modellen
+- Forklare $LYS$, $Gain_t$, burnout og sti-afhængighed
+:::
+
+::: {.notes}
+Målet er modelintuition, ikke at estimere en produktionsmodel. De studerende skal kunne følge én termin gennem kæden og holde begreberne adskilt. Understreg at alle rater i kapitlet er pr. kvartalstermin, medmindre andet siges. Den gennemgående faldgrube er at blande låntagerens og investorens størrelser sammen.
+:::
+
+## Konvertering ændrer betalingsrækken {background-color="#00100F"}
+
+#### Investoren ejer ikke én fast betalingsrække {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+![Uden ekstraordinær konvertering](/images/chapters/chapter_6/kap6_NYK5_OfficialCF.png){width="100%"}
+
+**Officiel:** renter + ordinære afdrag frem mod 2053
+:::
+::: {.column width="50%"}
+![Med modelestimeret konvertering](/images/chapters/chapter_6/kap6_NYK5_ModelEstimatCF.png){width="100%"}
+
+**Model:** store hovedstolsbetalinger flyttes frem
+:::
+:::
+
+::: {.notes}
+Sammenlign samme 5 % NYK 2053. Venstre er den kontraktmæssige betalingsrække uden ekstraordinære konverteringer. Højre viser, hvordan konvertering kan tømme serien længe før udløb. Det er hele modelleringsproblemet: investor får hovedstol tilbage tidligere og skal ofte geninvestere efter et rentefald. Advar mod at kalde højre figur et facit; det er et modelestimat. Næste slide viser den vigtigste økonomiske driver.
+:::
+
+#### Renten flytter konverteringen mellem kuponrækker {background="#43464B"}
+
+::: {.columns}
+::: {.column width="64%"}
+![](/images/chapters/chapter_6/kap6_PrepaymentInterestRate.png){width="100%"}
+:::
+::: {.column width="36%"}
+::: {.nonincremental}
+- Rente ned → gamle lån dyrere → incitament op
+- Kupon under realkreditrenten → typisk kurs under 100 → næsten intet pari-udtræk
+- Grupper, omkostninger og historik ændrer reaktionen
+:::
+:::
+:::
+
+::: {.notes}
+Læs figuren som en heatmap over kuponrækker og renteregimer. Når renterne falder, bliver flere eksisterende serier konverteringsrelevante. Når en serie handler langt under 100, vil en låntager normalt indfri til markedskurs frem for pari, så CK95 kan vise næsten nul ekstraordinært udtræk, selv om lån forlader serien. Renten er derfor hoveddriveren, men ikke hele forklaringen. Det motiverer de to modelkomponenter på næste slide.
+:::
+
+#### To modeller skaber mange betalingsrækker {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+**Rentestrukturmodel**
+
+- Starter i dagens initielle kurve
+- Skaber mange mulige fremtidige rentetilstande
+:::
+::: {.column width="50%"}
+**Prepaymentmodel**
+
+- Omsætter refinansieringsmuligheder til låntageradfærd
+- Giver $CPR_t$, $UDT_t$ og cash flow på hver sti
+:::
+:::
+
+. . .
+
+::: {.callout-tip icon=false title="Indsigt"}
+Samspillet giver **mange mulige betalingsrækker** — ikke én prognose.
+:::
+
+::: {.notes}
+Hold de to modeller adskilt. Rentestrukturmodellen beskriver hvilke renter, der kan opstå; prepaymentmodellen beskriver, hvordan låntagerne forventes at reagere ved dem. Ingen af modellerne kan stå alene. En enkelt renteprognose er ikke nok til at værdiansætte optionen. Nu følger vi først rentesiden frem gennem et gitter.
+:::
+
+## Rentestier og modeltilstand {background-color="#00100F"}
+
+#### Én startrente bliver til mange mulige stier {background="#43464B"}
+
+$$r_{t+1}=r_t+\kappa(\theta-r_t)+\varepsilon_{t+1}$$
+
+![](/images/chapters/chapter_6/kap6_rentegitter_pedagogisk.svg){.tikz-figure .absolute top="150" left="175" width="800"}
+
+::: {.notes}
+Læs ligningen som økonomi: renten trækkes mod et langsigtet niveau $\theta$, men rammes af ukendte stød. Figuren bygges fremad fra $r_0$. Følg sti A: op og ned. Følg derefter sti B: ned og op. De mødes i samme renteknude, men på sti B kan de hurtige låntagere allerede være væk. Produktionsmodeller kan bruge gitter, scenarietræ eller Monte Carlo; princippet er det samme. Faldgruben er at tro, at samme rente betyder samme modeltilstand. Det løser næste slide.
+:::
+
+#### Konverteringsmotoren bygger cash flowet led for led {background="#43464B"}
+
+- Rentesti → $Gain_t$ → $CPR_t$ → $UDT_t$ → cash flow
+
+![](/images/chapters/chapter_6/kap6_konverteringsmotor.svg){.tikz-figure .absolute top="215" left="75" width="1000"}
+
+::: {.notes}
+Dette er kapitlets rygrad. Følg kæden fra rentestien til refinansieringsmuligheden og $Gain_t$, videre til $CPR_t$, samlet udtræk $UDT_t$ og investors cash flow. Gem den stiplede feedbackpil til sidst: terminens konverteringer ændrer burnout, og den tilbageværende pulje påvirker næste periodes CPR. Motoren beregner ikke optionsværdien direkte; den beregner de cash flows, optionen skaber. Næste slide formaliserer, hvad modellen skal huske.
+:::
+
+#### Renten alene beskriver ikke tilstanden {background="#43464B"}
+
+::: {.callout-tip icon=false title="Indsigt"}
+$$S_t=\bigl(r_t, Burnout_t, w_{1,t},\ldots,w_{J,t}\bigr)$$
+
+To stier kan ende i samme rente — men med forskellig låntagerpulje og derfor forskellig forventet $CPR_t$.
+:::
+
+- Kort version: modellen skal mindst huske $(t,r_t,Burnout_t)$
+
+::: {.notes}
+For en inkonverterbar obligation er tid og rente nok, fordi betalingsrækken ligger fast. Her skal modellen også kende den aktive pulje og gruppesammensætningen. Burnout og gruppevægte er beslægtede, men ikke ens: vægtene beskriver observerbare forskelle mellem grupper; burnout fanger de hurtige låntagere, der er forsvundet også inden for grupperne. Faldgruben er en rentebaseret model uden hukommelse. Nu går vi fra tilstand til det konkrete udtræksalgebra.
+:::
+
+## Fra CPR til samlet udtræk {background-color="#00100F"}
+
+#### CPR måles efter det ordinære afdrag {background="#43464B"}
+
+::: {.callout-note icon=false title="Definition"}
+- $ORD_t$: ordinært udtræk
+- $EXT_t$: ekstraordinært udtræk
+- $CPR_t$: konverteringsrate på den del, der overlever $ORD_t$
+- $UDT_t$: samlet udtræk = ordinært + ekstraordinært
+:::
+
+$$EXT_t=CPR_t(1-ORD_t)$$
+$$UDT_t=ORD_t+EXT_t=ORD_t+CPR_t(1-ORD_t)$$
+
+::: {.notes}
+Rækkefølgen er afgørende: ordinært afdrag opgøres først, og CPR anvendes på resten. Derfor må man ikke bare lægge ORD og CPR sammen. Alle størrelser står som decimaltal i formler og er pr. kvartalstermin. Den klassiske fejl er både forkert rækkefølge og procent/decimal-forveksling. Næste slide gør det konkret.
+:::
+
+#### En kvartalsvis CPR på 3% giver 3,388% samlet udtræk {background="#43464B"}
+
+Med $ORD_t=0{,}004$ og $CPR_t=0{,}030$:
+
+$$UDT_t=0{,}004+0{,}030(1-0{,}004)=0{,}03388$$
+
+. . .
+
+$$CPR^{\text{år}}=1-(1-CPR)^4=1-(1-0{,}03)^4\approx 11{,}5\%$$
+
+- **3% pr. kvartal er ikke 3% pr. år**
+
+::: {.notes}
+Regn først samlet udtræk: 0,4 % ordinært plus 2,988 % ekstraordinært giver 3,388 %. Investorens cash flow styres af $UDT_t$, ikke af CPR alene. Vis derefter annualiseringen: fire kvartaler sammensættes på den overlevende restgæld, så 3 % kvartalsvis svarer til cirka 11,5 % årligt. Faldgruben er en fejl på omtrent faktor fire. Nu ser vi, hvordan markedet observerer facit.
+:::
+
+## Konverteringsdata {background-color="#00100F"}
+
+#### CK95 er facit — modelestimatet kommer før facit {background="#43464B"}
+
+::: {.smaller}
+| Pr. 01/10/2024 | NYK 5% 2053 | NYK 4% 2053 |
+|---|---:|---:|
+| Cirk. nom. (mio. kr.) | 62.096,027 | 43.832,959 |
+| Udtrukket beløb (mio. kr.) | 2.155,258 | 148,166 |
+| Udtræk | 3,47% | 0,34% |
+| Ekstraordinært | 3,06% | 0,01% |
+| Ordinært (beregnet) | 0,41% | 0,33% |
+| **Faktisk CPR (beregnet)** | **3,07%** | **0,01%** |
+| **Modelestimat for CPR** | **10,92%** | **2,77%** |
+:::
+
+::: {.notes}
+CK95 er standardmeddelelsen med faktisk udtræk på serieniveau — facit efter terminen. Modellen skal levere et bud før facit. Her overvurderer modellen begge serier markant: 10,92 % mod 3,07 % og 2,77 % mod 0,01 %. Tallene er pr. termin og kan derfor sammenlignes direkte. Den almindelige misforståelse er at kalde modelestimatet observeret adfærd. CK95 fortæller hvor meget; næste slide viser, hvordan CK92 fortæller hvem.
+:::
+
+#### CK92 viser, hvem der ligger i serien {background="#43464B"}
+
+::: {.columns}
+::: {.column width="55%"}
+| Interval | Lånestørrelse | Gruppe |
+|---:|---:|---|
+| 1 | 0–200 t. | Små |
+| 2 | 200–500 t. | Små |
+| 3 | 500 t.–1 mio. | Små |
+| 4 | 1–3 mio. | Mellem |
+| 5 | 3–10 mio. | Mellem |
+| 6 | 10–50 mio. | Store |
+| 7 | over 50 mio. | Store |
+:::
+::: {.column width="45%"}
+For 5% NYK 2053:
+
+| Gruppe | Vægt |
+|---|---:|
+| Små | 16,2% |
+| Mellem | 82,3% |
+| Store | 1,5% |
+
+Store lån reagerer typisk hurtigere: faste omkostninger fylder mindre, og kronegevinsten er større.
+:::
+:::
+
+::: {.notes}
+CK92 er debitorfordelingen: den viser restgæld fordelt på lånestørrelser og segmenter. Her grupperes interval 1–3 som små, 4–5 som mellemstore og 6–7 som store, uanset privat eller erhverv. De aktuelle vægte er 16,2 %, 82,3 % og 1,5 %. Advar mod den gamle decks 2,2 % for store lån; de aktuelle noter giver 1,5 %. Nu har vi både facit og puljens sammensætning og kan bygge adfærdsmodellen.
+:::
+
+## Konverteringsmodellen {background-color="#00100F"}
+
+#### Refinansieringskurven er låntagerens reelle alternativ {background="#43464B"}
+
+$$z^{\text{refi}}_{\tau}=z^{\text{swap}}_{\tau}+LYS_{\tau}$$
+
+$$Gain_t=\frac{PV_{\text{continue},t}-100(1+cost_t)}{PV_{\text{continue},t}}$$
+
+. . .
+
+$$LYS\uparrow\Rightarrow z^{\text{refi}}\uparrow\Rightarrow PV_{\text{continue}}\downarrow\Rightarrow Gain_t\downarrow\Rightarrow CPR_t\downarrow$$
+
+::: {.notes}
+En boligejer kan ikke refinansiere til swaprenten. LYS — Loan Yield Spread — løfter swapkurven til den realkreditkurve, låntager faktisk møder. Det er på denne kurve, de resterende ydelser på det gamle lån tilbagediskonteres. Alle størrelser i Gain-formlen måles pr. 100 kr. restgæld. Højere LYS gør alternativet dyrere og sænker Gain og CPR. Faldgruben er at forveksle LYS med OAS eller bidrag; det skiller næste slide præcist ad.
+:::
+
+#### LYS, OAS og bidrag bor tre forskellige steder {background="#43464B"}
+
+::: {.callout-tip icon=false title="Indsigt"}
+- **LYS:** låntagerspænd på swap → refinansieringskurve → $Gain_t$ → $CPR_t$
+- **OAS:** investorspænd i diskonteringen → modelpris = markedskurs (kapitel 7)
+- **Bidrag:** betaling fra låntager til institut — ikke et obligationscash flow
+:::
+
+$$\text{LYS ændrer hvilke betalinger} \qquad \text{OAS ændrer hvad de er værd}$$
+
+::: {.notes}
+Dette er kapitlets terminologiske værn. LYS hører til låntagersiden og ændrer de forventede cash flows via Gain og CPR. OAS hører til investorsiden og ændrer diskonteringen. Bidraget går til instituttet og ligger ikke i investorens betalingsrække. De tre kan alle lyde som et tillæg eller spænd, men de er ikke udskiftelige. Nu zoomer vi ind på gevinstkrav-modellen, som er den første af to adfærdsabstraktioner.
+:::
+
+#### Positiv Gain er ikke en automatisk konverteringsbeslutning {background="#43464B"}
+
+- $Gain_t>0$ siger kun, at konvertering **nu** har positiv økonomisk gevinst
+
+![](/images/chapters/chapter_6/kap6_gevinstkrav_fordeling.png){.absolute top="190" left="195" width="760" style="background-color: #f7f7f7; padding: 6px;"}
+
+::: {.notes}
+Figuren viser tre niveauer. En europæisk nu-eller-aldrig-ret ville give en skarp grænse ved Gain = 0. Den danske ret kan bruges senere, så det rationelle krav flyttes til $Gain^*>0$: at konvertere nu skal også slå værdien af at vente. På serieniveau har låntagerne forskellige omkostninger, lånestørrelser og opmærksomhed, så tærsklerne er fordelt, og den samlede reaktion bliver glat. Den klassiske fejl er “Gain positiv, derfor konverterer alle”. Næste slide giver den glatte funktion en matematisk form.
+:::
+
+#### Den logistiske funktion oversætter indeks til sandsynlighed {background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+![](/images/chapters/chapter_6/kap6_logistisk_funktion.svg){.tikz-figure width="100%"}
+:::
+::: {.column width="48%"}
+$$\Lambda(\eta)=\frac{1}{1+e^{-\eta}}$$
+
+::: {.nonincremental}
+- Output ligger altid mellem 0 og 1
+- Langsomt → hurtigt → fladt
+- Passer til en fordeling af gevinstkrav
+:::
+:::
+:::
+
+::: {.notes}
+Den logistiske funktion kan modtage ethvert reelt indeks og leverer altid et tal mellem 0 og 1. Det forhindrer negativ CPR og CPR over 100 %. S-formen passer til konvertering: næsten ingen reagerer ved lavt indeks, mange reagerer omkring tærsklen, og kurven flader ud. Figuren viser funktionsformen; næste slide fylder Gain og burnout ind i indekset. Faldgruben er at tro, at $\eta$ selv er CPR.
+:::
+
+#### Gevinstkrav-modellen giver CPR for hver gruppe {background="#43464B"}
+
+$$\eta_{j,t}=\alpha_j+\beta_{G,j}Gain_t+\beta_{B,j}Burnout_{t-1}$$
+
+. . .
+
+$$CPR_{j,t}=\Lambda(\eta_{j,t})$$
+
+::: {.callout-note icon=false title="Definition"}
+Konverteringsbeslutningen på termin $t$ bruger puljen ved periodens begyndelse, $Burnout_{t-1}$. Først bagefter opdateres $Burnout_t$.
+:::
+
+::: {.notes}
+Dette er gevinstkrav-modellen i kursusversionen. Parametrene er gruppespecifikke: store lån kan have højere følsomhed over for Gain end små. Burnout fra forrige termin påvirker CPR i denne termin. Brug af $Burnout_t$ på højre side ville skabe cirkularitet. Modellen giver en CPR-kurve for hver gruppe; den siger endnu ikke, hvordan hele serien reagerer. Det er mikstur-modellens opgave.
+:::
+
+#### Først gruppekurver — derefter seriens CPR {background="#43464B"}
+
+::: {.columns}
+::: {.column width="58%"}
+![](/images/chapters/chapter_6/kap6_cprthreegroups.png){width="100%" style="background-color: #f7f7f7; padding: 6px;"}
+:::
+::: {.column width="42%"}
+- Ved samme $Gain_t$: store lån reagerer hurtigst
+- Rentebevægelsen flytter os langs kurverne
+
+::: {.fragment}
+$$CPR_t=\sum_{j=1}^{J}w_{j,t}CPR_{j,t}$$
+
+**Mikstur-modellen:** serien er et vægtet gennemsnit af grupperne.
+:::
+:::
+:::
+
+::: {.notes}
+Vis først de tre gruppekurver uden at tale om seriens gennemsnit. For samme Gain ligger store lån højere og til venstre for små lån. Når renten ændrer Gain, bevæger hver gruppe sig langs sin kurve. Afslør derefter miksturformlen: CK92-vægtene samler gruppe-CPR til serie-CPR. Gevinstkrav-modellen og mikstur-modellen er to abstraktioner af samme adfærd — den første beskriver reaktionen inden for grupper, den anden sammensætningen på serieniveau. Vægtene kan selv ændre sig over tid.
+:::
+
+## Burnout og modelhukommelse {background-color="#00100F"}
+
+#### De hurtige låntagere forlader serien først {background="#43464B"}
+
+::: {.columns}
+::: {.column width="55%"}
+![](/images/chapters/chapter_6/kap6_Burnout.png){width="100%"}
+:::
+::: {.column width="45%"}
+For en lukket serie:
+
+$$Burnout_t=Burnout_{t-1}(1-CPR_t)$$
+
+::: {.nonincremental}
+- Høj værdi = mange aktive låntagere tilbage
+- Høj CPR i dag → lavere aktiv pulje i morgen
+- Nyudstedelser kan gøre en åben serie friskere
+:::
+:::
+:::
+
+::: {.notes}
+Burnout-indekset måler den aktive pulje, der er tilbage; navnet kan snyde, fordi en mere udbrændt serie har en lavere værdi. I en lukket serie reducerer dagens CPR burnout efter beslutningen. I en åben serie kan nyudstedelser løfte burnout mod 1, hvilket figuren illustrerer i seriens tidlige år. Faldgruben er at tolke høj burnout som “meget udbrændt”. Konsekvensen er sti-afhængighed på næste slide.
+:::
+
+#### Samme rente kan give forskellig senere CPR {background="#43464B"}
+
+| Rentesti | Tidligere konvertering | Senere CPR ved samme rente |
+|---|---|---|
+| Renten faldt tidligt | Mange aktive låntagere er væk | Lavere CPR |
+| Renten faldt ikke tidligt | Flere aktive låntagere er tilbage | Højere CPR |
+
+::: {.callout-tip icon=false title="Indsigt"}
+Sti-afhængighed betyder, at modellens tilstand er **rente plus låntagerpulje**.
+:::
+
+::: {.notes}
+Vend tilbage til de to rentestier i gitteret. De kan mødes ved samme rente, men den tidlige rentenedgang har allerede tømt den ene serie for hurtige låntagere. Derfor kan CPR være lavere på den historisk mere konverteringsintensive sti. Det er kapitlets vigtigste intuition. Burnout og gruppevægte er ikke dobbeltregning: vægtene fanger observerbar sammensætning på tværs af grupper, mens burnout fanger uobserverbar selektion inden for grupperne.
+:::
+
+#### Én termin gennem motoren {background="#43464B"}
+
+::: {.smaller}
+Med $Gain_t=0{,}04$, $Burnout_{t-1}=0{,}90$, $ORD_t=0{,}004$ og vægte $(0{,}162;0{,}823;0{,}015)$:
+
+| Gruppe | $CPR_{j,t}$ |
+|---|---:|
+| Små | 1,4% |
+| Mellem | 3,6% |
+| Store | 7,6% |
+
+$$CPR_t\approx 0{,}033 \qquad UDT_t\approx 0{,}037 \qquad Burnout_t\approx 0{,}870$$
+:::
+
+- Store lån reagerer mest, men mellemgruppen driver serien, fordi den vejer **82,3%**.
+
+::: {.notes}
+Saml hele motoren. Den logistiske model giver gruppe-CPR 1,4 %, 3,6 % og 7,6 %. Miksturen med de aktuelle CK92-vægte giver serie-CPR cirka 3,3 %. Samlet udtræk bliver cirka 3,7 %, og den lukkede series burnout falder fra 0,90 til cirka 0,87. Pointen er ikke decimalerne, men rækkefølgen: indeks → gruppe-CPR → mikstur → UDT → burnout-opdatering. Det leder til, hvordan modellen vedligeholdes.
+:::
+
+## Fra model til pris {background-color="#00100F"}
+
+#### Modellen er et kvalificeret bud — ikke et facit {background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+![](/images/chapters/chapter_6/kap6_EstimationUncertainty.png){width="100%"}
+:::
+::: {.column width="48%"}
+::: {.nonincremental}
+- CK95 viser nye realiserede udtræk
+- CK92 viser den opdaterede låntagerpulje
+- Parametre genkalibreres, når adfærden flytter sig
+- Flere rentestier og adfærdsudfald → større usikkerhed med horisonten
+:::
+:::
+:::
+
+::: {.notes}
+Prepaymentmodeller opdateres løbende med CK95 og CK92. Selv en god model kan ramme ved siden af, fordi både renter og låntageradfærd ændrer sig. Figuren viser, at usikkerheden vokser med horisonten. Det er ikke en grund til at undlade modellen; uden den har investor slet intet bud på cash flows. Faldgruben er at præsentere model-CPR som et facit. Nu afleverer vi de stiafhængige cash flows til kapitel 7.
+:::
+
+#### Renten rammer både cash flow og diskontering {background="#43464B"}
+
+På sti $m$:
+$$CF^{(m)}_1,CF^{(m)}_2,\ldots,CF^{(m)}_T$$
+
+. . .
+
+$$P_{\text{model}}=\sum_{m=1}^{M}\pi_m\sum_{t=1}^{T}DF_t^{(m)}CF_t^{(m)}$$
+
+::: {.callout-important icon=false title="Kapitel 7"}
+Man kan ikke først gennemsnitliggøre cash flows og bagefter diskontere med dagens kurve. $CF$ og $DF$ bevæger sig sammen på hver sti; OAS lægges på **investorens diskontering**.
+:::
+
+::: {.notes}
+Hver rentesti har både sine egne cash flows og sine egne diskonteringsfaktorer. Rentefald øger normalt nutidsværdien, men udløser samtidig konvertering, så de attraktive betalinger forsvinder. Det er dobbeltvirkningen bag negativ konveksitet. Hold terminologien præcis: LYS har allerede ændret cash flowet via Gain og CPR; OAS kommer i kapitel 7 og ændrer diskonteringen. Dette er broen til prisningen.
+:::
+
+## Afrunding {background-color="#00100F"}
+
+#### The Takeaways {background="#43464B"}
+
+::: {.nonincremental}
+1. Rentesti + refinansieringskurve (swap + **LYS**) driver $Gain_t\rightarrow CPR_t\rightarrow UDT_t\rightarrow$ cash flow.
+2. **CK95** viser faktisk udtræk; **CK92** viser, hvem der ligger i serien.
+3. Gevinstkrav-modellen giver gruppe-CPR; mikstur-modellen vægter grupperne til serie-CPR.
+4. Burnout husker den aktive pulje og gør modellen **sti-afhængig**.
+:::
+
+::: {.notes}
+Luk tilbage til dagens fire spørgsmål. Motoren starter i rentestien og låntagerens refinansieringskurve, ikke i OAS. CK95 og CK92 leverer hver sin type information. De to adfærdsmodeller skal holdes skarpt adskilt, men arbejder sammen. Burnout er hukommelsen, der gør samme rente til forskellige situationer. Næste skridt i kapitel 7 er at sætte pris og risiko på de mange mulige betalingsrækker.
+:::
+
+## Øvelser {background-color="#00100F"}
+
+#### Øvelse 1: En simpel rentemodel {background="#43464B"}
+
+Med $r_0=3{,}0\%$, $\theta=2{,}0\%$ og $\kappa=0{,}3$:
+
+1. Beregn $r_1$, når $\varepsilon_1=0$.
+2. Beregn $r_1$ for $\varepsilon_1=+0{,}5\%$ og $-0{,}5\%$.
+3. Fortolk $\kappa=0$ og $\kappa=1$.
+4. Hvorfor skaber stødene mange mulige betalingsrækker?
+
+::: {.notes}
+Lad de studerende læse mean reversion-leddet med ord før de regner. Faldgruben er at blande procent og decimaltal eller at tro, at modellen er en prognose. Broen er, at hvert stød skaber en ny rentesti, som går ind i konverteringsmotoren.
+:::
+
+#### Øvelse 2: CK95 og udtræk {background="#43464B"}
+
+::: {.smaller}
+| | 1,5 RD S MTG 2043 | 5 NYK E MTG 2053 |
+|---|---:|---:|
+| Cirk. nom. (mio. kr.) | 21.371,745 | 63.871,157 |
+| Udtrukket beløb (mio. kr.) | 263,450 | 1.751,177 |
+| Ekstraordinært | 0,00% | 2,34% |
+| Udtræk | 1,23% | 2,74% |
+:::
+
+1. Beregn $ORD_t$ og $CPR_t$ for begge serier.
+2. 1,5 RD handler i kurs 85; 5 NYK i kurs 102. Forklar forskellen i pari-udtræk.
+
+::: {.notes}
+Bed først om ordinært udtræk som samlet minus ekstraordinært. Derefter bruges $CPR=EXT/(1-ORD)$. Tallene skal konverteres til decimaler i formlen. Kurs 85 gør pari-indfrielse uattraktiv; indfrielse kan ske billigere i markedet. Faldgruben er at tro, at CK95 viser alle former for indfrielse.
+:::
+
+#### Øvelse 3: CK92 og gruppevægte {background="#43464B"}
+
+Brug intervalgrupperingen:
+
+- 1–3 = små lån
+- 4–5 = mellemstore lån
+- 6–7 = store lån
+
+1. Gruppér de udleverede CK92-beløb for begge obligationer.
+2. Beregn $w_{1,t}$, $w_{2,t}$ og $w_{3,t}$.
+3. Hvilken serie forventes at reagere hurtigst — og hvorfor?
+
+::: {.notes}
+Dataene findes i opgavesættet/lektionsnoterne. Formålet er at oversætte rå debitorfordeling til modeltilstand. Vægtene skal summere til 1. Faldgruben er at gruppere privat og erhverv forskelligt; i kapitlets model følger grupperingen alene lånestørrelsen.
+:::
+
+#### Øvelse 4: Gain og beslutningen {background="#43464B"}
+
+$$Gain_t=\frac{PV_{\text{continue},t}-100(1+cost_t)}{PV_{\text{continue},t}}$$
+
+1. Beregn Gain for $PV_{continue}=110{,}28$ og $cost=0{,}05$.
+2. Gentag for $PV_{continue}=101{,}00$.
+3. Sæt derefter $cost=0{,}02$.
+4. Forklar, hvorfor $Gain_t>0$ ikke nødvendigvis betyder konvertering nu.
+
+::: {.notes}
+Alle størrelser måles pr. 100 kr. restgæld. De studerende skal både beregne det statiske incitament og forklare værdien af at vente. Faldgruben er at svare ja/nej alene ud fra fortegnet uden at inddrage gevinstkravet og heterogenitet.
+:::
+
+#### Øvelse 5: Den logistiske funktion {background="#43464B"}
+
+$$\Lambda(\eta)=\frac{1}{1+e^{-\eta}}$$
+
+1. Beregn $\Lambda(-2)$, $\Lambda(0)$ og $\Lambda(2)$.
+2. Hvorfor ligger output altid mellem 0 og 1?
+3. Forklar S-formen som en fordeling af låntagernes gevinstkrav.
+4. Hvorfor ligger den rationelle tærskel for en genanvendelig ret over nul?
+
+::: {.notes}
+Brug symmetrien omkring 0,5 ved $\eta=0$. De studerende skal forbinde funktionsformen med den økonomiske fortælling: få reagerer tidligt, mange omkring deres tærskel, og til sidst flader responsen ud. Faldgruben er at kalde $\eta$ for en sandsynlighed.
+:::
+
+#### Øvelse 6: Logistisk CPR og mikstur {background="#43464B"}
+
+Givet gruppe-CPR $1{,}43\%$, $3{,}27\%$, $7{,}64\%$ og nominelle beløb:
+
+$$N_1=9.853.758.008,\quad N_2=50.505.834.785,\quad N_3=895.702.869$$
+
+1. Beregn gruppevægtene og seriens samlede $CPR_t$.
+2. Hvad sker der typisk med $Gain_t$ og $CPR_t$, når renten falder?
+3. Hvorfor kan store lån have højere CPR ved samme Gain?
+
+::: {.notes}
+Beregn først total nominel og derfra vægtene. Dernæst vægtes gruppe-CPR. Det er mikstur-modellen, ikke en ny adfærdsfunktion. Faldgruben er at tage et simpelt gennemsnit af de tre CPR-tal i stedet for et restgældsvægtet gennemsnit.
+:::
+
+#### Øvelse 7: Burnout og sti-afhængighed {background="#43464B"}
+
+En lukket serie har $Burnout_{t-1}=0{,}95$.
+
+1. Beregn $Burnout_t$ ved $CPR_t=0{,}03$ og $0{,}15$.
+2. Hvorfor kan høj CPR i dag sænke fremtidig CPR?
+3. To stier ender i samme rente om to år; kun den ene havde et tidligt rentefald. Hvorfor kan senere CPR være forskellig?
+
+::: {.notes}
+Brug $Burnout_t=Burnout_{t-1}(1-CPR_t)$ og fasthold rækkefølgen: CPR beregnes fra forrige burnout, derefter opdateres puljen. Den konceptuelle del er vigtigere end regnestykket. Faldgruben er at tro, at samme rente betyder samme CPR uden at kende historien.
+:::

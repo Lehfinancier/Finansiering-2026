@@ -1,0 +1,389 @@
+---
+title: "Finanskrisen"
+subtitle: "Udvikling, transmission og eftervirkninger"
+author: "Niklas Lehmann Jensen"
+format:
+  revealjs:
+    width: 1150
+    logo: ../../themes/favicon.ico
+    footer: "Finansiering — Finanskrisen"
+    theme: ../../themes/slides_themes.scss
+    include-in-header: ../../themes/mathjax.html
+    slide-number: true
+    incremental: true
+    toc: false
+slide-level: 4
+title-slide-attributes:
+  data-background-color: "#045D5D"
+  data-footer: " "
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+#### Dagens spørgsmål {#s9-2 background="#43464B"}
+
+::: {.nonincremental}
+- Hvordan kunne faldende huspriser i ét amerikansk lånesegment vælte banker globalt?
+- Hvilken rolle spillede **gearing, securitisering og kort funding**?
+- Hvordan kan markedsstress ramme investorer, selv når realkreditinstituttets funding er matchet?
+- Hvad ændrede Basel-reglerne efter krisen?
+- Hvad viser Silicon Valley Bank i 2023 om de samme balancemekanismer?
+:::
+
+::: {.notes}
+Kapitlet er bevidst selektivt: vi følger fixed-income-mekanismerne, ikke hele krisens historie. Den røde tråd er, at aktivtab rammer en gearet egenkapitalbuffer, mens ustabil funding kan gøre et langsigtet værditab til et akut likviditetsproblem. Den danske case viser en anden transmission og placering af tab — ikke fravær af stress.
+:::
+
+#### Lave renter gav brændstof til et boligboom {#s9-3 background="#43464B"}
+
+:::: {.columns}
+::: {.column width="50%"}
+![](/images/chapters/chapter_9/kap9_FedFunds.jpg){width="100%"}
+
+- Fed funds nåede **1 % i 2003** og blev holdt lav længe
+:::
+::: {.column width="50%"}
+![](/images/chapters/chapter_9/kap9_HouseIndex.jpg){width="100%"}
+
+- Reale huspriser steg omkring **40 % fra 2000 til 2007**
+:::
+::::
+
+::: {.notes}
+Lave renter var brændstof, ikke en tilstrækkelig forklaring. De øgede efterspørgslen efter kredit og skabte search for yield hos investorer. Samtidig steg aktiemarkedet cirka 70 % fra bunden i 2003 til 2007. Optimismen fik fortsatte prisstigninger til at ligne en robust forudsætning.
+:::
+
+#### Kreditkvaliteten gled ned ad risikostigen {#s9-4 background="#43464B"}
+
+::: {.columns}
+::: {.column width="58%"}
+![](/images/chapters/chapter_9/kap9_mortgage_origination.png){width="100%"}
+:::
+::: {.column width="42%"}
+::: {.nonincremental}
+- Prime faldt fra ca. **85 % i 2001** til **52 % i 2006**
+- Subprime, Alt-A og HEL steg fra ca. 15 % til næsten halvdelen
+- Teaser-renter, meget høj LTV og svag dokumentation
+- Modellen krævede refinansiering, før højere ydelser slog igennem
+:::
+:::
+:::
+
+::: {.notes}
+HEL og cash-out gjorde boligen til en hæveautomat. Pointen er ikke, at alle amerikanske lån var dårlige, men at marginalen flyttede sig: en større del af nyudlånet var afhængigt af stigende priser og let refinansiering. Når priserne stoppede, forsvandt både sikkerhedsbuffer og exit-mulighed.
+:::
+
+## Maskinen bag transmissionen {background-color="#00100F"}
+
+#### Securitisering omfordelte risikoen — den fjernede den ikke {#s9-6 background="#43464B"}
+
+![](/images/chapters/chapter_9/kap9_securitization_tranching.svg){.tikz-figure .absolute top="120" left="175" width="800"}
+
+::: {.notes}
+Læs betalingsvandfaldet oppefra: senior modtager først, derefter mezzanine og equity. Læs tabene nedefra: equity absorberer først. En CDO byggede et nyt vandfald oven på lavere ratede RMBS-trancher. Senior-ratingen afhang af tabsbuffer og lav korrelation; brede samtidige boligprisfald brød den antagelse. Den nye TikZ-eksport bruges direkte som SVG.
+:::
+
+#### USA og Danmark placerede tabene forskelligt {#s9-7 background="#43464B"}
+
+::: {.smaller}
+| Led | Amerikansk krisekæde | Dansk realkredits kerne |
+|---|---|---|
+| Kreditbeslutning | Låneudsteder kunne sælge lån og meget af kreditrisikoen videre | Instituttet beholder kreditrisikoen og dækker tab med kapital |
+| Finansiering | RMBS, nye trancher og CDO’er; dele finansieret kort via repo/ABCP | Obligationer matcher lånets centrale egenskaber via balanceprincippet |
+| Investor | Tranchevandfald og flere lag gjorde risikoplaceringen uklar | Investor bærer især kurs-, rente-, konverterings- og likviditetsrisiko |
+| Stress | Kredit, uigennemsigtighed og kort funding forstærkede hinanden | Kredit rammer instituttet; spænd og likviditet kan presse investor |
+:::
+
+::: {.callout-tip icon=false title="Indsigt"}
+Forskellen er **transmissionen og tabenes placering** — ikke at Danmark var upåvirket.
+:::
+
+::: {.notes}
+Obligationsfinansiering er ikke i sig selv problemet. Den danske kæde er kortere og mere gennemsigtig, og kreditrisikoen bliver hos instituttet. Men balanceprincippet eliminerer ikke markeds-, rente- eller likviditetsrisiko hos obligationsejeren. Kilde: kapitel 9, sammenligningen efter securitiseringsafsnittet og §“Dansk realkredit i 2008: robust struktur, markedsstress”.
+:::
+
+#### Shadow banking gjorde lang risiko afhængig af kort funding {#s9-8 background="#43464B"}
+
+::: {.nonincremental}
+- Banklignende kreditformidling med et smallere sikkerhedsnet
+- Lange, illikvide aktiver finansieret med **repo og ABCP**
+- Kort gæld skulle løbende fornyes
+- Långivere kunne undlade at rulle funding — et run uden almindelige indskud
+:::
+
+::: {.callout-important icon=false title="Advarsel"}
+En institution kan løbe tør for likviditet, før markedet ved, om den er solvent.
+:::
+
+::: {.notes}
+Dette er løbetidstransformation uden den traditionelle banks sikkerhedsnet. Når kort funding ikke rulles, skal aktiver sælges eller belånes. I et presset marked realiserer det tab, svækker kapitalen og kan udløse yderligere fundingstop.
+:::
+
+#### Gearing lader egenkapitalen bære hele prisfaldet {#s9-9 background="#43464B"}
+
+::: {.absolute top="125" left="55" width="1040" style="background-color:#F7F7F7;padding:12px;"}
+![](/images/chapters/chapter_9/kap9_adam_balance.svg){.tikz-figure width="100%"}
+:::
+
+::: {.notes}
+Adam køber for 1 mio. USD med 800.000 i gæld og 200.000 i egenkapital. Gælden er fast; egenkapitalen tager hele udsvinget. En prisstigning på 50 % løfter egenkapitalen til 700.000, mens et fald på 10 % halverer den til 100.000. Ved 100 % belåning er selv et lille prisfald nok til teknisk insolvens. Samme mekanik gælder på en bankbalance.
+:::
+
+#### Lehmans buffer var kun 4,1 % {#s9-10 background="#43464B"}
+
+::: {.columns}
+::: {.column width="40%"}
+**Kapitalandel**
+
+$$\frac{26{,}276}{639{,}432}=\mathbf{4{,}1\%}$$
+
+**Gearing**
+
+$$\frac{639{,}432}{26{,}276}\approx\mathbf{24}$$
+:::
+::: {.column width="60%"}
+::: {.smaller}
+| Lehman Q1 2008 | Mia. USD |
+|---|---:|
+| Cash og andre | 61,265 |
+| Værdipapirer og finansielle instrumenter | 196,997 |
+| Reverse repo m.v. | 299,283 |
+| Andre aktiver | 81,887 |
+| **Aktiver i alt** | **639,432** |
+| **Egenkapital** | **26,276** |
+:::
+:::
+:::
+
+::: {.callout-important icon=false title="Advarsel"}
+Et ensidigt aktivfald på omkring 4,1 % kan i en statisk illustration udhule hele egenkapitalen.
+:::
+
+::: {.notes}
+Gearing forstærker både afkast og tab. 24 dollars i aktiver for hver dollar egenkapital betyder en meget tynd tabsbuffer. Kald 4,1 % en alt-andet-lige illustration, ikke en præcis konkursgrænse: passivværdier, hedgepositioner og poster uden for balancen kan også bevæge sig.
+:::
+
+## Da tilliden forsvandt {background-color="#00100F"}
+
+#### Kreditproblemet blev en systemisk fundingkrise {#s9-12 background="#43464B"}
+
+::: {.columns}
+::: {.column width="45%"}
+::: {.nonincremental}
+1. Fed hævede fra 2004 → ARM-ydelser steg
+2. Misligholdelser ramte strukturerede papirer
+3. Ingen vidste sikkert, **hvor tabene lå**
+4. Kort funding frøs → brandsalg → nye tab
+5. Lehman, september 2008 → global panik
+:::
+:::
+::: {.column width="55%"}
+![](/images/chapters/chapter_9/kap9_STEDSpread.jpg){width="100%"}
+:::
+:::
+
+::: {.notes}
+TED-spread er forskellen mellem 3-måneders USD LIBOR og 3-måneders Treasury bills. Det eksploderede, da prisen på usikret bank-til-bank-kredit steg. Den systemiske mekanisme var ikke blot tabenes størrelse, men usikkerhed om deres placering kombineret med kort funding. Kreditstramning trak derefter forbrug, investering og produktion ned.
+:::
+
+#### Robust realkreditstruktur forhindrede ikke markedsstress {#s9-13 background="#43464B"}
+
+![](/images/chapters/chapter_9/kap9_pensionssektor_realkredit_2007_2009.svg){.tikz-figure .absolute top="70" left="175" width="800"}
+
+::: {.notes}
+Dette er den nye danske 2008-case fra noterne. Balanceprincippet begrænsede instituttets rente- og finansieringsrisiko, men obligationsejeren bar fortsat kurs-, rente- og likviditetsrisiko. I oktober 2008 havde pensionssektoren nettokøb på ca. 14,3 mia. kr. samtidig med en negativ værdiændring på ca. 10,5 mia. kr.; i november var der nettosalg på ca. 13,0 mia. kr. samtidig med en positiv værdiændring på ca. 16,2 mia. kr. Derfor er en negativ værdiændring ikke i sig selv bevis på salg. Den 31. oktober blev diskonteringskurven ændret, så aktiv- og passivsiden blev bedre afstemt; figuren beviser hverken tvangssalg eller en kausal effekt af aftalen. Kilde: kapitel 9, §“Dansk realkredit i 2008: robust struktur, markedsstress”; Danmarks Nationalbank DNVPDKR2.
+:::
+
+#### Krisen efterlod et vedvarende lavere vækstspor {#s9-14 background="#43464B"}
+
+::: {.columns}
+::: {.column width="38%"}
+::: {.nonincremental}
+- Fed funds til **0–0,25 %** fra december 2008
+- Likviditet, garantier, rekapitaliseringer og senere QE
+- USA’s budgetunderskud nåede **9,9 % af BNP i 2009**
+- Global aktivitet forblev under den mekanisk forlængede førkrisetrend
+:::
+:::
+::: {.column width="62%"}
+![](/images/chapters/chapter_9/kap9_WorldGdp_real_vs_hypothetical.jpg){width="100%"}
+:::
+:::
+
+::: {.notes}
+Nulrenten var det første svar; centralbankerne brugte derefter balanceværktøjer. Figuren er en illustration i løbende USD, ikke et kausalt kontrafaktisk estimat: inflation, valuta og et muligvis uholdbart førkriseforløb påvirker afstanden. Pointen er den vedvarende makroøkonomiske arv, ikke en præcis tabsberegning.
+:::
+
+## Regulering som svar {background-color="#00100F"}
+
+#### Basel III svarede punkt for punkt på sårbarhederne {#s9-16 background="#43464B"}
+
+::: {.smaller}
+| Krisens svaghed | Regulatorisk svar |
+|---|---|
+| For lidt kapital af høj kvalitet | CET1-minimum **4,5 %** af RWA + kapitalbevaringsbuffer **2,5 %** |
+| Meget lave modelbaserede risikovægte | Ikke-risikovægtet gearingskrav som backstop |
+| Store 30-dages nettoudstrømninger | **LCR**: likvid buffer mod kort stress |
+| Strukturelt kort funding | **NSFR**: mere stabil finansieringsprofil |
+| Stor modelspredning | Afsluttende reformer: output floor **72,5 %** af standard-RWA |
+:::
+
+::: {.callout-tip icon=false title="Indsigt"}
+Et bufferbrud begrænser bl.a. udlodninger; det er ikke automatisk insolvens.
+:::
+
+::: {.notes}
+Undgå forkortelsen “CET1 er bare 7 %”. Minimumskravet er 4,5 % af RWA, og kapitalbevaringsbufferen er 2,5 % ovenpå med en anden funktion. Output floor er et gulv under modellernes samlede RWA, ikke under bankens bogførte kapitalandel. Reguleringen reducerer sårbarheder, men eliminerer ikke renterisiko, koncentration eller governancefejl.
+:::
+
+#### De tre søjler fordeler ansvar for robusthed {#s9-17 background="#43464B"}
+
+::: {.columns}
+::: {.column width="48%"}
+![](/images/chapters/chapter_9/kap9_Søjlerbasel.png){width="100%"}
+:::
+::: {.column width="52%"}
+::: {.nonincremental}
+- **Søjle 1:** minimumskapital for kredit-, markeds- og operationel risiko
+- **Søjle 2:** tilsyn, ICAAP og ekstra kapital for ikke-dækkede risici
+- **Søjle 3:** transparens og markedsdisciplin
+:::
+:::
+:::
+
+::: {.notes}
+Søjlerne er en arbejdsdeling. Søjle 1 standardiserer minimum; søjle 2 håndterer institutspecifikke risici og kvaliteten af styringen; søjle 3 giver markedet information til selv at disciplinere banken. Efter krisen blev gennemsigtighed særlig vigtig, fordi uvished om tabenes placering havde frosset fundingmarkederne.
+:::
+
+## Samme mekanisme i 2023 {background-color="#00100F"}
+
+#### SVB havde lav kreditrisiko — men et stort varighedsgab {#s9-19 background="#43464B"}
+
+::: {.columns}
+::: {.column width="46%"}
+::: {.nonincremental}
+- Lange fastforrentede stats-, agency- og MBS-papirer
+- Koncentrerede, store og uforsikrede indlån
+- HTM udskød regnskabseffekten, men fjernede ikke økonomisk renterisiko
+- Digitalt run gjorde fundingproblemet akut
+:::
+:::
+::: {.column width="54%"}
+![](/images/chapters/chapter_9/kap9_varighedsgap.png){width="100%"}
+:::
+:::
+
+::: {.notes}
+Ved udgangen af 2022 var HTM-beholdningens amortiserede kost cirka 91,3 mia. USD og fair value cirka 76,2 mia. USD. Sammen med AFS-tab var urealiserede værdifald omkring 17,7 mia. USD. Den 8. marts solgte banken cirka 21 mia. USD AFS-papirer og realiserede 1,8 mia. USD i tab efter skat; det var ikke et dokumenteret HTM-salg. Mere end 40 mia. USD blev trukket ud den 9. marts. HTM køber tid, men kun hvis funding og tillid holder.
+:::
+
+#### Balanceprofilen — ikke aktivklassen alene — skabte sårbarheden {#s9-20 background="#43464B"}
+
+::: {.smaller}
+|  | Standard bank | SVB-lignende bank |
+|---|---:|---:|
+| Udlån: varighed / værdi | 2,0 / 70 | 2,0 / 20 |
+| Obligationer: varighed / værdi | 3,0 / 20 | 6,0 / 70 |
+| Likvider: varighed / værdi | 0,0 / 10 | 0,0 / 10 |
+| **Aktivvarighed $V_A$ / aktiver** | **2,0 / 100** | **4,6 / 100** |
+| Indlån: varighed / værdi | 2,0 / 90 | 0,25 / 82 |
+| **Egenkapital** | **10** | **18** |
+| **Passivvarighed $V_P$** | **2,0** | **0,25** |
+:::
+
+::: {.callout-tip icon=false title="Indsigt"}
+Det stiliserede SVB-eksempel har **mere** bogført kapital end standardbanken — mismatch og kapital er forskellige risikodimensioner.
+:::
+
+::: {.notes}
+Dette er noternes standard_vs_svb-tabel i kompakt slideform. Standardbankens aktiver og passiver har samme vægtede varighed. Den SVB-lignende balance har lange obligationer og meget korte indlån. Tallene er stiliserede markedsværdier og ikke en historisk rekonstruktion af SVB.
+:::
+
+#### Gearing blæser varighedsgabet op i egenkapitalen {#s9-21 background="#43464B"}
+
+$$V_E=V_P+\frac{MVA}{MVE}(V_A-V_P)$$
+
+::: {.columns}
+::: {.column width="50%"}
+**Standard bank**
+
+$$V_E=2{,}0+\frac{100}{10}(2{,}0-2{,}0)=\mathbf{2{,}0}$$
+:::
+::: {.column width="50%"}
+**SVB-lignende bank**
+
+$$V_E=0{,}25+\frac{100}{18}(4{,}6-0{,}25)=\mathbf{24{,}4}$$
+:::
+:::
+
+::: {.callout-important icon=false title="Advarsel"}
+Et rentehop på 1 procentpoint giver i første orden ca. **−2 %** mod **−24 %** på egenkapitalens markedsværdi.
+:::
+
+::: {.notes}
+Formlen bruger modificerede varigheder og samme lille parallelle renteskift på begge sider. Den ser bort fra konveksitet, basisrisiko og optioner. Standardbanken har perfekt match i eksemplet og får derfor V_E = 2. SVB-profilen har gearing 100/18 = 5,56 og et stort gap, så V_E = 24,4. Det korrekte budskab fra de aktuelle noter er omtrent en fjerdedel ved 1 procentpoint — ikke “mere end 50 %”.
+:::
+
+#### Samme mekanisme, ny forklædning {#s9-22 background="#43464B"}
+
+::: {.smaller}
+| Dimension | 2008 | SVB 2023 |
+|---|---|---|
+| Aktivproblem | Kredit, spænd og komplekse boligprodukter | Renterisiko på lange papirer med lav kreditrisiko |
+| Funding | Repo, ABCP og anden kort wholesale-funding | Koncentrerede, uforsikrede indlån |
+| Hastighed | Markedspanik og institutionelle runs | Digital adgang og tætte netværk accelererede run’et |
+| Fælles kerne | Aktivtab rammer en gearet balance; kort funding kan forsvinde hurtigt | Aktivtab rammer en gearet balance; kort funding kan forsvinde hurtigt |
+:::
+
+::: {.callout-tip icon=false title="Indsigt"}
+Kapital, varighedsgab og likviditetsberedskab er forskellige risikodimensioner — og skal styres hver for sig.
+:::
+
+::: {.notes}
+Både ja og nej: risikotypen og fundingkilden ændrede sig, men balancemekanikken var den samme. HTM er ikke en redningsvest; et run kan skabe behovet for salg, som realiserer tabet. Renterisiko kan hedges, men hedgen har omkostninger samt basis- og regnskabsrisiko.
+:::
+
+#### The Takeaways {#s9-23 background="#43464B"}
+
+::: {.nonincremental}
+1. Lave renter, search for yield og svag kreditgivning gjorde boligmarkedet sårbart.
+2. Securitisering flyttede risiko rundt; korrelation og uigennemsigtighed gjorde tab systemiske.
+3. Høj gearing betyder, at små aktivfald kan udslette egenkapitalen.
+4. Balanceprincippet begrænser instituttets markedsrisiko, men fjerner ikke investorernes markeds- og likviditetsrisiko.
+5. Basel svarede med kapital, gearingsbackstop, LCR, NSFR og et output floor.
+6. SVB viste, at renterisiko, koncentreret funding og et hurtigt run kan vælte en bank uden klassiske kredittab.
+:::
+
+::: {.notes}
+Luk på én kæde: aktivrisiko rammer egenkapitalen, og funding afgør, hvor hurtigt problemet bliver akut. Den danske pensionscase er den vigtige nuance: matchet institut-funding betyder ikke, at investorens balance er immun over for spænd og markedsværditab. Bro til kapitel 10: risiciene omsættes nu til kapitalbehov, priser og likviditetsberedskab.
+:::
+
+## Øvelser {background-color="#00100F"}
+
+#### Øvelser: følg tabet gennem systemet {#s9-25 background="#43464B"}
+
+::: {.nonincremental}
+1. **Boligejerens balance:** Beregn egenkapital og LTV ved 80 % og 100 % startbelåning samt prisfald på 10, 20 og 30 %.
+2. **Gearing:** En bank har aktiver 500 mia. kr. og EK 15 mia. kr. Beregn kapitalandel, gearing og et statisk insolvenspunkt.
+3. **Tranchevandfald:** Fordel tab på 5, 15 og 35 mio. kr. i en pulje med senior 70, mezzanine 20 og equity 10.
+4. **DK 2008:** Forklar med pensionsfiguren forskellen mellem værdiændring og nettosalg — og hvad figuren ikke kan bevise.
+:::
+
+::: {.notes}
+Opgave 1 og 2 forbinder husholdning og bank via samme gearingsmekanik. I trancheopgaven skal tab fordeles nedefra. I DK-opgaven er metodisk disciplin vigtig: oktober viser nettokøb samtidig med negativ værdiændring, november det modsatte; det afviser fortolkningen “negativ værdiændring er salg”.
+:::
+
+#### Øvelser: regulering og den nye forklædning {#s9-26 background="#43464B"}
+
+::: {.nonincremental}
+5. **Rentemarginal:** Indlån 0,25 % og 10-årige obligationer 1,75 %. Hvilken risiko finansierer merafkastet ved et rentehop på 2 procentpoint?
+6. **Egenkapitalens varighed:** $V_A=5$, $V_P=0{,}5$, gearing 8. Beregn $V_E$ og førsteordenseffekten af +2 procentpoint.
+7. **2008 vs. 2023:** Sammenlign risikotype, fundingstruktur og hastighed. Hvad er fælles?
+8. **Basel:** Kobl tynd kapital, lave risikovægte, 30-dages udstrømning og strukturelt kort funding til de relevante krav.
+:::
+
+::: {.notes}
+I varighedsopgaven bliver V_E stor; ved et stød på 2 procentpoint skal de studerende også forklare, hvorfor konveksitet eller fuld reprissætning er nødvendig. HTM ændrer ikke den økonomiske konklusion. Basel-opgaven skal munde ud i, at intet enkelt mål gør banken robust alene.
+:::

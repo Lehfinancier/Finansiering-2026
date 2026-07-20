@@ -1,0 +1,309 @@
+---
+title: "Renterisiko"
+subtitle: "Hvor meget — og hvor på kurven?"
+author: "Niklas Lehmann Jensen"
+format:
+  revealjs:
+    width: 1150
+    logo: ../../themes/favicon.ico
+    footer: "Finansiering — Renterisiko"
+    theme: ../../themes/slides_themes.scss
+    include-in-header: ../../themes/mathjax.html
+    slide-number: true
+    incremental: true
+slide-level: 4
+title-slide-attributes:
+  data-background-color: "#045D5D"
+  data-footer: " "
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+## Introduktion {background-color="#00100F"}
+
+#### Dagens spørgsmål {background="#43464B"}
+
+::: {.nonincremental}
+- Hvordan måler **Macaulay-varighed**, hvor i tiden værdien ligger?
+- Hvordan omsættes varighed til følsomhed i **%, kurspoint og bp**?
+- Hvorfor er varighed kun **lineær** — og hvad tilføjer **konveksitet**?
+- Hvorfor fordele risikoen på **punkter** på kurven?
+:::
+
+::: {.notes}
+Kapitel 2: når renten stiger, falder kursen. Kapitel 3: der er en hel kurve. I dag: *hvor meget* falder kursen, og *hvor på kurven* ligger risikoen? Understreg fra start: det handler IKKE om, hvorvidt udsteder betaler — en sikker lang statsobligation kan tabe stort i markedsværdi, når renten stiger (2022). Renterisiko = markedsværdirisiko fra rentebevægelser.
+:::
+
+#### Læringsmål {background="#43464B"}
+
+::: {.nonincremental}
+- Macaulay-varighed som **vægtet gennemsnitlig betalingstid**
+- Modificeret varighed & kronevarighed som følsomhedsmål
+- Skelne **procent, procentpoint og basispunkter**
+- Hvorfor varighed kun er en **lineær approksimation**
+- Konveksitet som **krumningen** i kurs-rente-sammenhængen
+- Porteføljerisiko som **vægtede gennemsnit**
+- Idéen bag **Fisher–Weil** og **nøglerentevarighed**
+:::
+
+::: {.notes}
+Verbatim fra kapitlets mål. Målet er ikke at bygge et professionelt risikosystem, men at forstå de nøgletal, professionelle bruger, når de siger, at en position har høj eller lav renterisiko.
+:::
+
+## Varighed {background-color="#00100F"}
+
+#### Macaulay: gennemsnitlig betalingstid {background="#43464B"}
+
+::: {.callout-note icon=false title="Definition"}
+**Macaulay-varighed** = den vægtede gennemsnitlige tid til betalingerne, hvor vægtene er betalingernes **nutidsværdier** som andel af prisen.
+:::
+
+$$D = \sum_{t=1}^{N} w_t\cdot t, \qquad w_t = \frac{PV(CF_t)}{P}$$
+
+- Betalingsrækkens **tidsmæssige tyngdepunkt** — løbetid $\neq$ varighed
+
+::: {.notes}
+Den mest intuitive fortolkning: den gennemsnitlige tid, investor venter på pengene, hvor hver betaling vægtes efter sin nutidsværdi. Hvorfor nutidsværdier og ikke nominelle beløb? Fordi en krone om 1 år og en om 10 år ikke er lige meget værd i dag — varigheden skal måle, hvor obligationens *aktuelle markedsværdi* ligger i tiden. Billede: placer betalingerne på en tidslinje med vægt = nutidsværdi; varigheden er balancepunktet. Advar: varighed er IKKE en simpel tilbagebetalingstid — den lover ikke, at man har fået pengene igen efter $D$ år.
+:::
+
+#### Samme løbetid, forskellig varighed {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+![Stående: $D = 8{,}867$ år](/images/chapters/chapter_4/kap4_cf_bullet.svg){.tikz-figure width="100%"}
+:::
+::: {.column width="50%"}
+![Serie: $D = 4{,}948$ år](/images/chapters/chapter_4/kap4_cf_serial.svg){.tikz-figure width="100%"}
+:::
+:::
+
+- Begge udløber om ~10 år — men den store **slutbetaling** trækker den ståendes tyngdepunkt ud
+
+::: {.notes}
+Den vigtigste pointe i hele begrebet: **løbetid og varighed er ikke det samme**. Den stående obligation (kurs 98,696) har en stor slutbetaling på 102,25 i år 10 → tyngdepunkt 8,867 år. Serieobligationen (kurs 99,454) trækker betalinger frem via afdrag → tyngdepunkt kun 4,948 år. Samme udløb, meget forskellig renterisiko. Den fulde beregningstabel (PV, vægt, vægt·tid) hører til noter/backup.
+:::
+
+## Fra tid til prisfølsomhed {background-color="#00100F"}
+
+#### Enhedsfælden {background="#43464B"}
+
+::: {.callout-important icon=false title="Enhedsfælden i renterisiko"}
+1 procentpoint = **100 basispunkter** = **0,01** i decimaltal.
+Forkerte enheder giver typisk fejl med **faktor 100** i varighed, BPV og konveksitet.
+:::
+
+- "Renten stiger med 1 %" undgås — tvetydigt (relativ vs. procentpoint)
+
+::: {.notes}
+Læg den her tidligt og kald tilbage til den hver gang. THE tilbagevendende regnefejl på hele kurset. Bemærk allerede nu, at konventionen skifter mellem formler: i $\Delta P/P \approx -MD\cdot\Delta y$ er $\Delta y$ et **decimaltal** (0,01), mens kronevarighed og kronekonveksitet er defineret **pr. procentpoint** ($\Delta y_{pp}=1$). Hold styr på hvilken konvention hvert nøgletal bruger.
+:::
+
+#### Modificeret varighed {background="#43464B"}
+
+$$MD = \frac{D}{1+y} = \frac{8{,}867}{1{,}0245} = 8{,}655$$
+
+$$\frac{\Delta P}{P} \approx -MD\cdot \Delta y \quad (\Delta y \text{ i decimaltal})$$
+
+- +1 pp $\Rightarrow$ kursen falder **~8,655 %** (og omvendt)
+
+::: {.notes}
+Modificeret varighed omsætter Macaulay-tid til procentvis kursfølsomhed. Vigtig nuance i ordet "omtrentlig": MD er hældningen på tangenten til den krumme kurs-rente-kurve ved det aktuelle renteniveau. For små skift ligger tangenten tæt på kurven; for store skift vokser afstanden. Varighed er altså et lokalt førsteordensmål — det leder direkte til konveksitet.
+:::
+
+#### Kronevarighed & BPV {background="#43464B"}
+
+$$d = MD\cdot \frac{K}{100} = 8{,}655\cdot\frac{98{,}696}{100} = 8{,}542$$
+
+$$BPV = \frac{d}{100} = 0{,}08542$$
+
+- $d$ = **kurspoint pr. procentpoint** · BPV = **kurspoint pr. basispunkt**
+
+::: {.notes}
+Ofte vil vi hellere vide kurspoint eller kroner end procent. Kronevarigheden $d$ (kaldes $KV$ i kapitel 7 — må ikke forveksles med diskonteringsfaktoren $d_t$ fra kapitel 3) siger: ~8,542 kurspoint tabt ved +1 pp. BPV (også kaldet PVBP) er effekten af 1 bp: ~0,085 kurspoint. Samme følsomhed, forskellige enheder — enhedsfælden lurer.
+:::
+
+#### Immunisering {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+- **Kursrisiko** (rente op → kurs ned) og **reinvesteringsrisiko** (rente ned → lavere reinvestering) trækker **modsat**
+- Balancerer, når **horisont ≈ varighed** (~8,867 år)
+:::
+::: {.column width="50%"}
+![](/images/chapters/chapter_4/kap4_immunisering.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+De to effekter trækker i modsat retning; hvilken dominerer afhænger af horisonten. Kort horisont → kursudsvinget dominerer; meget lang → reinvesteringen indhenter kurstabet. Midtimellem balancerer de — og det sker (under simple antagelser), når horisonten ≈ Macaulay-varigheden. Ikke en løs tommelfingerregel, men en konsekvens af, at varigheden netop måler værdiens tyngdepunkt i tiden. Advar: immunisering fjerner ikke risiko — den balancerer den for ét omtrent parallelt skift, og skal justeres løbende.
+:::
+
+## Konveksitet {background-color="#00100F"}
+
+#### Kurven er krum {background="#43464B"}
+
+::: {.columns}
+::: {.column width="48%"}
+| Renteændring | Kursændring |
+|---|---:|
+| $-1$ pp | $+8{,}995$ |
+| $+1$ pp | $-8{,}122$ |
+
+Kronevarighed $8{,}542$ ligger **midt imellem** → asymmetri
+:::
+::: {.column width="52%"}
+![](/images/chapters/chapter_4/kap4_konveksprisrentegraf.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+Varighed er en lineær approksimation, men kurs-rente-kurven er krum — det er konveksitet. Reaktionen er asymmetrisk: rentefald løfter kursen mere (+8,995), end en lige stor rentestigning trækker den ned (−8,122). Mekanismen er samme diskonteringsformel som kapitel 2: ved rentestigning rammer yderligere stigninger betalinger, der allerede er kraftigt diskonteret → marginalt mindre tab. Kort sagt: varighed er tangentens hældning; konveksitet fortæller, hvor hurtigt tangenten drejer.
+:::
+
+#### Kronekonveksitet {background="#43464B"}
+
+$$\Delta K \approx -d\cdot\Delta y_{pp} + \tfrac{1}{2}C\cdot(\Delta y_{pp})^2, \qquad C = 0{,}872$$
+
+- Forbedret ved $-1$ pp: $-8{,}542(-1)+\tfrac12(0{,}872) = \mathbf{8{,}978}$ (faktisk 8,995)
+- $\Delta y_{pp}$ i **procentpoint** her — ikke decimaltal (enhedsfælden!)
+
+::: {.notes}
+Konveksitetsleddet forbedrer approksimationen og er positivt i begge retninger for en almindelig inkonverterbar obligation. Ved +1 pp: −8,542 + 0,436 = −8,106 (faktisk −8,122) — også tættere end varighed alene. Gentag enhedsadvarslen: her måles $\Delta y_{pp}$ i procentpoint ($=1$), mens $\Delta P/P$-formlen brugte decimaltal ($=0{,}01$). $C$ beregnes fra $\sum t(t+1)PV(CF_t)$-kolonnen (9.147,28).
+:::
+
+#### Hvorfor konveksitet betyder noget {background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+- Positiv konveksitet: **taber mindre** op, **vinder mere** ned
+- Men konveksitet har en **pris** (dyrere obligation)
+- Vigtigst ved **store** renteudsving
+:::
+::: {.column width="48%"}
+![](/images/chapters/chapter_4/kap4_KonveksitetObliAB.png){width="100%"}
+:::
+:::
+
+::: {.notes}
+Ved små renteudsving betyder forskel i konveksitet lidt; ved store udsving bliver den vigtig. **Foreshadow (vigtig):** almindelige inkonverterbare obligationer har positiv konveksitet — men konverterbare realkreditobligationer kan få lav eller **negativ** konveksitet, fordi låntager kan indfri, når det er fordelagtigt. Det er hele broen til realkredit-trilogien (kapitel 5–7 og OAS).
+:::
+
+## Porteføljer {background-color="#00100F"}
+
+#### Renterisiko på porteføljer {background="#43464B"}
+
+::: {.smaller}
+| | Nom. | Kurs | Markedsv. | Mac. | MD | $d$ | $C$ |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Obl. 1 | 10 mio. | 99,3 | 9,93 | 2,20 | 2,18 | 2,16 | 0,14 |
+| Obl. 2 | 15 mio. | 101,5 | 15,23 | 4,80 | 4,73 | 4,80 | 0,34 |
+| Obl. 3 | 25 mio. | 102,8 | 25,70 | 10,50 | 10,30 | 10,59 | 1,20 |
+| **Portefølje** | **50 mio.** | | **50,86** | **7,17** | **7,05** | **7,17** | **0,73** |
+:::
+
+- Mac./MD vægtes med **markedsværdi** · $d$/BPV/$C$ vægtes med **nominel**
+
+::: {.notes}
+Ikke genberegn alle cash flows — vægt de enkelte nøgletal. Hovedreglen er ikke en konvention, men følger af enhederne: **procentvise** mål (Mac., MD) skaleres med markedsværdi; mål **pr. 100 nominel** ($d$, BPV, $C$) skaleres med nominelle enheder. Kroner: $7{,}17/100 \cdot 50$ mio. $= 3.585.000$ kr. tab ved +1 pp; BPV $= 35.850$ kr. Tjek: $d_p = MD_p\cdot K_p/100 = 7{,}05\cdot 101{,}71/100 = 7{,}17$ — de to veje giver samme svar.
+:::
+
+## Rentekurven som mål {background-color="#00100F"}
+
+#### Fisher–Weil-varighed {background="#43464B"}
+
+::: {.callout-note icon=false title="Definition"}
+**Fisher–Weil-varighed** diskonterer hver betaling med **nulkuponrenten** for dens egen løbetid — i stedet for én effektiv rente.
+:::
+
+- Mere konsistent, når kurven **ikke er flad**
+- Måler stadig primært et **parallelt** skift → leder til nøglerenter
+
+::: {.notes}
+Hidtil har vi brugt én effektiv rente = antage, at alle betalinger diskonteres ens. Kapitel 3 viste, at det er en forenkling. Fisher–Weil bruger hele nulkuponkurven. I 3-års-eksemplet ligger Mac. (2,9339) og F–W (2,9334) tæt — pointen er ikke decimalerne, men konsistensen med kurven. MEN F–W måler stadig et parallelt skift, og kurven flytter sig sjældent parallelt (korte ende: pengepolitik/forventninger; lange ende: præmier/segment) — det motiverer det sidste skridt.
+:::
+
+#### Tre tilgange til varighed {background="#43464B"}
+
+![](/images/chapters/chapter_4/kap4_varighedmetoder.svg){.tikz-figure .absolute top="165" left="165" width="820"}
+
+::: {.notes}
+Progressionen i ét billede. **Macaulay:** én effektiv rente (flad kurve). **Fisher–Weil:** hele nulkuponkurven (faktisk kurve). **Delta-vektor / nøglerente:** lokale stød til udvalgte punkter på kurven. Hver tilgang bruger mere af kurvens information end den forrige. Nøglerentevarighed fordeler risikoen ud på kurvens punkter — så vi kan se *hvor* risikoen ligger, ikke kun hvor stor den er.
+:::
+
+#### Nøglerentevarighed / delta-vektorer {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+- Ét samlet tal skjuler **hvor** risikoen ligger
+- Fordel risikoen på **nøglerenter** (fx 1, 3, 5, 10 år)
+- Stød ét punkt ad gangen — aftager lineært mod nabopunkter
+:::
+::: {.column width="50%"}
+![](/images/chapters/chapter_4/kap4_deltavektorchoks.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+Det praktiske spørgsmål: porteføljen har høj varighed — men skyldes risikoen 5-årsrenten eller 30-årsrenten? Fx kronevarighed 5 kan være fordelt 0,5 / 1,5 / 2,0 / 1,0 på 1/3/5/10-årige renter → mest risiko omkring 3–5 år. Hvis lange renter stiger, men korte falder, reagerer porteføljen helt anderledes, end ét varighedstal antyder. Det er præcis den ikke-parallelle risiko fra kapitel 3.
+:::
+
+#### Eksempel: kort vs. langt stød {background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+3-årig obligation, basis-NV $= 100{,}11$:
+
+- Kort stød → kursfald **0,06**
+- Langt stød → kursfald **2,72**
+- Sum $0{,}06 + 2{,}72 = \mathbf{2{,}78}$ = parallelskift
+:::
+::: {.column width="48%"}
+![](/images/chapters/chapter_4/kap4_chocksrentekurve.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+Det korte stød rammer næsten ikke (0,06); det lange rammer kraftigt (2,72) — fordi størstedelen af betalingerne ligger i år 3, hvor hovedstolen betales. De to stød er konstrueret, så de tilsammen giver netop et parallelt skift på 1 pp (år 2 rammes 0,5 pp fra hvert). Derfor summer kursfaldene til parallelskiftet: nøglerentevarighederne **dekomponerer** den samlede førsteordensrisiko — den forsvinder ikke og opstår ikke, den fordeles.
+:::
+
+## Afrunding {background-color="#00100F"}
+
+#### The Takeaways {background="#43464B"}
+
+::: {.nonincremental}
+1. Macaulay-varighed er betalingernes **nutidsværdivægtede gennemsnitstid** — ikke løbetiden.
+2. Modificeret varighed, kronevarighed og BPV er **samme følsomhed** i forskellige enheder.
+3. **Konveksitet** korrigerer varighed, fordi kurs-rente-sammenhængen er krum.
+4. **Fisher–Weil** og **nøglerentevarighed** bruger kurven til at vise, *hvor* risikoen ligger.
+:::
+
+::: {.notes}
+Luk løkken til dagens spørgsmål. De første mål bygger på ét parallelt skift — nyttig forenkling, ikke altid realistisk. Derfor er nøglerentevarighed central i professionel risikostyring. Samme nøgletal bruges til afdækning (kombinér modsatrettede eksponeringer, så varighed/nøglerenter reduceres).
+:::
+
+#### Bro: realkredit gør varighed dynamisk {background="#43464B"}
+
+- Hidtil: **fast** betalingsrække → varighed & konveksitet er faste tal
+- Realkredit: låntagere kan **konvertere og afdrage** → betalingsrækken er usikker
+- → varighed og konveksitet bliver **dynamiske** (kapitel 5–7)
+
+::: {.notes}
+Broen til hele realkredit-trilogien. Alt i dette kapitel forudsatte en fast betalingsrække. Så snart låntagere kan konvertere eller afdrage ekstraordinært, afhænger cash flowet af deres adfærd — og så bliver varighed og konveksitet dynamiske størrelser, der skal modelleres. Det er præcis dér, negativ konveksitet dukker op. Kapitel 5 sætter maskinen op; 6 modellerer adfærden; 7 sætter prisen.
+:::
+
+#### Øvelser {background="#43464B"}
+
+::: {.nonincremental}
+1. Løbetid er ikke varighed (stående vs. serie)
+2. Modificeret varighed, kronevarighed & BPV
+3. Konveksitet & forbedret approksimation
+4. Immunisering & horisont
+5. Porteføljerisiko: de to vægtningsregler
+6. Fisher–Weil & nøglerentevarighed
+:::
+
+::: {.notes}
+Gennemgås primært i øvelsestimerne. Opgave 1 (tyngdepunktsbilledet) og opgave 5 (vægtningsreglerne) rammer de to mest misforståede pointer — brug dem som formativ test. Husk enhedskonventionerne: decimaltal i $\Delta P/P$-formlen, procentpoint i krone-målene.
+:::

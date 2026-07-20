@@ -1,0 +1,340 @@
+---
+title: "Obligationsafkast"
+subtitle: "Hvad tjente vi — og hvorfor?"
+author: "Niklas Lehmann Jensen"
+format:
+  revealjs:
+    width: 1150
+    logo: ../../themes/favicon.ico
+    footer: "Finansiering — Performance"
+    theme: ../../themes/slides_themes.scss
+    include-in-header: ../../themes/mathjax.html
+    slide-number: true
+    incremental: true
+    toc: false
+slide-level: 4
+title-slide-attributes:
+  data-background-color: "#045D5D"
+  data-footer: " "
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+#### Dagens spørgsmål {#s8-2 background="#43464B"}
+
+::: {.nonincremental}
+- Hvordan måles en obligationsinvestors afkast korrekt med **dirty prices** og betalinger?
+- Hvorfor er effektiv rente ikke det samme som **realiseret afkast**?
+- Hvordan omsætter Babcock **varighed og renteforventning** til horisontafkast?
+- Hvordan forklarer FIPA, **hvor afkastet kom fra**?
+:::
+
+::: {.notes}
+Brug spørgsmålene som kontrakt for kapitlet. Vi går fra korrekt måling til en hurtig renteapproksimation og slutter med forklaring af afkastets drivere. Bind tilbage til kapitel 2 om clean/dirty price og kapitel 4 om varighed; kapitel 6–7 leverer adfærds- og prisningsfaktorerne til FIPA.
+:::
+
+#### Læringsmål {#s8-3 background="#43464B"}
+
+::: {.nonincremental}
+- Beregne realiseret og forventet **holding-period return**
+- Skelne mellem effektiv rente, forventet afkast og realiseret afkast
+- Anvende **Babcocks formel** og et break-even renteskift
+- Fortolke carry, roll-down, kurve, OAS, volatilitet og prepayment
+- Vurdere om et afkast passer til den risiko, investor troede, der blev taget
+:::
+
+::: {.notes}
+Læringsrejsen er: måle, sammenligne og forklare. Understreg at FIPA ikke kun er rapportering; attribution er testen af, om den investeringsidé man havde, faktisk skabte afkastet.
+:::
+
+## Fra pris til afkast {background-color="#00100F"}
+
+#### Afkast er et lukket system {#s8-5 background="#43464B"}
+
+![](/images/chapters/chapter_8/kap8_BondEcoSystem.svg){.tikz-figure .absolute top="190" left="35" width="1080"}
+
+::: {.notes}
+Læs figuren fra venstre mod højre: investor betaler startværdien, modtager betalinger, geninvesterer eventuelt og står til sidst med en slutværdi. Den simple identitet er slutværdi plus betalinger minus startværdi. En gevinst på 1 mio. kr. siger først noget, når den sættes i forhold til den investerede kapital. Figuren er den nye TikZ-eksport fra noterne.
+:::
+
+#### Holding-period return bruger dirty prices {#s8-6 background="#43464B"}
+
+$$HPR_{0,h}=\frac{K_h^{dirty}+FV_h(CF)-K_0^{dirty}}{K_0^{dirty}}$$
+
+::: {.columns}
+::: {.column width="48%"}
+::: {.callout-note icon=false title="Definition"}
+$K_t^{dirty}=K_t^{clean}+v_t$
+:::
+:::
+::: {.column width="52%"}
+::: {.nonincremental}
+- Køb: faktisk betalt **dirty** startværdi
+- Undervejs: alle betalinger og evt. geninvestering
+- Salg: faktisk modtaget **dirty** slutværdi
+:::
+:::
+:::
+
+$$HPR_{0,h}^{ann}=(1+HPR_{0,h})^{1/h}-1$$
+
+::: {.notes}
+Start med bogholderiet: dirty pris ved køb, alle cash flows og dirty pris ved horisonten. Hvis vi bruger clean price, overser vi den vedhængende rente, som køber faktisk betaler sælger. Annualisér først til sidst, og kun når horisonten ikke er ét år.
+:::
+
+#### Et realiseret halvårsafkast {#s8-7 background="#43464B"}
+
+::: {.nonincremental}
+| Tidspunkt | Clean | Vedhængende rente | Dirty / betaling |
+|---|---:|---:|---:|
+| Køb, 3 mdr. før termin | 102,50 | 3,00 | **105,50** |
+| Kupon ved termin | — | — | **+4,00** |
+| Salg, 3 mdr. efter termin | 102,50 | 1,00 | **103,50** |
+:::
+
+. . .
+
+$$HPR_{0,h}=\frac{103{,}50+4{,}00-105{,}50}{105{,}50}=1{,}90\%$$
+
+$$HPR_{0,h}^{ann}=(1+0{,}01896)^2-1=\mathbf{3{,}83\%\ p.a.}$$
+
+::: {.notes}
+Arbejd linje for linje. Clean kurs er uændret, men investor tjener stadig, fordi kuponen modtages, og den vedhængende rente flytter sig. Brug uafrundet halvårsafkast ved annualiseringen; derfor bliver resultatet 3,83 % p.a. Pointen er bogholderi, ikke en ny prisfastsættelsesmodel.
+:::
+
+#### Forventet afkast kræver en exit-antagelse {#s8-8 background="#43464B"}
+
+$$K_h^{clean}=P_h\!\left(CF_{h+1},\ldots,CF_T;\,y_h\right)$$
+
+::: {.nonincremental}
+- Fastlæg cash flows frem til horisonten og deres reinvesteringsrente
+- Prisfastsæt de resterende cash flows med en forventet **exit-rente**
+- For en konverterbar obligation kræver exit-kursen modellerne fra kapitel 6–7
+:::
+
+::: {.callout-tip icon=false title="Indsigt"}
+I noternes 10-årige statseksempel giver $y_h=3{,}35\%$ en forventet clean exit-kurs på **105,447**.
+:::
+
+::: {.notes}
+Realiseret afkast er bagudskuende; forventet horisontafkast kræver antagelser. I statseksemplet ligger horisonten på en terminsdato, så vedhængende rente er nul. For en konverterbar obligation kan vi ikke bare vælge en exit-yield: renten ændrer også forventede cash flows gennem prepayment.
+:::
+
+#### Effektiv rente er et prisningsmål {#s8-9 background="#43464B"}
+
+::: {.smaller}
+| Begreb | Spørgsmål | Hvad kræves? |
+|---|---|---|
+| Effektiv rente | Hvilken konstant rente matcher prisen? | Kendte cash flows og geninvestering til samme rente |
+| Forventet horisontafkast | Hvad forventer vi frem til $h$? | Exit-kurs, cash flows og reinvestering |
+| Realiseret afkast | Hvad skete faktisk? | Faktiske dirty priser og betalinger |
+:::
+
+::: {.callout-important icon=false title="Advarsel"}
+En høj effektiv rente garanterer ikke et højt realiseret afkast.
+:::
+
+::: {.notes}
+Effektiv rente er den interne rente, der får nutidsværdien til at ramme kursen. Den er nyttig til prisning og sammenligning, men den er ikke et løfte. Ved salg før udløb afhænger afkastet af exit-kursen; selv ved hold til udløb kræver den realiserede annualisering, at betalingerne kan geninvesteres til samme rente.
+:::
+
+## Renteforventning og horisont {background-color="#00100F"}
+
+#### Babcock kobler varighed til horisontafkast {#s8-11 background="#43464B"}
+
+$$HPR_{0,h}^{ann}\approx y_0+\left(1-\frac{D_{Mac,0}}{h}\right)\Delta y$$
+
+::: {.columns}
+::: {.column width="33%"}
+**$D_{Mac}>h$**  
+Kurseffekten dominerer
+:::
+::: {.column width="33%"}
+**$D_{Mac}=h$**  
+Effekterne balancerer
+:::
+::: {.column width="34%"}
+**$D_{Mac}<h$**  
+Geninvestering dominerer
+:::
+:::
+
+::: {.callout-tip icon=false title="Indsigt"}
+For lange obligationer og korte horisonter er en rentestigning normalt dårlig for horisontafkastet.
+:::
+
+::: {.notes}
+Babcock giver en hurtig førsteordens-approksimation. Når varigheden er længere end horisonten, rammer kursfaldet nu, mens gevinsten ved højere reinvesteringsrente først kommer senere. Formlen er ikke en erstatning for en fuld cash-flow-beregning og er her skrevet til inkonverterbare obligationer.
+:::
+
+#### Ti basispoint kan flytte afkastet markant {#s8-12 background="#43464B"}
+
+::: {.nonincremental}
+- Købsrente $y_0=3{,}00\%$
+- Macaulay-varighed $D_{Mac,0}=9{,}05$ år
+- Horisont $h=273/365=0{,}748$ år
+- Rentestigning $\Delta y=+0{,}10\%=+10$ bp
+:::
+
+. . .
+
+$$HPR^{ann}\approx0{,}0300+\left(1-\frac{9{,}05}{0{,}748}\right)0{,}0010=\mathbf{1{,}89\%}$$
+
+::: {.notes}
+Dette er en selvstændig case; bland ikke 3,00 % købsrente sammen med exit-renten 3,35 % fra forrige eksempel. Afkastet falder fra cirka 3,00 % til 1,89 % p.a. Det skyldes ikke, at kuponen ændres, men at den lange betalingsrække falder i værdi. For konverterbare obligationer anvendes modelbaseret varighed fra kapitel 7.
+:::
+
+#### Break-even gør et rentesyn testbart {#s8-13 background="#43464B"}
+
+$$\Delta y^*=\frac{h(y_A-y_B)}{D_A-D_B}$$
+
+::: {.smaller}
+| Obligation | $y$ | $D_{Mac}$ | $-50$ bp | $0$ bp | $+50$ bp | Break-even mod A |
+|---|---:|---:|---:|---:|---:|---:|
+| A | 2,10 % | 1,20 | 2,80 % | 2,10 % | 1,40 % | — |
+| B | 2,25 % | 4,90 | 6,65 % | 2,25 % | −2,15 % | +2 bp |
+| C | 2,85 % | 6,80 | 9,15 % | 2,85 % | −3,45 % | **+7 bp** |
+| D | 3,30 % | 9,80 | 12,60 % | 3,30 % | −6,00 % | +7 bp |
+:::
+
+::: {.notes}
+Tallene er stiliserede og bruger en seksmåneders horisont. Sammenlign A og C: C har højere effektiv rente, men langt større varighed. Den lange obligation kan tåle cirka 7 bp rentestigning, før den korte vinder. Fortegnet angiver retningen: positivt betyder en rentestigning; negativt ville betyde, at der kræves et rentefald.
+:::
+
+## Hvor kom afkastet fra? {background-color="#00100F"}
+
+#### Første snit: carry og markedsværdi {#s8-15 background="#43464B"}
+
+::: {.columns}
+::: {.column width="42%"}
+$$HPR_{0,h}=HPR_{0,h}^{carry}+HPR_{0,h}^{markedsværdi}$$
+
+::: {.nonincremental}
+- **Carry:** betalinger, rentetilskrivning og finansiering
+- **Markedsværdi:** ændringen i obligationens kurs
+:::
+:::
+::: {.column width="58%"}
+![](/images/chapters/chapter_8/kap8_cumulativereturns.png){width="100%"}
+:::
+:::
+
+::: {.notes}
+Figuren viser 5 % NYK 2053 i 2024 og svarer på det første forklaringsspørgsmål: kom resultatet fra løbende indtjening eller kursændringer? I leverandørfigurens signatur regnes udtræk som en særskilt serie; i kapitlets to-ledsopdeling regnes udtræk med carry. Opdelingen er nyttig, men endnu for grov, hvis vi vil forstå, hvorfor markedsværdien ændrede sig.
+:::
+
+#### FIPA forklarer drivkræfterne {#s8-16 background="#43464B"}
+
+$$\Delta P\approx\Delta P^{roll}+\Delta P^{kurve}+\Delta P^{OAS}+\Delta P^{vol}+\Delta P^{prepay}$$
+
+::: {.smaller}
+| Komponent | Spørgsmål den besvarer |
+|---|---|
+| Carry | Hvad tjente vi ved at eje og modtage betalinger? |
+| Roll-down | Hvad skete, fordi obligationen blev kortere? |
+| Kurve | Hvad skete, fordi rentekurven flyttede sig? |
+| OAS | Blev obligationen dyrere eller billigere relativt til kurven? |
+| Volatilitet | Ændrede værdien af den indbyggede option sig? |
+| Prepayment | Ændrede de forventede cash flows sig? |
+:::
+
+::: {.notes}
+FIPA ændrer én faktor ad gangen og bogfører prisbidraget. Det er modelbaseret attribution, ikke en naturlov: rækkefølge, model og interaktioner kan påvirke resultaterne. Den vigtige anvendelse er at teste, om afkastet kom fra den risiko, investor faktisk ønskede at tage. Prepayment skal altid tolkes sammen med premium/discount-status.
+:::
+
+#### Et positivt afkast kan skjule negative drivere {#s8-17 background="#43464B"}
+
+$$HPR_{0,h}=\frac{103+2-102}{102}=\mathbf{2{,}94\%}$$
+
+::: {.smaller}
+| Komponent | Kurspoint |
+|---|---:|
+| Carry | +2,00 |
+| Roll-down | +0,30 |
+| Kurve | −0,80 |
+| OAS | +1,20 |
+| Volatilitet | −0,20 |
+| Prepayment | +0,50 |
+| **Samlet værdiændring** | **+3,00** |
+:::
+
+::: {.callout-tip icon=false title="Indsigt"}
+Markedsværdibidragene summer til +1,00; sammen med carry på +2,00 afstemmer de til +3,00 kurspoint.
+:::
+
+::: {.notes}
+Dette er noternes lille FIPA-regneeksempel og skal arbejdes live i én linje. Dirty kurs går fra 102 til 103, og investor modtager 2 i carry. Totalen er 3 kurspoint eller 2,94 %. Under overfladen ligger et kurvetab på 0,80 og et volatilitetstab på 0,20; det positive totalafkast er derfor ikke det samme som, at alle investeringssyn var rigtige.
+:::
+
+## Hvad skete i 2024? {background-color="#00100F"}
+
+#### Samme marked gav mange afkastmotorer {#s8-19 background="#43464B"}
+
+![](/images/chapters/chapter_8/kap8_AggMarketReturn.png){.absolute top="145" left="50" width="1050"}
+
+::: {.notes}
+Figuren er bevidst gjort næsten fuld bredde, fordi søjlerne er tætte. Bed ikke de studerende huske alle søjler. Brug den til at se, at produkter i samme marked kan få afkast fra forskellige kombinationer af carry, udtræk og markedsværdi. Venstre akse er resultat i kroner, højre akse afkast i procent. Kilde: Vitec Scanrate.
+:::
+
+#### To produkter — to forskellige forklaringer {#s8-20 background="#43464B"}
+
+:::: {.columns}
+::: {.column width="50%"}
+![](/images/chapters/chapter_8/kap8_5NYK2053Returns2024.png){width="100%"}
+
+**5 % NYK E MTG 2053**
+
+- Lang, konverterbar: kurve, OAS, volatilitet og prepayment
+:::
+::: {.column width="50%"}
+![](/images/chapters/chapter_8/kap8_1NYKRTLReturns2024.png){width="100%"}
+
+**1 % NYK H RTL 2027**
+
+- Kort, inkonverterbar: korte renter, roll-down og spænd
+:::
+::::
+
+::: {.notes}
+Sammenlign return engines, ikke bare totaler. Den lange konverterbare obligation er eksponeret mod låntagers option og kræver kapitel 6–7. RTL-obligationen er inkonverterbar og tættere knyttet til korte renter, refinansiering og roll-down. Leverandørfigurerne viser markedsværdikomponenter; carry aflæses i den kumulative og aggregerede figur, ikke her.
+:::
+
+#### The Takeaways {#s8-21 background="#43464B"}
+
+::: {.nonincremental}
+1. Mål afkast med **dirty startværdi, betalinger og dirty slutværdi**.
+2. Effektiv rente er et prisningsmål; realiseret afkast afhænger også af exit-kurs, geninvestering og cash flows.
+3. Babcock og break-even oversætter varighed og renteforventning til horisontafkast.
+4. FIPA forklarer afkastet gennem carry, roll-down, kurve, OAS, volatilitet og prepayment.
+:::
+
+::: {.notes}
+Luk cirklen fra dagens spørgsmål. Den fælles pointe er disciplin: først måler vi korrekt, dernæst tester vi et rentesyn, og til sidst undersøger vi, om afkastet faktisk kom fra den forventede risiko. Bro til næste kapitel: i en krise kan markedsværdibidraget dominere alle løbende afkastkilder.
+:::
+
+## Øvelser {background-color="#00100F"}
+
+#### Øvelser: mål horisontafkastet {#s8-23 background="#43464B"}
+
+::: {.nonincremental}
+1. **HPR:** En 4 % obligation købes 90 dage før termin til clean 101,40, kuponen modtages, og den sælges 90 dage efter termin til samme clean kurs. Beregn dirty priser, HPR og annualiseret afkast.
+2. **Clean/dirty:** Nominelt 1 mio. kr., 4 % årlig kupon og valør 120 dage efter termin. Beregn vedhængende rente i kroner og kurspoint.
+3. **Forventet HPR:** Dirty køb 98,50, kupon 2,00 og dirty exit 99,20 efter ét år. Beregn HPR og gentag med exit 97,80.
+:::
+
+::: {.notes}
+Lad grupperne begynde med en tidslinje. På opgave 1 skal de se, at vedhængende rente ikke er en sidebemærkning, men en del af både køb og salg. På opgave 3 skal de formulere, hvilken antagelse der ligger bag exit-kursen, før de regner.
+:::
+
+#### Øvelser: test og forklar afkastet {#s8-24 background="#43464B"}
+
+::: {.nonincremental}
+4. **Babcock & break-even:** Sammenlign A $(y=2{,}20\%,D=1{,}50)$ og B $(y=2{,}70\%,D=6{,}50)$ over $h=0{,}5$. Beregn afkast ved 0 og +25 bp samt break-even.
+5. **FIPA:** Fortolk positiv carry, negativ kurve, positiv OAS og negativ prepayment for en konverterbar premium-obligation. Kontrollér afstemningen i mini-eksemplet.
+:::
+
+::: {.notes}
+I Babcock-opgaven er fortegnet vigtigere end decimalerne: hvad skal renten gøre, før den korte obligation vinder? I FIPA-opgaven skal hvert bidrag oversættes til en økonomisk historie. Negativ prepayment på en premium-obligation betyder typisk, at hurtigere tilbagebetaling til pari skader investor.
+:::

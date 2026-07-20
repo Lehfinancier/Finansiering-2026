@@ -1,0 +1,627 @@
+---
+title: "Prisfastsættelse og nøgletal på konverterbare obligationer"
+subtitle: "Kurs, konverteringspræmie, varighed/konveksitet, CPR, kurver og OAS"
+author: "Niklas Lehmann Jensen"
+#jupyter: python3
+format:
+  revealjs:
+    width: 1150
+    logo: ../../themes/favicon.ico
+    footer: "Finansiering — Konverterbare obligationer"
+    footer-logo-link: "#"
+    theme: ../../themes/slides_themes.scss
+    slide-number: true
+slide-level: 4
+title-slide-attributes:
+  data-background-color: "#045D5D"
+  data-footer: " "
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+## Introduktion {background="#00100F"}
+
+#### Formål og overblik {background="#43464B"}
+- Vi introducerer **prisfastsættelse** af konverterbare obligationer og de centrale **nøgletal**
+- Fokus: hvordan **konverteringer** påvirker pris, **varighed/konveksitet** og **risikomål**
+- Vi arbejder med:
+  - **Konverteringsrisiko** og **markedsbestemt konverteringspræmie**
+  - **Prisdekomponering**: *inkonverterbar pris* minus *call-optionens værdi*
+  - **Optionsjusteret varighed (PVBP)** via kurvestød
+  - **CPR**'s effekt over/under kurs 100
+  - **To kurver**: prisningskurven (swap) og refinansieringskurven (swap + LYS)
+  - **OAS**: konstant spænd til discountkurven for at matche markedspris
+- Afslutningsvis: **øvelser** der binder det hele sammen
+
+## Konverteringsrisiko og -præmie {background="#00100F"}
+
+#### Hvad er konverteringsrisiko? {background="#43464B"}
+- Låntager kan indfri til **kurs 100** på bestemte tidspunkter
+- Ved **rentefald**: konvertering er attraktiv → **førtidig indfrielse**
+- For investoren (långiver) betyder det:
+  - **Kurstab** (købt > 100, indfrielse til 100)
+  - **Geninvesteringsrisiko** (genplacering til lavere rente)
+- Derfor kræves en **konverteringspræmie** (risikopræmie) som **loft** for kursen
+
+#### Konverteringspræmien afspejler {background="#43464B"}
+- **Markedets værdi** af låntagers ret til at konvertere
+- Jo mere renten falder, desto mere bliver konverteringsretten værd for låntagerne
+- Jo mere den bliver værd for låntager → desto mere går det ud over prisen på obligationen (ulempe for investor)
+- **Ulempen ses ved**: At desto mere værdi konverteringsretten får → desto sandsynlighed for konvertering hos låntager
+
+#### Kurs mellem inkonverterbar og konverterbar {background="#43464B"}
+::: {.columns}
+
+::: {.column width="50%"}
+- På grund af konverteringsrisikoen, så er der en **øvre grænse** for, hvor meget kursen på en konverterbar obligation kan stige
+- Spørgsmål: **Vil investor betale meget for obligation**, hvis sandsynligheden for at få jeres penge tilbage ret hurtigt er høj? **Svaret er nej**.
+- Kursen må derfor **dale** når konverteringsretten er meget værd!
+- Dette er **ikke** tilfældet for inkonverterbare obligationer. De stiger og stiger blot ved rente fald.
+:::
+
+::: {.column width="50%"}
+<img src="/images/chapters/chapter_7/kap7_KursKonvInkonv.png" alt="Kurssammenhæng mellem konverterbar og inkonverterbar" width="100%"/>
+:::
+
+:::
+
+#### Hvorfor kan kursen overskride 100? {background="#43464B"}
+::: {.columns}
+
+::: {.column width="50%"}
+- Når kursen på en obligation rammer 100, så begynder låntager at få mulighed for at konvertere
+- **Hvorfor vil investor så lade den overstige kurs 100?** Fordi markedet er **ikke gennemsigtigt**!
+- **Optimal tidspunkt for konvertering er ukendt!**
+:::
+
+::: {.column width="50%"}
+<img src="/images/chapters/chapter_7/kap7_KursKonvInkonv.png" alt="Kurssammenhæng med konverteringspræmie" width="100%"/>
+:::
+
+:::
+
+## Markedsbestemmelse af konverteringspræmien {background="#00100F"}
+
+#### Konverteringspræmie i praksis {background="#43464B"}
+::: {.columns}
+
+::: {.column width="50%"}
+- Hvis vi sammenligner to obligationer, hvor den ene har en konverteringsret – og den anden ikke har
+
+- Vi observerer:
+  - Kursen på en konverterbar er **lavere** end en ikke konverterbar
+  - Højere kuponrente obligationer har **højere konverteringspræmier** (hvorfor?)
+  - ...Fordi låntagers incitament til at konvertere er større ved højere kuponrenter (gevinstkrav!)
+
+- **Spørgsmål**: Hvorfor har konverteringspræmien stadig en værdi på 1%erne – selvom ingen vil konvertere lige her og nu?
+:::
+
+::: {.column width="50%"}
+| Obligationer               | Kurs   | Konv.præmie |
+|:---------------------------|-------:|:------------|
+| 6% NYK E SDO 2053          | 103,07 | **41,0%**   |
+| 6% NYK E SDO 2053 INK.     | 145,35 |             |
+| 5% NYK E SDO 2053          | 102,09 | **29,0%**   |
+| 5% NYK E SDO 2053 INK.     | 131,74 |             |
+| 1% NYK E SDO 2053          | 79,91  | **6,7%**    |
+| 1% NYK E SDO 2053 INK.     | 85,25  |             |
+
+*Kilde: Vitec Scanrate (11. okt 2024)*
+:::
+
+:::
+
+- **Spørgsmål**: Hvorfor har konverteringspræmien stadig en værdi på 1%erne – selvom ingen vil konvertere lige her og nu?
+
+## Prisfastsættelse af konverterbare obligationer {background="#00100F"}
+
+#### Dekomponering: inkonverterbar minus call {background="#43464B"}
+- Betragt konverteringsretten som en **call-option**
+- **Grundrelation**:
+  $$
+  K_{\text{konv}} \;=\; K_{\text{inkonv}} \;-\; P_c
+  $$
+- $K_{\text{inkonv}}$: pris på **inkonverterbar** CF, diskonteret på **nulkuponkurve (swap)**  
+- $P_c$: værdi af call-optionen (kræver model for rentestruktur + konvertering)
+
+::: {.callout-note}
+- Beregningen af konverteringsretten er i sig selv meget komplekst. Det kræver nemlig, at man kan beregne værdien af den konverterbare obligation ($K_{\text{konv}}$)
+- Det vil i altid få givet til opgaver og eksamen (i kan dog sagtens blive bedt om at regne en inkonverterbar!)
+:::
+
+#### Eksempel (5% NYK 2053, 11/10/2024) {background="#43464B"}
+::: {.columns}
+
+::: {.column width="50%" .smaller style="font-size:0.8em"}
+| Størrelse                                  | Værdi   |
+|:-------------------------------------------|--------:|
+| Kurs + vedh. rente (**konverterbar**)      | 102,09  |
+| Nutidsværdi **inkonverterbar** + vedh.     | 131,01  |
+| Undervurdering i pct.                      | 28,33   |
+| Kronevarighed (inkonverterbar del)         | 15,50   |
+| Kronekonveksitet (konverterbar)            | -2,92   |
+| Kronekonveksitet (inkonverterbar)          | 2,79    |
+
+*Kilde: Vitec Scanrate*
+:::
+
+::: {.column width="50%"}
+Optionens værdi:
+$$
+\begin{align}
+K_{\text{konv}} &= K_{\text{inkonv}} - P_c \\
+P_c &= K_{\text{inkonv}} - K_{\text{konv}} \\
+P_c &= 131{,}01 - 102{,}09 = 28{,}92
+\end{align}
+$$
+:::
+
+:::
+
+## Varighed og konveksitet for konverterbare {background="#00100F"}
+
+#### Varighed: Sensitivitet overfor renteændringer {background="#43464B"}
+::: {.columns}
+
+::: {.column width="60%"}
+- **Varighed**: Hvor meget ændrer obligationens pris sig givet ændringer i renten? (sensitivitet)
+
+- **Inkonverterbar obligationer**: Rentefald giver anledning til et højere spring i prisen, end rentestigninger giver fald i prisen. Asymmetri som beskytter investor (pga konveksiteten)
+
+- Før da vi regnede varigheden kendte vi hele ydelsesrækken fra start af (gør vi altid med inkonverterbare obligationer)
+
+- **Men!** Dette er ikke længere tilfældet for konverterbare obligationer. Ydelsesrækken er altid ukendt! Vi kan derfor bare ikke regne varigheden som vi hidtil gjorde i Excel
+
+- For at finde varigheden skal vi nu udregne prisen på den konverterbare obligation, når der sker ændringer til renten (mere komplekst!)
+:::
+
+::: {.column width="40%"}
+<img src="/images/chapters/chapter_7/kap7_PrisRenteGraf.png" alt="Kurs vs effektiv rente" width="100%"/>
+:::
+
+:::
+
+#### Optionsjusteret varighed (PVBP) {background="#43464B"}
+- Varigheden for en konverterbar obligation kaldes derfor **"optionsjusteret varighed"**
+  - Teoretisk sandsynlig løbetid for obligationen (man tager højde for at konverteringsretten forkorter løbetiden)
+
+- **Formel**:
+  $$
+  \text{PVBP} \;\approx\; -\frac{NV_0(+\Delta y) - NV_0(-\Delta y)}{2 \cdot \Delta y \cdot 100}
+  $$
+  
+- Vi kigger på: Hvad er prisen på obligationen når renten går hhv. op og ned? Hvad er prisen når renten går ned?
+
+- Deler med 2 (gennemsnit) på ændringen af diskonteringskurven (rentekurven) gange 100
+
+- Denne formel kan også bruges på inkonverterbare obligationer ☺.. (mulig shortcut, hvis man er skarp til eksamen?)
+
+- **PVBP** (Price value of a basis point)
+
+#### Eksempel: 5% NYK 2053 {background="#43464B"}
+::: {.columns}
+
+::: {.column width="50%"}
+**Kronevarighed på 1,43**: Hvis renten falder eller stiger med 15 basis punkter, så vil prisen på den konverterbare obligation falde eller stige med 1,43 kroner.
+
+Sammenlign det med den **inkonverterbar** kronevarighed på 15,50! Meget stor forskel!
+
+**Skyldes**:
+- Konverteringsretten reducerer prisfølsomheden over for renteændringer
+- Sandsynligheden for førtidig indfrielse ved rentefald begrænser altså kursstigninger! (NEGATIV KONVEKSITET!)
+:::
+
+::: {.column width="50%"}
+| Parameter         | Værdi  |
+|:------------------|-------:|
+| $\Delta y$        | 0,0015 |
+| $NV_0(+\Delta y)$ | 101,84 |
+| $NV_0(-\Delta y)$ | 102,27 |
+| **PVBP**          | **1,43** |
+
+*Kilde: Vitec Scanrate*
+
+$$
+\text{PVBP} \approx -\frac{101{,}84-102{,}27}{2\cdot 0{,}0015 \cdot 100} = 1{,}43
+$$
+:::
+
+:::
+
+#### Intuition fra pris–rente-grafen {background="#43464B"}
+::: {.columns}
+
+::: {.column width="50%"}
+**Lavt renteniveau:**
+- Høj sandsynlighed for konvertering
+- Varigheden af den konverterbare obligation reduceres (tænk måske på varigheden målt i år!)
+- Konverteringsoptionen bliver mere og mere værd (deeper in the money)
+
+**Højt renteniveau:**
+- Lav sandsynlighed for konvertering
+- Den konverterbare obligations varighed nærmer sig den inkonverterbares
+- Konverteringsoptionen mister værdi ("deep-out-of-the-money")
+:::
+
+::: {.column width="50%"}
+<img src="/images/chapters/chapter_7/kap7_PrisRenteGraf.png" alt="Kurs vs effektiv rente med optionsværdi" width="100%"/>
+:::
+
+:::
+
+#### Negativ konveksitet {background="#43464B"}
+::: {.columns}
+
+::: {.column width="50%"}
+- **Negativ konveksitet**:
+  - Opstår når obligationsprisen stiger langsommere ved rentefald og hurtigere ved rentestigning
+  - Årsagen er, at konverteringsretten skaber et loft over kursen ved rentefald
+  - Den øgede sandsynlighed for konvertering begrænser nemlig kursstigninger
+
+- **Effekt**:
+  - Lavere varighed
+  - Asymmetrisk prisreaktion på renteændringer (rentestigninger gør nu mere ondt end gevinsten på kursen ved rentefald..)
+:::
+
+::: {.column width="50%"}
+<img src="/images/chapters/chapter_7/kap7_PrisRenteGraf.png" alt="Kurs vs effektiv rente med negativ konveksitet" width="100%"/>
+:::
+
+:::
+
+#### Kursændring m. varighed og konveksitet {background="#43464B"}
+- Generel tilnærmelse (kr. pr. 100 nom.):
+  $$
+  \Delta P \approx \pm \Delta y \cdot \text{kronevarighed} \;+\; \tfrac{1}{2}\cdot \text{kronekonveksitet}\cdot (\Delta y)^2
+  $$
+
+::: {.columns}
+
+::: {.column width="50%"}
+**Konverterbar** (stød ±15 bp):
+$$
+\Delta P = \{+0{,}1826;\; -0{,}2483\}
+$$
+$$
+\Rightarrow 102{,}27 \;\text{og}\; 101{,}85
+$$
+:::
+
+::: {.column width="50%"}
+**Inkonverterbar**:
+$$
+\Delta P = \{+2{,}3572;\; -2{,}2943\}
+$$
+$$
+\Rightarrow 133{,}37 \;\text{og}\; 128{,}72
+$$
+:::
+
+:::
+
+| Type           | 15 bp ned | 15 bp op |
+|:--------------|----------:|---------:|
+| Inkonverterbar| 1,80%     | -1,75%   |
+| Konverterbar  | 0,18%     | -0,24%   |
+
+- **Inkonverterbar**: højere varighed **og positiv konveksitet** → asymmetri til investorens fordel  
+- **Konverterbar**: ofte **negativ konveksitet** nær kurs 100 → gevinster ved rentefald begrænses
+
+#### Visualisering af forskelle i kurssensitivitet {background="#43464B"}
+<img src="/images/chapters/chapter_7/kap7_PrisRenteGrafEks.png" alt="Forskelle i kurssensitivitet" width="75%"/>
+
+## CPR og pris {background="#00100F"}
+
+#### CPR over kurs 100 (ceteris paribus) {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+
+- Eksempel: 4% JYK 2056 (kurs > 100), rentekurve fast, kun CPR ændres.
+- Højere CPR:
+  - hurtigere afdrag
+  - kortere varighed
+  - **lavere pris** (fordi man får afdrag til 100 i stedet for at tjene på høj kurs).
+- CPR virker her som en **ulempe** for investoren.
+
+:::
+::: {.column width="50%"}
+
+| CPR  | Pris   | Varighed |
+|:----:|-------:|---------:|
+| 0    | 120,20 | 15,51    |
+| 0,02 | 110,16 | 7,77     |
+| 0,05 | 105,28 | 4,04     |
+| 0,10 | 102,67 | 2,14     |
+| 0,20 | 101,10 | 1,04     |
+
+<img src="/images/chapters/chapter_7/kap7_CPRShockKurs100.png" alt="CPR-stød over kurs 100" width="100%"/>
+
+:::
+:::
+
+#### CPR under kurs 100 (ceteris paribus) {background="#43464B"}
+
+::: {.columns}
+::: {.column width="55%"}
+
+- Nu forestil dig 4% JYK 2056 med **kurs < 100** (fx efter løft i rentekurven).
+- Højere CPR:
+  - hurtigere tilbagebetaling til **pari (100)**,
+  - mulighed for genplacering til **højere rente**.
+- → **Pris stiger** når CPR stiger (modsat over 100).
+
+:::
+::: {.column width="45%" .smaller style="font-size:0.8em"}
+
+| CPR  | Pris  | Varighed |
+|:----:|------:|---------:|
+| 0    | 94,36 | 10,69    |
+| 0,02 | 96,48 | 6,02     |
+| 0,05 | 97,83 | 3,44     |
+| 0,10 | 98,60 | 1,94     |
+| 0,20 | 99,07 | 0,98     |
+
+:::
+:::
+
+- I praksis hænger CPR og renter naturligvis sammen (CPR↑ når renter↓), men her er effekten isoleret.
+
+## To kurver: prisning (swap) og refinansiering (swap + LYS) {background="#00100F"}
+
+#### Idéen med to kurver {background="#43464B"}
+
+::: {.columns}
+::: {.column width="55%"}
+
+- **Prisningskurve (swap)**:
+  - bruges til at **diskontere cashflows** og bestemme teoretisk pris.
+- **Refinansieringskurve = swap + LYS**:
+  - låntagers **faktiske** finansieringsomkostning.
+- LYS afspejler fx funding, kredit, likviditet.
+- Skellet gør det muligt at:
+  - adskille “ren” rentesensitivitet (swap)
+  - fra adfærdsdrevet konvertering (LYS).
+
+:::
+::: {.column width="45%"}
+
+<img src="/images/chapters/chapter_7/kap7_LYSSWAPCURVE.png" alt="Swapkurve, LYS og kuponbetalinger" width="100%"/>
+
+:::
+:::
+
+#### Hvordan LYS påvirker konvertering {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+
+- **LYS ↑** (dyrere nye lån):
+  - mindre gevinst ved omlægning
+  - færre konverteringer
+  - mere stabil/lang CF
+  - → pris på eksisterende konverterbare kan **stige** (over 100).
+- **LYS ↓** (billigere lån):
+  - større gevinst ved omlægning
+  - flere konverteringer
+  - kortere CF
+  - → pris kan **falde**.
+
+:::
+::: {.column width="50%"}
+
+- For lav-kupon serier dybt under 100 er konvertering ikke i spil:
+  - LYS-stød har begrænset effekt.
+  - Prisen styres primært af swap-kurven og OAS.
+
+:::
+:::
+
+## Stød til prisningskurven & OAS {background="#00100F"}
+
+#### Stød til prisningskurven {background="#43464B"}
+
+- Når vi laver **rentescenarier**, støder vi typisk **prisningskurven (swap)**:
+  - refinansieringskurven (LYS) holdes fast
+  - CPR-model holdes fast
+  - → ren måling af **rente- og varighedseffekt** på prisen.
+
+#### OAS – Option-Adjusted Spread {background="#43464B"}
+
+::: {.columns}
+::: {.column width="55%"}
+
+- **OAS**: konstant spænd til diskonteringskurven, så
+  - modelpris (med forventede CF inkl. option/CPR) = markedspris.
+- Fanger forskelle i:
+  - kredit
+  - likviditet
+  - øvrige risikoforhold.
+- Forenklet:
+$$
+  PV(\text{OAS}) = \sum_{t} \frac{CF_t}{(1 + r_t + \text{OAS})^{t}}
+$$
+- **OAS ↑ ⇒ pris ↓**, **OAS ↓ ⇒ pris ↑**.
+
+:::
+::: {.column width="45%"}
+
+<img src="/images/chapters/chapter_7/kap7_OASGraf.png" alt="Diskonteringskurve og OAS" width="100%"/>
+
+:::
+:::
+
+#### OAS-risk og stress {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+
+- **OAS-risk**: prisfølsomhed for ændring i spænd.
+- Bruges til:
+  - stresstest (fx +50/+100 bp OAS)
+  - sammenligning af obligationer/serier.
+
+:::
+::: {.column width="50%"}
+
+- I stressperioder kan OAS stige markant:
+  - lavere likviditet, højere risikoaversion.
+- Danske realkreditobligationer:
+  - ofte lav/negativ OAS i “trygge” perioder
+  - højere OAS i stress.
+
+:::
+:::
+
+## Stød til refinansieringskurven (LYS) {background="#00100F"}
+
+#### Over kurs 100 {background="#43464B"}
+
+::: {.columns}
+::: {.column width="60%"}
+
+- **LYS +100 bp**:
+  - nye lån bliver dyrere
+  - færre konverteringer
+  - CF forlænges
+  - → pris på konverterbar kan stige (mere “obligationslignende”).
+- **LYS −100 bp**:
+  - nye lån billigere
+  - flere konverteringer
+  - kortere CF
+  - → pris falder (mere usikker, option “mere i spil”).
+
+:::
+::: {.column width="40%"}
+
+- Her holdes swap-kurven (prisning) fast.
+- Vi ændrer kun adfærden via refinansieringsomkostningen.
+
+:::
+:::
+
+#### Under kurs 100 / lav kupon {background="#43464B"}
+
+- Hvis obligationen allerede er langt under 100, og kuponen er lav:
+  - konvertering er urealistisk
+  - LYS-stød påvirker ikke adfærden
+  - → pris påvirkes kun minimalt.
+
+## OAS (Option-Adjusted Spread) – opsamling {background="#00100F"}
+
+#### Definition og anvendelse {background="#43464B"}
+
+- OAS er det konstante spænd, der lægges til diskonteringskurven i modellen for at matche **markedsprisen**.
+- Bruges til:
+  - at sammenligne obligationer på tværs (risk/return)
+  - prissætte illikvide serier relativt til likvide benchmarks
+  - scenarie- og følsomhedsanalyser (OAS-risk).
+
+#### OAS over tid {background="#43464B"}
+
+<img src="/images/chapters/chapter_7/kap7_NYKOAS.png" alt="OAS-indeks over tid" width="75%"/>
+
+- I stressperioder ses markante OAS-stigninger.
+- Afslører markedets ændrede likviditets- og kreditopfattelse.
+
+## Øvelser / Opgaver {background="#00100F"}
+
+#### Samlet problem (6% RD 2053 og 1% RD 2050) {background="#43464B"}
+
+::: {.columns}
+::: {.column width="55%" .smaller style="font-size:0.8em"}
+
+**6% RD 2053**
+
+| Størrelse               | Værdi   |
+|:------------------------|--------:|
+| Kurs                    | 103,067 |
+| Pris inkonverterbar-del | 132,448 |
+| Kronekonveksitet        | -0,3329 |
+| $NV_0(+\Delta y)$       | 103,098 |
+| $NV_0(-\Delta y)$       | 103,028 |
+| $\Delta y$              | 0,0015  |
+
+*Kilde: Vitec Scanrate*
+
+---
+
+**1% RD 2050**
+
+| Størrelse               | Værdi   |
+|:------------------------|--------:|
+| Kurs                    | 77,410  |
+| Pris inkonverterbar-del | 81,866  |
+| Kronekonveksitet        | 0,436   |
+| $NV_0(+\Delta y)$       | 76,144  |
+| $NV_0(-\Delta y)$       | 78,687  |
+| $\Delta y$              | 0,0015  |
+
+*Kilde: Vitec Scanrate*
+
+:::
+::: {.column width="45%"}
+
+1. Placér hver obligation på pris–rente-grafen: hvilke nøgletal peger hvorhen?
+2. Kommentér kursforskellen mellem de to.
+3. Forklar forskellen mellem markedskurs og inkonverterbar pris (implicit **CPR**).
+4. Beregn konverteringsrettens værdi i kurs-point for begge.
+5. Beregn varighed (PVBP) ud fra de givne ±15 bp og kommentér fortegn.
+6. Beregn kursændringer ved ±15 bp (varighed + konveksitet). Hvorfor kan prisen stige ved rentestigning?
+7. Hvilken obligation ligner mest en statsobligation mht. cashflows og risiko?
+
+:::
+:::
+
+## Opsummering {background="#00100F"}
+
+#### Takeaways {background="#43464B"}
+
+- **Konverterbar = inkonverterbar − call**: call-værdien forklarer præmien og kursloftet nær 100.
+- **Optionsjusteret varighed**: lavere (ofte meget lav) nær kurs 100 pga. konverteringsrisiko.
+- **Negativ konveksitet**: begrænser gevinster ved rentefald for konverterbare.
+- **CPR**:
+  - Over 100: CPR↑ ⇒ pris↓, varighed↓.
+  - Under 100: CPR↑ ⇒ pris↑ (hurtigere tilbagebetaling til pari).
+- **To kurver**:
+  - Prisning på **swap**,
+  - adfærd via **refinansieringskurve = swap + LYS**.
+- **OAS**:
+  - konstant spænd for at få modelpris = marked,
+  - bruges til sammenligning og scenarier (OAS-risk).
+
+#### Vigtige pointer at huske {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+
+**Konverteringspræmie:**
+
+- Stiger med kuponrenten.
+- Funktionelt loft over kursen.
+- Har værdi også når konvertering ikke er aktuel.
+
+**Varighed og konveksitet:**
+
+- Konverterbare: lavere varighed, ofte negativ konveksitet.
+- Inkonverterbare: høj varighed + positiv konveksitet til investorens fordel.
+
+:::
+::: {.column width="50%"}
+
+**CPR-effekter:**
+
+- Over 100: højere CPR er dårlig for investor.
+- Under 100: højere CPR er god for investor.
+- CPR hænger i praksis sammen med renter og LYS.
+
+**Praktisk anvendelse:**
+
+- OAS til at rangere obligationer.
+- Swap-, LYS- og OAS-stød til scenarieanalyse.
+- Kombinér varighed og konveksitet for at forstå fuld prisfølsomhed.
+
+:::
+:::

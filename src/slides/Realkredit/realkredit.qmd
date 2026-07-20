@@ -1,0 +1,494 @@
+---
+title: "Dansk Realkredit"
+subtitle: "Maskinen bag boligfinansieringen"
+author: "Niklas Lehmann Jensen"
+format:
+  revealjs:
+    width: 1150
+    logo: ../../themes/favicon.ico
+    footer: "Finansiering — Dansk realkredit"
+    theme: ../../themes/slides_themes.scss
+    include-in-header: ../../themes/mathjax.html
+    slide-number: true
+    incremental: true
+slide-level: 4
+title-slide-attributes:
+  data-background-color: "#045D5D"
+  data-footer: " "
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+## Introduktion {background-color="#00100F"}
+
+#### Dagens spørgsmål {background="#43464B"}
+
+::: {.nonincremental}
+- Hvordan forbinder systemet **låntager, institut og investor**?
+- Hvorfor er **balanceprincippet** og **match-funding** så centrale?
+- Hvad er forskellen på **kupon, bidrag** og **obligationstillæg**?
+- Hvorfor kræver konverterbare lån **adfærdsmodeller**?
+:::
+
+::: {.notes}
+Framing for hele forelæsningen — læs op fra kapitlets "The Questions". Svar ikke endnu; det er den rejse, vi tager i dag. Pointér at kapitel 5–7 er én historie: i dag maskinen, næste gang låntagerne, derefter prisen. Kapitlet handler ikke om juridiske detaljer, men om hvordan produktdesignet skaber de cash flows og risici, investorer analyserer.
+:::
+
+#### Læringsmål {background="#43464B"}
+
+::: {.nonincremental}
+- Forbindelsen låntager → institut → investor
+- Hvorfor balanceprincip og match-funding er vigtige
+- Reglerne der begrænser kreditrisikoen
+- De vigtigste lånetyper og deres risici
+- Hvem betaler/modtager hvad: kupon, bidrag, tillæg
+- Hvorfor konverterbare kræver kapitel 6 og 7
+:::
+
+::: {.notes}
+Verbatim fra kapitlets læringsmål. Understreg det sidste punkt: det er broen til resten af realkredit-trilogien. Vi skal ikke lære jura udenad — vi skal kunne se cash flowet i produktet.
+:::
+
+## Baggrund: Københavns brand 1795 {background-image="/images/chapters/chapter_5/kap5_kbhfire.png" background-size="cover"}
+
+#### {background-image="/images/chapters/chapter_5/kap5_kbhfire.png" background-opacity="0.30"}
+
+::: {.nonincremental}
+- **5. juni 1795** — byen brænder i 2 dage
+- **941 huse** ødelagt → akut behov for **kapital**
+- Spørgsmålet: *hvem skulle låne ud?*
+:::
+
+::: {.notes}
+Ikke bare hyggelig baggrund. Branden fremtvang en løsning, hvis DNA stadig præger systemet: boligfinansiering skal være standardiseret, gennemsigtig og tæt knyttet til et obligationsmarked. Det er den idé, resten af kapitlet folder ud.
+:::
+
+## Løsningen: Kreditkassen {background-image="/images/chapters/chapter_5/kap5_kbhfire.png" background-opacity="0.25"}
+
+::: {.nonincremental}
+- Långivere slog sig sammen: **Husejernes Kreditkasse**
+- Lav rente krævede lav kreditrisiko → **pant** + **solidarisk hæftelse**
+- Ingen konkurs på en obligationsserie i **200 år**
+:::
+
+::: {.notes}
+Datidens lov forbød renter over 4 %. En lav rente kunne kun retfærdiggøres med lav kreditrisiko — derfor pant i ejendom og solidarisk hæftelse. Modellen gav enorm sikkerhed for investorerne. Det er startskuddet til det system, vi bruger den næste time på at forstå.
+:::
+
+## Realkreditsystemet {background-color="#00100F"}
+
+#### Tre-parts-systemet {background="#43464B"}
+
+![](/images/chapters/chapter_5/kap5_pengestroemme_1.svg){.tikz-figure .absolute top="250" left="35" width="1080"}
+
+![](/images/chapters/chapter_5/kap5_pengestroemme_2.svg){.tikz-figure .fragment .absolute top="250" left="35" width="1080"}
+
+::: {.notes}
+Byg figuren i to trin. **Trin 1 (dashed, blå):** ved låneoptagelse løber pengene ind — investor betaler for obligationerne, provenuet ender hos låntager. **Trin 2 (fuldt optrukket, teal):** i hele løbetiden løber pengene den anden vej — ydelse fra låntager, rente+afdrag videre til investor. Nøglepointe: instituttet er et *bindeled*. Det fører markedsrisikoen videre, beholder bidraget og bærer kreditrisikoen. Advar mod den klassiske fejl: låntager skylder IKKE investoren direkte — kravet går via instituttet.
+:::
+
+#### Balanceprincippet & match-funding {background="#43464B"}
+
+::: {.callout-note icon=false title="Definition"}
+**Balanceprincippet:** lån og obligationer skal hænge tæt sammen på betalinger og risici.
+**Match-funding:** obligationer udstedes med lånets centrale egenskaber — valuta, løbetid, afdragsprofil, rentetype.
+:::
+
+- Risiko forsvinder ikke — den **placeres**
+- Kredit hos instituttet · rente/likviditet/konvertering hos investor
+
+::: {.notes}
+Grov balance: $H = D + E$ — aktiver (pantebreve) = obligationer + egenkapital. Egenkapitalen er stødpuden mod tab. Pointen bag "et institut er ikke en bank": det tager ikke korte indlån og laver lange lån — det finansierer lange lån med obligationer, der matcher lånene. Advar mod "balance = ingen risiko": nej, balancen *fordeler* risikoen mellem parterne. Se balancefiguren på næste slide.
+:::
+
+#### Instituttets balance: $H = D + E$ {background="#43464B"}
+
+![](/images/chapters/chapter_5/kap5_balance.svg){.tikz-figure .absolute top="165" left="70" width="1010"}
+
+::: {.notes}
+Den specialiserede balance, led for led. **Aktivsiden:** pantebreve — instituttets krav mod låntagerne med pant i fast ejendom, $H = \sum_i H_i$. **Passivsiden:** de udstedte obligationer $D = \sum_j D_j$ plus egenkapitalen $E$. Identiteten $H = D + E$ binder det sammen, og $E$ er stødpuden mod tab. Den afgørende pointe, figuren gør konkret: **låntagerne har ikke gæld til investorerne — de har gæld til instituttet, og investorerne har krav mod instituttet.** Pengestrømmene (realkreditlån ud, renter+afdrag ind på venstre side; obligationer ud, købsprovenu ind på højre side) er præcis match-funding i praksis.
+:::
+
+#### Et koncentreret marked {background="#43464B"}
+
+::: {.columns}
+::: {.column width="55%"}
+- Få store udstedere: Nykredit/Totalkredit, RD, Nordea Kredit, Jyske, DLR
+- Fungerer i høj grad som et **enhedsmarked**
+- Høj standardisering vs. individuelle banklån
+:::
+::: {.column width="45%"}
+![](/images/chapters/chapter_5/kap5_MarketSharesPie.jpg){width="100%"}
+:::
+:::
+
+::: {.notes}
+En 4 %-30-årig fra én stor udsteder konkurrerer direkte med en tilsvarende fra en anden. Der er forskelle i likviditet, serie, låntagersammensætning og spænd — men produkterne er langt mere standardiserede end almindelige banklån. Det er derfor markedet er så likvidt.
+:::
+
+#### Obligationsserier: match-funding i praksis {background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+::: {.nonincremental}
+- Lån samles i store **serier** → volumen + likviditet
+- Serie er **åben** for nyudstedelse → lukkes → nye lån i en **ny serie**
+- Låntager vælger ikke en abstrakt rente, men et lån i en **konkret serie til en konkret kurs**
+:::
+:::
+::: {.column width="48%"}
+| Åben RD-serie (fast) | Kurs |
+|---|---:|
+| 30-år afdrag, 4 % 2056 | 97,450 |
+| 30-år IO10, 4 % 2056 | 96,600 |
+| 20-år afdrag, 4 % 2046 | 98,518 |
+| 10-år afdrag, 3 % 2036 | 97,710 |
+:::
+:::
+
+::: {.notes}
+Match-funding er ikke én obligation per låntager — lånene samles i store serier, som giver volumen, likviditet og gennemsigtighed. En serie er åben for nyudstedelse i en periode; når den lukkes, finansieres nye lån i en ny serie (fx "4 % 2056" eller "5 % 2053"). Den praktiske pointe: låntager vælger et lån, der finansieres i en konkret serie med en konkret kurs — og kursen afgør provenuet (næste slide). Lav kurs → mindre kontantprovenu for samme nominelle hovedstol. Dette forbereder også §Markedsbevægelser (backup): når renten flytter sig nok, åbnes helt nye serier.
+:::
+
+#### Bidrag vs. kupon vs. obligationstillæg {background="#43464B"}
+
+$$\text{Låntagers ydelse} = \underbrace{\text{rente} + \text{afdrag}}_{\text{→ investor}} + \underbrace{\text{bidrag}}_{\text{→ instituttet}}$$
+
+. . .
+
+- **Kupon** = obligationens rente → investor
+- **Obligationstillæg** = markedsbestemt del af floater-kupon → investor
+- **Bidrag** indgår **IKKE** i obligationens betalingsrække
+
+::: {.notes}
+Kursets mest forvekslede punkt — brug tid her. Investor ser kun kupon og afdrag; bidraget bliver hos instituttet og ses aldrig i obligationens cash flow. Men låntager mærker alle tre. Bidraget stiger med høj LTV, afdragsfrihed og kort rentebinding — præcis de karakteristika, reguleringen holder øje med (og præcis ch.10's forventede tab). Den klassiske eksamensfejl: at lægge bidraget ind i obligationens betalingsrække.
+:::
+
+## Lovgivning & regulering {background-color="#00100F"}
+
+#### LTV: belåningsgrænser {background="#43464B"}
+
+$$\text{LTV} = \frac{\text{Restgæld}}{\text{Estimeret ejendomsværdi}}$$
+
+::: {.columns}
+::: {.column width="50%"}
+| Ejendomstype | Maks. LTV |
+|---|---:|
+| Helårsbolig | 80 % |
+| Sommerhus | 75 % |
+| Erhverv | 60 % |
+| Landbrug | 60 % |
+:::
+::: {.column width="50%"}
+- Bolig 4 mio., lån 3,2 mio. → **LTV = 80 %**
+- Tinglysning = **pant** → prioritet ved tvangsauktion
+:::
+:::
+
+::: {.notes}
+LTV beskytter ikke kun investor — den begrænser låntagers gearing og gør systemet robust over for boligprisfald. Det er den lave LGD i ch.10: selv ved misligholdelse er der pant. Tinglysningen er ikke bare administration; det er den juridiske maskine, der gør obligationerne sikre nok til lave kreditspænd.
+:::
+
+#### Tilsynsdiamanten {background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+Fem pejlemærker begrænser systemisk risiko:
+
+::: {.nonincremental}
+- Udlånsvækst
+- Høj LTV + kort rentebinding
+- Høj LTV + afdragsfrihed
+- Refinansiering (koncentration)
+- Store enkelteksponeringer
+:::
+:::
+::: {.column width="48%"}
+![](/images/chapters/chapter_5/kap5_tilsynsdiamenten.png){width="100%"}
+:::
+:::
+
+::: {.notes}
+Efterkrise-værktøj mod systemisk risiko. For investor siger det noget om kvaliteten af den bagvedliggende lånebog; for låntager påvirker det, hvilke produkter instituttet kan og vil tilbyde. Læg mærke til, at "kort funding" er et pejlemærke — det bliver relevant, når vi kommer til RTL og refinansieringstriggere. Kilde: Finanstilsynet.
+:::
+
+#### RO, SDRO og SDO {background="#43464B"}
+
+- Juridiske typer; **SDRO/SDO** standard efter 2007
+- Boligprisfald → LTV over grænsen → institut skal stille **supplerende sikkerhed**
+- Sikkerheden er værdifuld — men ikke gratis
+
+::: {.notes}
+I daglig tale: realkreditobligationer. Juridisk: RO, SDRO, SDO — forskellen handler om cover pool og krav til sikkerhed. Den løbende supplerende sikkerhed reducerer kreditrisikoen (og er derfor Level 1-HQLA i ch.10), men binder kapital og koster. Derfor er regulering ikke bare jura — den påvirker fundingomkostninger, spænd og produktudbud.
+:::
+
+## Markedet {background-color="#00100F"}
+
+#### Realkredit fylder meget {background="#43464B"}
+
+![](/images/chapters/chapter_5/kap5_BondOverview.jpg){width="72%" fig-align="center"}
+
+::: {.notes}
+Identitetspointen. I mange lande er statsobligationer den dominerende sikre rente-eksponering. I Danmark er realkreditobligationer en meget stor del af det investerbare univers — verdens største covered bond-marked ift. BNP. Det er derfor et fixed income-kursus i Danmark skal kunne realkredit. Ikke et nichemarked; en hoveddel af markedet. Kilde: Vitec Scanrate.
+:::
+
+#### Kurslisten: MTG / FLT / RTL {background="#43464B"}
+
+::: {.smaller}
+| Obligation | Kurs | Kupon | Type | Konv. | Afdragsfri | Udløb |
+|---|---:|---:|---|---|---|---:|
+| 1 RD T RTL 2027 Jan | 98,936 | 1,000 | RTL | Nej | Nej | 2027 |
+| 5 NYK E MTG 2053 | 103,995 | 5,000 | MTG | Ja | Nej | 2053 |
+| 4 NYK E MTG 2056 | 99,233 | 4,000 | MTG | Ja | Nej | 2056 |
+| 2,202 NYK H FLT 2028 | 100,170 | 2,202 | FLT | Nej | Ja | 2028 |
+| 5 NYK E MTG 2053 IO10 | 103,660 | 5,000 | MTG | Ja | Ja | 2053 |
+:::
+
+- **MTG** lange fastforrentede (typisk konverterbare) · **FLT** variabelt forrentede · **RTL** rentetilpasning
+
+::: {.notes}
+Tre produktfamilier med hver sin risiko: MTG bærer konverteringsrisiko, FLT bærer fixing/spænd, RTL bærer refinansiering. Bemærk MTG'er over kurs 100 (5 %-serien i 103,995) — det er konverteringsretten, der holder kursen nede; den kan ikke stige meget over 100. Fuld kursliste med fondskoder/cirkulerende mængde ligger i backup. Kilde: Vitec Scanrate.
+:::
+
+#### Kursværdi & låntagers provenu {background="#43464B"}
+
+$$\text{Kursværdi} = \frac{K}{100}\,H$$
+I ord: kursen afgør, hvor meget låntager reelt får udbetalt.
+
+. . .
+
+$$\frac{98}{100}\cdot 1.000.000 = 980.000 \text{ kr.}$$
+
+- Nominel gæld 1.000.000 ≠ markedsværdi af gæld
+
+::: {.notes}
+Første praktiske forskel mellem banklån og obligationslån: der er både en nominel restgæld og en markedsværdi. Kurs under 100 → låntager får mindre udbetalt (eller må optage større nominelt lån). To muligheder senere: falder kursen til fx 60, kan låntager købe obligationerne billigt tilbage og indfri til markedsværdi; stiger kursen over 100, kan et fastforrentet konverterbart lån opsiges til kurs 100. De to er kernen i næste afsnit.
+:::
+
+## De tre realkreditprodukter {background-color="#00100F"}
+
+#### Produkt 1: fast konverterbart lån {background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+**Låntager**
+
+- 30 år, fast kupon, annuitet
+- Budgetsikkerhed
+- **Konverteringsret**
+:::
+::: {.column width="50%"}
+**Investor**
+
+- Lang fast kupon
+- Kort en option til låntager
+- Usikker betalingsrække
+:::
+:::
+
+- Indfri til **markedskurs** (rente↑) eller opsig til **kurs 100** (rente↓)
+
+::: {.notes}
+Flagskibet. To indfrielsesveje: (1) rentestigning → kursen falder → indfri til lav markedskurs (opkonvertering, hvis der samtidig optages nyt højere lån); (2) rentefald → høj kurs → opsig til kurs 100 (nedkonvertering til lavere kupon). For låntager er begge attraktive. For investor er nedkonvertering et tab: den høje kupon forsvinder netop når renten er faldet. Låntager har reelt en call-option; investor har skrevet den.
+:::
+
+#### Konverteringsret = negativ konveksitet {background="#43464B"}
+
+::: {.callout-tip icon=false title="Indsigt"}
+Fordi låntager kan indfri til **kurs 100**, kan kursen ikke stige meget over 100 — uanset hvor meget renten falder.
+:::
+
+- Kursgevinst ved rentefald: **begrænset**
+- Kurstab ved rentestigning: **ikke begrænset**
+- = lav/negativ konveksitet (kap. 4 → kap. 7)
+
+::: {.notes}
+Her forbinder vi til nøgletallet fra kapitel 4. Asymmetrien — loft opad, intet gulv nedad — er præcis lav eller negativ konveksitet. I kapitel 7 måler vi den på rigtige danske obligationer med modelbaserede cash flows. Foreshadow: investor er short optionen, og det er tilstanden (rentesti + historik), ikke bare renteniveauet, der bestemmer værdien.
+:::
+
+#### Konvertering & genplaceringsrisiko {background="#43464B"}
+
+::: {.nonincremental}
+- Terminer 1/1 · 1/4 · 1/7 · 1/10 — udtræk = **ordinært + ekstraordinært** (→ kap. 6 $UDT_t$)
+:::
+
+![](/images/chapters/chapter_5/kap5_kredittermin.svg){.tikz-figure .absolute top="215" left="205" width="740"}
+
+::: {.notes}
+Figuren fortæller hele genplaceringshistorien for kreditterminen 1. oktober. 25 % af låntagerne i en 6 %-serie indfrier inden 31. juli → investor får 25 % af sit investerede beløb tilbage ved terminen → skal genplacere, ofte i en 4- eller 5 %-serie eller andre rentebærende produkter, typisk til lavere rente. Det er **genplaceringsrisiko** (reinvesteringsrisiko). Kernepointen: investor skal estimere udtrækket FØR facit kendes (opsigelse inden udgangen af juli, termin 1. oktober) — netop det problem, kapitel 6 løser med $CPR_t$ og $UDT_t$. Det er derfor konverterbare ikke kan analyseres som almindelige fastforrentede: betalingsrækken afhænger af låntagernes beslutninger.
+:::
+
+#### Produkt 2: floater / F-kort {background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+$$\text{Næste kupon} = \text{referencerente}_{\text{fixing}} + \text{tillæg}$$
+
+- Fixing før, betaling efter
+- Lav varighed → handler tæt på **100**
+- Tillæg → investor (**ikke** bidrag!)
+:::
+::: {.column width="48%"}
+![](/images/chapters/chapter_5/kap5_floaterfixing.svg){.tikz-figure width="100%"}
+:::
+:::
+
+::: {.notes}
+F-kort, FlexKort, RenteMax (variant med renteloft); på obligationssiden floater/FRN/FLT. Referencerenten kan være CIBOR, CITA eller DESTR. Understreg spread-familien: rentetillægget her er obligationstillægget — det går til investor og er en del af kuponen. Det må ALDRIG forveksles med bidraget, som går til instituttet og aldrig er i obligationens cash flow. Låntager har mindre budgetsikkerhed: stiger de korte renter, stiger ydelsen. Nuance: en *simpel* inkonverterbar floater uden cap/floor har et direkte cash flow (kuponen følger renten → kursen holdes tæt på 100), men har obligationen renteloft, rentegulv eller konverteringsret til kurs 100, kommer der et optionselement ind i prisningen — foreshadow OAS i kapitel 7.
+:::
+
+#### Auktionen: markedet finder marginen {background="#43464B"}
+
+$$\begin{array}{rcl}\text{Fastforrentet} &:& \text{fast kupon} \Rightarrow \text{markedet finder kursen}\\ \text{Floater ved auktion} &:& \text{kurs} \approx 100 \Rightarrow \text{markedet finder marginen}\end{array}$$
+
+::: {.nonincremental}
+| Obligation | Reference | Tillæg | Auktionskurs |
+|---|---|---:|---:|
+| RD grøn FRN Jul-2030 | CIBOR 6M | −15 bp | 100,300 |
+| RD FRN Jul-2030 | CITA 6M | 50 bp | 100,300 |
+:::
+
+::: {.notes}
+Kerneindsigten: auktionen flytter prisjusteringen fra kursen over i kuponen. Investorerne byder på tillægget, ikke på kursen. Et *negativt* tillæg betyder IKKE, at investor betaler for at eje obligationen — CIBOR 6M ligger typisk over CITA 6M, så en CIBOR-obligation skal have et lavere (endda negativt) tillæg for at give samme samlede rente. Greenium forklarer kun få bp — ikke forskellen i tabellen. Efter auktionen ligger tillægget fast; derefter er det kursen, der bevæger sig i det sekundære marked.
+:::
+
+#### Produkt 3: RTL / flekslån {background="#43464B"}
+
+::: {.nonincremental}
+- Rente fast i en periode, så **refinansieres** (F1, F3, F5, …) · ét langt lån, kortere **rullende** funding · rente ved auktion = **markedsresultat**
+:::
+
+![](/images/chapters/chapter_5/kap5_rtlopbygning.svg){.tikz-figure .absolute top="170" left="180" width="790"}
+
+::: {.notes}
+Vigtig sondring: RTL ≠ F-kort. F-kort fixer en kupon hyppigt mod en referencerente + tillæg. RTL ruller nye korte *stående* obligationer ved hvert refinansieringstidspunkt — navnet (F1/F3/F5) fortæller, hvor længe renten er bundet. Figuren: låntager oplever ét 30-årigt boliglån (den øverste bjælke), mens fundingen sker gennem kortere obligationer (Obl. 1, 2, 3 …), der løbende refinansieres ved auktion. Nederst vises, hvordan et auktionsresultat (kurs, auktionsrente) fastsætter næste periodes rente — og hvordan rentetriggeren sættes. Låntagers rente ved rentetilpasning er ikke administrativt sat; den er et auktionsresultat. Funding-mekanikken vises konkret i F3-eksemplet i backup.
+:::
+
+#### RTL-risici & triggere {background="#43464B"}
+
+::: {.nonincremental}
+- **Auktionstrigger:** fejlet auktion → forlæng · **Rentetrigger:** renten hopper for meget → forlæng · = **forlængelsesrisiko** for investor
+:::
+
+![](/images/chapters/chapter_5/kap5_rtltriggers.svg){.tikz-figure .absolute top="235" left="60" width="1030"}
+
+::: {.notes}
+Læs figuren som en tilstandsmaskine over refinansieringsterminer: **normal refinansiering** (øverst) er reglen. Sorte pile = udstedelse af en ny obligation; teal pile = forlængelse. Hvis renten hopper mere end ~5 pct.point, rammer man **rentetrigger**-båndet (lyserødt); fejler auktionen helt, falder man til **fejlet auktion**-rækken — i begge tilfælde forlænges obligationen, indtil markedet normaliseres. Triggerne er sjældne i normalmarkedet, men afgørende for produktdesignet: de skal undgå, at kort funding skaber akut systemisk pres, når meget skal refinansieres samtidig i et stresset marked. Det er præcis derfor tilsynsdiamanten har fokus på kort funding. Set fra investor er en trigger en forlængelsesrisiko — obligationen bliver længere netop når det er mest ubelejligt (ch.10-likviditet).
+:::
+
+#### Renterisiko: kort vs. lang rentebinding {background="#43464B"}
+
+![](/images/chapters/chapter_5/kap5_fkort_risiko.svg){.tikz-figure .absolute top="180" left="75" width="1000"}
+
+::: {.notes}
+Den tværgående pointe om rentebinding, i ét billede. **MTG** (navy): fast rente hele vejen — maksimal budgetsikkerhed. **F3** (teal, stiplet): rente låst i 3 år, så én ny rente. **F-kort** (pink): kuponen fixes hvert halve år — den korteste binding. Det grå felt er de første tre år, hvor F3 og F-kort deler samme treårige funding, men bærer renten forskelligt. Fortæl 2022-historien: F-kort-låntagere så renten springe kraftigt op allerede efter et halvt år (den lodrette pil), men kunne først skifte produkt ved refinansieringen — kort binding = hurtig, men uafværgelig eksponering. Det er præcis den afvejning, valget mellem produkterne handler om: budgetsikkerhed mod pris og fleksibilitet.
+:::
+
+#### De tre lånetyper {background="#43464B"}
+
+::: {.smaller}
+| | Fast konverterbart | Floater / F-kort | RTL / flekslån |
+|---|---|---|---|
+| **Rentebinding** | Hele løbetiden | Kort, fixes løbende | Fast mellem F-terminer |
+| **Renten sættes af** | Kuponen | Reference + tillæg | Auktion |
+| **Konv.ret til 100** | Ja | Normalt nej | Nej |
+| **Risiko, låntager** | Højere rente for sikkerhed | Ydelse stiger med korte renter | Ny rente ved refinansiering |
+| **Risiko, investor** | Konvertering + genplacering | Kupon falder; tillæg kan skifte | Refinansiering + forlængelse |
+:::
+
+::: {.notes}
+Master-opsummeringstabel — værd at vende tilbage til, når produkterne dukker op i modellerne. Tværgående regel: kupon og afdrag → investor; bidrag → institut; obligationstillæg → investor (kun på variabelt forrentede). Lad de studerende selv placere en tilfældig obligation fra kurslisten i én af de tre søjler.
+:::
+
+## Fra produkt til model {background-color="#00100F"}
+
+#### Fra maskine til model {background="#43464B"}
+
+- **Inkonverterbar:** fast betalingsrække
+- **Floater / RTL:** mekanisk usikker (fixing, auktion)
+- **Konverterbar:** afhænger af låntagernes beslutninger → kræver **modeller**
+
+. . .
+
+- Kap. 6: CK95/CK92, $CPR_t$, $UDT_t$, burnout — **LYS** (låntager)
+- Kap. 7: pris, varighed, konveksitet — **OAS** (investor)
+
+::: {.notes}
+Broen til resten af trilogien. To spænd, der hverken må forveksles med hinanden eller med bidraget: **LYS** er tillægget på låntagers refinansieringskurve og driver låntagers konverteringsgevinst; **OAS** er det spænd, der får modelprisen til at ramme markedskursen. LYS = låntagersiden, OAS = investorsiden. Sagt kort: kapitel 5 viste maskinen, kapitel 6 sætter låntagerne ind i den, kapitel 7 sætter en pris på resultatet. (Denne slide kan genbruges som optakt til deck 6 og 7.)
+:::
+
+## Afrunding {background-color="#00100F"}
+
+#### The Takeaways {background="#43464B"}
+
+::: {.nonincremental}
+1. Dansk realkredit forbinder boliglån direkte med obligationsmarkedet via instituttet.
+2. Balanceprincip + match-funding reducerer instituttets markedsrisiko, men *placerer* risiko hos alle tre parter.
+3. Kupon + afdrag → investor · bidrag → institut · obligationstillæg → investor (variabelt forrentede).
+4. Konverterbare kræver modeller, fordi låntagernes konvertering ændrer investors cash flows.
+:::
+
+::: {.notes}
+Luk løkken tilbage til dagens spørgsmål. Det vigtigste at tage med er ikke en liste over produkter, men at forstå hvordan produktdesignet bestemmer cash flowet — og at usikkert cash flow skal modelleres. Det er præcis opgaven i kapitel 6.
+:::
+
+#### Øvelser {background="#43464B"}
+
+::: {.nonincremental}
+1. Balanceprincip & LTV
+2. Kursværdi & provenu
+3. Konvertering (ned/op)
+4. Bidrag, kupon & tillæg
+5. FRN, F-kort & RTL
+6. F3-funding (brug backup-eksemplet)
+:::
+
+::: {.notes}
+Gennemgås primært i øvelsestimerne. Opgave 4 (bidrag/kupon/tillæg) og opgave 5 (FRN vs RTL) rammer de to hyppigste forvekslinger direkte — brug dem som formativ test af, om spread-familien sidder fast.
+:::
+
+# Appendix / Backup {background-color="#00100F"}
+
+#### Quoted margin vs. discount margin {background="#43464B"}
+
+$$P = \sum_{i=1}^{T}\frac{100\,(r_i^{\text{ref}}+q)\,\Delta_i}{\left(1+z_{t_i}+s\right)^{t_i}} + \frac{100}{\left(1+z_{t_T}+s\right)^{t_T}}$$
+
+- **Quoted margin** $q$ i **tælleren** (i kuponen) · **Discount margin** $s$ i **nævneren** (investors effektive spænd)
+- Tæt på kurs 100 ligger de tæt; overkurs → effektivt spænd lavere
+
+::: {.notes}
+For keen students. To spænd, samme obligation: q sidder i cash flowet, s i diskonteringen. Handles obligationen til 100, er de omtrent ens. En auktionskurs på 100,300 reducerer det effektive spænd relativt til quoted margin — skal investor ramme et bestemt effektivt spænd, korrigeres tillægget for auktionskursen. Samme idé møder vi i kapitel 7 som OAS: et investorspænd lagt til diskonteringskurven.
+:::
+
+#### F3-funding: balanceprincippet i praksis {background="#43464B"}
+
+$$\begin{aligned}
+1{,}01Z_1 + 0{,}01Z_2 + 0{,}01Z_3 &= \bar R\,RG_0\\
+1{,}01Z_2 + 0{,}01Z_3 &= \bar R\,RG_0\\
+1{,}01Z_3 &= (1+\bar R)\,RG_0\\
+k_0^1Z_1 + k_0^2Z_2 + k_0^3Z_3 &= RG_0
+\end{aligned}$$
+
+Med $k_0^1{=}0{,}99,\ k_0^2{=}0{,}975,\ k_0^3{=}0{,}96,\ RG_0{=}1.000.000$:
+$$Z_1{=}13.540{,}75,\quad Z_2{=}13.676{,}16,\quad Z_3{=}1.013.812{,}92,\quad \bar R{=}2{,}395\%$$
+
+::: {.notes}
+Læs løsningen FØR ligningerne. $Z_3$ er stort set hele hovedstolen — lånet er reelt finansieret med den 3-årige obligation; $Z_1,Z_2$ er små hjælpeudstedelser, der får låntagers faste årlige betaling til at dække både kuponer og de små obligationer, der udløber undervejs. Bemærk notationen: $Z_i$ er nominelle hovedstole i kroner — ikke nulkuponrenterne $z_t$ fra kapitel 3. Ingen ny teori; balanceprincippet i praksis.
+:::
+
+#### Markedsbevægelser & nye serier {background="#43464B"}
+
+::: {.columns}
+::: {.column width="58%"}
+![Nye serier ved rentestigning, 2022 (Scanrate)](/images/chapters/chapter_5/kap5_RDObligationer.png){width="100%"}
+:::
+::: {.column width="42%"}
+![Skematisk opbygning (Tanggaard 2024)](/images/chapters/chapter_5/kap5_SkematiskOpbygningTangaard.png){width="100%"}
+:::
+:::
+
+::: {.notes}
+Backup. RD-obligationer-figuren viser markedsmekanikken: ved kraftige rentestigninger falder gamle lavkupon-serier under 100, bliver mindre attraktive som ny funding, og instituttet åbner nye serier med højere kupon (og omvendt ved rentefald: højkuponserier over 100 → åbn lavere kuponserie). Tanggaard-skemaet er et alternativ til den nye balancefigur, hvis man vil vise institut-strukturen på en anden måde. Kilder: Vitec Scanrate; Tanggaard (2024).
+:::

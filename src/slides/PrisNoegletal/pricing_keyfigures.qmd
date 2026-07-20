@@ -1,0 +1,346 @@
+---
+title: "Nøgletal & stød på konverterbare"
+subtitle: "Genkørsler af den kalibrerede prisfastsættelsesmotor"
+author: "Niklas Lehmann Jensen"
+format:
+  revealjs:
+    width: 1150
+    logo: ../../themes/favicon.ico
+    footer: "Finansiering — Nøgletal & stød"
+    theme: ../../themes/slides_themes.scss
+    include-in-header: ../../themes/mathjax.html
+    slide-number: true
+    incremental: true
+slide-level: 4
+title-slide-attributes:
+  data-background-color: "#045D5D"
+  data-footer: " "
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+#### Fra fundet OAS til målte risici {#s7-20-0 background="#43464B"}
+
+::: {.nonincremental}
+- **Sidst:** motor → diskontér med $z^{\text{swap}}+OAS$ → match markedet → OAS fundet
+- **Nu:** genkør den kalibrerede motor under fire kontrollerede stød
+:::
+
+::: {.smaller}
+| Rentestød | CPR-stød | LYS-stød | OAS-stød |
+|---|---|---|---|
+| kurve + adfærd | cash flow direkte | låntagers refi-kurve | investors diskontering |
+:::
+
+::: {.notes}
+Dette er den korte recap af 7a. Start altid fra den kalibrerede motor, hvor modelpris og markedskurs matcher. Nøgletal er ikke separate modeller; de er prisforskelle mellem basis og en kontrolleret genkørsel. Hold de fire stød adskilt gennem hele forelæsningen.
+:::
+
+## Rentestødet {background-color="#00100F"}
+
+#### Varighed kræver et stød til hele motoren {#s7-20 background="#43464B"}
+
+::: {.columns}
+::: {.column width="51%"}
+$$KV\approx-\frac{P_0(+\Delta y)-P_0(-\Delta y)}{2\Delta y\cdot100}$$
+
+::: {.smaller}
+| 5% NYK 2053 | Værdi |
+|---|---:|
+| $P_0(+15\text{ bp})$ | 101,84 |
+| $P_0(-15\text{ bp})$ | 102,27 |
+| **KV** | **1,43** |
+| **PVBP = KV/100** | **0,0143** |
+:::
+:::
+::: {.column width="49%"}
+![](/images/chapters/chapter_7/kap7_PrisRenteGraf.png){width="100%"}
+:::
+:::
+
+::: {.notes}
+Ved rentestødet flyttes prisningskurven, mens LYS- og OAS-spænd holdes faste. Modellen genberegner både diskontering og konverteringsadfærd. Stødet på 15 bp skrives 0,0015 i varighedsformlen. Den lave KV betyder ikke, at risikoen er væk; optionen ændrer cash flowet, især ved rentefald. Den inkonverterbare del har KV 15,50.
+:::
+
+#### Et parallelt rentestød holder kurvens form fast {#s7-20-shock background="#43464B"}
+
+::: {.columns}
+::: {.column width="50%"}
+::: {.nonincremental}
+- Hele swapkurven flyttes **15 bp op eller ned**
+- $1\text{ bp}=0{,}0001$ som decimaltal
+- LYS og OAS holdes faste; $Gain$, CPR og cash flows genberegnes
+:::
+:::
+::: {.column width="50%"}
+![](/images/chapters/chapter_7/kap7_SwapStød.png){width="100%"}
+:::
+:::
+
+::: {.notes}
+Denne slide isolerer støddesignet. Kurvens niveau flyttes, formen holdes fast. Det er en simplificeret parallel risikoanalyse; punktvise kurvestød kan bruges i mere detaljerede mål. Faldgruben er at kalde dette et OAS-stød — her flyttes referencekurven, ikke spreadet.
+:::
+
+#### Negativ konveksitet vender den normale asymmetri {#s7-21 background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+![](/images/chapters/chapter_7/kap7_PrisRenteGrafEks.png){width="100%"}
+:::
+::: {.column width="48%"}
+::: {.callout-tip icon=false title="Indsigt"}
+Investor er kort call-optionen: kursgevinsten ved rentefald dæmpes, mens kurstabet ved rentestigning ikke dæmpes tilsvarende.
+:::
+
+::: {.smaller}
+| 15 bp | Ned | Op |
+|---|---:|---:|
+| Inkonverterbar | +1,80% | −1,75% |
+| Konverterbar | +0,18% | −0,24% |
+:::
+:::
+:::
+
+::: {.notes}
+For en almindelig obligation er konveksiteten normalt positiv: gevinsten ved et rentefald er større end tabet ved samme stigning. Her begrænser konvertering gevinsten på venstre side, mens obligationen ved højere renter bliver mere lang som en inkonverterbar obligation. Noterne giver KV 1,43 og kronekonveksitet −2,92 for 5% NYK 2053.
+:::
+
+#### Varighedsled og konveksitet skal bruge samme enhed {#s7-21-formula background="#43464B"}
+
+$$\Delta P\approx-KV\,\Delta y_{\text{pp}}+\frac12 Cvx_{KR}(\Delta y_{\text{pp}})^2$$
+
+::: {.nonincremental}
+- I denne formel måles $\Delta y_{\text{pp}}$ i **procentpoint**
+- 15 bp = 0,15 procentpoint — men 0,0015 i varighedsformlen
+- 5% NYK: $\Delta P_{ned}\approx+0{,}18$, $\Delta P_{op}\approx-0{,}25$
+:::
+
+::: {.notes}
+Dette er en klassisk enhedsfælde. Kronevarighedsformlen bruger decimalrenten, mens konveksitetsapproksimationen i noternes notation bruger procentpoint. Ved 15 bp er det derfor 0,0015 i den første og 0,15 i den anden. Fortegnet på konveksitetsleddet er negativt for den konverterbare obligation i eksemplet.
+:::
+
+## CPR-stødet {background-color="#00100F"}
+
+#### Over kurs 100 er højere CPR typisk dårligt for investor {#s7-22 background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+::: {.smaller}
+| Årlig CPR | Pris | Kronevarighed |
+|---:|---:|---:|
+| 0% | 120,20 | 15,51 |
+| 2% | 110,16 | 7,77 |
+| 5% | 105,28 | 4,04 |
+| 10% | 102,67 | 2,14 |
+| 20% | 101,10 | 1,04 |
+:::
+:::
+::: {.column width="48%"}
+![](/images/chapters/chapter_7/kap7_CPRShockKurs100.png){width="100%"}
+:::
+:::
+
+::: {.notes}
+Eksemplet er 4% Jyske Realkredit 2056 pr. 20. august 2024. Ved CPR-stødet overskrives prepaymentantagelsen, mens alt andet holdes fast. Over pari mister investor en dyr obligation og får hovedstolen tilbage til 100; samtidig forkortes betalingsrækken. Fra CPR 0 til 10% falder prisen 120,20 til 102,67 og KV 15,51 til 2,14.
+:::
+
+#### Under kurs 100 kan højere CPR løfte prisen {#s7-23 background="#43464B"}
+
+::: {.smaller}
+| Årlig CPR | Pris | Kronevarighed |
+|---:|---:|---:|
+| 0% | 94,36 | 10,69 |
+| 2% | 96,48 | 6,02 |
+| 5% | 97,83 | 3,44 |
+| 10% | 98,60 | 1,94 |
+| 20% | 99,07 | 0,98 |
+:::
+
+::: {.callout-tip icon=false title="Indsigt"}
+Moneyness bestemmer fortegnet: **premium** → pari er et tab; **discount** → pari kan være en gevinst.
+:::
+
+::: {.notes}
+Det er samme 4% Jyske 2056 efter et rentestød op, så den ligger under pari. Hurtigere udtræk giver hovedstolen tilbage til 100 tidligere og kan derfor øge prisen. Effekten er en isoleret følsomhed, ikke en realistisk rentesti: i virkeligheden bevæger CPR sig sammen med renter, LYS, burnout og adfærd.
+:::
+
+#### CPR-stødet isolerer cash flowet — ikke renten {#s7-23-bridge background="#43464B"}
+
+::: {.callout-important icon=false title="Faldgrube"}
+“Høj CPR er dårligt” er ikke en generel regel. Spørg først, om obligationen er over eller under pari.
+:::
+
+::: {.nonincremental}
+- Over 100: mere hovedstol indfries til en lavere kurs end markedsværdien
+- Under 100: hovedstol kan komme tilbage til en højere kurs end markedsværdien
+- I begge tilfælde forkortes betalingsrækken og kronevarigheden falder
+:::
+
+::: {.notes}
+Brug sliden til at samle de to tabeller. CPR-stødet ændrer prepayment direkte og viser moneyness-effekten rent. I en fuld markedsbevægelse vil flere mekanismer ændre sig samtidig; derfor skal dette resultat ikke læses som en prognose.
+:::
+
+## To spread-stød — to sider {background-color="#00100F"}
+
+#### LYS-stødet rammer låntagers refinansieringsincitament {#s7-24 background="#43464B"}
+
+::: {.columns}
+::: {.column width="47%"}
+::: {.nonincremental}
+- Flyt kun refinansieringskurven; hold prisningskurven fast
+- $LYS\uparrow\Rightarrow Gain\downarrow\Rightarrow CPR\downarrow$
+- Premium-obligation: færre konverteringer kan løfte prisen
+:::
+:::
+::: {.column width="53%"}
+::: {.smaller}
+| 5% NYK 2053 | $\Delta LYS$ | $\Delta P$ |
+|---|---:|---:|
+| DK0009539116 | +100 bp | +2,32 |
+| DK0009539116 | −100 bp | −1,04 |
+:::
+:::
+:::
+
+::: {.notes}
+LYS-stødet ændrer låntagers alternativ, ikke investors diskonteringsrente. For premium-obligationen er +100 bp LYS omtrent som lavere CPR: flere bliver i serien, og prisen stiger 2,32. Effekten er asymmetrisk. For en 1% NYK 2050 omkring kurs 80 er optionen langt ude af pengene, så LYS-effekten kan være lille.
+:::
+
+#### OAS-stødet rammer investors diskonteringsspænd {#s7-25 background="#43464B"}
+
+::: {.columns}
+::: {.column width="52%"}
+::: {.nonincremental}
+- Hold rentekurve og prepaymentmodel fast
+- Flyt kun $OAS$ i $z^{\text{swap}}+OAS$
+- Højere diskonteringsrente → lavere modelpris
+:::
+:::
+::: {.column width="48%"}
+::: {.smaller}
+| 5% NYK 2053 | $\Delta OAS$ | $\Delta P$ |
+|---|---:|---:|
+| DK0009539116 | +100 bp | **−2,84** |
+:::
+
+**OAS-risk = spread-risk**
+:::
+:::
+
+::: {.notes}
+Her ændres kun investors diskonteringsspænd. Cash-flowmotoren og referencekurven holdes fast. Derfor er fortegnet direkte: højere OAS giver lavere diskonteringsfaktorer og lavere pris. Kontrastér straks med LYS: LYS går gennem Gain og CPR; OAS går gennem diskontering.
+:::
+
+## Saml motoren {background-color="#00100F"}
+
+#### Fire stød stiller fire forskellige spørgsmål {#s7-26 background="#43464B"}
+
+::: {.smaller}
+| Stød | Hvad flyttes? | Hvad holdes fast? | Primær effekt |
+|---|---|---|---|
+| Rente | prisningskurven | LYS og OAS-spænd | diskontering **og** CPR |
+| CPR | prepaymentantagelsen | kurver og spreads | cash flows direkte |
+| LYS | refinansieringskurven | prisningskurve og OAS | $Gain_t$ og CPR |
+| OAS | diskonteringsspændet | rentekurve og prepayment | modelpris / spread-risk |
+:::
+
+::: {.notes}
+Dette er forelæsningens kontroltabel. For hvert resultat skal man kunne sige både, hvad der flyttes, og hvad der holdes fast. Rentestødet er det eneste af de fire, der samtidig ændrer diskontering og modelbestemt CPR. Hvis man holder prisningskurve, LYS og OAS adskilt, er man langt i forståelsen.
+:::
+
+#### Nu kan hele prisfastsættelseskæden læses {#s7-27 background="#43464B"}
+
+![](/images/chapters/chapter_7/kap7_pricing_map.svg){.tikz-figure .absolute top="85" left="280" width="590"}
+
+::: {.notes}
+Dette er finale-revealet. Læs kortet oppefra i fem trin. Først rentekurve og rentestier. Kanal 2 driver refinansiering, Gain, CPR, burnout og cash flows. Kanal 1 driver diskontering. Modelprisen sammenlignes med markedet; OAS justeres og modellen køres igen. Når OAS er fundet, beregnes nøgletal som genkørsler. Værdigitter og interpolation er den numeriske repræsentation inde i motoren, ikke ekstra økonomiske input.
+:::
+
+#### The Takeaways {#s7-28 background="#43464B"}
+
+::: {.nonincremental}
+1. En konverterbar obligation er en inkonverterbar betalingsrække minus værdien af låntagers call-option.
+2. Renten påvirker både **diskontering** og **cash flows**.
+3. **LYS** driver låntagers refinansieringsincitament; **OAS** kalibrerer investors modelpris.
+4. Varighed, konveksitet, CPR-risk, LYS-risk og OAS-risk er genkørsler af samme motor.
+:::
+
+::: {.notes}
+Luk løkken til 7a. Bed de studerende forklare hvert takeaway med én pil i pricing map. Den stærkeste test er, om de kan placere LYS og OAS på hver sin side og forklare, hvorfor et rentestød ikke blot er et diskonteringsstød.
+:::
+
+## Øvelser {background-color="#00100F"}
+
+#### Øvelse 1 · Interpolation i burnoutgitteret {#s7-e1 background="#43464B"}
+
+Ved fast tid og rente er $V_u(0{,}70)=98$, $V_u(0{,}80)=103$, og CPR giver $B'_u=0{,}74$.
+
+1. Find placeringen af 0,74 i intervallet.
+2. Beregn $V_u(0{,}74)$.
+3. Forklar, hvorfor vægtene bliver 60% og 40%.
+4. Hvad beregnes af CPR, og hvad interpoleres?
+
+::: {.notes}
+Løsning: 0,74 ligger 40% fra 0,70 mod 0,80. Derfor $V=0,60\cdot98+0,40\cdot103=100$. Burnoutniveauet beregnes af CPR; det er fortsættelsesværdien ved dette niveau, der interpoleres.
+:::
+
+#### Øvelse 2 · Et lille værdigitter {#s7-e2 background="#43464B"}
+
+::: {.smaller}
+| Gren | Vægt | CPR | Betaling | Værdi efter betaling |
+|---|---:|---:|---:|---:|
+| Op | 30% | 0% | 4 | 94 |
+| Midt | 40% | 0% | 4 | 100 |
+| Ned | 30% | 30% | ? | ? |
+:::
+
+- I ned-grenen er fuld fortsættelsesværdi 108; perioderenten er 2%.
+- Beregn $V_t^{konv}$, $V_t^{inkonv}$ og $V_{call}$.
+
+::: {.notes}
+Lad de studerende holde betaling og værdi efter betaling adskilt. Ved 30% konvertering er betalingen 4 + 30 = 34. Den fortsættende del er 70% af 108 = 75,6. Den inkonverterbare ned-gren har betaling 4 og fortsættelsesværdi 108. Diskontér den vægtede sum med 1,02.
+:::
+
+#### Øvelse 3 · Pris og nøgletal {#s7-e3 background="#43464B"}
+
+Brug datatabellen i 7a-appendiks for 6% RD 2053 og 1% RD 2050.
+
+1. Beregn $V_{call}$ og placér begge på pris-rente-kurven.
+2. Beregn KV og PVBP fra $P_0(+\Delta y)$ og $P_0(-\Delta y)$.
+3. Approximér $\Delta P$ ved $\pm50$ bp inkl. konveksitet.
+4. Forklar fortegn, størrelse og hvilken betalingsrække der mest ligner en statsobligation.
+
+::: {.notes}
+Fasthold enhederne. Varighedsformlen bruger $\Delta y=0,0015$. Konveksitetsapproksimationen bruger procentpoint, så 50 bp er 0,50. Den lave kupon langt under pari ligner mest en almindelig lang obligation, fordi konverteringsoptionen er mindre relevant.
+:::
+
+#### Øvelse 4 · CPR og LYS {#s7-e4 background="#43464B"}
+
+1. Hvorfor falder prisen med CPR over kurs 100, men stiger under kurs 100?
+2. Hvad sker der med kronevarigheden, når CPR stiger?
+3. Hvorfor sænker højere $LYS_{\tau}$ typisk $Gain_t$?
+4. Hvorfor er LYS-effekten mindre for en lavkupon langt under pari?
+
+::: {.notes}
+Svarene skal bruge premium, discount og pari. Højere CPR forkorter betalingsrækken og reducerer KV i begge tilfælde. Højere LYS gør refinansiering dyrere for låntager og reducerer typisk Gain og CPR. Når optionen er langt ude af pengene, er der få konverteringer at ændre.
+:::
+
+#### Øvelse 5 · OAS {#s7-e5 background="#43464B"}
+
+::: {.smaller}
+| $t$ | $\mathbb{E}[CF_t]$ | $z^{\text{swap}}_t$ |
+|---:|---:|---:|
+| 1 | 6 | 2,0% |
+| 2 | 6 | 2,2% |
+| 3 | 106 | 2,4% |
+:::
+
+1. Beregn modelprisen ved $OAS=0$ og $OAS=0{,}50\%$.
+2. Hvorfor falder prisen, når OAS stiger?
+3. Hvorfor er OAS ikke det samme som LYS?
+
+::: {.notes}
+Opgaven bruger den forenklede formel med givne forventede cash flows og træner kun OAS-leddet. I den fulde model kan cash flows og diskonteringsfaktorer ikke adskilles, fordi store førtidige betalinger opstår på bestemte rentestier. Slut med terminologien: OAS er investorens diskonteringsspænd; LYS former låntagers refinansieringskurve.
+:::

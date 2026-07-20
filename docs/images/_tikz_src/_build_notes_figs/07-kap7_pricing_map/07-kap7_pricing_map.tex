@@ -1,0 +1,349 @@
+\documentclass[border=6pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.98]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{../../../../../../exercises_lecturenotes/lecture_notes/kurs100_lektionsnoter/}}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, calc, positioning, fit, backgrounds, shapes.geometric}
+\usepgfplotslibrary{groupplots,fillbetween}
+\definecolor{scanpink}{HTML}{E5006D}
+\definecolor{scanteal}{HTML}{00A6A6}
+\definecolor{scannavy}{HTML}{243746}
+\definecolor{scanlightgray}{HTML}{F1F2F3}
+\begin{document}
+\begin{tikzpicture}[
+    font=\small,
+    box/.style={
+        draw,
+        rounded corners=2pt,
+        align=center,
+        minimum height=9mm,
+        text width=30mm,
+        inner sep=3pt
+    },
+    input/.style={
+        box,
+        fill=blue!8
+    },
+    rgrid/.style={
+        box,
+        fill=cyan!10
+    },
+    behav/.style={
+        box,
+        fill=orange!12
+    },
+    cash/.style={
+        box,
+        fill=green!10
+    },
+    price/.style={
+        box,
+        fill=purple!8
+    },
+    dec/.style={
+        box,
+        fill=gray!8
+    },
+    arr/.style={
+        ->,
+        thick
+    },
+    darr/.style={
+        ->,
+        thick,
+        dashed
+    },
+    lab/.style={
+        font=\scriptsize
+    },
+    panel/.style={
+        draw=gray!40,
+        rounded corners=4pt,
+        inner sep=8pt,
+        fill=gray!4
+    },
+    ptitle/.style={
+        anchor=south west,
+        font=\scriptsize\scshape
+    }
+]
+
+% ==================================================
+% 1. Input og rentemodel
+% ==================================================
+
+\node[input] (kurve) at (0,0)
+    {Dagens\\rentekurve};
+
+\node[input] (tsm) at (5.8,0)
+    {Rentestruktur-\\model};
+
+\node[rgrid] (grid) at (11.6,0)
+    {Rentegitter eller\\simulerede rentestier};
+
+\draw[arr] (kurve) -- (tsm);
+\draw[arr] (tsm) -- (grid);
+
+
+% ==================================================
+% 2. Låntageradfærd og cash flows
+% ==================================================
+
+\node[behav] (lys) at (0,-4.0) {%
+    Refinansierings-\\kurve\\
+    {\footnotesize
+    \(z^{\text{refi}}_{\tau}
+      =
+      z^{\text{swap}}_{\tau}
+      +
+      LYS_{\tau}\)}
+};
+
+\node[behav] (gain) at (5.8,-4.0) {%
+    Konverterings-\\gevinst\\
+    \(Gain_t\)
+};
+
+\node[behav] (cpr) at (11.6,-4.0) {%
+    \(CPR_t\) og \(UDT_t\)
+};
+
+\node[behav, text width=35mm] (burn) at (5.8,-7.0) {%
+    Burnout \(B_t\)\\
+    {\scriptsize den tilbageværende låntagerpulje}
+};
+
+\node[cash] (cf) at (11.6,-7.0) {%
+    Cash flows\\
+    på hver sti
+};
+
+% Renten påvirker låntagernes konverteringsincitament
+\draw[
+    arr,
+    rounded corners=6pt
+]
+    (grid.south)
+    --
+    (11.6,-2.1)
+    --
+    node[
+        lab,
+        fill=white,
+        inner sep=1.5pt
+    ] {%
+        \textbf{kanal 2:}
+        renten påvirker konverteringsincitamentet
+    }
+    (5.8,-2.1)
+    --
+    (gain.north);
+
+% Refinansieringskurven bestemmer sammen med renten Gain
+\draw[arr] (lys) -- (gain);
+
+% Gain og den eksisterende pulje bestemmer CPR
+\draw[arr] (gain) -- (cpr);
+
+\draw[
+    darr,
+    rounded corners=4pt
+]
+    (burn.north)
+    -- (5.8,-5.45)
+    -- node[
+        lab,
+        fill=white,
+        inner sep=1.5pt,
+        above=1pt
+    ] {%
+        påvirker næste termins CPR
+    }
+    (11.6,-5.45)
+    -- (cpr.south);
+
+% CPR bestemmer cash flows
+\draw[arr] (cpr) -- (cf);
+
+% CPR opdaterer burnout
+\draw[
+    arr
+]
+    (cpr.south west)
+    to[out=245,in=10]
+    node[
+        lab,
+        fill=white,
+        inner sep=1.5pt,
+        pos=0.55,
+        below=1pt
+    ] {%
+        burnout opdateres
+    }
+    (burn.east);
+
+
+% ==================================================
+% 3. Diskontering og modelpris
+% ==================================================
+
+\node[price] (mp) at (5.8,-10.0) {%
+    Modelpris\\
+    \(P_{\text{model}}(OAS)\)
+};
+
+\node[price] (disc) at (11.6,-10.0) {%
+    Diskontering pr.\ sti\\
+    {\footnotesize
+    \(z^{\text{swap}}_{\tau}+OAS\)}
+};
+
+% Cash flows diskonteres
+\draw[arr] (cf) -- (disc);
+
+% De diskonterede cash flows giver modelprisen
+\draw[arr] (disc) -- (mp);
+
+% Renten påvirker også diskonteringen direkte
+\draw[
+    arr,
+    rounded corners=6pt
+]
+    (grid.east)
+    --
+    (15.4,0)
+    --
+    (15.4,-10.0)
+    --
+    (disc.east);
+
+\node[
+    lab,
+    rotate=90,
+    anchor=south
+] at (15.4,-5.0) {%
+    \textbf{kanal 1:}
+    renten påvirker diskonteringen \(DF_t^{(m)}\)
+};
+
+
+% ==================================================
+% 4. Kalibrering til markedskurs
+% ==================================================
+
+\node[price] (mk) at (0,-12.8) {%
+    Markedskurs\\
+    \(P_{\text{market}}\)
+};
+
+\node[dec] (cmp) at (5.8,-12.8) {%
+    Er priserne ens?\\
+    {\footnotesize
+    \(P_{\text{model}}
+      \stackrel{?}{=}
+      P_{\text{market}}\)}
+};
+
+\draw[arr] (mp) -- (cmp);
+\draw[arr] (mk) -- (cmp);
+
+% Hvis priserne ikke er ens, justeres OAS
+\draw[
+    darr,
+    rounded corners=6pt
+]
+    (cmp.east)
+    --
+    node[
+        lab,
+        fill=white,
+        inner sep=1.5pt,
+        pos=0.68,
+        above=2pt,
+        align=center
+    ] {%
+        \textbf{Nej:}
+        justér OAS og kør modellen igen
+    }
+    (11.6,-12.8)
+    --
+    (disc.south);
+
+
+% ==================================================
+% 5. Resultat og nøgletal
+% ==================================================
+
+\node[price] (ok) at (5.8,-15.4) {%
+    \textbf{Ja: OAS fundet}\\
+    {\scriptsize kalibreret model}
+};
+
+\node[
+    price,
+    text width=44mm
+] (ngl) at (12.0,-15.4) {%
+    Nøgletal: varighed, konveksitet,\\
+    CPR-, LYS- og OAS-risk
+};
+
+\draw[arr] (cmp) -- (ok);
+\draw[arr] (ok) -- (ngl);
+
+
+% ==================================================
+% Paneler
+% ==================================================
+
+\begin{scope}[on background layer]
+
+\node[
+    panel,
+    fit=(kurve)(tsm)(grid)
+] (pA) {};
+
+\node[
+    panel,
+    fit=(lys)(gain)(cpr)(burn)(cf)
+] (pB) {};
+
+\node[
+    panel,
+    fit=(mp)(disc)
+] (pC) {};
+
+\node[
+    panel,
+    fit=(mk)(cmp)
+] (pD) {};
+
+\node[
+    panel,
+    fit=(ok)(ngl)
+] (pE) {};
+
+\end{scope}
+
+\node[ptitle] at ([yshift=2pt]pA.north west)
+    {1.\ Input og rentemodel};
+
+\node[ptitle] at ([yshift=2pt]pB.north west)
+    {2.\ Låntageradfærd og cash flows};
+
+\node[ptitle] at ([yshift=2pt]pC.north west)
+    {3.\ Diskontering og modelpris};
+
+\node[ptitle] at ([yshift=2pt]pD.north west)
+    {4.\ Kalibrering til markedskurs};
+
+\node[ptitle, anchor=south east] at ([yshift=2pt]pE.north east)
+    {5.\ Nøgletal};
+
+\end{tikzpicture}%
+\end{document}

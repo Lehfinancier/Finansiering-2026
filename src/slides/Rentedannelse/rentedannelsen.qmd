@@ -1,0 +1,417 @@
+---
+title: "Renten"
+subtitle: "Fundamentet for al prisfastsættelse"
+author: "Niklas Lehmann Jensen"
+format:
+  revealjs:
+    width: 1150
+    logo: ../../themes/favicon.ico
+    footer: "Finansiering — Rentedannelsen"
+    theme: ../../themes/slides_themes.scss
+    include-in-header: ../../themes/mathjax.html
+    slide-number: true
+    incremental: true
+slide-level: 4
+title-slide-attributes:
+  data-background-color: "#045D5D"
+  data-footer: " "
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+## Introduktion {background-color="#00100F"}
+
+#### Dagens spørgsmål {#s1-2 background="#43464B"}
+
+::: {.nonincremental}
+- Hvad er renten prisen på?
+- Hvad er forskellen på nominel rente og realrente?
+- Hvorfor er “en rente på 4%” en ufuldstændig oplysning?
+- Hvilke renter forankrer det korte danske pengemarked?
+:::
+
+::: {.notes}
+Brug spørgsmålene som kapitlets rygrad og undlad at besvare dem endnu. Det er et praktisk rentefundament, ikke en fuld makroøkonomisk model. Hvert svar peger frem mod obligationer, rentekurven, realkredit og modelprisfastsættelse.
+:::
+
+#### Læringsmål {#s1-3 background="#43464B"}
+
+Efter kapitlet kan I:
+
+::: {.nonincremental}
+- forklare renten som prisen på at flytte købekraft over tid
+- bruge Fisher-relationen og simpel diskontering
+- forklare, hvorfor rente og løbetid hører sammen
+- beskrive Nationalbankens rolle under fastkurspolitikken
+- skelne mellem **referencerente, fixing, kurve og rentetillæg**
+- skelne mellem pålydende og effektiv rente
+:::
+
+::: {.notes}
+Skim målene. Fremhæv især de fire begreber på femte linje, fordi de let blandes sammen senere: en reference er kontraktens indeks, en fixing er dagens tal, en kurve rummer mange løbetider, og tillægget er kontraktens ekstra rente.
+:::
+
+## Renten er en pris {background-color="#00100F"}
+
+#### Renten flytter købekraft mellem tidspunkter {#s1-5 background="#43464B"}
+
+::: {.nonincremental}
+- Opsparing: udskyd forbrug og modtag kompensation
+- Lån: få købekraft nu og betal for tidsforskydningen
+- Renten er derfor ikke kun “prisen på et lån”
+:::
+
+. . .
+
+$$
+5.000\cdot1{,}02=5.100\text{ kr.}
+$$
+
+De 100 kr. er kompensationen for ét år uden cyklen.
+
+::: {.notes}
+Gør eksemplet konkret: personen kan købe en cykel nu eller vente et år. Renten på 2 procent er prisen for at udskyde købekraft. Vend derefter perspektivet: låntageren betaler for at fremrykke sit forbrug. Denne symmetri er mere grundlæggende end banklånet alene.
+:::
+
+#### Markedet finder en ligevægtsrente {#s1-6 background="#43464B"}
+
+:::: {.columns}
+::: {.column width="42%"}
+::: {.nonincremental}
+- Udbud: husholdninger og virksomheder med opsparing
+- Efterspørgsel: boligkøbere, virksomheder og staten
+- Over $r^*$: overskud af opsparing presser renten ned
+- Under $r^*$: låntagere byder renten op
+:::
+:::
+
+::: {.column width="58%"}
+![](/images/chapters/chapter_1/kap_1_Kreditmarked.jpg){width="100%"}
+:::
+::::
+
+::: {.notes}
+Læs akserne og skæringspunktet. Mere makroteori behøver vi ikke i dette kursus: fremover aflæser vi renter i obligationskurser, pengemarked og auktioner. Udbud og efterspørgsel er stadig motoren, men opgaven bliver at forstå og bruge markedets tal.
+:::
+
+## Nominel rente, realrente og inflation {background-color="#00100F"}
+
+#### Nominel vækst er ikke det samme som købekraft {#s1-8 background="#43464B"}
+
+::: {.callout-note title="Definition" icon=false}
+**Nominel rente:** vækst i kroner og øre.
+
+**Realrente:** vækst i købekraft.
+:::
+
+Broen mellem dem er den forventede inflation. Vokser saldoen langsommere end priserne, bliver investor fattigere målt i købekraft.
+
+::: {.notes}
+Hvis saldoen vokser langsommere end priserne, bliver investor fattigere i real forstand. I resten af kurset regner vi nominelt, fordi kuponer og afdrag aftales i kroner, men fortolkningen kræver altid et blik på købekraften.
+:::
+
+#### Fisher-relationen forbinder de tre størrelser {#s1-9 background="#43464B"}
+
+$$
+(1+R)=(1+r)(1+\pi)
+\quad\Longleftrightarrow\quad
+r=\frac{R-\pi}{1+\pi}
+$$
+
+. . .
+
+Ved moderate niveauer:
+
+$$
+R\approx r+\pi
+$$
+
+::: {.callout-tip title="Indsigt" icon=false}
+$R=0{,}3\%$ og $\pi=3{,}0\%$ giver cirka **−2,7% realrente**.
+:::
+
+::: {.notes}
+Vis først den præcise multiplicative relation og derefter tommelfingerreglen. Eksemplet var relevant for mange danske opsparere i 2021–2022: saldoen voksede lidt, men købekraften faldt. Konklusionen er, at en høj nominel rente ikke nødvendigvis er et højt realt afkast.
+:::
+
+## Renten oversætter fremtid til nutid {background-color="#00100F"}
+
+#### Diskontering gør betalinger sammenlignelige {#s1-11 background="#43464B"}
+
+$$
+PV=\frac{A}{(1+r)^t}
+$$
+
+. . .
+
+Ved 10% rente:
+
+$$
+PV(110\text{ kr. om ét år})=\frac{110}{1{,}10}=100\text{ kr.}
+$$
+
+::: {.callout-tip title="Indsigt" icon=false}
+Jo højere rente og jo længere ventetid, desto lavere nutidsværdi.
+:::
+
+::: {.notes}
+Dette er kursets mest anvendte værktøj. Betalinger på forskellige datoer kan ikke lægges sammen direkte; de skal først oversættes til samme tidspunkt. Indtil kapitel 3 bruger vi én rente. Senere får hvert betalingstidspunkt sin egen rente fra rentekurven.
+:::
+
+#### Renten kan ændre selve investeringsbeslutningen {#s1-12 background="#43464B"}
+
+Et projekt koster 10 mio. kr. og betaler 3 mio. kr. årligt i fire år.
+
+:::: {.columns}
+::: {.column width="50%"}
+Ved 5%:
+
+$$
+NPV_{5\%}=+0{,}64\text{ mio. kr.}
+$$
+
+**Projektet skaber værdi.**
+:::
+
+::: {.column width="50%"}
+Ved 9%:
+
+$$
+NPV_{9\%}=-0{,}28\text{ mio. kr.}
+$$
+
+**Projektet destruerer værdi.**
+:::
+::::
+
+::: {.notes}
+Betalingsrækken er præcis den samme i begge kolonner; kun prisen på tid har flyttet sig. Den samme logik gælder obligationer og aktier. Dette er også kanalen, hvorigennem pengepolitik påvirker investeringer og aktivpriser.
+:::
+
+#### Rente op betyder lavere aktivpriser {#s1-13 background="#43464B"}
+
+::: {.callout-tip title="Indsigt" icon=false}
+$$
+\text{Rente}\uparrow
+\Rightarrow
+\text{nutidsværdi af fremtidige betalinger}\downarrow
+\Rightarrow
+\text{aktivpris}\downarrow
+$$
+:::
+
+Det gælder obligationer, aktier og investeringsprojekter.
+
+::: {.notes}
+Dette er en af kursets mest gentagne regler. For en fast betalingsrække skal prisen falde, når diskonteringsrenten stiger. Fortæl, at kapitel 2 gør sammenhængen konkret for obligationer, mens senere kapitler måler følsomheden med varighed og konveksitet.
+:::
+
+## Rente og løbetid {background-color="#00100F"}
+
+#### “4%” er ufuldstændigt uden en løbetid {#s1-15 background="#43464B"}
+
+::: {.callout-note title="Definition" icon=false}
+**Rentekurven** viser sammenhængen mellem renteniveau og løbetid.
+:::
+
+::: {.nonincremental}
+- 4% i seks måneder er ikke 4% i 30 år
+- En 30-årig statsobligation har typisk højere rente end en 2-årig
+- Kurven kan være stigende, flad eller invers
+- Hver rente skal angives med både sats og løbetid
+:::
+
+::: {.notes}
+Brug en fastrentekonto som analogi: bindingens længde er en del af produktet. Den typisk stigende kurve er ikke en naturlov; den kan også være flad eller invers. Konstruktion og fortolkning af rentekurven hører til i kapitel 3.
+:::
+
+## Den korte danske rente {background-color="#00100F"}
+
+#### Fastkurspolitikken forankrer den korte ende {#s1-17 background="#43464B"}
+
+::: {.nonincremental}
+- Folio- og udlånsrenten påvirker dag-til-dag-likviditet
+- Fastkurspolitik siden **1982** binder kronen til euroen
+- Danske korte renter følger derfor ECB tæt
+- Negative danske renter prægede store dele af **2012–2022**
+- Målet er kronekursen — ikke den danske konjunktur
+:::
+
+::: {.notes}
+Nationalbanken kan flytte de helt korte renter hurtigt ved at styre banksystemets likviditet. Men målet er kronekursen, ikke den danske konjunktur. Forklar kort, at stor efterspørgsel efter kroner kan kræve lavere danske renter, mens pres ud af kroner—som i foråret 2020—kan kræve højere renter relativt til euroområdet.
+:::
+
+#### Pengepolitikken styrer ikke hele kurven {#s1-18 background="#43464B"}
+
+::: {.callout-tip title="Indsigt" icon=false}
+**Kort sigt:** Nationalbanken kan flytte korte nominelle renter hurtigt.
+
+**Langt sigt:** opsparing, investeringer og inflationsforventninger former lange renter og realrenten.
+:::
+
+Nationalbanken forankrer den korte ende; resten af kurven dannes i markedet.
+
+::: {.notes}
+Undgå udsagnet, at centralbanken blot fastsætter “renten”. Den kontrollerer sine egne faciliteter og påvirker den korte ende. Lange renter indeholder forventninger og risikopræmier, som dannes i markedet. Dette er overgangen til referencerenter og senere rentekurven.
+:::
+
+## Referencerenter {background-color="#00100F"}
+
+#### Betalt rente består af reference plus tillæg {#s1-20 background="#43464B"}
+
+$$
+\text{Betalt rente}_t=\text{referencerente}_t+\text{rentetillæg}
+$$
+
+::: {.callout-note title="Definition" icon=false}
+**Referencerenten** er kontraktens markedsindeks. En **fixing** er det offentliggjorte tal på en bestemt dag. **Rentetillægget** er den ekstra rente, der følger kontrakten.
+:::
+
+::: {.callout-important icon=false}
+Et kontraktfastsat tillæg er ikke det samme som et målt spænd til en referencekurve.
+:::
+
+::: {.notes}
+Referencen er den bevægelige del; tillægget er normalt fastsat i vilkårene eller ved auktion. Hvis CIBOR 6M-fixingen ændres, ændres den betalte kupon, mens et tillæg på 0,50 procentpoint som udgangspunkt ligger fast. Gem begrebet spænd til kapitel 3, hvor referencekurven er eksplicit.
+:::
+
+#### DESTR og CIBOR beskriver forskellige perioder {#s1-21 background="#43464B"}
+
+::: {.smaller}
+| Reference | Hvad beskriver den? | Datagrundlag / risiko |
+|---|---|---|
+| **DESTR** | Usikret dag-til-dag-likviditet i kroner | Faktiske transaktioner; helt kort byggesten |
+| **CIBOR 3M** | Usikret finansiering i tre måneder | Panelbankvurdering; løbetids-, kredit- og likviditetspræmie |
+| **CIBOR 6M** | Usikret finansiering i seks måneder | Længere renteperiode; kan ligge på et andet niveau |
+:::
+
+**CITA** er et dansk benchmark for korte renteswaps og behandles ikke som en fjerde hovedreference her.
+
+::: {.notes}
+En dag-til-dag-rente kan ikke uden videre bruges som kupon for et helt halvår; kontrakten skal beskrive, hvordan daglige renter akkumuleres. CIBOR og DESTR måler heller ikke helt samme risiko. CITA bliver relevant i konkrete floater-vilkår i kapitel 5, men hovedsammenligningen her er DESTR mod CIBOR.
+:::
+
+#### En fixing er et punkt; observationer danner en kort kurve {#s1-22 background="#43464B"}
+
+![](/images/chapters/chapter_1/kap1_destr_cibor_kurver_20260609.svg){.tikz-figure .absolute top="120" left="95" width="960"}
+
+::: {.notes}
+Dette er den nye pointe i noterne. En fixing er ét offentliggjort tal på én dato. Figuren viser derimod tre konstruerede referencekurver på værdiansættelsesdatoen 9. juni 2026. CIBOR 3M betyder længden af den underliggende renteperiode; et etårigt punkt på CIBOR 3M-kurven er ikke en “CIBOR 1Y-fixing”. På denne dato ligger CIBOR 6M over CIBOR 3M, som ligger over den DESTR-baserede OIS-kurve, men det er et øjebliksbillede—notér forskellen uden at kalde den et spænd her.
+:::
+
+#### Kurvepunkt og fixing er to forskellige tidsbegreber {#s1-23 background="#43464B"}
+
+::: {.smaller}
+| Horisont fra 9. juni 2026 | DESTR-baseret | CIBOR 3M | CIBOR 6M |
+|---|---:|---:|---:|
+| Ca. 3 måneder | 1,89% | 2,34% | 2,51% |
+| Ca. 6 måneder | 2,03% | 2,50% | 2,68% |
+| Ca. 9 måneder | 2,13% | 2,61% | 2,81% |
+| 1 år | 2,21% | 2,69% | 2,89% |
+:::
+
+::: {.callout-tip title="Indsigt" icon=false}
+“3M” i CIBOR 3M er renteperioden; tabellens rækker er horisonten fra værdiansættelsesdatoen.
+:::
+
+::: {.notes}
+Læs 1,89 procent ved tre måneder korrekt: det er den årlige kurverente knyttet til hele perioden frem til tremånederspunktet—notér ikke en forventet DESTR-fixing på én bestemt fremtidig dag. Tilsvarende er 2,69 procent et etårigt kurvepunkt på en kurve med CIBOR 3M som underliggende reference, ikke en CIBOR 1Y-fixing.
+:::
+
+#### Kuponreference og diskonteringskurve har forskellige job {#s1-24 background="#43464B"}
+
+::: {.nonincremental}
+- **Kuponvilkåret** bestemmer fremtidige betalinger
+- **Fixingen** fastsætter den variable kupon for en renteperiode
+- **Referencekurven** samler konstruerede renter på tværs af løbetider
+- **Diskonteringskurven** oversætter de fremtidige betalinger til værdi i dag
+:::
+
+::: {.callout-important icon=false}
+Objekterne kan være beslægtede, men de er ikke det samme.
+:::
+
+::: {.notes}
+Giv et eksempel: en obligation kan betale CIBOR 6M plus 0,50 procentpoint, mens dens betalinger prisfastsættes med en anden kurve. I kapitel 5 byder investorer ved floater-auktioner på tillægget, ikke på selve referencerenten. Kapitel 7 bruger en DESTR-baseret OIS-kurve som prisningsfundament.
+:::
+
+## Pålydende og effektiv rente {background-color="#00100F"}
+
+#### Den pålydende rente er ikke nødvendigvis afkastet {#s1-26 background="#43464B"}
+
+::: {.callout-note title="Definition" icon=false}
+**Pålydende rente:** satsen i vilkårene—på en obligation er det kuponrenten.
+
+**Effektiv rente:** den samlede årlige forrentning, når rente på rente, købskurs og betalingstidspunkter regnes med.
+:::
+
+En 5% kupon betaler 5 kr. årligt pr. 100 kr. hovedstol, men investors afkast afhænger også af kursen.
+
+::: {.notes}
+Denne slide er broen til kapitel 2. Pålydende rente beskriver betalingerne, ikke nødvendigvis investorens forrentning. Hvis obligationen købes over eller under kurs 100, bliver den effektive rente forskellig fra kuponen. Den præcise beregning kommer i næste kapitel.
+:::
+
+#### Tilskrivningsfrekvens ændrer den effektive rente {#s1-27 background="#43464B"}
+
+$$
+r_{eff}=\left(1+\frac{r}{m}\right)^m-1
+$$
+
+6% p.a. med halvårlig tilskrivning:
+
+$$
+\left(1+\frac{0{,}06}{2}\right)^2-1=6{,}09\%
+$$
+
+::: {.callout-tip title="Indsigt" icon=false}
+Sammenlign kun renter direkte, når periode og tilskrivningsfrekvens er ens.
+:::
+
+::: {.notes}
+Halvårlig tilskrivning giver 3 procent to gange, og første rentebeløb når selv at blive forrentet. I lånedokumenter kaldes den effektive årlige rente ofte debitorrenten. Brug sliden som backup, hvis tiden er knap, men behold reglen som eksamensrelevant faldgrube.
+:::
+
+## Afrunding {background-color="#00100F"}
+
+#### Tre renter I møder igen {#s1-29 background="#43464B"}
+
+::: {.smaller}
+| Rente | Rolle | Hvor kommer den igen? |
+|---|---|---|
+| Kuponrente | Aftalt betaling til investor | Kapitel 2 |
+| Referencerente + tillæg | Variabel kupon på lån og obligationer | Kapitel 5 |
+| Diskonteringsrente / rentekurve | Oversætter betalingsrækker til pris og risiko | Kapitel 2, 3 og 7 |
+:::
+
+::: {.notes}
+Brug tabellen som kurskort. Kuponrenten beskriver cash flowet. Reference plus tillæg beskriver den variable kontrakt. Diskonteringsrenten eller kurven beskriver værdiansættelsen. De tre kan have forskellige tal og må ikke bruges som synonymer.
+:::
+
+#### The Takeaways {#s1-30 background="#43464B"}
+
+::: {.nonincremental}
+1. Renten er prisen på at flytte købekraft over tid og fundamentet for diskontering.
+2. Nominel rente er omtrent realrente plus forventet inflation.
+3. En rente skal altid angives med sin løbetid.
+4. Nationalbanken forankrer den korte ende under fastkurspolitikken.
+5. En fixing er ét punkt; referencekurver samler renter for mange løbetider.
+:::
+
+::: {.notes}
+Luk tilbage til dagens fire spørgsmål. Bed de studerende formulere svarene med egne ord og først derefter bruge formlerne. Fremhæv, at næste kapitel tager renten som diskonteringsværktøj og anvender den på kursets hovedperson: obligationen.
+:::
+
+#### Øvelse: tre rentebriller {#s1-31 background="#43464B"}
+
+::: {.nonincremental}
+1. Fisher: $R=5\%$ og $\pi=3\%$. Find den omtrentlige og præcise realrente.
+2. Diskontering: find $PV$ af 1.000 kr. om tre år ved 4%.
+3. Frekvens: omregn 8% p.a. med månedlig tilskrivning til effektiv årlig rente.
+4. Begreber: forklar forskellen på en CIBOR 3M-fixing og et etårigt punkt på CIBOR 3M-kurven.
+:::
+
+::: {.notes}
+Løsninger: omtrent 2 procent og præcist cirka 1,94 procent; nutidsværdi cirka 889,00 kr.; effektiv årlig rente cirka 8,30 procent. I sidste spørgsmål skal svaret skelne underliggende tre måneders renteperiode fra kurvepunktets etårige horisont.
+:::

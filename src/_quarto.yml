@@ -1,0 +1,112 @@
+project:
+  type: website
+  output-dir: ../docs            # build into /docs at repo root
+  resources:
+    - themes/                    # ensure custom themes get published
+    - Lektionsnote/Lektionsnoter_2025.pdf
+    - slides/**/*
+    - exercises/**/*        # <- add this line
+    - images/**            # <- add this
+
+html-math-method: mathjax
+
+execute:
+  freeze: auto
+
+website:
+  title: "Finansiering 2026"
+  site-url: https://lehfinancier.github.io/Finansiering2026/
+  repo-url: https://github.com/Lehfinancier/Finansiering2026
+  repo-subdir: "src"
+  sidebar:
+    title: "Finansiering"
+    style: docked
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/Lehfinancier
+      - icon: linkedin
+        href: https://www.linkedin.com/in/niklas-lehmann-jensen-204088112
+      - icon: twitter
+        href: https://twitter.com/NiklasLehmann8
+      - icon: snapchat
+        href: https://i.imgflip.com/120j0e.jpg
+      - icon: envelope
+        href: mailto:nlj@econ.au.dk
+    contents:
+      - index.qmd
+      - section: "Lektionsnoten"
+        contents:
+          - text: "Lektionsnote (PDF)"
+            href: Lektionsnote/Lektionsnoter_2025.pdf
+            target: _blank
+      - section: "Lectures"
+        contents:
+          - slides/organizational/intro.qmd
+          - slides/Rentedannelse/rentedannelsen.qmd
+          - slides/Obligationsmarkedet/obligationsmarked.qmd
+          - slides/Rentestrukturen/Rentestrukturen.qmd
+          - slides/Risikomaal/risikomaal.qmd
+          - slides/Realkredit/realkredit.qmd
+          - slides/Konverteringsmodel/konverteringsmodel.qmd
+          - slides/PrisNoegletal/pricing_oas.qmd
+          - slides/PrisNoegletal/pricing_keyfigures.qmd
+          - slides/Performanceevaluering/performance.qmd
+          - slides/FinanskrisenRegulering/financialcrisis.qmd
+          - slides/PengeinstitutterRisikostyring/bankingandrisk.qmd
+      - section: "Opgaver"
+        contents:
+          - section: "Opgave 1"
+            contents:
+              - text: "Opgavesæt (PDF)"
+                href: "exercises/Opgave 1/OS1.pdf"
+                target: _blank
+              # add more later:
+              # - text: "Løsningsforslag (PDF)"
+              #   href: "exercises/Opgave 1/solutions/OS1_loesning.pdf"
+              #   target: _blank
+              # - text: "Data (Excel)"
+              #   href: "exercises/Opgave 1/data.xlsx"
+              #   target: _blank
+          - section: "Opgave 2"
+            contents:
+              - text: "Opgavesæt (PDF)"
+                href: "exercises/Opgave 2/OS2.pdf"
+                target: _blank
+          - section: "Opgave 3"
+            contents:
+              - text: "Opgavesæt (PDF)"
+                href: "exercises/Opgave 3/OS3.pdf"
+                target: _blank
+          - section: "Opgave 4"
+            contents:
+              - text: "Opgavesæt (PDF)"
+                href: "exercises/Opgave 4/OS4.pdf"
+                target: _blank
+          - section: "Opgave 5"
+            contents:
+              - text: "Opgavesæt (PDF)"
+                href: "exercises/Opgave 5/OS5.pdf"
+                target: _blank
+
+format:
+  html:
+    include-in-header: themes/mathjax.html
+    theme:
+      light: [themes/ws_light.scss, themes/block.scss]
+      dark:  [themes/ws_dark.scss,  themes/block.scss]
+    page-navigation: true
+    embed-resources: true            # <- VIGTIGT: indlejr CSS/JS/ikoner i HTML  
+  revealjs:
+    include-in-header: themes/mathjax.html
+    logo: themes/favicon.ico                # global logo for slides
+    theme: themes/slides_themes.scss        # global slides theme
+    slide-number: true
+    incremental: true
+    toc: true
+    toc-depth: 2
+    transition: convex
+    transition-speed: fast
+    embed-resources: true            # <- også for slides, så tema/logo virker live  
+
+bibliography: eco.bib
