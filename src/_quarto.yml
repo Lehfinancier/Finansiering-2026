@@ -15,8 +15,8 @@ execute:
 
 website:
   title: "Finansiering 2026"
-  site-url: https://lehfinancier.github.io/Finansiering2026/
-  repo-url: https://github.com/Lehfinancier/Finansiering2026
+  site-url: https://lehfinancier.github.io/Finansiering-2026/
+  repo-url: https://github.com/Lehfinancier/Finansiering-2026
   repo-subdir: "src"
   sidebar:
     title: "Finansiering"
