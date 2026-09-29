@@ -1,143 +1,220 @@
 ---
 title: "Finansiering 2026"
-description: "Finansiering giver en grundlæggende og anvendelsesorienteret introduktion til renter, obligationer, realkredit, risikostyring i banker og regulering heraf."
-page-layout: article
-toc: false
-format: html
+pagetitle: "Kurs 100 · Finansiering 2026"
 ---
 
-## I slide format
-
-::: {=html}
-<div class="slide-embed">
-  <iframe
-    src="slides/organizational/intro.html"
-    title="Course Introduction slides"
-    loading="lazy"
-    allowfullscreen
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
+::: {.hero}
+::: {.course-kicker}
+HA.jur. · Finansiering del 2
 :::
 
-::: {=html}
-<style>
-.slide-embed iframe{
-  width:100%;
-  max-width:1150px;
-  aspect-ratio:16/9;
-  border:0;
-  display:block;
-  margin-inline:auto;
-}
-</style>
+Vi arbejder med renter, obligationer, dansk realkredit og finansielle kriser. I regneeksemplerne følger vi, hvem der betaler, hvem der får pengene, og hvem der bærer risikoen.
+
+![](images/finance-header-img.png){.finance-header fig-alt="Ryan Gosling forklarer finansiel risiko med et tårn af klodser."}
+
+::: {.course-dates}
+20. oktober – 26. november 2026 · 6 uger · 12 undervisningsmoduler
 :::
 
-  
-## Kursusinformation
+[Hent lektionsnoterne](downloads/Kurs100-2026.pdf){.btn .btn-primary download="Kurs100-2026.pdf"}
+
+[Se lektionsplanen](#lektionsplan){.btn .btn-outline-primary}
+:::
+
+## Kursusinformation {#kursusinformation}
+
+::: {.course-info-grid}
+::: {.course-info}
+### Kontakt
 
 **Forelæser:** Niklas Lehmann Jensen  
-**Email:** nlj@econ.au.dk (niklas@scanrate.dk)  
-**Kontor:** Intet kontor på AU  
-**Kontakt tidspunkter:** I skriver bare en mail  
-**Kursus hjemmeside:** Brightspace og denne side  
-**Forelæsninger:** Tirsdag (8:15–10:00) og torsdag (14:15–16:00) i M1  
+**Mail:** [nlj@econ.au.dk](mailto:nlj@econ.au.dk) · [niklas@scanrate.dk](mailto:niklas@scanrate.dk)  
+**Træffetid:** Skriv en mail, hvis du har spørgsmål.  
+**Kursusrum:** Brightspace og denne side.
 
-**Niveau:** Bachelor  
-**Forudsætninger:** Ingen formelle krav, men basal forståelse for matematik og økonomi er en fordel
+**Niveau:** Bachelor, HA.jur. Grundlæggende matematik og økonomi er en fordel.
+:::
 
----
+::: {.course-info .meeting-times}
+### Vi mødes to gange om ugen
 
-# Finansiering del 2 (HA.jur)
+**Tirsdag kl. 08:15–10:00**  
+**Torsdag kl. 14:15–16:00**
 
-<img src="images/finance-header-img-fixed.png" alt="Finansiering" style="width: 100%;  border-radius: 15px; margin-bottom: 6px;">
+Første gang er tirsdag den **20. oktober 2026**. Sidste gang er torsdag den **26. november 2026**.
 
-Kurset **Finansiering** giver de studerende en introduktion til de vigtigste begreber, modeller og institutioner inden for fastforrentede instrumenter. Vi arbejder både med teoretiske værktøjer og praktiske eksempler fra danske og internationale finansielle markeder.  
+Lokale og eventuelle ændringer fremgår af Brightspace.
+:::
+:::
 
-Kurset er designet til HA(jur.)-studerende, og lægger vægt på at gøre de tekniske koncepter spiselige og intuitive.  
+## Kursusintroduktion i slideformat {#introduktion}
 
----
+```{=html}
+<div class="slide-embed">
+  <iframe src="slides/chapters/00.html" data-external="1" title="Kursusintroduktion til Finansiering 2026" loading="lazy" allowfullscreen></iframe>
+</div>
+```
 
+[Åbn introduktionen i fuld skærm](slides/chapters/00.qmd) · [Hent introduktionen som PDF](downloads/kapitel-00.pdf)
 
-## Kursusindhold
+## Lektionsplan · efterår 2026 {#lektionsplan}
 
-Kurset er struktureret som følger:
+Vi begynder med introduktionen og kapitel 1 og følger derefter bogens kapitler i rækkefølge. Modul 11 er buffer. I modul 12 gennemgår vi en tidligere eksamen.
 
-1. **Renter og rentedannelse**
-   - Real- og nominelle renter  
-   - Inflation og Fisher-ligningen  
-   - Pengepolitik og institutionelle forhold i Danmark  
+::: {.schedule-wrap}
+| Modul | Uge | Dato | Tid | Indhold | Læsning |
+|:---|:---|:---|:---|:---|:---|
+| 1 | 43 | Tirsdag 20/10 | 08:15–10:00 | Introduktion + Rentedannelsen | [Kapitel 1](slides/chapters/01.qmd) |
+| 2 | 43 | Torsdag 22/10 | 14:15–16:00 | Obligationsmarkedet | [Kapitel 2](slides/chapters/02.qmd) |
+| 3 | 44 | Tirsdag 27/10 | 08:15–10:00 | Rentestrukturen | [Kapitel 3](slides/chapters/03.qmd) |
+| 4 | 44 | Torsdag 29/10 | 14:15–16:00 | Risikomål | [Kapitel 4](slides/chapters/04.qmd) |
+| 5 | 45 | Tirsdag 03/11 | 08:15–10:00 | Dansk realkredit | [Kapitel 5](slides/chapters/05.qmd) |
+| 6 | 45 | Torsdag 05/11 | 14:15–16:00 | Modellering af konverteringsadfærd | [Kapitel 6](slides/chapters/06.qmd) |
+| 7 | 46 | Tirsdag 10/11 | 08:15–10:00 | Prisfastsættelse og nøgletal | [Kapitel 7](slides/chapters/07.qmd) |
+| 8 | 46 | Torsdag 12/11 | 14:15–16:00 | Obligationsafkast | [Kapitel 8](slides/chapters/08.qmd) |
+| 9 | 47 | Tirsdag 17/11 | 08:15–10:00 | Finanskrisen | [Kapitel 9](slides/chapters/09.qmd) |
+| 10 | 47 | Torsdag 19/11 | 14:15–16:00 | Pengeinstitutternes risikostyring | [Kapitel 10](slides/chapters/10.qmd) |
+| 11 | 48 | Tirsdag 24/11 | 08:15–10:00 | Buffer og opsamling | Efter behov |
+| 12 | 48 | Torsdag 26/11 | 14:15–16:00 | Tidligere eksamen som eksempel | Tidligere eksamensopgave |
 
-2. **Obligationer**
-   - Nulkupon- og kuponobligationer  
-   - Direkte rente, effektiv rente og diskontering  
-   - Sammenhæng mellem kurs, rente og afkast  
+:::
 
-3. **Rentestruktur og prisfastsættelse**
-   - Rentekurven og arbitrage  
-   - Estimation af rentestrukturen  
-   - Rentestrukturen og prisfastsættelse
+## Slides til de ti kapitler {#kapitler}
 
-4. **Renterisiko**
-   - Varighed og konveksitet  
-   - Immunisering og risikomål  
-   - Porteføljer af obligationer  
+Åbn slides i browseren eller hent dem som PDF. Brug piletasterne til at skifte slide og Esc til at se hele kapitlet.
 
-5. **Dansk realkredit**
-   - Realkreditsystemets opbygning og regulering  
-   - Konvertering og præpayment-modeller  
-   - Option Adjusted Spread (OAS)  
+::: {.chapter-grid}
 
-6. **Performance og regulering**
-   - Obligationsafkast og performanceattribution  
-   - Finanskrisen 2008 og reguleringsbølgen (Basel III mm.)  
-   - Case: Silicon Valley Bank og renterisiko  
+::: {.chapter-card}
+::: {.chapter-no}
+Kapitel 01
+:::
+### Rentedannelsen
 
+[Vis slides](slides/chapters/01.qmd){.primary-link}
 
-## Lektionsplan
+[Download slides som PDF](downloads/kapitel-01.pdf){download="kapitel-01.pdf"}
+:::
 
-| Lektion | Uge | Emne                              | Underemne                                              | Litteratur                       | Øvelser |
-|---------|-----|----------------------------------|--------------------------------------------------------|----------------------------------|---------|
-| 1       | 43  | Renter, obligationer og risiko   | Intro + fundamentet for rentedannelsen                | Lektionsnoten, kapitel 1         |         |
-| 2       | 43  |                                  | Obligationer                                           | Lektionsnoten, kapitel 2         |         |
-| 3       | 44  |                                  | Rentestrukturen                                        | Lektionsnoten, kapitel 3         |         |
-| 4       | 44  |                                  | Renterisiko                                            | Lektionsnoten, kapitel 4         |         |
-| 5       | 45  | Realkredit                       | Intro til dansk realkredit                             | Lektionsnoten, kapitel 5         | [OS1](exercises/Opgave%201/OS1.pdf){target=_blank} |
-| 6       | 45  |                                  | Modellering af konverteringsadfærd                     | Lektionsnoten, kapitel 6         |         |
-| 7       | 46  |                                  | Prisfastsættelse og nøgletal på konverterbare obligationer | Lektionsnoten, kapitel 7     | [OS2](exercises/Opgave%202/OS2.pdf){target=_blank} |
-| 8       | 46  | Performanceevaluering            | Obligationsafkast                                      | Lektionsnoten, kapitel 8         |         |
-| 9       | 47  | Regulering                       | Finanskrisens udvikling og eftervirkninger             | Lektionsnoten, kapitel 9         | [OS3](exercises/Opgave%203/OS3.pdf){target=_blank} |
-| 10      | 47  |                                  | Pengeinstitutters risikostyring                        | Lektionsnoten, kapitel 10        |         |
-| 11      | 48  |                                  | Buffer?                                                |                                  | [OS4](exercises/Opgave%204/OS4.pdf){target=_blank} |
-| 12      | 48  |                                  | Buffer?                                                |                                  |         |
-|         | 49  |                                  |                                                        |                                  | [OS5](exercises/Opgave%205/OS5.pdf){target=_blank} |
+::: {.chapter-card}
+::: {.chapter-no}
+Kapitel 02
+:::
+### Obligationsmarkedet
 
+[Vis slides](slides/chapters/02.qmd){.primary-link}
 
+[Download slides som PDF](downloads/kapitel-02.pdf){download="kapitel-02.pdf"}
+:::
 
-## Kursusmateriale
+::: {.chapter-card}
+::: {.chapter-no}
+Kapitel 03
+:::
+### Rentestrukturen
 
-**Pensum** består primært af:  
+[Vis slides](slides/chapters/03.qmd){.primary-link}
 
-- Egenudviklede lektionsnoter i finansiering  
-- Evt. supplerende artikler og cases om finanskrisen  
+[Download slides som PDF](downloads/kapitel-03.pdf){download="kapitel-03.pdf"}
+:::
 
-Derudover kan følgende lærebøger anbefales som opslagsværk:  
-   - Tanggaard: *Finansielle instrumenter og deres markeder*  
-   - Just Andresen: *Finansiel risikostyring*  
-   - Christensen: *Obligationsinvestering: Teori og praksis anvendelse*  
+::: {.chapter-card}
+::: {.chapter-no}
+Kapitel 04
+:::
+### Risikomål
 
----
+[Vis slides](slides/chapters/04.qmd){.primary-link}
 
-## Andet vigtig gøjl
+[Download slides som PDF](downloads/kapitel-04.pdf){download="kapitel-04.pdf"}
+:::
 
-**Eksamen og karakter**  
-Karakteren gives på baggrund af en 4 timers skriftlig eksamen (uden internet). Dato d. 12/01/2026
+::: {.chapter-card}
+::: {.chapter-no}
+Kapitel 05
+:::
+### Dansk realkredit
 
-**Deltagelse under forelæsninger og øvelsestimer**  
-Deltagelse anbefales stærkt, da undervisningen bygger på dialog og øvelser.  
+[Vis slides](slides/chapters/05.qmd){.primary-link}
 
-**Akademisk integritet**  
-Universitetets regler om eksamenssnyd og plagiering gælder.  
+[Download slides som PDF](downloads/kapitel-05.pdf){download="kapitel-05.pdf"}
+:::
 
-**Særlige behov**  
-Studerende med særlige behov bør kontakte universitetets kontor tidligt i semestret.  
+::: {.chapter-card}
+::: {.chapter-no}
+Kapitel 06
+:::
+### Modellering af konverteringsadfærd
+
+[Vis slides](slides/chapters/06.qmd){.primary-link}
+
+[Download slides som PDF](downloads/kapitel-06.pdf){download="kapitel-06.pdf"}
+:::
+
+::: {.chapter-card}
+::: {.chapter-no}
+Kapitel 07
+:::
+### Prisfastsættelse og nøgletal
+
+[Vis slides](slides/chapters/07.qmd){.primary-link}
+
+[Download slides som PDF](downloads/kapitel-07.pdf){download="kapitel-07.pdf"}
+:::
+
+::: {.chapter-card}
+::: {.chapter-no}
+Kapitel 08
+:::
+### Obligationsafkast
+
+[Vis slides](slides/chapters/08.qmd){.primary-link}
+
+[Download slides som PDF](downloads/kapitel-08.pdf){download="kapitel-08.pdf"}
+:::
+
+::: {.chapter-card}
+::: {.chapter-no}
+Kapitel 09
+:::
+### Finanskrisen
+
+[Vis slides](slides/chapters/09.qmd){.primary-link}
+
+[Download slides som PDF](downloads/kapitel-09.pdf){download="kapitel-09.pdf"}
+:::
+
+::: {.chapter-card}
+::: {.chapter-no}
+Kapitel 10
+:::
+### Pengeinstitutternes risikostyring
+
+[Vis slides](slides/chapters/10.qmd){.primary-link}
+
+[Download slides som PDF](downloads/kapitel-10.pdf){download="kapitel-10.pdf"}
+:::
+
+:::
+
+## Øvelsessæt {#oevelser}
+
+Fem øvelsessæt til arbejdet med lektionsnoterne.
+
+| Sæt | Emne | Kapitler | Download |
+|:---|:---|:---|:---|
+| OS1 | Renter og obligationer | 1–2 | [Hent OS1](downloads/OS1.pdf) |
+| OS2 | Rentekurve og renterisiko | 3–4 | [Hent OS2](downloads/OS2.pdf) |
+| OS3 | Realkredit og konvertering | 5–6 | [Hent OS3](downloads/OS3.pdf) |
+| OS4 | Prisfastsættelse og nøgletal | 7 | [Hent OS4](downloads/OS4.pdf) |
+| OS5 | Afkast, krise og risiko | 8–10 | [Hent OS5](downloads/OS5.pdf) |
+
+## Forberedelse
+
+Læs kapitlet før undervisningen. I eksemplerne skal du kunne forklare betalingerne og de antagelser, vi regner med. Brug spørgsmålene på slides og øvelsessættene til selv at regne efter.
+
+Se på datoen og forudsætningerne, når du læser en graf med historiske observationer. Overvej, hvad der sker med betalinger og priser, hvis renten ændrer sig.
+
+## Eksamen og praktiske oplysninger
+
+Vi arbejder med en tidligere eksamen i modul 12 den 26. november. Den aktuelle eksamensdato, prøveform og regler for hjælpemidler fremgår af Brightspace og universitetets eksamensinformation.

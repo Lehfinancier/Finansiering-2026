@@ -12,6 +12,13 @@ build/
 develop-eggs/
 dist/
 downloads/
+!/src/downloads/
+!/docs/downloads/
+
+# Private originals (including solutions), build products and review records.
+/final_exercises/
+/final_lecture_notes/
+/work/
 eggs/
 .eggs/
 lib/

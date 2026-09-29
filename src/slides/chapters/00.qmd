@@ -1,0 +1,97 @@
+---
+title: "Kursusintroduktion"
+subtitle: "Finansiering 2026 · HA.jur."
+author: "Niklas Lehmann Jensen"
+format: revealjs
+---
+
+## Fra boliglån til finanskriser {#intro-s001}
+
+- Hvad bestemmer renten på et lån?
+- Hvorfor falder en obligations pris, når renten stiger?
+- Hvem bærer risikoen i dansk realkredit?
+- Hvordan kan finansielle tab brede sig til resten af økonomien?
+
+::: {.notes}
+Lad de studerende nævne en situation, hvor de selv møder renter eller risiko. Knyt deres eksempler til spørgsmålene på sliden.
+:::
+
+## Seks uger, to møder om ugen {#intro-s002}
+
+**20. oktober – 26. november 2026**
+
+| Dag | Tid |
+|:---|:---|
+| Tirsdag | 08:15–10:00 |
+| Torsdag | 14:15–16:00 |
+
+12 undervisningsmoduler. Lokale og ændringer findes på Brightspace.
+
+::: {.notes}
+Vi begynder tirsdag den 20. oktober. Bed de studerende læse kapitlet før forelæsningen og regne videre bagefter. Vis lektionsplanen på forsiden.
+:::
+
+## Renter, obligationer og realkredit {#intro-s003}
+
+| Modul | Dato | Indhold |
+|:---|:---|:---|
+| 1 | 20/10 | Intro + kapitel 1: Rentedannelsen |
+| 2 | 22/10 | Kapitel 2: Obligationsmarkedet |
+| 3 | 27/10 | Kapitel 3: Rentestrukturen |
+| 4 | 29/10 | Kapitel 4: Risikomål |
+| 5 | 03/11 | Kapitel 5: Dansk realkredit |
+| 6 | 05/11 | Kapitel 6: Konverteringsadfærd |
+
+::: {.notes}
+Vi følger kapitel 1–6 i de første tre uger. De studerende kan bruge slides til forberedelse og regne videre med opgaverne efter undervisningen.
+:::
+
+## Pris, afkast, risiko og eksamensarbejde {#intro-s004}
+
+| Modul | Dato | Indhold |
+|:---|:---|:---|
+| 7 | 10/11 | Kapitel 7: Prisfastsættelse og nøgletal |
+| 8 | 12/11 | Kapitel 8: Obligationsafkast |
+| 9 | 17/11 | Kapitel 9: Finanskrisen |
+| 10 | 19/11 | Kapitel 10: Pengeinstitutternes risiko |
+| 11 | 24/11 | Buffer og opsamling |
+| 12 | 26/11 | Tidligere eksamen som eksempel |
+
+::: {.notes}
+Efter kapitel 7–10 har vi et modul til det, vi mangler at nå eller har brug for at vende tilbage til. Sidste gang gennemgår vi en tidligere eksamen.
+:::
+
+## Materialet er samlet på forsiden {#intro-s005}
+
+- **Lektionsnoter i finansiering 2026:** ti kapitler.
+- **Slides:** browserudgave og PDF til hvert kapitel.
+- **OS1–OS5:** øvelsessæt til selvstændigt arbejde.
+- **Brightspace:** beskeder, lokale og eksamensoplysninger.
+
+::: {.notes}
+Vis, hvor de studerende henter noter, slides og øvelsessæt. De kan følge bogens gennemregnede eksempler og derefter prøve metoderne i opgaverne.
+:::
+
+## Vi skal kunne forklare det, vi regner {#intro-s006}
+
+1. Læs kapitlet før undervisningen.
+2. Følg betalinger, enheder og forudsætninger i eksemplerne.
+3. Spørg, hvad der ændrer sig, når vi ændrer en rente eller antagelse.
+4. Regn selv videre med øvelsessættene.
+
+::: {.notes}
+Bed de studerende spørge, når et mellemtrin er uklart, eller de ikke kan forklare et resultat økonomisk.
+:::
+
+## Spørg i timen eller skriv en mail {#intro-s007}
+
+**Niklas Lehmann Jensen**
+
+[nlj@econ.au.dk](mailto:nlj@econ.au.dk)  
+[niklas@scanrate.dk](mailto:niklas@scanrate.dk)
+
+Vi gennemgår en tidligere eksamen den **26. november**. Aktuel eksamensdato, prøveform og hjælpemidler fremgår af universitetets eksamensinformation.
+
+::: {.notes}
+Henvis til universitetets kursusrum ved spørgsmål om eksamensdato og hjælpemidler. Opgaven den 26. november er fra en tidligere eksamen.
+:::

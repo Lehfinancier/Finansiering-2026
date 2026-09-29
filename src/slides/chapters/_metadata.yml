@@ -1,0 +1,28 @@
+format:
+  revealjs:
+    template: ../../themes/reveal-kurs100.template
+    theme: [default, ../../themes/kurs100.scss]
+    width: 1280
+    height: 720
+    margin: 0.06
+    center: false
+    slide-level: 2
+    slide-number: c/t
+    show-slide-number: all
+    hash: true
+    incremental: false
+    transition: none
+    controls: true
+    progress: true
+    navigation-mode: linear
+    pdf-separate-fragments: false
+    pdf-max-pages-per-slide: 1
+    auto-stretch: false
+    toc: false
+    footer: "KURS 100 · Finansiering 2026"
+    html-math-method: mathjax
+    embed-resources: true
+execute:
+  enabled: false
+  freeze: false
+lang: da

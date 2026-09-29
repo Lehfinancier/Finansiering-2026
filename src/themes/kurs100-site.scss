@@ -1,0 +1,50 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Aptos", "Segoe UI", sans-serif;
+$body-bg: #fafaf7;
+$body-color: #173545;
+$primary: #007f80;
+$link-color: #007f80;
+/*-- scss:rules --*/
+h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 700; letter-spacing: -.03em; }
+h2 { margin-top: 2.3rem; }
+.hero { border-top: 6px solid #008b8c; padding: 2rem 0 1rem; }
+.hero p { max-width: 740px; font-size: 1.2rem; }
+.hero .finance-header { display: block; width: 100%; max-width: 770px; height: auto; border-radius: 15px; margin: 1.5rem 0; }
+.hero .course-kicker { text-transform: uppercase; letter-spacing: .13em; color: $primary; font-size: .85rem; font-weight: 700; }
+.hero .course-dates { font-size: 1rem; margin: 1.4rem 0; font-weight: 600; }
+.hero .btn { margin: .3rem .5rem .3rem 0; font-size: 1rem; }
+.course-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.course-info { min-width: 0; padding: 1.2rem; border: 1px solid #d4dfdc; border-radius: 8px; }
+.course-info h3 { margin-top: 0; font-size: 1.25rem; }
+.course-info a { overflow-wrap: anywhere; }
+.meeting-times { background: #eaf3f0; }
+.slide-embed { margin: 1rem 0; border-radius: 8px; overflow: hidden; border: 1px solid #d4dfdc; }
+.slide-embed iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; }
+.schedule-wrap { overflow-x: auto; margin: 1.2rem 0; }
+.schedule-wrap table { min-width: 720px; font-size: .95rem; }
+.schedule-wrap th { color: white; background: #173545; padding: .8rem; }
+.schedule-wrap td { padding: .8rem; vertical-align: top; }
+.schedule-wrap td:nth-child(3), .schedule-wrap td:nth-child(4) { white-space: nowrap; }
+.schedule-wrap tr:nth-last-child(2) td { background: #eaf3f0; }
+@media (max-width: 650px) {
+  .course-info-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 1.2rem; }
+  .hero p { font-size: 1.05rem; }
+  .schedule-wrap table { min-width: 0; width: 100%; }
+  .schedule-wrap thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .schedule-wrap tbody, .schedule-wrap tr { display: block; }
+  .schedule-wrap tr { display: grid; grid-template-columns: 1fr 1fr; padding: .8rem .5rem; border-bottom: 1px solid #d4dfdc; }
+  .schedule-wrap td { display: block; border: 0; padding: .25rem; }
+  .schedule-wrap td:nth-child(1)::before { content: "Modul "; }
+  .schedule-wrap td:nth-child(2)::before { content: "Uge "; }
+  .schedule-wrap td:nth-child(1), .schedule-wrap td:nth-child(2) { color: #007f80; font-size: .8rem; }
+  .schedule-wrap td:nth-child(5), .schedule-wrap td:nth-child(6) { grid-column: 1 / -1; }
+  .schedule-wrap td:nth-child(5) { font-weight: 600; }
+  .schedule-wrap tr:nth-last-child(2) { background: #eaf3f0; }
+}
+.chapter-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1rem; }
+.chapter-card { border: 1px solid #d4dfdc; border-radius: 8px; padding: 1.3rem; background: white; }
+.chapter-card h3 { margin-top: .5rem; font-size: 1.22rem; min-height: 3rem; }
+.chapter-card .chapter-no { font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; color: #007f80; }
+.chapter-card a { display: inline-block; margin: .25rem .7rem .25rem 0; }
+.chapter-card .primary-link { background: #173545; color: white; border-radius: 5px; padding: .4rem .7rem; text-decoration: none; }
