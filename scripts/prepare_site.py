@@ -217,6 +217,8 @@ Vi gennemgår en tidligere eksamen den **26. november**. Aktuel eksamensdato, pr
 Henvis til universitetets kursusrum ved spørgsmål om eksamensdato og hjælpemidler. Opgaven den 26. november er fra en tidligere eksamen.
 :::
 '''
+formula_preview=(ROOT/'scripts/templates/intro-formulas.qmd').read_text(encoding='utf-8')
+intro=intro.replace('## Vi skal kunne forklare det, vi regner',formula_preview+'\n\n## Vi skal kunne forklare det, vi regner')
 (ROOT/'src/slides/chapters/00.qmd').write_text(intro,encoding='utf-8')
 config='''project:
   type: website

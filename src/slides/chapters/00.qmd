@@ -72,6 +72,49 @@ Efter kapitel 7–10 har vi et modul til det, vi mangler at nå eller har brug f
 Vis, hvor de studerende henter noter, slides og øvelsessæt. De kan følge bogens gennemregnede eksempler og derefter prøve metoderne i opgaverne.
 :::
 
+## Smagsprøve på centrale formler {#intro-formler}
+
+::: {.columns style="font-size: 27px;"}
+::: {.column width="50%"}
+**Pris på en kuponobligation · kapitel 2**
+
+$$P=\sum_{t=1}^{N}\frac{C}{(1+y)^t}+\frac{H}{(1+y)^N}$$
+
+Kuponer og hovedstol diskonteres til i dag.
+
+**Kronevarighed · kapitel 4**
+
+$$d=\frac{D}{1+y}\frac{K}{100}=MD\frac{K}{100}$$
+
+Omtrentligt kursfald ved +1 procentpoint rente.
+:::
+
+::: {.column width="50%"}
+**Kronekonveksitet · kapitel 4**
+
+$$\mathrm{Cvx}_{\mathrm{KR}}=\frac{0{,}01^2}{(1+y)^2}\sum_t t(t+1)PV(CF_t)$$
+
+Tager højde for krumningen i kursens reaktion.
+
+**Konverteringsgevinst · kapitel 6**
+
+$$Gain_t=\frac{PV_{\mathrm{continue},t}-100(1+cost_t)}{PV_{\mathrm{continue},t}}$$
+
+Besparelsen ved pariindfrielse, efter omkostninger.
+:::
+:::
+
+::: {.notes}
+Dette er samme udvalg som i 2025-introduktionen, med notation fra 2026-kapitlerne. De studerende skal ikke kunne formlerne ved kursusstart; vi gennemgår dem i kapitel 2, 4 og 6.
+
+I prisformlen er C kuponbetalingen pr. termin, H hovedstolen, N antallet af terminer og y den effektive rente pr. termin. Der antages faste kuponer og tilbagebetaling af hele hovedstolen ved udløb.
+
+I risikomålene bruger vi årlige betalinger og en årlig effektiv rente y. D er Macaulay-varighed, MD modificeret varighed og K kurs pr. 100 nominel. Kronevarighed d angiver det omtrentlige kursfald ved en rentestigning på 1 procentpoint. Ved et rentestød på Δy_pp procentpoint er kursændringen omtrent −d·Δy_pp + ½·Cvx_KR·(Δy_pp)². I kronekonveksiteten er betalingerne CF_t opgjort pr. 100 nominel, og PV(CF_t)=CF_t/(1+y)^t. Begge risikomål vedrører faste betalinger; konverterbare obligationer kræver også en model for låntagernes adfærd.
+
+Gain-formlen er specialtilfældet med indfrielse til pari 100. PV_continue,t er nutidsværdien af det gamle låns resterende betalinger på refinansieringskurven, og cost_t er omkostninger som andel af indfrielsesbeløbet. Positiv Gain giver et økonomisk incitament til at konvertere. Den enkelte låntager kan have et højere gevinstkrav.
+:::
+
+
 ## Vi skal kunne forklare det, vi regner {#intro-s006}
 
 1. Læs kapitlet før undervisningen.

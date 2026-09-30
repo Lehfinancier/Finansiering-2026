@@ -1187,6 +1187,41 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
+<section id="intro-formler" class="slide level2">
+<h2>Smagsprøve på centrale formler</h2>
+<div class="columns" style="font-size: 27px;">
+<div class="column" style="width:50%;">
+<p><strong>Pris på en kuponobligation · kapitel 2</strong></p>
+<p><span class="math display">\[P=\sum_{t=1}^{N}\frac{C}{(1+y)^t}+\frac{H}{(1+y)^N}\]</span></p>
+<p>Kuponer og hovedstol diskonteres til i dag.</p>
+<p><strong>Kronevarighed · kapitel 4</strong></p>
+<p><span class="math display">\[d=\frac{D}{1+y}\frac{K}{100}=MD\frac{K}{100}\]</span></p>
+<p>Omtrentligt kursfald ved +1 procentpoint rente.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Kronekonveksitet · kapitel 4</strong></p>
+<p><span class="math display">\[\mathrm{Cvx}_{\mathrm{KR}}=\frac{0{,}01^2}{(1+y)^2}\sum_t t(t+1)PV(CF_t)\]</span></p>
+<p>Tager højde for krumningen i kursens reaktion.</p>
+<p><strong>Konverteringsgevinst · kapitel 6</strong></p>
+<p><span class="math display">\[Gain_t=\frac{PV_{\mathrm{continue},t}-100(1+cost_t)}{PV_{\mathrm{continue},t}}\]</span></p>
+<p>Besparelsen ved pariindfrielse, efter omkostninger.</p>
+</div></div>
+<aside class="notes">
+<p>Dette er samme udvalg som i 2025-introduktionen, med notation fra 2026-kapitlerne. De studerende skal ikke kunne formlerne ved kursusstart; vi gennemgår dem i kapitel 2, 4 og 6.</p>
+<p>I prisformlen er C kuponbetalingen pr. termin, H hovedstolen, N antallet af terminer og y den effektive rente pr. termin. Der antages faste kuponer og tilbagebetaling af hele hovedstolen ved udløb.</p>
+<p>I risikomålene bruger vi årlige betalinger og en årlig effektiv rente y. D er Macaulay-varighed, MD modificeret varighed og K kurs pr. 100 nominel. Kronevarighed d angiver det omtrentlige kursfald ved en rentestigning på 1 procentpoint. Ved et rentestød på Δy_pp procentpoint er kursændringen omtrent −d·Δy_pp + ½·Cvx_KR·(Δy_pp)². I kronekonveksiteten er betalingerne CF_t opgjort pr. 100 nominel, og PV(CF_t)=CF_t/(1+y)^t. Begge risikomål vedrører faste betalinger; konverterbare obligationer kræver også en model for låntagernes adfærd.</p>
+<p>Gain-formlen er specialtilfældet med indfrielse til pari 100. PV_continue,t er nutidsværdien af det gamle låns resterende betalinger på refinansieringskurven, og cost_t er omkostninger som andel af indfrielsesbeløbet. Positiv Gain giver et økonomisk incitament til at konvertere. Den enkelte låntager kan have et højere gevinstkrav.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
 <section id="intro-s006" class="slide level2">
 <h2>Vi skal kunne forklare det, vi regner</h2>
 <ol type="1">
