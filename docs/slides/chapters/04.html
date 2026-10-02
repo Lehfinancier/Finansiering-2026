@@ -1477,6 +1477,50 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
+<section id="ch04-s076" class="slide level2">
+<h2>Kupon, afdrag og løbetid flytter varigheden</h2>
+<p>Brug vægtene i <span class="math inline">\(D=\sum_i w_i t_i\)</span> fra bogens ligning 4.1:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ændring</th>
+<th>Hvorfor ændres varigheden?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tidligere afdrag: lavere varighed</td>
+<td>En større del af værdien betales før udløb. Tabel 4.4: serie 4,948 år, stående 8,867 år.</td>
+</tr>
+<tr class="even">
+<td>Højere kupon: lavere varighed</td>
+<td>Betalingerne før udløb får større vægt. I tabel 4.3 ligger 81,70% af værdien i sidste betaling.</td>
+</tr>
+<tr class="odd">
+<td>Længere løbetid: normalt højere varighed</td>
+<td>Hovedstolen betales senere og trækker gennemsnitstiden op.</td>
+</tr>
+</tbody>
+</table>
+<p>Sammenlign samme effektive rente. Ved ændret kupon holdes hovedstol og betalingsdatoer faste; ved ændret løbetid holdes kuponrente og afdragsprofil ens.</p>
+<aside class="notes">
+<p>Bogboks Hovedpointe 4.1 fortolker de eksisterende beregninger frem for at introducere en ny prisformel. Tabel 4.4 ændrer afdragsprofilen, ikke løbetiden eller kuponrenten. Længere løbetid er en hovedregel, ikke en universel monoton egenskab for alle kuponobligationer. Kupon- og afdragsforklaringen følger nutidsværdivægtene.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
 <section id="ch04-s014" class="slide level2">
 <h2>En renteændring har tre mulige enheder</h2>
 <p>Fra 2,45% til 3,45%:</p>
@@ -1526,6 +1570,30 @@ display:block!important;
 <p>Derfor kræver større stød også konveksitet eller genberegning af prisen.</p>
 <aside class="notes">
 <p>Varigheden siger noget om den aktuelle hældning, ikke en konstant hældning for alle renteniveauer. De faktiske ændringer bliver senere asymmetriske.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
+<section id="ch04-s077" class="slide level2">
+<h2>Højere effektiv rente sænker modificeret varighed</h2>
+<p>Hold obligationens betalinger faste. Brug bogens ligning 4.3:</p>
+<p><span class="math display">\[MD=\frac{D}{1+y}\]</span></p>
+<ol type="1">
+<li>Sene betalinger diskonteres over flere år. En højere rente sænker deres nutidsværdi forholdsvis mere.</li>
+<li>Tidlige betalinger får større vægt, så <span class="math inline">\(D\)</span> falder for en kuponobligation.</li>
+<li>Nævneren <span class="math inline">\(1+y\)</span> vokser også, så <span class="math inline">\(MD\)</span> falder yderligere.</li>
+</ol>
+<p>Ved lavere rente sker det modsatte. Beregn varigheden på ny ved det nye renteniveau.</p>
+<aside class="notes">
+<p>Bogboks Hovedpointe 4.2 forbinder nutidsværdivægtene med modificeret varighed. For en nulkuponobligation er D lig tiden til den eneste betaling og ændres ikke med renten; MD falder stadig via nævneren. Grafens absolutte hældning er kronefølsomhed, mens MD er relativ til prisen. Kapitel 7 genberegner også betalingerne ved ændrede indfrielsesforventninger og er et andet forsøg.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;

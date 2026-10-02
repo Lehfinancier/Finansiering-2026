@@ -213,6 +213,22 @@ Samme slutdato kan rumme meget forskellig renterisiko.
 Sammenlign samme effektiv rente og de forskellige profiler. Løbetiden fortæller om sidste betaling, varighed fortæller om hele værdiens placering.
 :::
 
+## Kupon, afdrag og løbetid flytter varigheden {#ch04-s076}
+
+Brug vægtene i $D=\sum_i w_i t_i$ fra bogens ligning 4.1:
+
+| Ændring | Hvorfor ændres varigheden? |
+|---|---|
+| Tidligere afdrag: lavere varighed | En større del af værdien betales før udløb. Tabel 4.4: serie 4,948 år, stående 8,867 år. |
+| Højere kupon: lavere varighed | Betalingerne før udløb får større vægt. I tabel 4.3 ligger 81,70% af værdien i sidste betaling. |
+| Længere løbetid: normalt højere varighed | Hovedstolen betales senere og trækker gennemsnitstiden op. |
+
+Sammenlign samme effektive rente. Ved ændret kupon holdes hovedstol og betalingsdatoer faste; ved ændret løbetid holdes kuponrente og afdragsprofil ens.
+
+::: {.notes}
+Bogboks Hovedpointe 4.1 fortolker de eksisterende beregninger frem for at introducere en ny prisformel. Tabel 4.4 ændrer afdragsprofilen, ikke løbetiden eller kuponrenten. Længere løbetid er en hovedregel, ikke en universel monoton egenskab for alle kuponobligationer. Kupon- og afdragsforklaringen følger nutidsværdivægtene.
+:::
+
 ## En renteændring har tre mulige enheder {#ch04-s014}
 
 Fra 2,45% til 3,45%:
@@ -255,6 +271,22 @@ Derfor kræver større stød også konveksitet eller genberegning af prisen.
 
 ::: {.notes}
 Varigheden siger noget om den aktuelle hældning, ikke en konstant hældning for alle renteniveauer. De faktiske ændringer bliver senere asymmetriske.
+:::
+
+## Højere effektiv rente sænker modificeret varighed {#ch04-s077}
+
+Hold obligationens betalinger faste. Brug bogens ligning 4.3:
+
+$$MD=\frac{D}{1+y}$$
+
+1. Sene betalinger diskonteres over flere år. En højere rente sænker deres nutidsværdi forholdsvis mere.
+2. Tidlige betalinger får større vægt, så $D$ falder for en kuponobligation.
+3. Nævneren $1+y$ vokser også, så $MD$ falder yderligere.
+
+Ved lavere rente sker det modsatte. Beregn varigheden på ny ved det nye renteniveau.
+
+::: {.notes}
+Bogboks Hovedpointe 4.2 forbinder nutidsværdivægtene med modificeret varighed. For en nulkuponobligation er D lig tiden til den eneste betaling og ændres ikke med renten; MD falder stadig via nævneren. Grafens absolutte hældning er kronefølsomhed, mens MD er relativ til prisen. Kapitel 7 genberegner også betalingerne ved ændrede indfrielsesforventninger og er et andet forsøg.
 :::
 
 ## Kronevarighed måler kurspoint pr. procentpoint {#ch04-s017}

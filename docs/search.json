@@ -1337,6 +1337,13 @@
     "text": "Løbetid og varighed giver forskellige oplysninger\n\n\n\n\nStående\nSerie\n\n\n\n\nDirty-kurs\n98,696\n99,454\n\n\nSidste betaling\nCa. 10 år\nCa. 10 år\n\n\nMacaulay-varighed\n8,867 år\n4,948 år\n\n\n\nSerien afdrager 10 hvert år og betaler 2,25% af restgælden.\nSamme slutdato kan rumme meget forskellig renterisiko.\n\nSammenlign samme effektiv rente og de forskellige profiler. Løbetiden fortæller om sidste betaling, varighed fortæller om hele værdiens placering."
   },
   {
+    "objectID": "slides/chapters/04.html#ch04-s076",
+    "href": "slides/chapters/04.html#ch04-s076",
+    "title": "Renterisiko",
+    "section": "Kupon, afdrag og løbetid flytter varigheden",
+    "text": "Kupon, afdrag og løbetid flytter varigheden\nBrug vægtene i \\(D=\\sum_i w_i t_i\\) fra bogens ligning 4.1:\n\n\n\n\n\n\n\nÆndring\nHvorfor ændres varigheden?\n\n\n\n\nTidligere afdrag: lavere varighed\nEn større del af værdien betales før udløb. Tabel 4.4: serie 4,948 år, stående 8,867 år.\n\n\nHøjere kupon: lavere varighed\nBetalingerne før udløb får større vægt. I tabel 4.3 ligger 81,70% af værdien i sidste betaling.\n\n\nLængere løbetid: normalt højere varighed\nHovedstolen betales senere og trækker gennemsnitstiden op.\n\n\n\nSammenlign samme effektive rente. Ved ændret kupon holdes hovedstol og betalingsdatoer faste; ved ændret løbetid holdes kuponrente og afdragsprofil ens.\n\nBogboks Hovedpointe 4.1 fortolker de eksisterende beregninger frem for at introducere en ny prisformel. Tabel 4.4 ændrer afdragsprofilen, ikke løbetiden eller kuponrenten. Længere løbetid er en hovedregel, ikke en universel monoton egenskab for alle kuponobligationer. Kupon- og afdragsforklaringen følger nutidsværdivægtene."
+  },
+  {
     "objectID": "slides/chapters/04.html#ch04-s014",
     "href": "slides/chapters/04.html#ch04-s014",
     "title": "Renterisiko",
@@ -1356,6 +1363,13 @@
     "title": "Renterisiko",
     "section": "Varigheden er tangentens lokale hældning",
     "text": "Varigheden er tangentens lokale hældning\nOmkring det aktuelle renteniveau giver små ændringer omtrent proportionale prisændringer.\nEt rentefald på 1 procentpoint giver efter den lineære model en stigning på ca. 8,655%.\nVed store renteændringer vokser afstanden mellem tangent og faktisk kurskurve.\nDerfor kræver større stød også konveksitet eller genberegning af prisen.\n\nVarigheden siger noget om den aktuelle hældning, ikke en konstant hældning for alle renteniveauer. De faktiske ændringer bliver senere asymmetriske."
+  },
+  {
+    "objectID": "slides/chapters/04.html#ch04-s077",
+    "href": "slides/chapters/04.html#ch04-s077",
+    "title": "Renterisiko",
+    "section": "Højere effektiv rente sænker modificeret varighed",
+    "text": "Højere effektiv rente sænker modificeret varighed\nHold obligationens betalinger faste. Brug bogens ligning 4.3:\n\\[MD=\\frac{D}{1+y}\\]\n\nSene betalinger diskonteres over flere år. En højere rente sænker deres nutidsværdi forholdsvis mere.\nTidlige betalinger får større vægt, så \\(D\\) falder for en kuponobligation.\nNævneren \\(1+y\\) vokser også, så \\(MD\\) falder yderligere.\n\nVed lavere rente sker det modsatte. Beregn varigheden på ny ved det nye renteniveau.\n\nBogboks Hovedpointe 4.2 forbinder nutidsværdivægtene med modificeret varighed. For en nulkuponobligation er D lig tiden til den eneste betaling og ændres ikke med renten; MD falder stadig via nævneren. Grafens absolutte hældning er kronefølsomhed, mens MD er relativ til prisen. Kapitel 7 genberegner også betalingerne ved ændrede indfrielsesforventninger og er et andet forsøg."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s017",
