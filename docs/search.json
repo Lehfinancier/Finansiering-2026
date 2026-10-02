@@ -480,7 +480,7 @@
     "href": "slides/chapters/08.html#ch08-s008",
     "title": "Obligationsafkast",
     "section": "Et forventet afkast kræver en exit-antagelse",
-    "text": "Et forventet afkast kræver en exit-antagelse\nEt forventet horisontafkast kræver antagelser om:\n\nBetalinger frem til horisonten.\nGenplaceringsrenten på betalingerne.\nExit-kursen ved salg.\n\nFor en inkonverterbar obligation:\n\\[K_h^{dirty}=P_h(CF_{h+1},\\ldots,CF_T;y_h),\\qquad K_h^{clean}=K_h^{dirty}-v_h.\\]\nFor konverterbare obligationer afhænger betalingerne også af \\(CPR\\), \\(UDT\\), \\(Gain\\), \\(Burnout\\), debitorspænd og \\(OAS\\).\n\nExit-yield er en antagelse om fremtidig prisning. I realkredit skal de forventede indfrielser samtidig beregnes med modellen fra kapitel 6–7."
+    "text": "Et forventet afkast kræver en exit-antagelse\nEt forventet horisontafkast kræver antagelser om:\n\nBetalinger frem til horisonten.\nGenplaceringsrenten på betalingerne.\nExit-kursen ved salg.\n\nFor en inkonverterbar obligation:\n\\[K_h^{dirty}=P_h(CF_{h+1},\\ldots,CF_T;y_h),\\qquad K_h^{clean}=K_h^{dirty}-v_h.\\]\nFor konverterbare obligationer afhænger betalingerne også af \\(CPR\\), \\(UDT\\), \\(Gain\\), \\(Burnout\\), debitorspænd og \\(OAS\\).\nEn valgt horisont før udløb kræver en antagelse om salgskursen netop dér; købsdagens effektive rente bestemmer den ikke.\n\nExit-yield er en antagelse om fremtidig prisning. I realkredit skal de forventede indfrielser samtidig beregnes med modellen fra kapitel 6–7."
   },
   {
     "objectID": "slides/chapters/08.html#ch08-s009",
@@ -515,7 +515,7 @@
     "href": "slides/chapters/08.html#ch08-s013",
     "title": "Obligationsafkast",
     "section": "Tre afkastbegreber besvarer tre spørgsmål",
-    "text": "Tre afkastbegreber besvarer tre spørgsmål\n\n\n\n\n\n\n\nBegreb\nSpørgsmål\n\n\n\n\nEffektiv rente, \\(y\\)\nHvilken diskonteringsrente passer betalingerne til dagens pris?\n\n\nForventet horisontafkast\nHvad bliver afkastet under vores exit- og geninvesteringsantagelser?\n\n\nRealiseret afkast\nHvad tjente investor faktisk?\n\n\n\nSelv ved beholdning til udløb kræver realisering af den effektive rente, at betalingerne kan geninvesteres til samme rente.\nHøj købsrente kan følges af lavt kort afkast, hvis markedsrenterne stiger kraftigt.\n\nVend også eksemplet ved rentefald: lav købsrente kan følges af stort kort afkast. Brug derefter varigheden til en hurtig tilnærmelse."
+    "text": "Tre afkastbegreber besvarer tre spørgsmål\n\n\n\n\n\n\n\nBegreb\nSpørgsmål\n\n\n\n\nEffektiv rente, \\(y\\) (YTM/IRR)\nHvilken fælles diskonteringsrente passer en given betalingsrække til dagens pris?\n\n\nForventet horisontafkast\nHvad bliver afkastet under vores exit- og geninvesteringsantagelser?\n\n\nRealiseret afkast\nHvad tjente investor faktisk?\n\n\n\nYTM er en intern rente for betalingsrækken. Geninvesteres betalingerne til YTM og holdes obligationen til udløb, vokser slutformuen med denne rente. Ved en kortere horisont indgår også slutkursen.\nHøj købsrente kan følges af lavt kort afkast, hvis markedsrenterne stiger kraftigt.\n\nKapitel 2 viser slutformueregningen. Vend også eksemplet ved rentefald: lav købsrente kan følges af stort kort afkast. Brug derefter varigheden til en hurtig tilnærmelse."
   },
   {
     "objectID": "slides/chapters/08.html#ch08-s014",
@@ -613,7 +613,7 @@
     "href": "slides/chapters/08.html#ch08-s027",
     "title": "Obligationsafkast",
     "section": "Ændr én prisfaktor ad gangen",
-    "text": "Ændr én prisfaktor ad gangen\n\\[\\Delta P\\approx\\Delta P^{\\mathrm{tid}}+\\Delta P^{\\mathrm{kurve}}+\\Delta P^{\\mathrm{OAS}}+\\Delta P^{\\mathrm{vol}}+\\Delta P^{\\mathrm{prepayment}}.\\]\nSkift én faktor ad gangen og mål prisvirkningen.\nTidsbidraget samler kortere restløbetid, pull-to-par og roll-down. Et prisbidrag bliver et afkastbidrag, når det divideres med startværdien.\nFIPA er modelbaseret afkastbogføring. Komponenternes præcise afgrænsning afhænger af attributionen.\n\nHold fast i afstemningen. Et komponentnavn er ikke tilstrækkeligt til at vide, hvilke effekter leverandøren har lagt i det."
+    "text": "Ændr én prisfaktor ad gangen\n\\[\\Delta P\\approx\\Delta P^{\\mathrm{tid}}+\\Delta P^{\\mathrm{kurve}}+\\Delta P^{\\mathrm{OAS}}+\\Delta P^{\\mathrm{vol}}+\\Delta P^{\\mathrm{prepayment}}.\\]\nSkift én faktor ad gangen og mål prisvirkningen.\nTidsbidraget samler kortere restløbetid, pull-to-par og roll-down. Et prisbidrag bliver et afkastbidrag, når det divideres med startværdien.\nFIPA er modelbaseret afkastbogføring. Komponenternes præcise afgrænsning afhænger af attributionen.\n\nHold fast i afstemningen. Modellen beregner prisbidrag; det faktisk observerede afkast findes fra dirty start- og slutværdi og betalinger. Et komponentnavn fortæller ikke alene, hvilke effekter leverandøren har lagt i det."
   },
   {
     "objectID": "slides/chapters/08.html#ch08-s028",
@@ -763,11 +763,18 @@
     "text": "Fremrykket hovedstol skal geninvesteres\nNår renten falder, bliver det gamle lån dyrere relativt til ny finansiering.\nLåntager indfrier → investor får hovedstolen tidligere → færre fremtidige kuponer.\nPengene skal ofte geninvesteres i et marked med lavere renter. Det er reinvesteringsrisiko.\n\nLåntagers fordel og investors ulempe er to sider af samme ret. Før adfærden modelleres, skal indfrielserne måles korrekt."
   },
   {
+    "objectID": "slides/chapters/06.html#ch06-s071",
+    "href": "slides/chapters/06.html#ch06-s071",
+    "title": "Konverteringsadfærd og betalingsrækker",
+    "section": "Kun tilbageværende lån kan indfries",
+    "text": "Kun tilbageværende lån kan indfries\nModellen skønner for hvert tilbageværende lån chancen for indfrielse på næste termin. Når terminen er gået, kan vi se, hvilke lån der faktisk blev indfriet.\nTo låntagere skylder 1 og 9 mio. kr. Hvis lånet på 1 mio. kr. indfries, er halvdelen af lånene væk, men kun en tiendedel af gælden.\nSeriens CPR kan være et skøn før terminen eller en opgørelse bagefter. Begge måler en gældsandel, så store lån tæller mere. Grundlaget er den planlagte restgæld efter ordinært afdrag.\n\nSkeln mellem modellens forventede indfrielse og den observerede indfrielse. Låntager træffer ét valg om hele sit lån; CPR er investorens måde at opgøre gælden på. Kilde: Jakobsen, Svenstrup og Willemann (2005), afsnit 4.2."
+  },
+  {
     "objectID": "slides/chapters/06.html#ch06-s005",
     "href": "slides/chapters/06.html#ch06-s005",
     "title": "Konverteringsadfærd og betalingsrækker",
     "section": "CPR har en anden nævner end de øvrige udtræksrater",
-    "text": "CPR har en anden nævner end de øvrige udtræksrater\n\n\n\n\n\n\n\n\nRate\nBetydning\nGrundlag\n\n\n\n\nORD\nOrdinært udtræk\nRestgæld før ordinært afdrag\n\n\nEXT\nEkstraordinært udtræk\nSamme begyndelsesrestgæld\n\n\nUDT\nSamlet udtræk\nSamme begyndelsesrestgæld\n\n\nCPR\nConditional Prepayment Rate\nRestgæld efter ordinært afdrag\n\n\n\nAlle kapitlets egne rater er pr. kvartalsvis termin og bruges som decimaltal i formler.\n\nAfklar både periode og nævner. En CPR på 3 procent bliver 0,03 i beregningen."
+    "text": "CPR har en anden nævner end de øvrige udtræksrater\n\n\n\n\n\n\n\n\nRate\nBetydning\nGrundlag\n\n\n\n\nORD\nPlanlagt ordinært afdrag for hele puljen\nRestgæld før ordinært afdrag\n\n\nEXT\nMerudtræk ud over det planlagte afdrag\nSamme begyndelsesrestgæld\n\n\nUDT\nSamlet udtræk\nSamme begyndelsesrestgæld\n\n\nCPR\nAndel af gælden, som forventes eller faktisk indfries\nPlanlagt restgæld efter ordinært afdrag\n\n\n\nAlle kapitlets egne rater er pr. kvartalsvis termin og bruges som decimaltal i formler.\n\nCPR står for Conditional Prepayment Rate. Afklar både periode og nævner. En CPR på 3 procent bliver 0,03 i beregningen."
   },
   {
     "objectID": "slides/chapters/06.html#ch06-s006",
@@ -781,7 +788,7 @@
     "href": "slides/chapters/06.html#ch06-s007",
     "title": "Konverteringsadfærd og betalingsrækker",
     "section": "Fra CPR til samlet udtræk",
-    "text": "Fra CPR til samlet udtræk\n\\[EXT_t=CPR_t(1-ORD_t),\\] \\[UDT_t=ORD_t+CPR_t(1-ORD_t)=ORD_t+EXT_t.\\]\nOmvendt:\n\\[CPR_t=\\frac{EXT_t}{1-ORD_t}.\\]\nDe ekstraordinære indfrielser beregnes efter det ordinære afdrag.\n\nMed en begyndelsesrestgæld på 100 ses, hvorfor CPR beregnes efter det ordinære afdrag. De konkrete tal står på næste slide."
+    "text": "Fra CPR til samlet udtræk\n\\[EXT_t=CPR_t(1-ORD_t),\\] \\[UDT_t=ORD_t+CPR_t(1-ORD_t)=ORD_t+EXT_t.\\]\nOmvendt:\n\\[CPR_t=\\frac{EXT_t}{1-ORD_t}.\\]\nIdentiteterne gælder, når \\(ORD\\) er planlagt afdrag for hele puljen, og \\(EXT\\) er merudtræk ud over dette. Låntager indfrier hele lånet på én gang.\n\nHvis en datakilde bruger \\(ORD\\) om faktisk betalt afdrag fra fortsættende lån, skal felterne omregnes før formlen bruges. De konkrete tal står på næste slide."
   },
   {
     "objectID": "slides/chapters/06.html#ch06-s008",
@@ -830,7 +837,7 @@
     "href": "slides/chapters/06.html#ch06-s014",
     "title": "Konverteringsadfærd og betalingsrækker",
     "section": "CK95 kan kontrollere et tidligere modelskøn",
-    "text": "CK95 kan kontrollere et tidligere modelskøn\n\\[CPR=\\frac{EXT}{1-ORD}.\\]\nEt skøn lavet før publicering sammenholdes med CK95 for samme termin og ratekonvention.\nHøjere CPR i 5%-serien er foreneligt med et større incitament; tabellen fastslår ikke årsagen alene.\nUnder kurs 100 kan tilbagekøb reducere restgælden uden ekstraordinært pariudtræk i CK95.\n\nVed kurs 85 er markedstilbagekøb normalt billigere end pari. Retten til pari kan stadig have værdi, hvis renterne senere falder. Dette gælder også flytning og opkonvertering."
+    "text": "CK95 kan kontrollere et tidligere modelskøn\n\\[CPR=\\frac{EXT}{1-ORD}.\\]\nEt skøn lavet før publicering sammenholdes med CK95 for samme termin og ratekonvention.\nKontrollér først feltdefinitionerne: \\(EXT/(1-ORD)\\) kræver planlagt \\(ORD\\) for hele puljen og \\(EXT\\) som merudtræk. Scanrates metode bag tabellens beregnede felter er ikke dokumenteret her.\nHøjere CPR i 5%-serien er foreneligt med et større incitament; tabellen fastslår ikke årsagen alene.\nUnder kurs 100 kan tilbagekøb reducere restgælden uden ekstraordinært pariudtræk i CK95.\n\nVed kurs 85 er markedstilbagekøb normalt billigere end pari. Retten til pari kan stadig have værdi, hvis renterne senere falder. Dette gælder også flytning og opkonvertering."
   },
   {
     "objectID": "slides/chapters/06.html#ch06-s015",
@@ -1180,7 +1187,7 @@
     "href": "slides/chapters/06.html#ch06-s064",
     "title": "Konverteringsadfærd og betalingsrækker",
     "section": "Prepaymentfunktionen samler adfærdens input",
-    "text": "Prepaymentfunktionen samler adfærdens input\n\\[CPR_t=g(Gain_t,\\ \\text{restløbetid},\\ \\mathrm{Burnout}_{t-1},\\ \\text{sammensætning}_{t-1},\\ldots).\\]\nStørre Gain og flere grupper med lave gevinstkrav trækker typisk CPR op. Mere burnout trækker typisk reaktionen ned.\nKort restløbetid giver mindre tid til at tjene omkostninger hjem. Noget er indbygget i Gain; resten kan påvirke gevinstkravet.\n\nFunktionen beskriver puljens betingede adfærd, ikke den enkelte beslutning. Retningerne er forventede sammenhænge og afhænger af model og markedsforhold."
+    "text": "Prepaymentfunktionen samler adfærdens input\n\\[CPR_t=g(Gain_t,\\ \\text{restløbetid},\\ \\mathrm{Burnout}_{t-1},\\ \\text{sammensætning}_{t-1},\\ldots).\\]\nStørre Gain og flere grupper med lave gevinstkrav trækker typisk CPR op. Mere burnout trækker typisk reaktionen ned.\nRestløbetiden indgår allerede i \\(Gain\\) gennem nutidsværdien af de resterende betalinger. En særskilt virkning, fx værdien af at vente på en bedre rente, må undersøges i data.\n\nFunktionen beskriver den tilbageværende puljes adfærd. Retningerne afhænger af model og markedsforhold. Medregn ikke samme omkostning i både \\(Gain\\) og en særskilt restløbetidsvirkning."
   },
   {
     "objectID": "slides/chapters/06.html#ch06-s065",
@@ -1230,6 +1237,20 @@
     "title": "Renterisiko",
     "section": "Hvor meget taber obligationen, når renten stiger?",
     "text": "Hvor meget taber obligationen, når renten stiger?\nSelv en næsten kreditrisikofri statsobligation kan få store kurstab.\nRenterisiko opstår, når de samme fremtidige betalinger får en ny værdi.\nVi måler følsomhed i procent, kurspoint og kroner og fordeler den på rentekurven.\n\nRentestigningerne i 2022 viste mekanismen for lange sikre obligationer. Kreditrisiko handler om betalingsevne, mens renterisiko også opstår, når alle aftalte betalinger fortsat forventes betalt."
+  },
+  {
+    "objectID": "slides/chapters/04.html#ch04-s023",
+    "href": "slides/chapters/04.html#ch04-s023",
+    "title": "Renterisiko",
+    "section": "Investor ser kurstabet, før vi beregner varigheden",
+    "text": "Investor ser kurstabet, før vi beregner varigheden\n\n\n\nKursen på den stående obligation ved forskellige effektive renter\n\n\nSamme ti betalinger, ny effektiv årlig rente: Når renten stiger, falder kursen. Tangenten viser det lokale estimat, som vi senere beregner med varighed.\n\nGrafen skal vise bogens eksakte diskonterede kurs for ni kuponer på 2,25 og en slutbetaling på 102,25. Første termin ligger 296/365 år efter valør. Ved 2,45% er dirty-kursen 98,696. Grafen er flyttet frem, så investorens kurstab kommer før notation og mellemregninger."
+  },
+  {
+    "objectID": "slides/chapters/04.html#ch04-s022",
+    "href": "slides/chapters/04.html#ch04-s022",
+    "title": "Renterisiko",
+    "section": "En rentestigning på ét procentpoint koster 8,122 kurspoint",
+    "text": "En rentestigning på ét procentpoint koster 8,122 kurspoint\nBetalingerne holdes faste; kun obligationens effektive rente ændres.\n\n\n\nRentestød\nNy rente\nNy dirty-kurs\nKursændring\n\n\n\n\n−1 procentpoint\n1,45%\n107,690\n+8,994\n\n\nIngen\n2,45%\n98,696\n0\n\n\n+1 procentpoint\n3,45%\n90,574\n−8,122\n\n\n\nInvestor taber markedsværdi ved rentestigning, selv om udsteder betaler som aftalt. Den ulige reaktion i de to retninger skyldes kurvens krumning.\n\nKurserne er bogens afrundede værdier. Kursændringerne er beregnet før afrunding. Ét kurspoint svarer til én krone pr. 100 nominel. Vi måler her et stød til obligationens egen effektive rente, ikke et kurvestød med ændrede betalinger som i kapitel 7."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s002",
@@ -1372,32 +1393,18 @@
     "text": "Immunisering kræver mere end et engangsvalg\nEn horisont omkring 8–9 år matcher den stående obligations varighed på 8,867 år.\nBalancen gælder omtrent for ét enkelt, omtrent parallelt rentestød.\nVarigheden ændrer sig med tiden og renten. Positionen skal derfor løbende justeres.\nImmunisering fjerner ikke alle risici.\n\nMatch mellem horisont og Macaulay-varighed er et førsteordensresultat under simple antagelser. Det er ikke en garanti under enhver kurvebevægelse."
   },
   {
-    "objectID": "slides/chapters/04.html#ch04-s022",
-    "href": "slides/chapters/04.html#ch04-s022",
-    "title": "Renterisiko",
-    "section": "Den faktiske reaktion er asymmetrisk",
-    "text": "Den faktiske reaktion er asymmetrisk\nStart: 2,45% effektiv rente og dirty-kurs 98,696.\n\n\n\nRentestød\nNy rente\nNy kurs\nÆndring\n\n\n\n\n+1 procentpoint\n3,45%\n90,574\n−8,122\n\n\n−1 procentpoint\n1,45%\n107,690\n+8,995\n\n\n\nKronevarighedens 8,542 ligger omtrent mellem ændringerne.\n\nTallene er bogens afrundede værdier, og ændringer er beregnet før afrunding. Ved højere renter er fjerne betalinger allerede mindre værd, så yderligere stigninger har mindre marginal virkning."
-  },
-  {
-    "objectID": "slides/chapters/04.html#ch04-s023",
-    "href": "slides/chapters/04.html#ch04-s023",
-    "title": "Renterisiko",
-    "section": "Konveksitet viser, hvordan hældningen ændrer sig",
-    "text": "Konveksitet viser, hvordan hældningen ændrer sig\n Tangenten undervurderer gevinsten ved rentefald og overvurderer tabet ved rentestigning. Krumningen er fremhævet skematisk.\n\nBrug de farvede mellemrum til at vise fejlen fra varighed alene. Figuren er ikke de eksakte tal fra tabellen: den gør konveksiteten tydeligere for undervisningen."
-  },
-  {
     "objectID": "slides/chapters/04.html#ch04-s024",
     "href": "slides/chapters/04.html#ch04-s024",
     "title": "Renterisiko",
     "section": "Konveksitet forbedrer den lineære approksimation",
-    "text": "Konveksitet forbedrer den lineære approksimation\n\\[\\Delta K\\approx-d\\Delta y_{pp}+\\frac12\\mathrm{Cvx}_{\\mathrm{KR}}(\\Delta y_{pp})^2\\]\nHer måles \\(\\Delta y_{pp}\\) i procentpoint: en stigning på 1 procentpoint indsættes som 1.\nFor en almindelig inkonverterbar obligation er konveksitetsleddet positivt ved både stigning og fald.\n\nVarighedsleddet skifter fortegn med renteændringen. Det kvadrerede konveksitetsled gør ikke. Denne enhed er en anden end decimaltallet i MD-formlen."
+    "text": "Konveksitet forbedrer den lineære approksimation\n\\[\\Delta K\\approx-d\\Delta y_{pp}+\\frac12\\mathrm{Cvx}_{\\mathrm{KR}}(\\Delta y_{pp})^2\\]\nHer måles \\(\\Delta y_{pp}\\) i procentpoint: en stigning på 1 procentpoint indsættes som 1.\nFor den inkonverterbare obligation med faste betalinger er konveksitetsleddet positivt ved begge rentestød.\n\nVarighedsleddet skifter fortegn med renteændringen. Det kvadrerede konveksitetsled gør ikke. Denne enhed er en anden end decimaltallet i MD-formlen."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s025",
     "href": "slides/chapters/04.html#ch04-s025",
     "title": "Renterisiko",
     "section": "Kronekonveksitet bygger på diskonterede betalinger",
-    "text": "Kronekonveksitet bygger på diskonterede betalinger\n\\[\\mathrm{Cvx}_{\\mathrm{KR}}=\\frac{0{,}01^2}{(1+y)^2}\\sum_i t_i(t_i+1)PV(CF_i)\\]\nPrisen og betalingerne måles pr. 100 nominel.\nFaktoren \\(0{,}01^2\\) omregner renteændringer til procentpoint.\nSummen bruger nutidsværdier, ikke de nominelle betalinger alene.\n\nKonveksitet vægter sene betalinger kraftigt gennem produktet t_i(t_i+1). Den næste tabel genbruger nutidsværdierne fra Macaulay-beregningen."
+    "text": "Kronekonveksitet bygger på diskonterede betalinger\n\\[\\mathrm{Cvx}_{\\mathrm{KR}}=\\frac{0{,}01^2}{(1+y)^2}\\sum_i t_i(t_i+1)PV(CF_i)\\]\nPrisen og betalingerne måles pr. 100 nominel.\nFaktoren \\(0{,}01^2\\) omregner renteændringer til procentpoint. Formlen gælder eksemplets effektive årlige rente og tid målt i år.\nSummen bruger nutidsværdier, ikke de nominelle betalinger alene.\n\nKonveksitet vægter sene betalinger kraftigt gennem produktet t_i(t_i+1). Den næste tabel genbruger nutidsværdierne fra Macaulay-beregningen."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s026",
@@ -1411,7 +1418,7 @@
     "href": "slides/chapters/04.html#ch04-s027",
     "title": "Renterisiko",
     "section": "Konveksiteten bringer estimatet tæt på kursændringen",
-    "text": "Konveksiteten bringer estimatet tæt på kursændringen\n\\[\\mathrm{Cvx}_{\\mathrm{KR}}=\\frac{9.147{,}283}{1{,}0245^2}\\cdot0{,}01^2=0{,}872\\]\n\n\n\nStød\nVarighed + konveksitet\nFaktisk ændring\n\n\n\n\n−1 pp\n\\(8{,}542+0{,}436=8{,}978\\)\n+8,995\n\n\n+1 pp\n\\(-8{,}542+0{,}436=-8{,}106\\)\n−8,122\n\n\n\nBegge estimater ligger tættere på end varighed alene.\n\nDen samme positive korrektion bruges i begge retninger. Approksimationen er fortsat lokal og afskærer led af højere orden."
+    "text": "Konveksiteten bringer estimatet tæt på kursændringen\n\\[\\mathrm{Cvx}_{\\mathrm{KR}}=\\frac{9.147{,}283}{1{,}0245^2}\\cdot0{,}01^2=0{,}872\\]\n\n\n\nStød\nVarighed + konveksitet\nFaktisk ændring\n\n\n\n\n−1 pp\n\\(8{,}542+0{,}436=8{,}978\\)\n+8,994\n\n\n+1 pp\n\\(-8{,}542+0{,}436=-8{,}106\\)\n−8,122\n\n\n\nBegge estimater ligger tættere på end varighed alene.\n\nDen samme positive korrektion bruges i begge retninger. Approksimationen er fortsat lokal og afskærer led af højere orden."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s028",
@@ -1425,7 +1432,7 @@
     "href": "slides/chapters/04.html#ch04-s029",
     "title": "Renterisiko",
     "section": "Konveksitet har en pris og kan ændre fortegn",
-    "text": "Konveksitet har en pris og kan ændre fortegn\nAlmindelige inkonverterbare obligationer har typisk positiv konveksitet.\nEn ellers sammenlignelig obligation med højere konveksitet kan derfor være dyrere.\nKonverterbare realkreditobligationer kan få lav eller negativ konveksitet, fordi debitor kan indfri, når det er fordelagtigt.\n\nVed konvertering er betalingsrækken ikke længere fast under renteændringen. Det forklarer, hvorfor den simple positive krumning ikke kan overføres uden videre til alle realkreditobligationer."
+    "text": "Konveksitet har en pris og kan ændre fortegn\nAlmindelige inkonverterbare obligationer har typisk positiv konveksitet.\nEn ellers sammenlignelig obligation med højere konveksitet kan derfor være dyrere.\nKonverterbare realkreditobligationer kan få lav eller negativ konveksitet, fordi låntager kan indfri, når det er fordelagtigt. Negativ konveksitet er ikke det samme som negativ varighed.\n\nHer ændres den effektive rente, mens betalingerne holdes faste. I kapitel 7 ændres referencekurven, og de forventede betalinger genberegnes, fordi låntager kan konvertere. De to stød måler derfor ikke samme risiko."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s030",
@@ -1754,7 +1761,35 @@
     "href": "slides/chapters/02.html#ch02-s001",
     "title": "Obligationer",
     "section": "Hvad køber en obligationsinvestor?",
-    "text": "Hvad køber en obligationsinvestor?\nInvestor betaler i dag for en kontrakt om fremtidige renter og afdrag.\nVi arbejder med simple fastforrentede obligationer uden konverteringsret.\nKapitlet følger obligationsinvestoren fra betalingsprofil og nutidsværdi til handel og afkastets risiko.\n\nEn obligation er en betalingsrække. Variabel rente og konverteringsret kommer senere. Hold debitors betalinger og investors modtagne beløb sammen gennem kapitlet."
+    "text": "Hvad køber en obligationsinvestor?\nInvestor betaler i dag for en kontrakt om fremtidige renter og afdrag.\nKuponen kan være fast eller følge en referencerente. Afdragsprofilen bestemmer, hvornår hovedstolen betales tilbage.\nVi følger kontraktens betalinger fra køb til udløb og ser på handel, pris og afkast.\n\nBegynd med hovedstol, kupon, afdrag og termin. En kuponbærende obligation kan godt afdrage undervejs. Kuponstruktur og afdragsprofil er to forskellige egenskaber."
+  },
+  {
+    "objectID": "slides/chapters/02.html#ch02-s076",
+    "href": "slides/chapters/02.html#ch02-s076",
+    "title": "Obligationer",
+    "section": "Fast og variabel kupon er to kontraktvilkår",
+    "text": "Fast og variabel kupon er to kontraktvilkår\nEn fastforrentet obligation med 4% årlig kupon og 1.000.000 kr. hovedstol betaler 40.000 kr. i rente om året, så længe rentegrundlaget er uændret.\nEn variabel kupon bruger en aftalt referencerente plus et tillæg.\nVilkårene fastlægger også terminer, renteperiode, dagskonvention og fixing.\n\nKuponrenten fortæller, hvad udsteder betaler af hovedstolen. Investorens effektive rente afhænger også af købsprisen. En årlig kupon på 5% giver 5 kr. pr. 100 nominel, uanset hvilken kurs investor køber til."
+  },
+  {
+    "objectID": "slides/chapters/02.html#ch02-s073",
+    "href": "slides/chapters/02.html#ch02-s073",
+    "title": "Obligationer",
+    "section": "En rentesats bliver til en betaling",
+    "text": "En rentesats bliver til en betaling\n\\[CF_i^{\\mathrm{rente}}=H(r_i^{\\mathrm{ref}}+q)\\Delta_i\\]\n\n\n\nSymbol\nBetydning\n\n\n\n\n\\(H\\)\nHovedstol i kroner\n\n\n\\(r_i^{\\mathrm{ref}}\\)\nPeriodens årlige referencerente\n\n\n\\(q\\)\nAftalt årligt tillæg\n\n\n\\(\\Delta_i\\)\nRenteperiodens årsbrøk efter kontraktens dagtælling\n\n\n\n\nIndsæt rentesatser som decimaltal. Årsbrøken skalerer den årlige sats til den periode, som faktisk optjener rente."
+  },
+  {
+    "objectID": "slides/chapters/02.html#ch02-s074",
+    "href": "slides/chapters/02.html#ch02-s074",
+    "title": "Obligationer",
+    "section": "182 rentedage giver 15.166,67 kr.",
+    "text": "182 rentedage giver 15.166,67 kr.\nHovedstol 1.000.000 kr., CIBOR 6M 2,50%, tillæg 0,50 procentpoint.\nACT/360 giver \\(\\Delta_i=182/360\\).\n\\[CF_i^{\\mathrm{rente}}=1.000.000(0{,}025+0{,}005)\\frac{182}{360}\\]\n\\[=15.166{,}67\\text{ kr.}\\]\n\\(\\Delta_i\\) er renteperiodens længde. \\(t_i\\) er tiden fra værdiansættelsen til betalingen.\n\nTo perioder med samme antal kalenderdage kan få forskellige årsbrøker efter deres konvention. Betalingen fastlægges af renteperioden, mens nutidsværdien afhænger af betalingsdagen."
+  },
+  {
+    "objectID": "slides/chapters/02.html#ch02-s075",
+    "href": "slides/chapters/02.html#ch02-s075",
+    "title": "Obligationer",
+    "section": "Kuponvilkår og diskontering løser hver sin opgave",
+    "text": "Kuponvilkår og diskontering løser hver sin opgave\n\\[\\mathrm{Kupon}_t=\\mathrm{CIBOR\\ 6M}_t+0{,}50\\%\\]\nReferencerenten og tillægget bestemmer betalingen.\nDiskonteringskurven bestemmer betalingens værdi i dag.\nTillæg på forskellige referencer kan ikke sammenlignes alene: samlet rente og kontraktvilkår skal med.\n\nVed floaterauktioner for FRN/F-kort byder investorer på rentetillægget. I kapitel 7 bruges DESTR-baseret OIS som prisningsgrundlag. Det er forskellige roller for renterne."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s002",
@@ -1859,7 +1894,7 @@
     "href": "slides/chapters/02.html#ch02-s016",
     "title": "Obligationer",
     "section": "Nutidsværdi tager højde for tiden",
-    "text": "Nutidsværdi tager højde for tiden\n\\[PV=\\frac A{(1+r)^t},\\qquad d_t=(1+r)^{-t}\\]\nMed nominel årlig rente \\(r\\) og \\(m\\) tilskrivninger:\n\\[d(t)=\\left(1+\\frac rm\\right)^{-mt}\\]\n\\(A\\) er betalingen, og \\(t\\) er tiden i år. Ved 10% er 110 kr. om ét år 100 kr. værd i dag.\n\nDen generelle formel kræver en nominel årlig sats med den anførte tilskrivning. I de følgende eksempler bruger vi normalt årlig effektiv rente."
+    "text": "Nutidsværdi tager højde for tiden\n\\[PV=\\frac A{(1+r)^t},\\qquad d_t=(1+r)^{-t}\\]\nMed nominel årlig rente \\(r\\) og \\(m\\) tilskrivninger:\n\\[d(t)=\\left(1+\\frac rm\\right)^{-mt}\\]\n\\(A\\) er betalingen, og \\(t\\) er tiden i år. Diskontér nu alle obligationens betalinger til samme valørdag.\n\nDen generelle formel kræver en nominel årlig sats med den anførte tilskrivning. I de følgende eksempler bruger vi normalt årlig effektiv rente."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s017",
@@ -1894,7 +1929,7 @@
     "href": "slides/chapters/02.html#ch02-s021",
     "title": "Obligationer",
     "section": "Kurs 127,80 er en pris pr. 100 nominel",
-    "text": "Kurs 127,80 er en pris pr. 100 nominel\n\\[KV=H\\frac K{100}\\]\n\\[100.000\\cdot\\frac{127{,}80}{100}=127.800\\text{ kr.}\\]\nInvestor betaler mere end den hovedstol, der tilbagebetales ved udløb, fordi kuponen er høj relativt til markedsrenten.\n\nHovedstol og kursværdi er forskellige størrelser. KV betegner her kursværdi. Kapitel 7 bruger samme bogstaver om kronevarighed, så læs symbolerne i deres sammenhæng."
+    "text": "Kurs 127,80 er en pris pr. 100 nominel\n\\[V=H\\frac K{100}\\]\n\\[100.000\\cdot\\frac{127{,}80}{100}=127.800\\text{ kr.}\\]\nInvestor betaler mere end den hovedstol, der tilbagebetales ved udløb, fordi kuponen er høj relativt til markedsrenten.\n\nHovedstol og kursværdi er forskellige størrelser. V betegner kursværdi i kroner. Kronevarighed har en anden betydning og indføres i kapitel 4."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s022",
@@ -1914,15 +1949,15 @@
     "objectID": "slides/chapters/02.html#ch02-s024",
     "href": "slides/chapters/02.html#ch02-s024",
     "title": "Obligationer",
-    "section": "Dagtællingen er en del af kontrakten",
-    "text": "Dagtællingen er en del af kontrakten\n\\[v=\\frac{rHD}{nDT}\\]\n\\(D\\): dage fra seneste termin til valør. \\(DT\\): dage i kuponperioden. \\(n\\): terminer pr. år.\n\n\n\n\n\n\n\nKonvention\nÅrsbrøk\n\n\n\n\nACT/ACT\nFaktiske dage i forhold til faktisk kuponperiode, med faktor \\(1/n\\)\n\n\nACT/360\nFaktiske dage / 360\n\n\n30/360\n30 dage pr. måned og 360 pr. år\n\n\n\n\nr er årlig kuponrente og H hovedstol. ACT/ACT er bogens markedskonvention for danske stats- og realkreditobligationer. ACT/360 mødes i pengemarkedet. Danmark skiftede fra 30/360 i 2001, jf. Nationalbankens Central Government Borrowing and Debt 2000."
+    "section": "Sælgers andel beregnes efter kontraktens regel",
+    "text": "Sælgers andel beregnes efter kontraktens regel\n\\[v=C\\cdot f\\]\n\\(C\\) er den fulde kupon i kroner. \\(f\\) er den optjente andel frem til valør.\nVed lige store, regelmæssige kuponer og ACT/ACT (ICMA):\n\\[C=\\frac{rH}{n},\\qquad f=\\frac{D}{DT},\\qquad v=\\frac{rHD}{nDT}\\]\n\\(D\\): forløbne dage. \\(DT\\): dage i den konkrete kuponperiode.\n\nEn hel kupon er normalt aftalt på forhånd, selv om kalenderen giver perioderne forskelligt antal dage. Ved handel fordeler ACT/ACT (ICMA) den konkrete kupon mellem køber og sælger. Den særlige formel forudsætter regelmæssige perioder og lige store kuponer. Andre konventioner og skæve perioder kræver deres egne regler."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s025",
     "href": "slides/chapters/02.html#ch02-s025",
     "title": "Obligationer",
     "section": "Danmark skiftede dagtælling i 2001",
-    "text": "Danmark skiftede dagtælling i 2001\nDanske stats- og realkreditobligationer følger i bogens markedskonvention ACT/ACT.\nDanmark gik fra 30/360 til ACT/ACT i 2001.\n30/360 forekommer fortsat i ældre materiale, andre kontrakter og stiliserede eksempler. Kontrakten afgør konventionen.\nKilde: Danmarks Nationalbank, Central Government Borrowing and Debt 2000.\n\nEn gammel beregningsmetode kan være korrekt for sin egen kontrakt, men give forkert afregning på en anden. Dagtælling skal fastlægges før beregningen."
+    "text": "Danmark skiftede dagtælling i 2001\nDanske statsobligationer bruger ACT/ACT frem for den tidligere 30/360-konvention.\nSkiftet blev gennemført i 2001.\n30/360 forekommer fortsat i ældre materiale, andre kontrakter og stiliserede eksempler. Kontrakten afgør konventionen.\nKilde: Danmarks Nationalbank, Central Government Borrowing and Debt 2000.\n\nEn gammel beregningsmetode kan være korrekt for sin egen kontrakt, men give forkert afregning på en anden. Dagtælling skal fastlægges før beregningen."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s026",
@@ -1970,36 +2005,50 @@
     "objectID": "slides/chapters/02.html#ch02-s032",
     "href": "slides/chapters/02.html#ch02-s032",
     "title": "Obligationer",
-    "section": "Kuponobligationens pris er to summer",
-    "text": "Kuponobligationens pris er to summer\n\\[P=\\sum_{t=1}^{N}\\frac C{(1+y)^t}+\\frac H{(1+y)^N}\\]\nFor ens årlige kuponer kan samme pris skrives:\n\\[P=C\\frac{1-(1+y)^{-N}}y+\\frac H{(1+y)^N}\\]\n\\(C\\): årlig kuponbetaling. \\(H\\): hovedstol. \\(N\\): antal år.\n\nFørste led er nutidsværdien af kuponerne, andet led hovedstolen. Annuitetsformen er blot en kort måde at skrive summen på. Effektiv rente findes normalt numerisk."
+    "section": "Den stående obligations pris er to summer",
+    "text": "Den stående obligations pris er to summer\n\\[P=\\sum_{t=1}^{N}\\frac C{(1+y)^t}+\\frac H{(1+y)^N}\\]\nFor en stående obligation med ens årlige kuponer:\n\\[P=C\\frac{1-(1+y)^{-N}}y+\\frac H{(1+y)^N}\\]\n\\(C\\): årlig kuponbetaling. \\(H\\): hovedstol. \\(N\\): antal år.\n\nFormlen gælder det stående lån. Den generelle prisformel med CF_t dækker også afdrag undervejs. Første led er nutidsværdien af kuponerne, andet led hovedstolen. Annuitetsformen er blot en kort måde at skrive summen på. Effektiv rente findes normalt numerisk."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s033",
     "href": "slides/chapters/02.html#ch02-s033",
     "title": "Obligationer",
     "section": "Kurs 98 løfter effektiv rente over kuponen",
-    "text": "Kurs 98 løfter effektiv rente over kuponen\n10-årig obligation, 4% kupon, 1.000.000 kr. nominel.\n\\[980.000=\\sum_{t=1}^{10}\\frac{40.000}{(1+y)^t}+\\frac{1.000.000}{(1+y)^{10}}\\]\nNumerisk løsning: \\(y\\approx4{,}25\\%\\).\nInvestor får både kuponer og forskellen mellem 980.000 og 1.000.000 kr.\n\nDet er et gennemregnet undervisningseksempel. Den afrundede rente på 4,25 procent bruges også i genplaceringsregningen."
+    "text": "Kurs 98 løfter effektiv rente over kuponen\n10-årig obligation, 4% kupon, 1.000.000 kr. nominel.\n\\[980.000=\\sum_{t=1}^{10}\\frac{40.000}{(1+y)^t}+\\frac{1.000.000}{(1+y)^{10}}\\]\nNumerisk løsning: \\(y=4{,}249656\\%\\approx4{,}25\\%\\).\nInvestor får både kuponer og forskellen mellem 980.000 og 1.000.000 kr.\n\nDet er et gennemregnet undervisningseksempel. Geninvesteringsberegningerne bruger uafrundet y, så betalingernes nutidsværdi og slutformue stemmer."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s034",
     "href": "slides/chapters/02.html#ch02-s034",
     "title": "Obligationer",
-    "section": "Effektiv rente bliver kun afkast under bestemte vilkår",
-    "text": "Effektiv rente bliver kun afkast under bestemte vilkår\nInvestor kan realisere et andet afkast, fordi:\n\nKuponerne genplaceres til andre renter.\nObligationen sælges før udløb til en anden kurs.\n\nI eksemplet skal de årlige 40.000 kr. genplaceres til 4,25%, hvis afkastet skal følge den effektive rente.\n\nHold forudsætningen om de aftalte betalinger fast. Reinvesteringsrisiko kaldes også genplaceringsrisiko. Det er en anden mekanisme end kursrisiko ved salg."
+    "section": "Effektiv rente bestemmes af pris og betalinger",
+    "text": "Effektiv rente bestemmes af pris og betalinger\n\\[P_0=\\sum_{t=1}^{N}\\frac{CF_t}{(1+y)^t}\\]\n\\(y\\) er betalingsrækkens interne rente. Kuponernes senere anvendelse indgår ikke i denne beregning.\nAfkastet med geninvestering afhænger af, hvad betalingerne tjener frem til udløb. Ved tidligere salg tæller salgskursen også med.\n\nForudsæt de aftalte betalinger. Undgå formuleringen om, at YTM først bliver en intern rente, når kuponerne geninvesteres. Kilde: Forbes, Hatem og Paul (2008), s. 49–50, i bogens litteraturliste."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s035",
     "href": "slides/chapters/02.html#ch02-s035",
     "title": "Obligationer",
-    "section": "Genplacerede kuponer får selv rente: år 1–5",
-    "text": "Genplacerede kuponer får selv rente: år 1–5\nGenplaceringsrente 4,25%, kupon 40.000 kr. pr. år.\n\n\n\nÅr\nNy betaling\nAkkumuleret værdi\n\n\n\n\n1\n40.000\n40.000\n\n\n2\n40.000\n81.700\n\n\n3\n40.000\n125.172\n\n\n4\n40.000\n170.492\n\n\n5\n40.000\n217.738\n\n\n\nÅr 2: \\(40.000\\cdot1{,}0425+40.000=81.700\\) kr.\n\nHvert år forrentes den samlede opsparede kuponbeholdning, før årets nye kupon lægges til. Tallene er bogens afrundede kronebeløb."
+    "section": "De samme betalinger diskonteres tilbage til køb",
+    "text": "De samme betalinger diskonteres tilbage til køb\n\n\\[980.000=\\sum_{t=1}^{10}\\frac{40.000}{(1+y)^t}+\\frac{1.000.000}{(1+y)^{10}}\\]\n\\(y=4{,}249656\\%\\). Beregningerne bruger den uafrundede rente.\n\nDette er panel A i bogens figur 2.8. Pilenes retning viser diskontering. Kuponerne har samlet nutidsværdi 320.441 kr.; hovedstolen 659.559 kr. Beløbene i figuren måles i 1.000 kr."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s036",
     "href": "slides/chapters/02.html#ch02-s036",
     "title": "Obligationer",
-    "section": "I år 10 kommer hovedstolen oveni",
-    "text": "I år 10 kommer hovedstolen oveni\n\n\n\nÅr\nNy betaling\nAkkumuleret værdi\n\n\n\n\n6\n40.000\n266.992\n\n\n7\n40.000\n318.339\n\n\n8\n40.000\n371.868\n\n\n9\n40.000\n427.673\n\n\n10\n1.040.000\n1.485.849\n\n\n\nSlutværdi: 1.000.000 kr. hovedstol + 400.000 kr. kuponer + 85.849 kr. rente på kuponer.\n\nTabellen bruger den afrundede effektive rente. Med den præcise rente svarer slutværdien præcist til købsprisen forrentet i ti år."
+    "section": "Kuponkontoen vokser med geninvesteringsrenten",
+    "text": "Kuponkontoen vokser med geninvesteringsrenten\n\nVed udløb lægges hovedstolen på 1.000.000 kr. til kuponkontoen.\n\nDette er panel B i samme figur. Se hele bogfiguren. Kurverne viser kontoen lige efter hver årlig kuponbetaling. Den sidste kupon får ingen geninvesteringsrente. Ved y står der 485.841 kr.; ved 2% står der 437.989 kr. Hovedstolen indgår først ved udløb, og kurven viser derfor ikke den samlede formue."
+  },
+  {
+    "objectID": "slides/chapters/02.html#ch02-s077",
+    "href": "slides/chapters/02.html#ch02-s077",
+    "title": "Obligationer",
+    "section": "Diskontering og fremføring balancerer hinanden",
+    "text": "Diskontering og fremføring balancerer hinanden\nGang prisligningen med \\((1+y)^N\\):\n\\[P_0(1+y)^N=\\sum_{t=1}^{N}CF_t(1+y)^{N-t}\\]\n\\[980.000(1+y)^{10}=1.485.841{,}15\\text{ kr.}\\]\nVenstre side fremfører købsbeløbet. Højre side geninvesterer de samme betalinger til \\(y\\).\n\nEn konstant geninvesteringsrente lig y giver identiteten. Det er en tilstrækkelig placeringsstrategi i dette eksempel; definitionen af YTM kræver ingen sådan strategi. Hold til udløb, og forudsæt aftalte betalinger uden skat eller omkostninger."
+  },
+  {
+    "objectID": "slides/chapters/02.html#ch02-s078",
+    "href": "slides/chapters/02.html#ch02-s078",
+    "title": "Obligationer",
+    "section": "En anden geninvesteringsrente giver et andet afkast",
+    "text": "En anden geninvesteringsrente giver et andet afkast\nLad \\(g\\) være geninvesteringsrenten og \\(R\\) det årlige afkast:\n\\[980.000(1+R)^{10}=1.000.000+\\sum_{t=1}^{10}40.000(1+g)^{10-t}\\]\n\n\n\nGeninvestering\nSlutformue, kr.\nÅrligt afkast\n\n\n\n\nTil \\(y\\)\n1.485.841,15\n\\(R=y\\approx4{,}25\\%\\)\n\n\nTil 2%\n1.437.988,84\n\\(R\\approx3{,}91\\%\\)\n\n\n\nKøbsprisen og obligationens aftalte betalinger er de samme.\n\nLigningen er bogens 2.11. R får købsbeløb og slutformue til at passe sammen. Ved g=2% er R=3,908947%. YTM ændres ikke af, hvilken rente investor senere opnår på kuponkontoen. Forudsæt de aftalte betalinger, beholdning til udløb og ingen skat eller omkostninger."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s037",
@@ -2289,6 +2338,13 @@
     "text": "Materialet er samlet på forsiden\n\nLektionsnoter i finansiering 2026: ti kapitler.\nSlides: browserudgave og PDF til hvert kapitel.\nOS1–OS5: øvelsessæt til selvstændigt arbejde.\nBrightspace: beskeder, lokale og eksamensoplysninger.\n\n\nVis, hvor de studerende henter noter, slides og øvelsessæt. De kan følge bogens gennemregnede eksempler og derefter prøve metoderne i opgaverne."
   },
   {
+    "objectID": "slides/chapters/00.html#intro-formler",
+    "href": "slides/chapters/00.html#intro-formler",
+    "title": "Kursusintroduktion",
+    "section": "Smagsprøve på centrale formler",
+    "text": "Smagsprøve på centrale formler\n\n\nPris på en kuponobligation · kapitel 2\n\\[P=\\sum_{t=1}^{N}\\frac{C}{(1+y)^t}+\\frac{H}{(1+y)^N}\\]\nKuponer og hovedstol diskonteres til i dag.\nKronevarighed · kapitel 4\n\\[d=\\frac{D}{1+y}\\frac{K}{100}=MD\\frac{K}{100}\\]\nOmtrentligt kursfald ved +1 procentpoint rente.\n\nKronekonveksitet · kapitel 4\n\\[\\mathrm{Cvx}_{\\mathrm{KR}}=\\frac{0{,}01^2}{(1+y)^2}\\sum_t t(t+1)PV(CF_t)\\]\nTager højde for krumningen i kursens reaktion.\nKonverteringsgevinst · kapitel 6\n\\[Gain_t=\\frac{PV_{\\mathrm{continue},t}-100(1+cost_t)}{PV_{\\mathrm{continue},t}}\\]\nBesparelsen ved pariindfrielse, efter omkostninger.\n\n\nDette er samme udvalg som i 2025-introduktionen, med notation fra 2026-kapitlerne. De studerende skal ikke kunne formlerne ved kursusstart; vi gennemgår dem i kapitel 2, 4 og 6.\nI prisformlen er C kuponbetalingen pr. termin, H hovedstolen, N antallet af terminer og y den effektive rente pr. termin. Der antages faste kuponer og tilbagebetaling af hele hovedstolen ved udløb.\nI risikomålene bruger vi årlige betalinger og en årlig effektiv rente y. D er Macaulay-varighed, MD modificeret varighed og K kurs pr. 100 nominel. Kronevarighed d angiver det omtrentlige kursfald ved en rentestigning på 1 procentpoint. Ved et rentestød på Δy_pp procentpoint er kursændringen omtrent −d·Δy_pp + ½·Cvx_KR·(Δy_pp)². I kronekonveksiteten er betalingerne CF_t opgjort pr. 100 nominel, og PV(CF_t)=CF_t/(1+y)^t. Begge risikomål vedrører faste betalinger; konverterbare obligationer kræver også en model for låntagernes adfærd.\nGain-formlen er specialtilfældet med indfrielse til pari 100. PV_continue,t er nutidsværdien af det gamle låns resterende betalinger på refinansieringskurven, og cost_t er omkostninger som andel af indfrielsesbeløbet. Positiv Gain giver et økonomisk incitament til at konvertere. Den enkelte låntager kan have et højere gevinstkrav."
+  },
+  {
     "objectID": "slides/chapters/00.html#intro-s006",
     "href": "slides/chapters/00.html#intro-s006",
     "title": "Kursusintroduktion",
@@ -2450,11 +2506,32 @@
     "text": "To historiske retninger for presset på kronen\n\n\n\n\n\n\n\nPeriode\nMekanisme\n\n\n\n\n2012–2022\nEuroområdets lave renter trak danske renter ned. Stor kroneefterspørgsel kunne kræve endnu lavere dansk rente.\n\n\nForåret 2020\nInvestorer solgte danske aktiver og kroner. Nationalbanken hævede relativt til euroområdet og købte kroner.\n\n\n\nSamme mål: at holde kronens kurs stabil.\n\nBegge eksempler skal stå med deres historiske dato. De viser, hvorfor dansk rente kan afvige lidt fra euroområdets."
   },
   {
+    "objectID": "slides/chapters/01.html#ch01-s041",
+    "href": "slides/chapters/01.html#ch01-s041",
+    "title": "Renten",
+    "section": "Samme årsrente kan give forskellige betalinger",
+    "text": "Samme årsrente kan give forskellige betalinger\nEt kort lån skal forrentes for de dage, låntager råder over pengene.\nVed et lån med samme rentebetaling hvert halve år er beløbet aftalt, selv om halvårene har forskelligt antal dage.\nDagskonventionen er parternes fælles regel for at måle perioden.\n\nBegynd med et kort lån uden afdrag og med en årligt oplyst rente. Flere konventioner er etableret på forskellige markeder. Kontrakten bestemmer, hvilken regel parterne skal bruge. Forklar først obligationens kuponperiode i kapitel 2."
+  },
+  {
+    "objectID": "slides/chapters/01.html#ch01-s042",
+    "href": "slides/chapters/01.html#ch01-s042",
+    "title": "Renten",
+    "section": "Årsbrøken omsætter en årsrente til rentedage",
+    "text": "Årsbrøken omsætter en årsrente til rentedage\n\\[\\text{Rente}=\\text{lånebeløb}\\cdot\\text{årsrente}\\cdot\\text{årsbrøk}\\]\n\n\n\n\n\n\n\nKonvention\nHvordan måles perioden?\n\n\n\n\nACT/360\nFaktiske rentedage / 360\n\n\n30/360\n30 dage pr. måned og 360 pr. år\n\n\nACT/ACT\nFaktiske dage i forhold til den relevante periode; varianten afhænger af aftalen\n\n\n\nKontrollér lånets vilkår, før betalingen beregnes.\n\nVed lige store, regelmæssige rentebetalinger kan en ACT/ACT-konvention måle den forløbne del af en betalingsperiode og tage hensyn til antallet af betalinger pr. år. ACT/ACT dækker flere varianter. Undgå at bruge én kuponformel som generel definition."
+  },
+  {
+    "objectID": "slides/chapters/01.html#ch01-s026",
+    "href": "slides/chapters/01.html#ch01-s026",
+    "title": "Renten",
+    "section": "Halvårlig tilskrivning gør 6% til 6,09%",
+    "text": "Halvårlig tilskrivning gør 6% til 6,09%\nNominel årlig rente \\(r\\), med \\(m\\) tilskrivninger:\n\\[r_{\\mathrm{eff}}=\\left(1+\\frac rm\\right)^m-1\\]\n\\[\\left(1+\\frac{0{,}06}{2}\\right)^2-1=6{,}09\\%\\]\nFørste halvårs rente når selv at blive forrentet.\nI lånedokumenter kaldes effektiv årlig rente også debitorrenten.\n\nTilskrivningsfrekvensen skal være kendt, før satser sammenlignes. Her sammenlignes tilskrivningen på et lån eller en opsparing. Kapitel 2 definerer en obligations effektive rente ud fra dens pris og betalinger."
+  },
+  {
     "objectID": "slides/chapters/01.html#ch01-s014",
     "href": "slides/chapters/01.html#ch01-s014",
     "title": "Renten",
     "section": "En variabel rente følger en aftalt reference",
-    "text": "En variabel rente følger en aftalt reference\n\\[\\text{Betalt rente}=\\text{referencerente}+\\text{tillæg}\\]\nReferencerenten leverer kontraktens bevægelige del.\nFixing er den offentliggjorte værdi på en bestemt dato.\nRentetillægget aftales i kontrakten eller ved auktion og ligger som udgangspunkt fast.\n\nKontrakten slipper for genforhandling, hver gang markedsrenten ændrer sig. Tillægget kompenserer for egenskaber og risici ud over selve referencen."
+    "text": "En variabel rente følger en aftalt reference\n\\[\\text{Betalt rente}=\\text{referencerente}+\\text{tillæg}\\]\nReferencerenten leverer kontraktens bevægelige del.\nFixing er den offentliggjorte værdi på en bestemt dato.\nRentetillægget er den ekstra rente, parterne aftaler i kontrakten.\n\nKontrakten slipper for genforhandling, hver gang markedsrenten ændrer sig. Tillægget kompenserer for egenskaber og risici ud over selve referencen."
   },
   {
     "objectID": "slides/chapters/01.html#ch01-s015",
@@ -2467,85 +2544,29 @@
     "objectID": "slides/chapters/01.html#ch01-s016",
     "href": "slides/chapters/01.html#ch01-s016",
     "title": "Renten",
-    "section": "Hvornår kendes periodens rente?",
-    "text": "Hvornår kendes periodens rente?\nCIBOR: en terminsrente fastsættes normalt før periodens begyndelse.\nDESTR: daglige renter akkumuleres gennem perioden. Den endelige rente kendes først nær periodens afslutning.\nKontrakten skal angive, hvordan daglige renter samles til en betaling.\nI bogens status for 2026 bruges CIBOR fortsat. En arbejdsgruppe undersøger en mulig overgang til transaktionsbaserede referencer.\n\nKilde til status: Danmarks Nationalbank, Working Group on CIBOR Transition, 2026. Beskriv mekanismerne uden at foregribe resultatet af arbejdet."
+    "section": "Renteperioden skal passe til kontrakten",
+    "text": "Renteperioden skal passe til kontrakten\nCIBOR 3M og CIBOR 6M gælder usikret finansiering i tre og seks måneder.\nDESTR gælder én bankdag. Skal den bruges over en længere periode, må kontrakten angive, hvordan de daglige renter samles.\nCIBOR bruges fortsat i danske kontrakter. En arbejdsgruppe undersøger en overgang til mere transaktionsbaserede referencer.\n\nEn dag-til-dag-rente kan ikke uden videre erstatte en forud fastsat terminsrente. Betalingstidspunkt og renteberegning skal følge aftalen. Kilde: Danmarks Nationalbank, Arbejdsgruppe om CIBOR transition; fuld henvisning i bogens litteraturliste."
   },
   {
-    "objectID": "slides/chapters/01.html#ch01-s017",
-    "href": "slides/chapters/01.html#ch01-s017",
+    "objectID": "slides/chapters/01.html#ch01-s043",
+    "href": "slides/chapters/01.html#ch01-s043",
     "title": "Renten",
-    "section": "En rentesats bliver til en betaling",
-    "text": "En rentesats bliver til en betaling\n\\[CF_i^{\\mathrm{rente}}=H(r_i^{\\mathrm{ref}}+q)\\Delta_i\\]\n\n\n\nSymbol\nBetydning\n\n\n\n\n\\(H\\)\nHovedstol i kroner\n\n\n\\(r_i^{\\mathrm{ref}}\\)\nPeriodens årlige referencerente\n\n\n\\(q\\)\nAftalt årligt tillæg\n\n\n\\(\\Delta_i\\)\nRenteperiodens årsbrøk efter kontraktens dagtælling\n\n\n\n\nIndsæt rentesatser som decimaltal. Årsbrøken skalerer den årlige sats til den periode, som faktisk optjener rente."
+    "section": "Bankerne indberettede en rente, de selv tjente på",
+    "text": "Bankerne indberettede en rente, de selv tjente på\nLIBOR byggede på bankernes skøn over, hvilken rente de kunne låne til hos andre banker.\nI Barclays bad handlere om højere eller lavere indberetninger, alt efter hvad der gav gevinst på deres aftaler.\nEn mail fra 2006 tilbød en flaske Bollinger som tak for en lavere indberetning:\n\n“I’m opening a bottle of Bollinger.”\n\n\nDe højeste og laveste indberetninger blev sorteret fra, og resten dannede et gennemsnit. Én bank bestemte ikke renten alene, men kunne påvirke den. Mailen var fra en handler i en anden bank og vedrørte tremåneders LIBOR i amerikanske dollar. Kilde: FSA, Final Notice: Barclays Bank Plc, 27. juni 2012, pkt. 30–35 og 83; se bogens litteraturliste."
   },
   {
-    "objectID": "slides/chapters/01.html#ch01-s018",
-    "href": "slides/chapters/01.html#ch01-s018",
+    "objectID": "slides/chapters/01.html#ch01-s044",
+    "href": "slides/chapters/01.html#ch01-s044",
     "title": "Renten",
-    "section": "182 rentedage giver 15.166,67 kr.",
-    "text": "182 rentedage giver 15.166,67 kr.\nHovedstol 1.000.000 kr., CIBOR 6M 2,50%, tillæg 0,50 procentpoint.\nACT/360 giver \\(\\Delta_i=182/360\\).\n\\[CF_i^{\\mathrm{rente}}=1.000.000(0{,}025+0{,}005)\\frac{182}{360}\\]\n\\[=15.166{,}67\\text{ kr.}\\]\n\\(\\Delta_i\\) er renteperiodens længde. \\(t_i\\) er tiden fra værdiansættelsen til betalingen.\n\nTo perioder med samme antal kalenderdage kan få forskellige årsbrøker efter deres konvention. Betalingen fastlægges af renteperioden, mens nutidsværdien afhænger af betalingsdagen."
-  },
-  {
-    "objectID": "slides/chapters/01.html#ch01-s019",
-    "href": "slides/chapters/01.html#ch01-s019",
-    "title": "Renten",
-    "section": "En fixing og et kurvepunkt har forskellige tidsangivelser",
-    "text": "En fixing og et kurvepunkt har forskellige tidsangivelser\nCIBOR 3M angiver tre måneder pr. renteperiode.\nÉtårspunktet på CIBOR 3M-kurven sammenfatter prisfastsættelsen over det næste år med successive tremånedersperioder.\nPunktet er hverken en officiel CIBOR 1Y-fixing eller én fremtidig CIBOR 3M-fixing.\n\nI den følgende tabel angiver kolonnen referenceperioden, mens rækken angiver kurvepunktets horisont."
-  },
-  {
-    "objectID": "slides/chapters/01.html#ch01-s020",
-    "href": "slides/chapters/01.html#ch01-s020",
-    "title": "Renten",
-    "section": "En daglig reference kan bære en lang kurve",
-    "text": "En daglig reference kan bære en lang kurve\nEn renteswap bytter fast rente mod variabel rente.\nI en OIS følger den variable betaling de akkumulerede daglige renter.\nPriser på DESTR-baserede OIS-kontrakter giver kurvepunkter fra korte horisonter til fx 30 år.\nEt langt kurvepunkt sammenfatter prisfastsættelsen over hele horisonten.\n\nOIS står for Overnight Indexed Swap. Selv om den underliggende rente gælder én dag, kan aftalen udveksle betalinger over mange år."
-  },
-  {
-    "objectID": "slides/chapters/01.html#ch01-s021",
-    "href": "slides/chapters/01.html#ch01-s021",
-    "title": "Renten",
-    "section": "Referencekurvens navn og punktets horisont",
-    "text": "Referencekurvens navn og punktets horisont\nStiliserede årlige kurverenter. Kilde: bogens egen illustration.\n\n\n\nHorisont\nDESTR-baseret\nCIBOR 3M\nCIBOR 6M\n\n\n\n\n3 måneder\n1,80%\n2,10%\n2,30%\n\n\n6 måneder\n1,85%\n2,15%\n2,35%\n\n\n9 måneder\n1,90%\n2,20%\n2,40%\n\n\n1 år\n1,95%\n2,25%\n2,45%\n\n\n\nTallene er antagne kurvepunkter, ikke officielle fixinger.\n\nDe 1,80% i øverste række gælder den årlige kurverente knyttet til hele tremånedersperioden. Det er ikke en forudsigelse af DESTR på en bestemt dag om tre måneder."
-  },
-  {
-    "objectID": "slides/chapters/01.html#ch01-s022",
-    "href": "slides/chapters/01.html#ch01-s022",
-    "title": "Renten",
-    "section": "Både horisont og reference påvirker kurverenten",
-    "text": "Både horisont og reference påvirker kurverenten\n Følg én kurve langs løbetiden. Sammenlign derefter kurver ved samme løbetid. Niveauer og afstande er illustrative.\n\nAlle tre kurver stiger i dette eksempel. Rækkefølgen og de konstante afstande er ikke generelle regler. Markedets kurver afspejler også præmier og må ikke læses som sikre punktprognoser."
-  },
-  {
-    "objectID": "slides/chapters/01.html#ch01-s023",
-    "href": "slides/chapters/01.html#ch01-s023",
-    "title": "Renten",
-    "section": "CITA er en reference for korte renteswaps",
-    "text": "CITA er en reference for korte renteswaps\nCITA fastsættes for kommende perioder og bygger på DESTR-baserede OIS-kontrakter.\nFra 1. januar 2026 lægger DFBF ikke længere det tidligere faste spread til panelbankernes DESTR-OIS-tilbud.\nCITA vender tilbage i vilkårene for floaters i kapitel 5.\nKilde: DFBF, CITA Reformation og benchmarkbeskrivelsen, som gengivet i final-bogen.\n\nHold CITA knyttet til swapmekanismen. Det er tilstrækkeligt at kunne genkende betegnelsen i kontraktvilkårene."
-  },
-  {
-    "objectID": "slides/chapters/01.html#ch01-s024",
-    "href": "slides/chapters/01.html#ch01-s024",
-    "title": "Renten",
-    "section": "Kuponvilkår og diskontering løser hver sin opgave",
-    "text": "Kuponvilkår og diskontering løser hver sin opgave\n\\[\\mathrm{Kupon}_t=\\mathrm{CIBOR\\ 6M}_t+0{,}50\\%\\]\nReferencerenten og tillægget bestemmer betalingen.\nDiskonteringskurven bestemmer betalingens værdi i dag.\nTillæg på forskellige referencer kan ikke sammenlignes alene: samlet rente og kontraktvilkår skal med.\n\nVed refinansieringsauktioner byder investorer på tillægget. I kapitel 7 bruges DESTR-baseret OIS som prisningsgrundlag. Det er forskellige roller for renterne."
-  },
-  {
-    "objectID": "slides/chapters/01.html#ch01-s025",
-    "href": "slides/chapters/01.html#ch01-s025",
-    "title": "Renten",
-    "section": "Pålydende rente beskriver kontrakten",
-    "text": "Pålydende rente beskriver kontrakten\nEn 30-årig statsobligation med 5% kupon betaler 5 kr. om året pr. 100 kr. hovedstol.\nEt banklån kan fx oplyse en nominel rente på 8,75%.\nDen effektive rente samler købskurs, betalingstidspunkter og rente på rente i en årlig forrentning.\n\nEn kupon på fem procent siger endnu ikke, hvad investor forrenter sin faktiske investering med. Investor kan betale en anden pris end 100."
-  },
-  {
-    "objectID": "slides/chapters/01.html#ch01-s026",
-    "href": "slides/chapters/01.html#ch01-s026",
-    "title": "Renten",
-    "section": "Halvårlig tilskrivning gør 6% til 6,09%",
-    "text": "Halvårlig tilskrivning gør 6% til 6,09%\nNominel årlig rente \\(r\\), med \\(m\\) tilskrivninger:\n\\[r_{\\mathrm{eff}}=\\left(1+\\frac rm\\right)^m-1\\]\n\\[\\left(1+\\frac{0{,}06}{2}\\right)^2-1=6{,}09\\%\\]\nFørste halvårs rente når selv at blive forrentet.\nI lånedokumenter kaldes effektiv årlig rente også debitorrenten.\n\nTilskrivningsfrekvensen skal være kendt, før satser sammenlignes. Kapitlet bruger effektiv rente intuitivt. Kapitel 2 bestemmer den ud fra en hel obligations betalingsrække."
+    "section": "Manipulationen ændrede grundlaget for betalingerne",
+    "text": "Manipulationen ændrede grundlaget for betalingerne\nPå et lån til LIBOR plus et fast tillæg giver en højere fixing en større betaling fra låntager til långiver. En lavere fixing virker modsat.\nUnder finanskrisen sænkede Barclays også indberetninger for at undgå mistanke om finansieringsproblemer.\nFSA gav banken en bøde på 59,5 mio. pund i 2012 i sagen om LIBOR og EURIBOR.\nReferencerenten kræver regler for indberetning og kontrol med, at de bliver fulgt.\n\nKnyt sagen til interessekonflikten og de faktiske betalinger i kontrakten. Tilsynet kritiserede også kontrollen og opfølgningen på interne advarsler. Reformerne søgte et stærkere grundlag i faktiske handler. Kilder: FSA, pressemeddelelse 27. juni 2012; FCA, Do I need to worry about benchmark regulation?, 2. februar 2016. Fuld henvisning i bogens litteraturliste."
   },
   {
     "objectID": "slides/chapters/01.html#ch01-s027",
     "href": "slides/chapters/01.html#ch01-s027",
     "title": "Renten",
     "section": "Tre renter med tre funktioner",
-    "text": "Tre renter med tre funktioner\n\n\n\n\n\n\n\n\nRente\nFunktion\nVidere i kurset\n\n\n\n\nKuponrente\nAftalte betalinger\nKapitel 2\n\n\nReference + tillæg\nVariable kuponer\nKapitel 5\n\n\nDiskonteringsrente og kurve\nPriser og risikomål\nKapitel 2, 3, 6 og 7\n\n\n\nSammenlign altid renter på samme periode og tilskrivningsgrundlag.\n\nBed de studerende afgøre, om en oplyst rente beskriver kuponbetalinger, variable betalinger eller diskontering."
+    "text": "Tre renter med tre funktioner\n\n\n\n\n\n\n\n\nRente\nFunktion\nVidere i kurset\n\n\n\n\nKuponrente\nAftalte betalinger\nKapitel 2\n\n\nReference + tillæg\nVariable kuponer\nKapitel 2 og 5\n\n\nDiskonteringsrente og kurve\nPriser og risikomål\nKapitel 2, 3, 6 og 7\n\n\n\nSammenlign altid renter på samme periode og tilskrivningsgrundlag.\n\nBed de studerende afgøre, om en oplyst rente beskriver kuponbetalinger, variable betalinger eller diskontering."
   },
   {
     "objectID": "slides/chapters/01.html#ch01-s028",
@@ -2803,8 +2824,22 @@
     "objectID": "slides/chapters/03.html#ch03-s024",
     "href": "slides/chapters/03.html#ch03-s024",
     "title": "Rentestrukturen",
-    "section": "Under modelkurven betyder billig i prisrummet",
-    "text": "Under modelkurven betyder billig i prisrummet\n Trekanter under den teoretiske kurslinje har lavere markedskurs. I renterummet vender sammenligningen om: lav pris giver høj effektiv rente.\n\nForklar, hvorfor retningen vender mellem pris og rente. Mindre afvigelser kan skyldes handelsstøj, likviditet og begrænsninger i modellen."
+    "section": "Hver obligation sammenlignes med sin egen modelpris",
+    "text": "Hver obligation sammenlignes med sin egen modelpris\n\nLodret akse: markedskurs minus modelkurs, i kurspoint. Et punkt under nul har lavere markedskurs end sin egen modelkurs.\n\nBeregn først modelprisen fra hver obligations egen kupon- og afdragsrække på samme valgte kurve. Sammenlign derefter med dens markedskurs. Forskellige kuponer kan ikke sammenlignes med én fælles kurs–løbetidslinje. Figuren er skematisk og viser ingen observerede markedsdata. Bemærk fortegnet: grafen viser K-K, mens NPV ovenfor er K-K."
+  },
+  {
+    "objectID": "slides/chapters/03.html#ch03-s063",
+    "href": "slides/chapters/03.html#ch03-s063",
+    "title": "Rentestrukturen",
+    "section": "PV-spændet får modellen til at ramme markedets pris",
+    "text": "PV-spændet får modellen til at ramme markedets pris\nFor en fast betalingsrække vælges \\(s\\), så\n\\[P_{\\mathrm{marked}}=\\sum_i\\frac{CF_i}{(1+z_i+s)^{t_i}}.\\]\nEt positivt \\(s\\) øger diskonteringen og sænker modelprisen.\n\\(z_i\\) og \\(s\\) bruger samme årlige rentekonvention. \\(t_i\\) måles fra valør.\n\nPrisen er dirty og har samme enhed som betalingerne. Spændet afhænger af den valgte kurve og betalingsrække. OAS i kapitel 7 bruger også en model for, hvordan konvertering ændrer betalingerne. Et PV-spænd er hverken en officiel fixing eller et fast kuponvilkår."
+  },
+  {
+    "objectID": "slides/chapters/03.html#ch03-s064",
+    "href": "slides/chapters/03.html#ch03-s064",
+    "title": "Rentestrukturen",
+    "section": "En lavere markedskurs kræver et positivt PV-spænd",
+    "text": "En lavere markedskurs kræver et positivt PV-spænd\nÉn betaling på 100 kr. om et år. Nulkuponrenten er 4%.\n\\[P_{\\mathrm{model}}=\\frac{100}{1{,}04}=96{,}15\\text{ kr.}\\]\nMarkedskursen er 95,24 kr.:\n\\[95{,}24=\\frac{100}{1+0{,}04+s}\\quad\\Rightarrow\\quad s\\approx1\\%\\]\nSpændet er omtrent 100 basispunkter. Det fortæller ikke alene, hvorfor prisen afviger.\n\nMarkedskursen er afrundet; 100/1,05=95,2381. Derfor er det beregnede spænd omtrent 1 procentpoint. Kredit, likviditet og modelvalg kan påvirke forskellen. Hold betalingen fast, når spændet findes."
   },
   {
     "objectID": "slides/chapters/03.html#ch03-s025",
@@ -2852,15 +2887,57 @@
     "objectID": "slides/chapters/03.html#ch03-s031",
     "href": "slides/chapters/03.html#ch03-s031",
     "title": "Rentestrukturen",
-    "section": "Swapmarkedet giver mange løbetider hver dag",
-    "text": "Swapmarkedet giver mange løbetider hver dag\nEn renteswap bytter fast rente mod variabel rente.\nDESTR-baserede OIS-swaps bruger akkumulerede daglige renter på det variable ben.\nLikvide swappriser over mange løbetider giver grundlag for en glat nulkuponkurve med færre særheder fra enkelte obligationsserier.\n\nDen faste rente i en parswap kan behandles som kuponen på en obligation til kurs 100. Kendte korte diskonteringsfaktorer bruges til at finde den næste, som i bootstrapping."
+    "section": "Swaprenten balancerer de to betalingsrækker",
+    "text": "Swaprenten balancerer de to betalingsrækker\nEn renteswap bytter fast rente mod variabel rente. Ved indgåelsen vælges den faste parsats \\(S\\), så\n\\[PV_{\\mathrm{fast}}=PV_{\\mathrm{variabelt}}.\\]\nI en enkel model med én kurve:\n\\[S=\\frac{\\sum_i\\alpha_iD_iF_i}{\\sum_i\\alpha_iD_i}\\]\nForwardrenterne \\(F_i\\) vægtes med årsbrøkerne \\(\\alpha_i\\) og diskonteringsfaktorerne \\(D_i\\).\n\nForwardrenterne er udledt af priser i dag. Parsatsen er et diskonteringsvægtet gennemsnit i den simple model og ikke et uvægtet gennemsnit af sikre fremtidige fixinger. Efter indgåelsen kan swappen få positiv eller negativ værdi. Ved flere kurver bruges én til de variable renter og en anden til diskontering."
   },
   {
     "objectID": "slides/chapters/03.html#ch03-s032",
     "href": "slides/chapters/03.html#ch03-s032",
     "title": "Rentestrukturen",
     "section": "Swapkurven bliver kursets prisningsgrundlag",
-    "text": "Swapkurven bliver kursets prisningsgrundlag\nParswapens faste ben kan opfattes som en kuponobligation til kurs 100.\nBootstrapping udleder de swapbaserede nulkuponrenter.\n\nKapitel 6 kalibrerer rentemodellen til den initielle kurve.\nKapitel 7 bruger \\(z_t^{\\mathrm{swap}}\\) og lægger OAS ovenpå.\n\n\nSwaprenter og swapbaserede nulkuponrenter er forskellige størrelser. Det er den udledte nulkuponkurve, der diskonterer de enkelte betalinger."
+    "text": "Swapkurven bliver kursets prisningsgrundlag\nI modellen med én kurve kan parswaprenter bruges til at finde diskonteringsfaktorer trin for trin.\nBootstrapping udleder de swapbaserede nulkuponrenter.\n\nKapitel 6 kalibrerer rentemodellen til den initielle kurve.\nKapitel 7 bruger \\(z_t^{\\mathrm{swap}}\\) og lægger OAS ovenpå.\n\n\nBeregningen afhænger også af betalingsfrekvens, sikkerhedsstillelse og eventuelle særskilte forwardkurver. Swaprenter og swapbaserede nulkuponrenter er forskellige størrelser. Det er den udledte nulkuponkurve, der diskonterer de enkelte betalinger."
+  },
+  {
+    "objectID": "slides/chapters/03.html#ch03-s065",
+    "href": "slides/chapters/03.html#ch03-s065",
+    "title": "Rentestrukturen",
+    "section": "To kurver kan have hver sin opgave",
+    "text": "To kurver kan have hver sin opgave\n\n\n\n\n\n\n\nKurve\nHvad bruges den til?\n\n\n\n\nFremskrivningskurve\nForwardrenter til variable kuponer, der endnu ikke er fastsat\n\n\nDiskonteringskurve\nBetalingernes værdi i dag\n\n\n\nValget afhænger af aftalens reference, valuta, sikkerhedsstillelse og prisningsvilkår.\nEn offentliggjort fixing er ét rentetal. En kurve bygges af priser på flere kontrakter.\n\nCIBOR 3M og CIBOR 6M er referencer med hver sin renteperiode. Kurver knyttet til dem kan have lange horisonter. DESTR er daglig, men DESTR-OIS-kontrakter kan løbe i mange år. Den fælles kurve i bootstrap-eksemplet er en forenkling."
+  },
+  {
+    "objectID": "slides/chapters/03.html#ch03-s058",
+    "href": "slides/chapters/03.html#ch03-s058",
+    "title": "Rentestrukturen",
+    "section": "En fixing og et kurvepunkt har forskellige tidsangivelser",
+    "text": "En fixing og et kurvepunkt har forskellige tidsangivelser\nCIBOR 3M angiver tre måneder pr. renteperiode.\nÉtårspunktet på CIBOR 3M-kurven sammenfatter prisfastsættelsen over det næste år med successive tremånedersperioder.\nPunktet er hverken en officiel CIBOR 1Y-fixing eller én fremtidig CIBOR 3M-fixing.\n\nI den følgende tabel angiver kolonnen referenceperioden, mens rækken angiver kurvepunktets horisont."
+  },
+  {
+    "objectID": "slides/chapters/03.html#ch03-s059",
+    "href": "slides/chapters/03.html#ch03-s059",
+    "title": "Rentestrukturen",
+    "section": "En daglig reference kan bære en lang kurve",
+    "text": "En daglig reference kan bære en lang kurve\nEn renteswap bytter fast rente mod variabel rente.\nI en OIS følger den variable betaling de akkumulerede daglige renter.\nPriser på DESTR-baserede OIS-kontrakter giver kurvepunkter fra korte horisonter til fx 30 år.\nEt langt kurvepunkt sammenfatter prisfastsættelsen over hele horisonten.\n\nOIS står for Overnight Indexed Swap. Selv om den underliggende rente gælder én dag, kan aftalen udveksle betalinger over mange år."
+  },
+  {
+    "objectID": "slides/chapters/03.html#ch03-s060",
+    "href": "slides/chapters/03.html#ch03-s060",
+    "title": "Rentestrukturen",
+    "section": "Referencekurvens navn og punktets horisont",
+    "text": "Referencekurvens navn og punktets horisont\nStiliserede årlige kurverenter. Kilde: bogens egen illustration.\n\n\n\nHorisont\nDESTR-baseret\nCIBOR 3M\nCIBOR 6M\n\n\n\n\n3 måneder\n1,80%\n2,10%\n2,30%\n\n\n6 måneder\n1,85%\n2,15%\n2,35%\n\n\n9 måneder\n1,90%\n2,20%\n2,40%\n\n\n1 år\n1,95%\n2,25%\n2,45%\n\n\n\nTallene er antagne kurvepunkter, ikke officielle fixinger.\n\nDe 1,80% i øverste række gælder den årlige kurverente knyttet til hele tremånedersperioden. Det er ikke en forudsigelse af DESTR på en bestemt dag om tre måneder."
+  },
+  {
+    "objectID": "slides/chapters/03.html#ch03-s061",
+    "href": "slides/chapters/03.html#ch03-s061",
+    "title": "Rentestrukturen",
+    "section": "Både horisont og reference påvirker kurverenten",
+    "text": "Både horisont og reference påvirker kurverenten\n Følg én kurve langs løbetiden. Sammenlign derefter kurver ved samme løbetid. Niveauer og afstande er illustrative.\n\nAlle tre kurver stiger i dette eksempel. Rækkefølgen og de konstante afstande er ikke generelle regler. Markedets kurver afspejler også præmier og må ikke læses som sikre punktprognoser."
+  },
+  {
+    "objectID": "slides/chapters/03.html#ch03-s062",
+    "href": "slides/chapters/03.html#ch03-s062",
+    "title": "Rentestrukturen",
+    "section": "CITA er en reference for korte renteswaps",
+    "text": "CITA er en reference for korte renteswaps\nCITA fastsættes for kommende perioder og bygger på DESTR-baserede OIS-kontrakter.\nFra 1. januar 2026 lægger DFBF ikke længere det tidligere faste spread til panelbankernes DESTR-OIS-tilbud.\nCITA vender tilbage i vilkårene for floaters i kapitel 5.\nKilde: DFBF, CITA Reformation og benchmarkbeskrivelsen, som gengivet i final-bogen.\n\nHold CITA knyttet til swapmekanismen. Det er tilstrækkeligt at kunne genkende betegnelsen i kontraktvilkårene."
   },
   {
     "objectID": "slides/chapters/03.html#ch03-s033",
@@ -2881,7 +2958,7 @@
     "href": "slides/chapters/03.html#ch03-s035",
     "title": "Rentestrukturen",
     "section": "Målestokken afhænger af produktet",
-    "text": "Målestokken afhænger af produktet\n\n\n\nReference\nTypisk rolle i kurset\n\n\n\n\nStatskurve\nSammenligning af sikre obligationer\n\n\nDESTR-baseret OIS-/swapkurve\nPrisfastsættelse, risiko og kapitel 7\n\n\nRTL-/flekskurve\nSammenligning af danske realkreditprodukter\n\n\nCIBOR 3M/6M\nKuponreference i variabelt forrentede produkter\n\n\n\n\nCIBOR-kolonnen handler her om de korte pengemarkedsreferencer. En kurve af instrumenter knyttet til dem kan have mange horisonter, som i kapitel 1."
+    "text": "Målestokken afhænger af produktet\n\n\n\n\n\n\n\nReference\nTypisk rolle i kurset\n\n\n\n\nStatskurve\nSammenligning af sikre obligationer\n\n\nDESTR-baseret OIS-/swapkurve\nPrisfastsættelse, risiko og kapitel 7\n\n\nRTL-/flekskurve\nSammenligning af danske realkreditprodukter\n\n\nCIBOR 3M-/6M-forwardkurver\nFremskrivning af endnu ikke fastsatte variable betalinger\n\n\n\n\nEn CIBOR-fixing og en CIBOR-baseret forwardkurve er forskellige størrelser. Tabellen angiver kurvens anvendelse."
   },
   {
     "objectID": "slides/chapters/03.html#ch03-s036",
@@ -3077,7 +3154,7 @@
     "href": "slides/chapters/05.html#ch05-s006",
     "title": "Dansk realkredit",
     "section": "Instituttet samler mange individuelle lån på balancen",
-    "text": "Instituttet samler mange individuelle lån på balancen\n\\[H=\\sum_{i=1}^{I}H_i,\\qquad D=\\sum_{j=1}^{J}D_j.\\]\nBoggrundlagets grove balance: \\(H=D+E\\), hvor \\(E\\) er egenkapitalens tabsbuffer.\n\n\n\nAktiver\nPassiver\n\n\n\n\nPantebreve med ejendomspant\nUdstedte realkreditobligationer\n\n\nAndre aktiver\nEgenkapital\n\n\n\nLåntager har gæld til instituttet; investor har krav mod instituttet.\n\nIdentiteten er en grov balanceillustration. Nominelle låne- og obligationsbeløb er ikke en fuldstændig regnskabsmodel med alle aktiver."
+    "text": "Instituttet samler mange individuelle lån på balancen\n\\[H=\\sum_{i=1}^{I}H_i,\\qquad D=\\sum_{j=1}^{J}D_j.\\]\n\\(H\\) og \\(D\\) er nominelle beløb. Regnskabsbalancen bruger værdier opgjort efter samme princip:\n\\[\\text{Udlån}+\\text{andre aktiver}=\\text{udstedte obligationer}+\\text{andre forpligtelser}+E.\\]\n\n\n\nAktiver\nPassiver\n\n\n\n\nPantebreve med ejendomspant\nUdstedte realkreditobligationer\n\n\nAndre aktiver\nAndre forpligtelser og egenkapital\n\n\n\nLåntager har gæld til instituttet; investor har krav mod instituttet.\n\nEgenkapitalen \\(E\\) er tabsbuffer. Nominelle låne- og obligationsbeløb må ikke lægges sammen med regnskabsmæssig egenkapital som en balanceidentitet."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s007",
@@ -3105,7 +3182,7 @@
     "href": "slides/chapters/05.html#ch05-s010",
     "title": "Dansk realkredit",
     "section": "Kupon, tillæg og bidrag har forskellige modtagere",
-    "text": "Kupon, tillæg og bidrag har forskellige modtagere\n\\[\\text{Ydelse}=\\underbrace{\\text{rente+afdrag}}_{\\text{investor}}+\\underbrace{\\text{bidrag}}_{\\text{institut}}.\\]\n\nKuponen er fastlagt ved udstedelse eller fixing.\nFloaterens obligationstillæg er en del af kuponen.\nBidrag dækker administration, kapital og kreditrisiko.\n\nHøj LTV, afdragsfrihed og kort rentebinding giver typisk højere bidrag.\n\nBidrag indgår ikke direkte i obligationens cash flow, men påvirker låntagers samlede omkostning og beslutning om omlægning. Obligationstillæg og rentetillæg er samme begreb her."
+    "text": "Kupon, tillæg og bidrag har forskellige modtagere\n\\[\\text{Ydelse}=\\underbrace{\\text{rente+afdrag}}_{\\text{investor}}+\\underbrace{\\text{bidrag}}_{\\text{institut}}.\\]\n\nKuponen er fastlagt ved udstedelse eller fixing.\nFloaterens obligationstillæg er en del af kuponen.\nBidrag dækker administration, kapital og kreditrisiko.\n\nHøj LTV, afdragsfrihed og kort rentebinding giver typisk højere bidrag.\n\nBidrag indgår ikke direkte i obligationens betalingsrække. Det kan påvirke kursen indirekte gennem låntagers samlede omkostning og beslutning om omlægning. Obligationstillæg og rentetillæg er samme begreb her."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s011",
@@ -3147,28 +3224,28 @@
     "href": "slides/chapters/05.html#ch05-s016",
     "title": "Dansk realkredit",
     "section": "Kurslisten rummer tre produktfamilier",
-    "text": "Kurslisten rummer tre produktfamilier\n\nMTG: lange fastforrentede, typisk konverterbare obligationer.\nFLT: kupon justeres løbende efter en reference.\nRTL: lånet refinansieres med faste mellemrum.\n\nDe næste tabeller er bogens udsnit fra Nasdaq Nordic, 28. august 2026. Cirkulerende mængde er i mia. kr.\n\nProduktfamilierne har forskellige rente-, funding- og konverteringsrisici. Sammenlign egenskaberne i tabellerne før kursniveauerne."
+    "text": "Kurslisten rummer tre produktfamilier\n\nMTG: lange fastforrentede, typisk konverterbare obligationer.\nFLT: kupon justeres løbende efter en reference.\nRTL: lånet refinansieres med faste mellemrum.\n\nDe næste tabeller er bogens udsnit pr. 28. august 2026. Cirkulerende mængde er i mia. kr. Kilde: Vitec Scanrate.\n\nProduktfamilierne har forskellige rente-, funding- og konverteringsrisici. Sammenlign egenskaberne i tabellerne før kursniveauerne."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s017",
     "href": "slides/chapters/05.html#ch05-s017",
     "title": "Dansk realkredit",
     "section": "Kursliste: de korte RTL-obligationer",
-    "text": "Kursliste: de korte RTL-obligationer\n\n\n\n\n1 RD T RTL 2027 Jan\n1 NYK H RTL 2027 Jan\n\n\n\n\nISIN\nDK0009299729\nDK0009511297\n\n\nKurs\n99,756\n99,540\n\n\nKupon\n1,000%\n1,000%\n\n\nCirkulerende, mia.\n49,994\n52,085\n\n\nTerminer pr. år\n1\n1\n\n\n\nBegge: udløb 2027, stående amortisering, ikke konverterbare, ikke afdragsfri. Nasdaq Nordic, 28. august 2026.\n\nHold obligationens korte løbetid adskilt fra det boliglån, den finansierer. Lånet kan fortsætte gennem refinansiering."
+    "text": "Kursliste: de korte RTL-obligationer\n\n\n\n\n1 RD T RTL 2027 Jan\n1 NYK H RTL 2027 Jan\n\n\n\n\nISIN\nDK0009299729\nDK0009511297\n\n\nKurs\n99,756\n99,540\n\n\nKupon\n1,000%\n1,000%\n\n\nCirkulerende, mia.\n49,994\n52,085\n\n\nTerminer pr. år\n1\n1\n\n\n\nBegge: udløb 2027, stående amortisering, ikke konverterbare, ikke afdragsfri. Kilde: Vitec Scanrate.\n\nHold obligationens korte løbetid adskilt fra det boliglån, den finansierer. Lånet kan fortsætte gennem refinansiering."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s018",
     "href": "slides/chapters/05.html#ch05-s018",
     "title": "Dansk realkredit",
     "section": "Kursliste: fire lange MTG-serier",
-    "text": "Kursliste: fire lange MTG-serier\n\n\n\nSerie\nISIN\nKurs\nCirk., mia.\n\n\n\n\n5 NYK E 2053\nDK0009539116\n103,700\n27,082\n\n\n4 NYK E 2056\nDK0009541872\n97,180\n107,998\n\n\n3,5 NYK E 2056\nDK0009548372\n94,420\n21,699\n\n\n5 NYK E 2053 IO10\nDK0009539389\n103,350\n8,537\n\n\n\nKupon svarer til navnet. Alle har fire terminer, konverteringsret og annuitetsprofil; kun sidste række er afdragsfri. Nasdaq Nordic, 28. august 2026.\n\nNavnets år er udløbsåret. Brug både pris og afdragsprofil til at skelne de to 5-procentserier."
+    "text": "Kursliste: fire lange MTG-serier\n\n\n\nSerie\nISIN\nKurs\nCirk., mia.\n\n\n\n\n5 NYK E 2053\nDK0009539116\n103,700\n27,082\n\n\n4 NYK E 2056\nDK0009541872\n97,180\n107,998\n\n\n3,5 NYK E 2056\nDK0009548372\n94,420\n21,699\n\n\n5 NYK E 2053 IO10\nDK0009539389\n103,350\n8,537\n\n\n\nKupon svarer til navnet. Alle har fire terminer, konverteringsret og annuitetsprofil; kun sidste række er afdragsfri. Kilde: Vitec Scanrate.\n\nNavnets år er udløbsåret. Brug både pris og afdragsprofil til at skelne de to 5-procentserier."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s019",
     "href": "slides/chapters/05.html#ch05-s019",
     "title": "Dansk realkredit",
     "section": "Kursliste: variable kuponer tæt ved pari",
-    "text": "Kursliste: variable kuponer tæt ved pari\n\n\n\n\nNYK H FLT 2028\nRD T FLT 2027\n\n\n\n\nISIN\nDK0009549347\nDK0004626595\n\n\nKurs\n100,257\n100,530\n\n\nAktuel kupon\n2,506%\n2,850%\n\n\nCirkulerende, mia.\n19,762\n17,972\n\n\nUdløb\n2028\n2027\n\n\n\nBegge: fire terminer, ikke konverterbare, afdragsfri, amortisering betegnet »ydelse«. Nasdaq Nordic, 28. august 2026.\n\nDen aktuelle kupon siger ikke, hvad alle fremtidige kuponer bliver. Kursen kan stadig bevæge sig med spænd og likviditet."
+    "text": "Kursliste: variable kuponer tæt ved pari\n\n\n\n\nNYK H FLT 2028\nRD T FLT 2027\n\n\n\n\nISIN\nDK0009549347\nDK0004626595\n\n\nKurs\n100,257\n100,530\n\n\nAktuel kupon\n2,506%\n2,850%\n\n\nCirkulerende, mia.\n19,762\n17,972\n\n\nUdløb\n2028\n2027\n\n\n\nBegge: fire terminer, ikke konverterbare, afdragsfri, amortisering betegnet »ydelse«. Kilde: Vitec Scanrate.\n\nDen aktuelle kupon siger ikke, hvad alle fremtidige kuponer bliver. Kursen kan stadig bevæge sig med spænd og likviditet."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s020",
@@ -3329,14 +3406,14 @@
     "href": "slides/chapters/05.html#ch05-s042",
     "title": "Dansk realkredit",
     "section": "To fixinger kan bestemme fire terminsbetalinger",
-    "text": "To fixinger kan bestemme fire terminsbetalinger\n\nMartsfixingen gælder april–september og betalingerne 1. juli/1. oktober. Septemberfixingen gælder de næste to betalinger.\n\nDatoerne er et almindeligt forløb; den konkrete obligations vilkår bestemmer præcist. Fixing og betaling er forskellige hændelser."
+    "text": "To fixinger kan bestemme fire terminsbetalinger\n\nI eksemplet bestemmer martsfixingen kuponen ved betalingerne 1. juli og 1. oktober. Septemberfixingen bestemmer de næste to betalinger.\n\nDatoer og renteperioder følger den konkrete obligations vilkår. Fixing og betaling er forskellige hændelser."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s043",
     "href": "slides/chapters/05.html#ch05-s043",
     "title": "Dansk realkredit",
-    "section": "Lav varighed er ikke fravær af risiko",
-    "text": "Lav varighed er ikke fravær af risiko\nLåntager: korte rentestigninger løfter ydelsen hurtigt og giver mindre budgetsikkerhed.\nInvestor: kuponen følger referencerenten, så kursen ofte ligger tættere på 100 end en lang fastforrentet obligation.\nSpænd, likviditet, kreditforhold og regulering kan stadig ændre kursen. Cap, floor og eventuel pariret giver optionselementer.\n\nEn simpel inkonverterbar floater uden cap og floor er det klareste udgangspunkt. Tilføj derefter de konkrete kontraktvilkår."
+    "section": "Floateren giver låntager og investor forskellig risiko",
+    "text": "Floateren giver låntager og investor forskellig risiko\nLåntager: En højere referencerente kan løfte ydelsen ved næste fixing. Det er budgetrisiko.\nInvestor: Renterisiko er et muligt tab i markedsværdi. Hyppig fixing dæmper kursfølsomheden over for et stød til den rente, kuponen følger.\nKursen kan stadig falde mellem fixinger eller ved højere krævet spænd, ringere likviditet eller ændrede kreditforhold. Cap, floor og eventuel pariret ændrer også risikoen.\n\nSammenlign med en lang fastforrentet obligation. Den enkle floater har typisk lavere direkte kursfølsomhed over for sin referencerente, men den har stadig risiko ved kurveforskel, regulering og optioner. Den konkrete kontrakt bestemmer tidspunktet for næste fixing."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s044",
@@ -3490,7 +3567,7 @@
     "href": "slides/chapters/05.html#ch05-s065",
     "title": "Dansk realkredit",
     "section": "Samme produktnavn rummer forskellige risici for de to parter",
-    "text": "Samme produktnavn rummer forskellige risici for de to parter\n\n\n\n\n\n\n\n\nProdukt\nLåntager\nInvestor\n\n\n\n\nFast konverterbart\nBetaler for budgetsikkerhed\nKonvertering og genplacering\n\n\nFloater/F-kort\nHurtigt stigende ydelse\nFaldende kupon og ændret spænd\n\n\nRTL\nNy rente ved refinansiering\nRefinansieringsmekanik og forlængelse\n\n\n\nF-kort kan stige midt i F3-vinduet, hvor F3-renten fortsat er fast.\n\nSammenlign altid samme part: lav renterisiko for investor kan betyde høj risiko for låntagers løbende ydelse."
+    "text": "Samme produktnavn rummer forskellige risici for de to parter\n\n\n\n\n\n\n\n\nProdukt\nLåntager\nInvestor\n\n\n\n\nFast konverterbart\nBetaler for budgetsikkerhed\nKonvertering og genplacering\n\n\nFloater/F-kort\nHøjere ydelse ved næste fixing\nKursfald ved højere krævet spænd; fixing og optioner\n\n\nRTL\nNy rente ved refinansiering\nKursrisiko og mulig forlængelse via triggere\n\n\n\nF-kort kan stige midt i F3-vinduet, hvor F3-renten fortsat er fast.\n\nInvestorens direkte kursfølsomhed over for referencerenten er typisk lav, mens låntager hurtigt kan mærke højere rente i budgettet. Begge risici afhænger af produktets vilkår."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s066",
@@ -3517,15 +3594,15 @@
     "objectID": "slides/chapters/05.html#ch05-s069",
     "href": "slides/chapters/05.html#ch05-s069",
     "title": "Dansk realkredit",
-    "section": "Udstedelseshistorikken følger med ind i modellen",
-    "text": "Udstedelseshistorikken følger med ind i modellen\nÅbne serier får nye lån. Lukkede serier ændres gennem afdrag og indfrielser.\nCK95: næste offentliggjorte udtræk. CK92: låntagergrupper. Prepaymentmodel: fremtidig konvertering. Prisningsmodel: kurs, varighed og konveksitet.\nDebitorspænd (LYS i kapitel 5) vedrører låntagers refinansiering; OAS vedrører investors modelpris. Begge adskilles fra bidrag.\n\nFloaters og RTL har hovedsageligt mekanisk usikkerhed om fixing og auktion. Fastforrentede konverterbare kræver derudover modellering af låntagernes aktive beslutninger."
+    "section": "Indfrielsesretten gør fremtidige betalinger usikre",
+    "text": "Indfrielsesretten gør fremtidige betalinger usikre\nÅbne serier får nye lån. Lukkede serier ændres gennem afdrag og indfrielser.\nPå fastforrentede konverterbare lån kan låntager indfri til markedskurs eller opsige til kurs 100 efter vilkårene. Investor kender derfor ikke hele betalingsrækken på forhånd.\nKapitel 6 skønner indfrielser og betalinger. Kapitel 7 beregner kurs og renterisiko på de forventede betalinger.\n\nCK95 oplyser det kommende udtræk; CK92 beskriver låntagergrupper. Prepaymentmodellen skønner senere indfrielser. LYS vedrører låntagers refinansiering; OAS er investors modelspænd. Begge adskilles fra bidrag. Floaters og RTL har især usikkerhed om fixing, auktion og eventuelle triggere."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s070",
     "href": "slides/chapters/05.html#ch05-s070",
     "title": "Dansk realkredit",
     "section": "Produktdesignet bestemmer, hvilke betalinger der er usikre",
-    "text": "Produktdesignet bestemmer, hvilke betalinger der er usikre\nBalanceprincippet og match-funding reducerer instituttets markedsrisiko, mens risikoen fordeles mellem parterne.\nInvestorfordeling påvirker pris og likviditet. Låntagerfordeling påvirker udtræk og betalingstidspunkter.\nKupon og afdrag til investor; bidrag til institut. Kapitel 6 omsætter låntagers adfærd til betalingsrækker.\n\nAfslut med at få deltagerne til at nævne en risiko for hver af de tre parter. Det binder markedet og produkterne sammen."
+    "text": "Produktdesignet bestemmer, hvilke betalinger der er usikre\nBalanceprincippet og match-funding reducerer instituttets markedsrisiko, mens risikoen fordeles mellem parterne.\nInvestorfordeling påvirker pris og likviditet. Låntagerfordeling påvirker udtræk og betalingstidspunkter.\nKupon og afdrag går til investor; bidrag går til institut. Låntagers rettigheder kan ændre investorens betalinger.\n\nAfslut med at få deltagerne til at nævne en risiko for hver af de tre parter. Det binder markedet og produkterne sammen."
   },
   {
     "objectID": "slides/chapters/05.html#ch05-s071",
@@ -3560,7 +3637,7 @@
     "href": "slides/chapters/07.html#ch07-s001",
     "title": "Prisfastsættelse og nøgletal for konverterbare obligationer",
     "section": "Hvad er de usikre betalinger værd?",
-    "text": "Hvad er de usikre betalinger værd?\nLåntager kan indfri, når den gamle kupon er attraktiv for investor.\n\nBetalinger på rentestier → modelpris.\nKonverteringsret → optionsværdi og OAS.\nFire forskellige stød → pris og renterisiko.\n\nCPR måles her pr. kvartal på restgælden efter ordinært afdrag, medmindre andet er angivet.\n\nBegynd med investorens problem: en høj kupon er kun værdifuld, så længe den bliver betalt. Kapitlet forklarer prisningsprincipper og modeloutput; den numeriske produktionsmodel ligger uden for kurset."
+    "text": "Hvad er de usikre betalinger værd?\nKapitel 6 beregnede en betalingsrække for hver rentesti. Her diskonterer vi betalingerne på hver sti og samler dem til en modelpris.\n\nBetalinger på rentestier → modelpris.\nKonverteringsret → optionsværdi og OAS.\nFire forskellige stød → pris og renterisiko.\n\nRenteudviklingen ændrer både låntagers indfrielser og investorens diskontering.\n\nEn høj kupon er kun værdifuld for investor, så længe den bliver betalt. Brug kapitel 6’s CPR og udtræksregnskab som forudsætning. Den numeriske produktionsmodel ligger uden for kurset."
   },
   {
     "objectID": "slides/chapters/07.html#ch07-s002",
@@ -3651,7 +3728,7 @@
     "href": "slides/chapters/07.html#ch07-s014",
     "title": "Prisfastsættelse og nøgletal for konverterbare obligationer",
     "section": "5% NYK 2053: et særskilt modelgrundlag",
-    "text": "5% NYK 2053: et særskilt modelgrundlag\n\noktober 2024, Vitec Scanrate. Begge værdier inkluderer vedhængende rente.\n\n\\[V_{\\text{call}}=131{,}01-102{,}09=28{,}92.\\]\n\n\n\n\nKonverterbar\nInkonverterbar\n\n\n\n\nKronevarighed\n1,43\n15,50\n\n\nKronekonveksitet\n−2,92\n2,79\n\n\n\nBoggrundlaget forklarer ikke forskellen mellem 131,01 her og 131,74 før. Eksemplerne er ikke afstemt som én modelkørsel.\n\nIngen af optionsværdierne er en uafhængigt observeret markedspris på retten."
+    "text": "5% NYK 2053: et særskilt modelgrundlag\n\noktober 2024, Vitec Scanrate. Begge værdier inkluderer vedhængende rente.\n\n\\[V_{\\text{call}}=131{,}01-102{,}09=28{,}92.\\]\n\n\n\n\nKonverterbar\nInkonverterbar\n\n\n\n\nKronevarighed\n1,43\n15,50\n\n\nKronekonveksitet\n−2,92\n2,79\n\n\n\n131,01 her og 131,74 før er separate modeludtræk. Optionsværdierne 28,92 og 29,65 skal holdes adskilt.\n\nUden oplysninger om modelversion, kurve, spænd og betalingsprofil kan forskellen på 0,73 kurspoint ikke forklares. Ingen af optionsværdierne er en uafhængigt observeret markedspris på retten."
   },
   {
     "objectID": "slides/chapters/07.html#ch07-s015",
@@ -3693,7 +3770,7 @@
     "href": "slides/chapters/07.html#ch07-s020",
     "title": "Prisfastsættelse og nøgletal for konverterbare obligationer",
     "section": "OAS er modelafhængigt",
-    "text": "OAS er modelafhængigt\nDebitorspænd → refinansiering → Gain → CPR.\nOAS → diskonteringsfaktorer → modelpris.\nOAS kan afspejle kreditrisiko, likviditet, udbud, efterspørgsel og modelfejl. Fortolkningen som ekstra kompensation gælder givet modellen og referencekurven.\n\nOAS observeres ikke direkte som markedskursen. En forkert konverteringsantagelse kan blive opsamlet i det kalibrerede spænd."
+    "text": "OAS er modelafhængigt\nDebitorspænd → refinansiering → Gain → CPR.\nOAS → diskonteringsfaktorer → modelpris.\nOAS kan afspejle kreditrisiko, likviditet, udbud, efterspørgsel og modelfejl. Fortolkningen som ekstra kompensation gælder givet modellen og referencekurven.\nEt almindeligt PV-spænd fra kapitel 3 lægges på en fast betalingsrække. Her beregnes betalingerne på rentestier med låntagernes indfrielser; derfor afhænger OAS også af rente- og konverteringsmodellen.\n\nMarkedet viser kursen; OAS beregnes ud fra kurs og model. En forkert konverteringsantagelse kan blive opsamlet i det kalibrerede spænd."
   },
   {
     "objectID": "slides/chapters/07.html#ch07-s021",
@@ -3713,22 +3790,22 @@
     "objectID": "slides/chapters/07.html#ch07-s023",
     "href": "slides/chapters/07.html#ch07-s023",
     "title": "Prisfastsættelse og nøgletal for konverterbare obligationer",
-    "section": "2017–2020: efterspørgsel og likviditetsstress",
-    "text": "2017–2020: efterspørgsel og likviditetsstress\n2017–2019: lave renter, begrænsede renteudsving og stor dansk/udenlandsk efterspørgsel løfter kurser og presser OAS ned.\nNegativt OAS betyder en høj pris relativt til modellen ved OAS = 0; risikoen er stadig til stede.\nForåret 2020: salgspres, likviditetsbehov og usikkerhed sænker kurser og hæver OAS. Bedre likviditet og efterspørgsel vender bevægelsen.\n\nNationalbankens Analyse nr. 22, 10. november 2020, dokumenterer likviditetsforholdene, ikke en præcis årsagsopdeling af dette OAS-indeks. Det skal være synligt, at perioderne er historiske."
+    "section": "2017–2020: OAS falder og springer kortvarigt op",
+    "text": "2017–2020: OAS falder og springer kortvarigt op\n2017–2019: Indekset falder og ligger periodevis under nul. Det viser høje kurser relativt til modellen ved OAS nul; figuren viser ikke, hvad der drev bevægelsen.\nNegativt OAS betyder en høj pris relativt til modellen ved OAS = 0; risikoen er stadig til stede.\nForåret 2020: Indekset springer op og falder igen senere på året. Nationalbanken beskriver samtidig kortvarigt svagere likviditet i dansk realkredit. Det kan forklare en del af bevægelsen.\n\nNationalbankens Analyse nr. 22, 10. november 2020, dokumenterer likviditetsforholdene. Hverken analysen eller figuren opdeler netop dette OAS-indeks i årsagsbidrag."
   },
   {
     "objectID": "slides/chapters/07.html#ch07-s024",
     "href": "slides/chapters/07.html#ch07-s024",
     "title": "Prisfastsættelse og nøgletal for konverterbare obligationer",
     "section": "2021–første halvår 2025: lavkuponer bliver længere",
-    "text": "2021–første halvår 2025: lavkuponer bliver længere\nStigende renter → lavkuponer langt under 100 → mindre sandsynlig pariindfrielse → længere forventet løbetid.\nInvestor får mere renterisiko i den eksisterende beholdning.\nStørre renteusikkerhed og svagere udenlandsk efterspørgsel bidrager til højere OAS. Bogens fortolkning peger især på rente-, konverterings- og likviditetsrisiko.\n\nUndgå at læse hele OAS-bevægelsen som kreditforværring. Indeksets sammensætning og modellens forudsætninger spiller også ind."
+    "text": "2021–første halvår 2025: lavkuponer bliver længere\nStigende renter → lavkuponer langt under 100 → mindre sandsynlig pariindfrielse → længere forventet løbetid.\nInvestor får mere renterisiko i den eksisterende beholdning.\nIndekset stiger fra 2021 med store udsving. Ændret volatilitet, likviditet og efterspørgsel kan også spille ind; figuren fordeler ikke virkningerne.\n\nUndgå at læse hele OAS-bevægelsen som kreditforværring. Indeksets sammensætning og modellens forudsætninger spiller også ind."
   },
   {
     "objectID": "slides/chapters/07.html#ch07-s025",
     "href": "slides/chapters/07.html#ch07-s025",
     "title": "Prisfastsættelse og nøgletal for konverterbare obligationer",
-    "section": "Fra sommeren 2025: få nye obligationer, mange geninvesteringer",
-    "text": "Fra sommeren 2025: få nye obligationer, mange geninvesteringer\nBegrænset nyudstedelse møder geninvestering af kuponer, afdrag og udtrækninger.\nStor efterspørgsel → højere kurser → lavere OAS.\nBedre finansieringsforhold og lavere volatilitet understøtter bevægelsen. OAS kan nærme sig eller komme under nul, selv med økonomisk og geopolitisk usikkerhed.\n\nDette er bogens historiske fortolkning frem til medio 2026. De næste forsøg isolerer virkningen af forskellige modelstød."
+    "section": "Fra sommeren 2025: OAS falder igen",
+    "text": "Fra sommeren 2025: OAS falder igen\nIndekset falder og ligger omkring eller under nul i dele af 2026. Det viser, at de omfattede obligationer blev dyrere relativt til leverandørens model.\nUdbud og efterspørgsel kan have bidraget, men figuren indeholder ikke mængdedata, der dokumenterer årsagen.\n\nIndeksets obligationer og modelinput kan ændre sig over tid. De næste forsøg isolerer virkningen af forskellige modelstød."
   },
   {
     "objectID": "slides/chapters/07.html#ch07-s026",
@@ -3742,7 +3819,7 @@
     "href": "slides/chapters/07.html#ch07-s027",
     "title": "Prisfastsættelse og nøgletal for konverterbare obligationer",
     "section": "Varighed kræver genberegnede betalinger",
-    "text": "Varighed kræver genberegnede betalinger\nVed rentestød beregnes CPR og betalinger igen. Det kalibrerede OAS holdes fast.\n\\[KV\\approx-\\frac{P_0(+\\Delta y)-P_0(-\\Delta y)}{2\\Delta y\\cdot100},\\qquad PVBP=\\frac{KV}{100}.\\]\n\n\\(\\Delta y\\) er decimalrente; 15 bp = 0,0015.\nKV: kurspoint pr. procentpoint; PVBP: kurspoint pr. bp.\nKV svarer til \\(d\\) og PVBP til BPV i kapitel 4.\n\n\nGenkalibrering af OAS til den gamle kurs ville skjule prisfølsomheden. En klassisk Macaulay-varighed på en fast betalingsrække overser adfærdskanalen."
+    "text": "Varighed kræver genberegnede betalinger\nVed rentestød beregnes CPR og betalinger igen. Det kalibrerede OAS holdes fast.\nDet er et stød til reference- og refinansieringskurven. En ændring i obligationens egen effektive rente med faste betalinger er et andet regnestykke.\n\\[KV\\approx-\\frac{P_0(+\\Delta y)-P_0(-\\Delta y)}{2\\Delta y\\cdot100},\\qquad PVBP=\\frac{KV}{100}.\\]\n\n\\(\\Delta y\\) er decimalrente; 15 bp = 0,0015.\nKV: kurspoint pr. procentpoint; PVBP: kurspoint pr. bp.\nKV svarer til \\(d\\) og PVBP til BPV i kapitel 4.\n\n\nGenkalibrering af OAS til den gamle kurs ville skjule prisfølsomheden. En klassisk Macaulay-varighed på en fast betalingsrække overser adfærdskanalen."
   },
   {
     "objectID": "slides/chapters/07.html#ch07-s028",
@@ -4352,12 +4429,5 @@
     "title": "Finanskrisens udvikling og eftervirkninger",
     "section": "Opgaver: kriser og regulatoriske svar",
     "text": "Opgaver: kriser og regulatoriske svar\nSammenlign 2008 og SVB 2023: risikotype, fundingstruktur og hastighed. Hvilken mekanisme er fælles?\nKobl problemer til CET1/buffere, output floor, LCR og NSFR:\n\nTynd tabsbuffer.\nMeget lave modelbaserede risikovægte.\nStore nettoudstrømninger på 30 dage.\nStrukturelt kort funding.\n\nHvor passer gearingskravet ind som backstop? Hvorfor gør intet enkelt mål banken robust?\n\nKræv en mekanisme i hver kobling, ikke blot en forkortelse. Brug opgaven som overgang til kredit- og likviditetsmålene i kapitel 10."
-  },
-  {
-    "objectID": "slides/chapters/00.html#intro-formler",
-    "href": "slides/chapters/00.html#intro-formler",
-    "title": "Kursusintroduktion",
-    "section": "Smagsprøve på centrale formler",
-    "text": "Smagsprøve på centrale formler\n\n\nPris på en kuponobligation · kapitel 2\n\\[P=\\sum_{t=1}^{N}\\frac{C}{(1+y)^t}+\\frac{H}{(1+y)^N}\\]\nKuponer og hovedstol diskonteres til i dag.\nKronevarighed · kapitel 4\n\\[d=\\frac{D}{1+y}\\frac{K}{100}=MD\\frac{K}{100}\\]\nOmtrentligt kursfald ved +1 procentpoint rente.\n\nKronekonveksitet · kapitel 4\n\\[\\mathrm{Cvx}_{\\mathrm{KR}}=\\frac{0{,}01^2}{(1+y)^2}\\sum_t t(t+1)PV(CF_t)\\]\nTager højde for krumningen i kursens reaktion.\nKonverteringsgevinst · kapitel 6\n\\[Gain_t=\\frac{PV_{\\mathrm{continue},t}-100(1+cost_t)}{PV_{\\mathrm{continue},t}}\\]\nBesparelsen ved pariindfrielse, efter omkostninger.\n\n\nDette er samme udvalg som i 2025-introduktionen, med notation fra 2026-kapitlerne. De studerende skal ikke kunne formlerne ved kursusstart; vi gennemgår dem i kapitel 2, 4 og 6.\nI prisformlen er C kuponbetalingen pr. termin, H hovedstolen, N antallet af terminer og y den effektive rente pr. termin. Der antages faste kuponer og tilbagebetaling af hele hovedstolen ved udløb.\nI risikomålene bruger vi årlige betalinger og en årlig effektiv rente y. D er Macaulay-varighed, MD modificeret varighed og K kurs pr. 100 nominel. Kronevarighed d angiver det omtrentlige kursfald ved en rentestigning på 1 procentpoint. Ved et rentestød på Δy_pp procentpoint er kursændringen omtrent −d·Δy_pp + ½·Cvx_KR·(Δy_pp)². I kronekonveksiteten er betalingerne CF_t opgjort pr. 100 nominel, og PV(CF_t)=CF_t/(1+y)^t. Begge risikomål vedrører faste betalinger; konverterbare obligationer kræver også en model for låntagernes adfærd.\nGain-formlen er specialtilfældet med indfrielse til pari 100. PV_continue,t er nutidsværdien af det gamle låns resterende betalinger på refinansieringskurven, og cost_t er omkostninger som andel af indfrielsesbeløbet. Positiv Gain giver et økonomisk incitament til at konvertere. Den enkelte låntager kan have et højere gevinstkrav."
   }
 ]

@@ -1065,6 +1065,25 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
+<section id="ch06-s071" class="slide level2">
+<h2>Kun tilbageværende lån kan indfries</h2>
+<p>Modellen skønner for hvert tilbageværende lån chancen for indfrielse på næste termin. Når terminen er gået, kan vi se, hvilke lån der faktisk blev indfriet.</p>
+<p>To låntagere skylder 1 og 9 mio. kr. Hvis lånet på 1 mio. kr. indfries, er <strong>halvdelen af lånene</strong> væk, men kun <strong>en tiendedel af gælden</strong>.</p>
+<p>Seriens CPR kan være et skøn før terminen eller en opgørelse bagefter. Begge måler en gældsandel, så store lån tæller mere. Grundlaget er den planlagte restgæld efter ordinært afdrag.</p>
+<aside class="notes">
+<p>Skeln mellem modellens forventede indfrielse og den observerede indfrielse. Låntager træffer ét valg om hele sit lån; CPR er investorens måde at opgøre gælden på. Kilde: Jakobsen, Svenstrup og Willemann (2005), afsnit 4.2.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
 <section id="ch06-s005" class="slide level2">
 <h2>CPR har en anden nævner end de øvrige udtræksrater</h2>
 <table class="caption-top">
@@ -1083,12 +1102,12 @@ display:block!important;
 <tbody>
 <tr class="odd">
 <td>ORD</td>
-<td>Ordinært udtræk</td>
+<td><strong>Planlagt</strong> ordinært afdrag for hele puljen</td>
 <td>Restgæld før ordinært afdrag</td>
 </tr>
 <tr class="even">
 <td>EXT</td>
-<td>Ekstraordinært udtræk</td>
+<td>Merudtræk ud over det planlagte afdrag</td>
 <td>Samme begyndelsesrestgæld</td>
 </tr>
 <tr class="odd">
@@ -1098,14 +1117,14 @@ display:block!important;
 </tr>
 <tr class="even">
 <td>CPR</td>
-<td>Conditional Prepayment Rate</td>
-<td>Restgæld <strong>efter</strong> ordinært afdrag</td>
+<td>Andel af gælden, som forventes eller faktisk indfries</td>
+<td>Planlagt restgæld <strong>efter</strong> ordinært afdrag</td>
 </tr>
 </tbody>
 </table>
 <p>Alle kapitlets egne rater er pr. kvartalsvis termin og bruges som decimaltal i formler.</p>
 <aside class="notes">
-<p>Afklar både periode og nævner. En CPR på 3 procent bliver 0,03 i beregningen.</p>
+<p>CPR står for Conditional Prepayment Rate. Afklar både periode og nævner. En CPR på 3 procent bliver 0,03 i beregningen.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1143,9 +1162,9 @@ display:block!important;
 <p><span class="math display">\[EXT_t=CPR_t(1-ORD_t),\]</span> <span class="math display">\[UDT_t=ORD_t+CPR_t(1-ORD_t)=ORD_t+EXT_t.\]</span></p>
 <p>Omvendt:</p>
 <p><span class="math display">\[CPR_t=\frac{EXT_t}{1-ORD_t}.\]</span></p>
-<p>De ekstraordinære indfrielser beregnes efter det ordinære afdrag.</p>
+<p>Identiteterne gælder, når <span class="math inline">\(ORD\)</span> er planlagt afdrag for hele puljen, og <span class="math inline">\(EXT\)</span> er merudtræk ud over dette. Låntager indfrier hele lånet på én gang.</p>
 <aside class="notes">
-<p>Med en begyndelsesrestgæld på 100 ses, hvorfor CPR beregnes efter det ordinære afdrag. De konkrete tal står på næste slide.</p>
+<p>Hvis en datakilde bruger <span class="math inline">\(ORD\)</span> om faktisk betalt afdrag fra fortsættende lån, skal felterne omregnes før formlen bruges. De konkrete tal står på næste slide.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1318,6 +1337,7 @@ display:block!important;
 <h2>CK95 kan kontrollere et tidligere modelskøn</h2>
 <p><span class="math display">\[CPR=\frac{EXT}{1-ORD}.\]</span></p>
 <p>Et skøn lavet før publicering sammenholdes med CK95 for samme termin og ratekonvention.</p>
+<p>Kontrollér først feltdefinitionerne: <span class="math inline">\(EXT/(1-ORD)\)</span> kræver planlagt <span class="math inline">\(ORD\)</span> for hele puljen og <span class="math inline">\(EXT\)</span> som merudtræk. Scanrates metode bag tabellens beregnede felter er ikke dokumenteret her.</p>
 <p>Højere CPR i 5%-serien er foreneligt med et større incitament; tabellen fastslår ikke årsagen alene.</p>
 <p>Under kurs 100 kan tilbagekøb reducere restgælden uden ekstraordinært <strong>pariudtræk</strong> i CK95.</p>
 <aside class="notes">
@@ -3229,9 +3249,9 @@ display:block!important;
 <h2>Prepaymentfunktionen samler adfærdens input</h2>
 <p><span class="math display">\[CPR_t=g(Gain_t,\ \text{restløbetid},\ \mathrm{Burnout}_{t-1},\ \text{sammensætning}_{t-1},\ldots).\]</span></p>
 <p>Større Gain og flere grupper med lave gevinstkrav trækker typisk CPR op. Mere burnout trækker typisk reaktionen ned.</p>
-<p>Kort restløbetid giver mindre tid til at tjene omkostninger hjem. Noget er indbygget i Gain; resten kan påvirke gevinstkravet.</p>
+<p>Restløbetiden indgår allerede i <span class="math inline">\(Gain\)</span> gennem nutidsværdien af de resterende betalinger. En særskilt virkning, fx værdien af at vente på en bedre rente, må undersøges i data.</p>
 <aside class="notes">
-<p>Funktionen beskriver puljens betingede adfærd, ikke den enkelte beslutning. Retningerne er forventede sammenhænge og afhænger af model og markedsforhold.</p>
+<p>Funktionen beskriver den tilbageværende puljes adfærd. Retningerne afhænger af model og markedsforhold. Medregn ikke samme omkostning i både <span class="math inline">\(Gain\)</span> og en særskilt restløbetidsvirkning.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;

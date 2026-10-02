@@ -20,12 +20,13 @@ def figures():
     return sheets(sorted((WORK/'review').glob('ch*-fig*.png')),WORK/'qa/figures',cols=3,rows=2,width=680,height=500)
 def chapter(ch):
     folder=WORK/'qa'/f'ch{ch}'
-    html=sheets(sorted(folder.glob('*.png')),folder/'html-sheets')
+    qa=json.loads((WORK/'qa'/f'ch{ch}.json').read_text(encoding='utf-8'))
+    html=sheets([folder/f'{n:03}.png' for n in range(1,qa['count']+1)],folder/'html-sheets')
     pdf=fitz.open(ROOT/f'docs/downloads/kapitel-{ch}.pdf')
     pdfdir=folder/'pdf';pdfdir.mkdir(exist_ok=True)
     for n,page in enumerate(pdf):
         page.get_pixmap(matrix=fitz.Matrix(1.25,1.25),alpha=False).save(pdfdir/f'{n+1:03}.png')
-    out=sheets(sorted(pdfdir.glob('*.png')),folder/'pdf-sheets')
+    out=sheets([pdfdir/f'{n:03}.png' for n in range(1,len(pdf)+1)],folder/'pdf-sheets')
     return {'chapter':ch,'pages':len(pdf),'html':html,'pdf':out}
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('chapters',nargs='*');a=p.parse_args()

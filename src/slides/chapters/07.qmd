@@ -7,16 +7,16 @@ format: revealjs
 
 ## Hvad er de usikre betalinger værd? {#ch07-s001}
 
-Låntager kan indfri, når den gamle kupon er attraktiv for investor.
+Kapitel 6 beregnede en betalingsrække for hver rentesti. Her diskonterer vi betalingerne på hver sti og samler dem til en modelpris.
 
 1. Betalinger på rentestier → modelpris.
 2. Konverteringsret → optionsværdi og OAS.
 3. Fire forskellige stød → pris og renterisiko.
 
-CPR måles her pr. kvartal på restgælden efter ordinært afdrag, medmindre andet er angivet.
+Renteudviklingen ændrer både låntagers indfrielser og investorens diskontering.
 
 ::: {.notes}
-Begynd med investorens problem: en høj kupon er kun værdifuld, så længe den bliver betalt. Kapitlet forklarer prisningsprincipper og modeloutput; den numeriske produktionsmodel ligger uden for kurset.
+En høj kupon er kun værdifuld for investor, så længe den bliver betalt. Brug kapitel 6's CPR og udtræksregnskab som forudsætning. Den numeriske produktionsmodel ligger uden for kurset.
 :::
 
 ## Renten påvirker både betaling og diskontering {#ch07-s002}
@@ -187,10 +187,10 @@ $$V_{\text{call}}=131{,}01-102{,}09=28{,}92.$$
 | Kronevarighed | 1,43 | 15,50 |
 | Kronekonveksitet | −2,92 | 2,79 |
 
-Boggrundlaget forklarer ikke forskellen mellem 131,01 her og 131,74 før. Eksemplerne er **ikke afstemt som én modelkørsel**.
+131,01 her og 131,74 før er **separate modeludtræk**. Optionsværdierne 28,92 og 29,65 skal holdes adskilt.
 
 ::: {.notes}
-Ingen af optionsværdierne er en uafhængigt observeret markedspris på retten.
+Uden oplysninger om modelversion, kurve, spænd og betalingsprofil kan forskellen på 0,73 kurspoint ikke forklares. Ingen af optionsværdierne er en uafhængigt observeret markedspris på retten.
 :::
 
 ## Tre kurver har tre roller {#ch07-s015}
@@ -268,8 +268,10 @@ OAS → diskonteringsfaktorer → modelpris.
 
 OAS kan afspejle kreditrisiko, likviditet, udbud, efterspørgsel og modelfejl. Fortolkningen som ekstra kompensation gælder **givet modellen og referencekurven**.
 
+Et almindeligt PV-spænd fra kapitel 3 lægges på en fast betalingsrække. Her beregnes betalingerne på rentestier med låntagernes indfrielser; derfor afhænger OAS også af rente- og konverteringsmodellen.
+
 ::: {.notes}
-OAS observeres ikke direkte som markedskursen. En forkert konverteringsantagelse kan blive opsamlet i det kalibrerede spænd.
+Markedet viser kursen; OAS beregnes ud fra kurs og model. En forkert konverteringsantagelse kan blive opsamlet i det kalibrerede spænd.
 :::
 
 ## Én pris bestemmer ikke både CPR og OAS {#ch07-s021}
@@ -297,16 +299,16 @@ Vægtet OAS, 2017–medio 2026. Store serier får større vægt; sammensætninge
 Indekset følger ikke samme obligation gennem hele perioden. Læs niveauerne som modelrelative priser under skiftende markedsvilkår.
 :::
 
-## 2017–2020: efterspørgsel og likviditetsstress {#ch07-s023}
+## 2017–2020: OAS falder og springer kortvarigt op {#ch07-s023}
 
-**2017–2019:** lave renter, begrænsede renteudsving og stor dansk/udenlandsk efterspørgsel løfter kurser og presser OAS ned.
+**2017–2019:** Indekset falder og ligger periodevis under nul. Det viser høje kurser relativt til modellen ved OAS nul; figuren viser ikke, hvad der drev bevægelsen.
 
 Negativt OAS betyder en høj pris relativt til modellen ved OAS = 0; risikoen er stadig til stede.
 
-**Foråret 2020:** salgspres, likviditetsbehov og usikkerhed sænker kurser og hæver OAS. Bedre likviditet og efterspørgsel vender bevægelsen.
+**Foråret 2020:** Indekset springer op og falder igen senere på året. Nationalbanken beskriver samtidig kortvarigt svagere likviditet i dansk realkredit. Det kan forklare en del af bevægelsen.
 
 ::: {.notes}
-Nationalbankens Analyse nr. 22, 10. november 2020, dokumenterer likviditetsforholdene, ikke en præcis årsagsopdeling af dette OAS-indeks. Det skal være synligt, at perioderne er historiske.
+Nationalbankens Analyse nr. 22, 10. november 2020, dokumenterer likviditetsforholdene. Hverken analysen eller figuren opdeler netop dette OAS-indeks i årsagsbidrag.
 :::
 
 ## 2021–første halvår 2025: lavkuponer bliver længere {#ch07-s024}
@@ -315,22 +317,20 @@ Stigende renter → lavkuponer langt under 100 → mindre sandsynlig pariindfrie
 
 Investor får mere renterisiko i den eksisterende beholdning.
 
-Større renteusikkerhed og svagere udenlandsk efterspørgsel bidrager til højere OAS. Bogens fortolkning peger især på rente-, konverterings- og likviditetsrisiko.
+Indekset stiger fra 2021 med store udsving. Ændret volatilitet, likviditet og efterspørgsel kan også spille ind; figuren fordeler ikke virkningerne.
 
 ::: {.notes}
 Undgå at læse hele OAS-bevægelsen som kreditforværring. Indeksets sammensætning og modellens forudsætninger spiller også ind.
 :::
 
-## Fra sommeren 2025: få nye obligationer, mange geninvesteringer {#ch07-s025}
+## Fra sommeren 2025: OAS falder igen {#ch07-s025}
 
-Begrænset nyudstedelse møder geninvestering af kuponer, afdrag og udtrækninger.
+Indekset falder og ligger omkring eller under nul i dele af 2026. Det viser, at de omfattede obligationer blev dyrere relativt til leverandørens model.
 
-Stor efterspørgsel → højere kurser → lavere OAS.
-
-Bedre finansieringsforhold og lavere volatilitet understøtter bevægelsen. OAS kan nærme sig eller komme under nul, selv med økonomisk og geopolitisk usikkerhed.
+Udbud og efterspørgsel kan have bidraget, men figuren indeholder ikke mængdedata, der dokumenterer årsagen.
 
 ::: {.notes}
-Dette er bogens historiske fortolkning frem til medio 2026. De næste forsøg isolerer virkningen af forskellige modelstød.
+Indeksets obligationer og modelinput kan ændre sig over tid. De næste forsøg isolerer virkningen af forskellige modelstød.
 :::
 
 ## Fire stød flytter forskellige dele af modellen {#ch07-s026}
@@ -351,6 +351,8 @@ Ved CPR-stødet fastholdes begge kurver. Ved rentestødet følger refinansiering
 ## Varighed kræver genberegnede betalinger {#ch07-s027}
 
 Ved rentestød beregnes CPR og betalinger igen. Det kalibrerede OAS holdes fast.
+
+Det er et stød til reference- og refinansieringskurven. En ændring i obligationens egen effektive rente med faste betalinger er et andet regnestykke.
 
 $$KV\approx-\frac{P_0(+\Delta y)-P_0(-\Delta y)}{2\Delta y\cdot100},\qquad PVBP=\frac{KV}{100}.$$
 

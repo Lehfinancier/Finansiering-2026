@@ -65,17 +65,19 @@ Enhedsmarked betyder sammenlignelige produkter, ikke identiske obligationer. Vi 
 
 $$H=\sum_{i=1}^{I}H_i,\qquad D=\sum_{j=1}^{J}D_j.$$
 
-Boggrundlagets grove balance: $H=D+E$, hvor $E$ er egenkapitalens tabsbuffer.
+$H$ og $D$ er nominelle beløb. Regnskabsbalancen bruger værdier opgjort efter samme princip:
+
+$$\text{Udlån}+\text{andre aktiver}=\text{udstedte obligationer}+\text{andre forpligtelser}+E.$$
 
 | Aktiver | Passiver |
 |---|---|
 | Pantebreve med ejendomspant | Udstedte realkreditobligationer |
-| Andre aktiver | Egenkapital |
+| Andre aktiver | Andre forpligtelser og egenkapital |
 
 Låntager har gæld til instituttet; investor har krav mod instituttet.
 
 ::: {.notes}
-Identiteten er en grov balanceillustration. Nominelle låne- og obligationsbeløb er ikke en fuldstændig regnskabsmodel med alle aktiver.
+Egenkapitalen $E$ er tabsbuffer. Nominelle låne- og obligationsbeløb må ikke lægges sammen med regnskabsmæssig egenkapital som en balanceidentitet.
 :::
 
 ## Pant og obligationer mødes i instituttets balance {#ch05-s007}
@@ -131,7 +133,7 @@ $$\text{Ydelse}=\underbrace{\text{rente+afdrag}}_{\text{investor}}+\underbrace{\
 Høj LTV, afdragsfrihed og kort rentebinding giver typisk højere bidrag.
 
 ::: {.notes}
-Bidrag indgår ikke direkte i obligationens cash flow, men påvirker låntagers samlede omkostning og beslutning om omlægning. Obligationstillæg og rentetillæg er samme begreb her.
+Bidrag indgår ikke direkte i obligationens betalingsrække. Det kan påvirke kursen indirekte gennem låntagers samlede omkostning og beslutning om omlægning. Obligationstillæg og rentetillæg er samme begreb her.
 :::
 
 ## LTV begrænser realkreditfinansieringen {#ch05-s011}
@@ -205,7 +207,7 @@ Store serier giver investor likviditet, kreditkvalitet og et spænd. Obligations
 - **FLT:** kupon justeres løbende efter en reference.
 - **RTL:** lånet refinansieres med faste mellemrum.
 
-De næste tabeller er bogens udsnit fra Nasdaq Nordic, 28. august 2026. Cirkulerende mængde er i mia. kr.
+De næste tabeller er bogens udsnit pr. 28. august 2026. Cirkulerende mængde er i mia. kr. Kilde: Vitec Scanrate.
 
 ::: {.notes}
 Produktfamilierne har forskellige rente-, funding- og konverteringsrisici. Sammenlign egenskaberne i tabellerne før kursniveauerne.
@@ -221,7 +223,7 @@ Produktfamilierne har forskellige rente-, funding- og konverteringsrisici. Samme
 | Cirkulerende, mia. | 49,994 | 52,085 |
 | Terminer pr. år | 1 | 1 |
 
-Begge: udløb 2027, stående amortisering, ikke konverterbare, ikke afdragsfri. Nasdaq Nordic, 28. august 2026.
+Begge: udløb 2027, stående amortisering, ikke konverterbare, ikke afdragsfri. Kilde: Vitec Scanrate.
 
 ::: {.notes}
 Hold obligationens korte løbetid adskilt fra det boliglån, den finansierer. Lånet kan fortsætte gennem refinansiering.
@@ -236,7 +238,7 @@ Hold obligationens korte løbetid adskilt fra det boliglån, den finansierer. L�
 | 3,5 NYK E 2056 | DK0009548372 | 94,420 | 21,699 |
 | 5 NYK E 2053 IO10 | DK0009539389 | 103,350 | 8,537 |
 
-Kupon svarer til navnet. Alle har fire terminer, konverteringsret og annuitetsprofil; kun sidste række er afdragsfri. Nasdaq Nordic, 28. august 2026.
+Kupon svarer til navnet. Alle har fire terminer, konverteringsret og annuitetsprofil; kun sidste række er afdragsfri. Kilde: Vitec Scanrate.
 
 ::: {.notes}
 Navnets år er udløbsåret. Brug både pris og afdragsprofil til at skelne de to 5-procentserier.
@@ -252,7 +254,7 @@ Navnets år er udløbsåret. Brug både pris og afdragsprofil til at skelne de t
 | Cirkulerende, mia. | 19,762 | 17,972 |
 | Udløb | 2028 | 2027 |
 
-Begge: fire terminer, ikke konverterbare, afdragsfri, amortisering betegnet »ydelse«. Nasdaq Nordic, 28. august 2026.
+Begge: fire terminer, ikke konverterbare, afdragsfri, amortisering betegnet »ydelse«. Kilde: Vitec Scanrate.
 
 ::: {.notes}
 Den aktuelle kupon siger ikke, hvad alle fremtidige kuponer bliver. Kursen kan stadig bevæge sig med spænd og likviditet.
@@ -522,24 +524,24 @@ Balanceprincippet kræver sammenhæng mellem lån og funding, men ikke én unive
 
 ## To fixinger kan bestemme fire terminsbetalinger {#ch05-s042}
 
-![](../../images/final/ch05-fig013.svg){.chapter-figure width="100%" fig-alt="Martsfixingen gælder april–september og betalingerne 1. juli/1. oktober. Septemberfixingen gælder de næste to betalinger."}
+![](../../images/final/ch05-fig013.svg){.chapter-figure width="100%" fig-alt="I eksemplet bestemmer martsfixingen kuponen ved betalingerne 1. juli og 1. oktober; septemberfixingen bestemmer de næste to."}
 
-Martsfixingen gælder april–september og betalingerne 1. juli/1. oktober. Septemberfixingen gælder de næste to betalinger. 
+I eksemplet bestemmer martsfixingen kuponen ved betalingerne 1. juli og 1. oktober. Septemberfixingen bestemmer de næste to betalinger.
 
 ::: {.notes}
-Datoerne er et almindeligt forløb; den konkrete obligations vilkår bestemmer præcist. Fixing og betaling er forskellige hændelser.
+Datoer og renteperioder følger den konkrete obligations vilkår. Fixing og betaling er forskellige hændelser.
 :::
 
-## Lav varighed er ikke fravær af risiko {#ch05-s043}
+## Floateren giver låntager og investor forskellig risiko {#ch05-s043}
 
-Låntager: korte rentestigninger løfter ydelsen hurtigt og giver mindre budgetsikkerhed.
+**Låntager:** En højere referencerente kan løfte ydelsen ved næste fixing. Det er budgetrisiko.
 
-Investor: kuponen følger referencerenten, så kursen ofte ligger tættere på 100 end en lang fastforrentet obligation.
+**Investor:** Renterisiko er et muligt tab i markedsværdi. Hyppig fixing dæmper kursfølsomheden over for et stød til den rente, kuponen følger.
 
-Spænd, likviditet, kreditforhold og regulering kan stadig ændre kursen. Cap, floor og eventuel pariret giver optionselementer.
+Kursen kan stadig falde mellem fixinger eller ved højere krævet spænd, ringere likviditet eller ændrede kreditforhold. Cap, floor og eventuel pariret ændrer også risikoen.
 
 ::: {.notes}
-En simpel inkonverterbar floater uden cap og floor er det klareste udgangspunkt. Tilføj derefter de konkrete kontraktvilkår.
+Sammenlign med en lang fastforrentet obligation. Den enkle floater har typisk lavere direkte kursfølsomhed over for sin referencerente, men den har stadig risiko ved kurveforskel, regulering og optioner. Den konkrete kontrakt bestemmer tidspunktet for næste fixing.
 :::
 
 ## På floaterauktionen byder investor på marginen {#ch05-s044}
@@ -840,13 +842,13 @@ Sammenlign først binding og rentefastsættelse. Den næste slide viser, hvem de
 | Produkt | Låntager | Investor |
 |---|---|---|
 | Fast konverterbart | Betaler for budgetsikkerhed | Konvertering og genplacering |
-| Floater/F-kort | Hurtigt stigende ydelse | Faldende kupon og ændret spænd |
-| RTL | Ny rente ved refinansiering | Refinansieringsmekanik og forlængelse |
+| Floater/F-kort | Højere ydelse ved næste fixing | Kursfald ved højere krævet spænd; fixing og optioner |
+| RTL | Ny rente ved refinansiering | Kursrisiko og mulig forlængelse via triggere |
 
 F-kort kan stige midt i F3-vinduet, hvor F3-renten fortsat er fast.
 
 ::: {.notes}
-Sammenlign altid samme part: lav renterisiko for investor kan betyde høj risiko for låntagers løbende ydelse.
+Investorens direkte kursfølsomhed over for referencerenten er typisk lav, mens låntager hurtigt kan mærke højere rente i budgettet. Begge risici afhænger af produktets vilkår.
 :::
 
 ## Kort fixing kan ramme længe før næste refinansiering {#ch05-s066}
@@ -881,16 +883,16 @@ Følg åbningen af nye RD-serier gennem markedsbevægelsen. Kilde: Nasdaq Nordic
 Figuren er historisk og illustrerer kursdrevet produktvalg. Den planlagte årgangsmekanik er en separat årsag til nye serier.
 :::
 
-## Udstedelseshistorikken følger med ind i modellen {#ch05-s069}
+## Indfrielsesretten gør fremtidige betalinger usikre {#ch05-s069}
 
 Åbne serier får nye lån. Lukkede serier ændres gennem afdrag og indfrielser.
 
-CK95: næste offentliggjorte udtræk. CK92: låntagergrupper. Prepaymentmodel: fremtidig konvertering. Prisningsmodel: kurs, varighed og konveksitet.
+På fastforrentede konverterbare lån kan låntager indfri til markedskurs eller opsige til kurs 100 efter vilkårene. Investor kender derfor ikke hele betalingsrækken på forhånd.
 
-Debitorspænd (LYS i kapitel 5) vedrører låntagers refinansiering; OAS vedrører investors modelpris. Begge adskilles fra bidrag.
+Kapitel 6 skønner indfrielser og betalinger. Kapitel 7 beregner kurs og renterisiko på de forventede betalinger.
 
 ::: {.notes}
-Floaters og RTL har hovedsageligt mekanisk usikkerhed om fixing og auktion. Fastforrentede konverterbare kræver derudover modellering af låntagernes aktive beslutninger.
+CK95 oplyser det kommende udtræk; CK92 beskriver låntagergrupper. Prepaymentmodellen skønner senere indfrielser. LYS vedrører låntagers refinansiering; OAS er investors modelspænd. Begge adskilles fra bidrag. Floaters og RTL har især usikkerhed om fixing, auktion og eventuelle triggere.
 :::
 
 ## Produktdesignet bestemmer, hvilke betalinger der er usikre {#ch05-s070}
@@ -899,7 +901,7 @@ Balanceprincippet og match-funding reducerer instituttets markedsrisiko, mens ri
 
 Investorfordeling påvirker pris og likviditet. Låntagerfordeling påvirker udtræk og betalingstidspunkter.
 
-Kupon og afdrag til investor; bidrag til institut. Kapitel 6 omsætter låntagers adfærd til betalingsrækker.
+Kupon og afdrag går til investor; bidrag går til institut. Låntagers rettigheder kan ændre investorens betalinger.
 
 ::: {.notes}
 Afslut med at få deltagerne til at nævne en risiko for hver af de tre parter. Det binder markedet og produkterne sammen.

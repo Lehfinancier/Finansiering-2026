@@ -49,19 +49,31 @@ Pengene skal ofte geninvesteres i et marked med lavere renter. Det er reinvester
 Låntagers fordel og investors ulempe er to sider af samme ret. Før adfærden modelleres, skal indfrielserne måles korrekt.
 :::
 
+## Kun tilbageværende lån kan indfries {#ch06-s071}
+
+Modellen skønner for hvert tilbageværende lån chancen for indfrielse på næste termin. Når terminen er gået, kan vi se, hvilke lån der faktisk blev indfriet.
+
+To låntagere skylder 1 og 9 mio. kr. Hvis lånet på 1 mio. kr. indfries, er **halvdelen af lånene** væk, men kun **en tiendedel af gælden**.
+
+Seriens CPR kan være et skøn før terminen eller en opgørelse bagefter. Begge måler en gældsandel, så store lån tæller mere. Grundlaget er den planlagte restgæld efter ordinært afdrag.
+
+::: {.notes}
+Skeln mellem modellens forventede indfrielse og den observerede indfrielse. Låntager træffer ét valg om hele sit lån; CPR er investorens måde at opgøre gælden på. Kilde: Jakobsen, Svenstrup og Willemann (2005), afsnit 4.2.
+:::
+
 ## CPR har en anden nævner end de øvrige udtræksrater {#ch06-s005}
 
 | Rate | Betydning | Grundlag |
 |---|---|---|
-| ORD | Ordinært udtræk | Restgæld før ordinært afdrag |
-| EXT | Ekstraordinært udtræk | Samme begyndelsesrestgæld |
+| ORD | **Planlagt** ordinært afdrag for hele puljen | Restgæld før ordinært afdrag |
+| EXT | Merudtræk ud over det planlagte afdrag | Samme begyndelsesrestgæld |
 | UDT | Samlet udtræk | Samme begyndelsesrestgæld |
-| CPR | Conditional Prepayment Rate | Restgæld **efter** ordinært afdrag |
+| CPR | Andel af gælden, som forventes eller faktisk indfries | Planlagt restgæld **efter** ordinært afdrag |
 
 Alle kapitlets egne rater er pr. kvartalsvis termin og bruges som decimaltal i formler.
 
 ::: {.notes}
-Afklar både periode og nævner. En CPR på 3 procent bliver 0,03 i beregningen.
+CPR står for Conditional Prepayment Rate. Afklar både periode og nævner. En CPR på 3 procent bliver 0,03 i beregningen.
 :::
 
 ## En kvartalsrate er ikke en årsrate {#ch06-s006}
@@ -87,10 +99,10 @@ Omvendt:
 
 $$CPR_t=\frac{EXT_t}{1-ORD_t}.$$
 
-De ekstraordinære indfrielser beregnes efter det ordinære afdrag.
+Identiteterne gælder, når $ORD$ er planlagt afdrag for hele puljen, og $EXT$ er merudtræk ud over dette. Låntager indfrier hele lånet på én gang.
 
 ::: {.notes}
-Med en begyndelsesrestgæld på 100 ses, hvorfor CPR beregnes efter det ordinære afdrag. De konkrete tal står på næste slide.
+Hvis en datakilde bruger $ORD$ om faktisk betalt afdrag fra fortsættende lån, skal felterne omregnes før formlen bruges. De konkrete tal står på næste slide.
 :::
 
 ## 3% CPR giver 3,388% samlet udtræk {#ch06-s008}
@@ -176,6 +188,8 @@ Tabellen er et særskilt historisk eksempel, ikke data fra tidslinjen i 2026. Be
 $$CPR=\frac{EXT}{1-ORD}.$$
 
 Et skøn lavet før publicering sammenholdes med CK95 for samme termin og ratekonvention.
+
+Kontrollér først feltdefinitionerne: $EXT/(1-ORD)$ kræver planlagt $ORD$ for hele puljen og $EXT$ som merudtræk. Scanrates metode bag tabellens beregnede felter er ikke dokumenteret her.
 
 Højere CPR i 5%-serien er foreneligt med et større incitament; tabellen fastslår ikke årsagen alene.
 
@@ -896,10 +910,10 @@ $$CPR_t=g(Gain_t,\ \text{restløbetid},\ \mathrm{Burnout}_{t-1},\ \text{sammens�
 
 Større Gain og flere grupper med lave gevinstkrav trækker typisk CPR op. Mere burnout trækker typisk reaktionen ned.
 
-Kort restløbetid giver mindre tid til at tjene omkostninger hjem. Noget er indbygget i Gain; resten kan påvirke gevinstkravet.
+Restløbetiden indgår allerede i $Gain$ gennem nutidsværdien af de resterende betalinger. En særskilt virkning, fx værdien af at vente på en bedre rente, må undersøges i data.
 
 ::: {.notes}
-Funktionen beskriver puljens betingede adfærd, ikke den enkelte beslutning. Retningerne er forventede sammenhænge og afhænger af model og markedsforhold.
+Funktionen beskriver den tilbageværende puljes adfærd. Retningerne afhænger af model og markedsforhold. Medregn ikke samme omkostning i både $Gain$ og en særskilt restløbetidsvirkning.
 :::
 
 ## Resultatet er én betalingsrække for hver rentesti {#ch06-s065}

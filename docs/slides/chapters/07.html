@@ -993,15 +993,15 @@ margin-right: 0; }
 
 <section id="ch07-s001" class="slide level2">
 <h2>Hvad er de usikre betalinger værd?</h2>
-<p>Låntager kan indfri, når den gamle kupon er attraktiv for investor.</p>
+<p>Kapitel 6 beregnede en betalingsrække for hver rentesti. Her diskonterer vi betalingerne på hver sti og samler dem til en modelpris.</p>
 <ol type="1">
 <li>Betalinger på rentestier → modelpris.</li>
 <li>Konverteringsret → optionsværdi og OAS.</li>
 <li>Fire forskellige stød → pris og renterisiko.</li>
 </ol>
-<p>CPR måles her pr. kvartal på restgælden efter ordinært afdrag, medmindre andet er angivet.</p>
+<p>Renteudviklingen ændrer både låntagers indfrielser og investorens diskontering.</p>
 <aside class="notes">
-<p>Begynd med investorens problem: en høj kupon er kun værdifuld, så længe den bliver betalt. Kapitlet forklarer prisningsprincipper og modeloutput; den numeriske produktionsmodel ligger uden for kurset.</p>
+<p>En høj kupon er kun værdifuld for investor, så længe den bliver betalt. Brug kapitel 6’s CPR og udtræksregnskab som forudsætning. Den numeriske produktionsmodel ligger uden for kurset.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1346,9 +1346,9 @@ display:block!important;
 </tr>
 </tbody>
 </table>
-<p>Boggrundlaget forklarer ikke forskellen mellem 131,01 her og 131,74 før. Eksemplerne er <strong>ikke afstemt som én modelkørsel</strong>.</p>
+<p>131,01 her og 131,74 før er <strong>separate modeludtræk</strong>. Optionsværdierne 28,92 og 29,65 skal holdes adskilt.</p>
 <aside class="notes">
-<p>Ingen af optionsværdierne er en uafhængigt observeret markedspris på retten.</p>
+<p>Uden oplysninger om modelversion, kurve, spænd og betalingsprofil kan forskellen på 0,73 kurspoint ikke forklares. Ingen af optionsværdierne er en uafhængigt observeret markedspris på retten.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1496,8 +1496,9 @@ display:block!important;
 <p>Debitorspænd → refinansiering → Gain → CPR.</p>
 <p>OAS → diskonteringsfaktorer → modelpris.</p>
 <p>OAS kan afspejle kreditrisiko, likviditet, udbud, efterspørgsel og modelfejl. Fortolkningen som ekstra kompensation gælder <strong>givet modellen og referencekurven</strong>.</p>
+<p>Et almindeligt PV-spænd fra kapitel 3 lægges på en fast betalingsrække. Her beregnes betalingerne på rentestier med låntagernes indfrielser; derfor afhænger OAS også af rente- og konverteringsmodellen.</p>
 <aside class="notes">
-<p>OAS observeres ikke direkte som markedskursen. En forkert konverteringsantagelse kan blive opsamlet i det kalibrerede spænd.</p>
+<p>Markedet viser kursen; OAS beregnes ud fra kurs og model. En forkert konverteringsantagelse kan blive opsamlet i det kalibrerede spænd.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1568,12 +1569,12 @@ display:block!important;
 }</style></aside>
 </section>
 <section id="ch07-s023" class="slide level2">
-<h2>2017–2020: efterspørgsel og likviditetsstress</h2>
-<p><strong>2017–2019:</strong> lave renter, begrænsede renteudsving og stor dansk/udenlandsk efterspørgsel løfter kurser og presser OAS ned.</p>
+<h2>2017–2020: OAS falder og springer kortvarigt op</h2>
+<p><strong>2017–2019:</strong> Indekset falder og ligger periodevis under nul. Det viser høje kurser relativt til modellen ved OAS nul; figuren viser ikke, hvad der drev bevægelsen.</p>
 <p>Negativt OAS betyder en høj pris relativt til modellen ved OAS = 0; risikoen er stadig til stede.</p>
-<p><strong>Foråret 2020:</strong> salgspres, likviditetsbehov og usikkerhed sænker kurser og hæver OAS. Bedre likviditet og efterspørgsel vender bevægelsen.</p>
+<p><strong>Foråret 2020:</strong> Indekset springer op og falder igen senere på året. Nationalbanken beskriver samtidig kortvarigt svagere likviditet i dansk realkredit. Det kan forklare en del af bevægelsen.</p>
 <aside class="notes">
-<p>Nationalbankens Analyse nr. 22, 10. november 2020, dokumenterer likviditetsforholdene, ikke en præcis årsagsopdeling af dette OAS-indeks. Det skal være synligt, at perioderne er historiske.</p>
+<p>Nationalbankens Analyse nr. 22, 10. november 2020, dokumenterer likviditetsforholdene. Hverken analysen eller figuren opdeler netop dette OAS-indeks i årsagsbidrag.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1590,7 +1591,7 @@ display:block!important;
 <h2>2021–første halvår 2025: lavkuponer bliver længere</h2>
 <p>Stigende renter → lavkuponer langt under 100 → mindre sandsynlig pariindfrielse → længere forventet løbetid.</p>
 <p>Investor får mere renterisiko i den eksisterende beholdning.</p>
-<p>Større renteusikkerhed og svagere udenlandsk efterspørgsel bidrager til højere OAS. Bogens fortolkning peger især på rente-, konverterings- og likviditetsrisiko.</p>
+<p>Indekset stiger fra 2021 med store udsving. Ændret volatilitet, likviditet og efterspørgsel kan også spille ind; figuren fordeler ikke virkningerne.</p>
 <aside class="notes">
 <p>Undgå at læse hele OAS-bevægelsen som kreditforværring. Indeksets sammensætning og modellens forudsætninger spiller også ind.</p>
 <style type="text/css">
@@ -1606,12 +1607,11 @@ display:block!important;
 }</style></aside>
 </section>
 <section id="ch07-s025" class="slide level2">
-<h2>Fra sommeren 2025: få nye obligationer, mange geninvesteringer</h2>
-<p>Begrænset nyudstedelse møder geninvestering af kuponer, afdrag og udtrækninger.</p>
-<p>Stor efterspørgsel → højere kurser → lavere OAS.</p>
-<p>Bedre finansieringsforhold og lavere volatilitet understøtter bevægelsen. OAS kan nærme sig eller komme under nul, selv med økonomisk og geopolitisk usikkerhed.</p>
+<h2>Fra sommeren 2025: OAS falder igen</h2>
+<p>Indekset falder og ligger omkring eller under nul i dele af 2026. Det viser, at de omfattede obligationer blev dyrere relativt til leverandørens model.</p>
+<p>Udbud og efterspørgsel kan have bidraget, men figuren indeholder ikke mængdedata, der dokumenterer årsagen.</p>
 <aside class="notes">
-<p>Dette er bogens historiske fortolkning frem til medio 2026. De næste forsøg isolerer virkningen af forskellige modelstød.</p>
+<p>Indeksets obligationer og modelinput kan ændre sig over tid. De næste forsøg isolerer virkningen af forskellige modelstød.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1680,6 +1680,7 @@ display:block!important;
 <section id="ch07-s027" class="slide level2">
 <h2>Varighed kræver genberegnede betalinger</h2>
 <p>Ved rentestød beregnes CPR og betalinger igen. Det kalibrerede OAS holdes fast.</p>
+<p>Det er et stød til reference- og refinansieringskurven. En ændring i obligationens egen effektive rente med faste betalinger er et andet regnestykke.</p>
 <p><span class="math display">\[KV\approx-\frac{P_0(+\Delta y)-P_0(-\Delta y)}{2\Delta y\cdot100},\qquad PVBP=\frac{KV}{100}.\]</span></p>
 <ul>
 <li><span class="math inline">\(\Delta y\)</span> er decimalrente; 15 bp = 0,0015.</li>

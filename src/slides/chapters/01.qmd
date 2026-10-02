@@ -180,6 +180,50 @@ Samme mål: at holde kronens kurs stabil.
 Begge eksempler skal stå med deres historiske dato. De viser, hvorfor dansk rente kan afvige lidt fra euroområdets.
 :::
 
+## Samme årsrente kan give forskellige betalinger {#ch01-s041}
+
+Et kort lån skal forrentes for de dage, låntager råder over pengene.
+
+Ved et lån med samme rentebetaling hvert halve år er beløbet aftalt, selv om halvårene har forskelligt antal dage.
+
+Dagskonventionen er parternes fælles regel for at måle perioden.
+
+::: {.notes}
+Begynd med et kort lån uden afdrag og med en årligt oplyst rente. Flere konventioner er etableret på forskellige markeder. Kontrakten bestemmer, hvilken regel parterne skal bruge. Forklar først obligationens kuponperiode i kapitel 2.
+:::
+
+## Årsbrøken omsætter en årsrente til rentedage {#ch01-s042}
+
+$$\text{Rente}=\text{lånebeløb}\cdot\text{årsrente}\cdot\text{årsbrøk}$$
+
+| Konvention | Hvordan måles perioden? |
+|---|---|
+| ACT/360 | Faktiske rentedage / 360 |
+| 30/360 | 30 dage pr. måned og 360 pr. år |
+| ACT/ACT | Faktiske dage i forhold til den relevante periode; varianten afhænger af aftalen |
+
+Kontrollér lånets vilkår, før betalingen beregnes.
+
+::: {.notes}
+Ved lige store, regelmæssige rentebetalinger kan en ACT/ACT-konvention måle den forløbne del af en betalingsperiode og tage hensyn til antallet af betalinger pr. år. ACT/ACT dækker flere varianter. Undgå at bruge én kuponformel som generel definition.
+:::
+
+## Halvårlig tilskrivning gør 6% til 6,09% {#ch01-s026}
+
+Nominel årlig rente $r$, med $m$ tilskrivninger:
+
+$$r_{\mathrm{eff}}=\left(1+\frac rm\right)^m-1$$
+
+$$\left(1+\frac{0{,}06}{2}\right)^2-1=6{,}09\%$$
+
+Første halvårs rente når selv at blive forrentet.
+
+I lånedokumenter kaldes effektiv årlig rente også debitorrenten.
+
+::: {.notes}
+Tilskrivningsfrekvensen skal være kendt, før satser sammenlignes. Her sammenlignes tilskrivningen på et lån eller en opsparing. Kapitel 2 definerer en obligations effektive rente ud fra dens pris og betalinger.
+:::
+
 ## En variabel rente følger en aftalt reference {#ch01-s014}
 
 $$\text{Betalt rente}=\text{referencerente}+\text{tillæg}$$
@@ -188,7 +232,7 @@ $$\text{Betalt rente}=\text{referencerente}+\text{tillæg}$$
 
 **Fixing** er den offentliggjorte værdi på en bestemt dato.
 
-**Rentetillægget** aftales i kontrakten eller ved auktion og ligger som udgangspunkt fast.
+**Rentetillægget** er den ekstra rente, parterne aftaler i kontrakten.
 
 ::: {.notes}
 Kontrakten slipper for genforhandling, hver gang markedsrenten ændrer sig. Tillægget kompenserer for egenskaber og risici ud over selve referencen.
@@ -208,157 +252,44 @@ CIBOR kan indeholde større løbetids-, kredit- og likviditetspræmier.
 En længere periode giver en anden finansieringsrisiko. Derfor kan referencerne ikke udskiftes alene ved at bruge den seneste fixing.
 :::
 
-## Hvornår kendes periodens rente? {#ch01-s016}
+## Renteperioden skal passe til kontrakten {#ch01-s016}
 
-**CIBOR:** en terminsrente fastsættes normalt før periodens begyndelse.
+CIBOR 3M og CIBOR 6M gælder usikret finansiering i tre og seks måneder.
 
-**DESTR:** daglige renter akkumuleres gennem perioden. Den endelige rente kendes først nær periodens afslutning.
+DESTR gælder én bankdag. Skal den bruges over en længere periode, må kontrakten angive, hvordan de daglige renter samles.
 
-Kontrakten skal angive, hvordan daglige renter samles til en betaling.
-
-I bogens status for 2026 bruges CIBOR fortsat. En arbejdsgruppe undersøger en mulig overgang til transaktionsbaserede referencer.
+CIBOR bruges fortsat i danske kontrakter. En arbejdsgruppe undersøger en overgang til mere transaktionsbaserede referencer.
 
 ::: {.notes}
-Kilde til status: Danmarks Nationalbank, Working Group on CIBOR Transition, 2026. Beskriv mekanismerne uden at foregribe resultatet af arbejdet.
+En dag-til-dag-rente kan ikke uden videre erstatte en forud fastsat terminsrente. Betalingstidspunkt og renteberegning skal følge aftalen. Kilde: Danmarks Nationalbank, Arbejdsgruppe om CIBOR transition; fuld henvisning i bogens litteraturliste.
 :::
 
-## En rentesats bliver til en betaling {#ch01-s017}
+## Bankerne indberettede en rente, de selv tjente på {#ch01-s043}
 
-$$CF_i^{\mathrm{rente}}=H(r_i^{\mathrm{ref}}+q)\Delta_i$$
+LIBOR byggede på bankernes skøn over, hvilken rente de kunne låne til hos andre banker.
 
-| Symbol | Betydning |
-|---|---|
-| $H$ | Hovedstol i kroner |
-| $r_i^{\mathrm{ref}}$ | Periodens årlige referencerente |
-| $q$ | Aftalt årligt tillæg |
-| $\Delta_i$ | Renteperiodens årsbrøk efter kontraktens dagtælling |
+I Barclays bad handlere om højere eller lavere indberetninger, alt efter hvad der gav gevinst på deres aftaler.
+
+En mail fra 2006 tilbød en flaske Bollinger som tak for en lavere indberetning:
+
+> “I'm opening a bottle of Bollinger.”
 
 ::: {.notes}
-Indsæt rentesatser som decimaltal. Årsbrøken skalerer den årlige sats til den periode, som faktisk optjener rente.
+De højeste og laveste indberetninger blev sorteret fra, og resten dannede et gennemsnit. Én bank bestemte ikke renten alene, men kunne påvirke den. Mailen var fra en handler i en anden bank og vedrørte tremåneders LIBOR i amerikanske dollar. Kilde: FSA, Final Notice: Barclays Bank Plc, 27. juni 2012, pkt. 30–35 og 83; se bogens litteraturliste.
 :::
 
-## 182 rentedage giver 15.166,67 kr. {#ch01-s018}
+## Manipulationen ændrede grundlaget for betalingerne {#ch01-s044}
 
-Hovedstol 1.000.000 kr., CIBOR 6M 2,50%, tillæg 0,50 procentpoint.
+På et lån til LIBOR plus et fast tillæg giver en højere fixing en større betaling fra låntager til långiver. En lavere fixing virker modsat.
 
-ACT/360 giver $\Delta_i=182/360$.
+Under finanskrisen sænkede Barclays også indberetninger for at undgå mistanke om finansieringsproblemer.
 
-$$CF_i^{\mathrm{rente}}=1.000.000(0{,}025+0{,}005)\frac{182}{360}$$
+FSA gav banken en bøde på **59,5 mio. pund i 2012** i sagen om LIBOR og EURIBOR.
 
-$$=15.166{,}67\text{ kr.}$$
-
-$\Delta_i$ er renteperiodens længde. $t_i$ er tiden fra værdiansættelsen til betalingen.
+Referencerenten kræver regler for indberetning og kontrol med, at de bliver fulgt.
 
 ::: {.notes}
-To perioder med samme antal kalenderdage kan få forskellige årsbrøker efter deres konvention. Betalingen fastlægges af renteperioden, mens nutidsværdien afhænger af betalingsdagen.
-:::
-
-## En fixing og et kurvepunkt har forskellige tidsangivelser {#ch01-s019}
-
-**CIBOR 3M** angiver tre måneder pr. renteperiode.
-
-**Étårspunktet på CIBOR 3M-kurven** sammenfatter prisfastsættelsen over det næste år med successive tremånedersperioder.
-
-Punktet er hverken en officiel CIBOR 1Y-fixing eller én fremtidig CIBOR 3M-fixing.
-
-::: {.notes}
-I den følgende tabel angiver kolonnen referenceperioden, mens rækken angiver kurvepunktets horisont.
-:::
-
-## En daglig reference kan bære en lang kurve {#ch01-s020}
-
-En renteswap bytter fast rente mod variabel rente.
-
-I en **OIS** følger den variable betaling de akkumulerede daglige renter.
-
-Priser på DESTR-baserede OIS-kontrakter giver kurvepunkter fra korte horisonter til fx 30 år.
-
-Et langt kurvepunkt sammenfatter prisfastsættelsen over hele horisonten.
-
-::: {.notes}
-OIS står for Overnight Indexed Swap. Selv om den underliggende rente gælder én dag, kan aftalen udveksle betalinger over mange år.
-:::
-
-## Referencekurvens navn og punktets horisont {#ch01-s021}
-
-Stiliserede årlige kurverenter. Kilde: bogens egen illustration.
-
-| Horisont | DESTR-baseret | CIBOR 3M | CIBOR 6M |
-|---|---:|---:|---:|
-| 3 måneder | 1,80% | 2,10% | 2,30% |
-| 6 måneder | 1,85% | 2,15% | 2,35% |
-| 9 måneder | 1,90% | 2,20% | 2,40% |
-| 1 år | 1,95% | 2,25% | 2,45% |
-
-Tallene er antagne kurvepunkter, ikke officielle fixinger.
-
-::: {.notes}
-De 1,80% i øverste række gælder den årlige kurverente knyttet til hele tremånedersperioden. Det er ikke en forudsigelse af DESTR på en bestemt dag om tre måneder.
-:::
-
-## Både horisont og reference påvirker kurverenten {#ch01-s022}
-
-![Både horisont og reference påvirker kurverenten](../../images/final/ch01-fig002.svg){.chapter-figure}
-Følg én kurve langs løbetiden. Sammenlign derefter kurver ved samme løbetid. Niveauer og afstande er illustrative.
-
-::: {.notes}
-Alle tre kurver stiger i dette eksempel. Rækkefølgen og de konstante afstande er ikke generelle regler. Markedets kurver afspejler også præmier og må ikke læses som sikre punktprognoser.
-:::
-
-## CITA er en reference for korte renteswaps {#ch01-s023}
-
-CITA fastsættes for kommende perioder og bygger på DESTR-baserede OIS-kontrakter.
-
-Fra 1. januar 2026 lægger DFBF ikke længere det tidligere faste spread til panelbankernes DESTR-OIS-tilbud.
-
-CITA vender tilbage i vilkårene for floaters i kapitel 5.
-
-Kilde: DFBF, *CITA Reformation* og benchmarkbeskrivelsen, som gengivet i final-bogen.
-
-::: {.notes}
-Hold CITA knyttet til swapmekanismen. Det er tilstrækkeligt at kunne genkende betegnelsen i kontraktvilkårene.
-:::
-
-## Kuponvilkår og diskontering løser hver sin opgave {#ch01-s024}
-
-$$\mathrm{Kupon}_t=\mathrm{CIBOR\ 6M}_t+0{,}50\%$$
-
-Referencerenten og tillægget bestemmer betalingen.
-
-Diskonteringskurven bestemmer betalingens værdi i dag.
-
-Tillæg på forskellige referencer kan ikke sammenlignes alene: samlet rente og kontraktvilkår skal med.
-
-::: {.notes}
-Ved refinansieringsauktioner byder investorer på tillægget. I kapitel 7 bruges DESTR-baseret OIS som prisningsgrundlag. Det er forskellige roller for renterne.
-:::
-
-## Pålydende rente beskriver kontrakten {#ch01-s025}
-
-En 30-årig statsobligation med 5% kupon betaler 5 kr. om året pr. 100 kr. hovedstol.
-
-Et banklån kan fx oplyse en nominel rente på 8,75%.
-
-Den effektive rente samler købskurs, betalingstidspunkter og rente på rente i en årlig forrentning.
-
-::: {.notes}
-En kupon på fem procent siger endnu ikke, hvad investor forrenter sin faktiske investering med. Investor kan betale en anden pris end 100.
-:::
-
-## Halvårlig tilskrivning gør 6% til 6,09% {#ch01-s026}
-
-Nominel årlig rente $r$, med $m$ tilskrivninger:
-
-$$r_{\mathrm{eff}}=\left(1+\frac rm\right)^m-1$$
-
-$$\left(1+\frac{0{,}06}{2}\right)^2-1=6{,}09\%$$
-
-Første halvårs rente når selv at blive forrentet.
-
-I lånedokumenter kaldes effektiv årlig rente også debitorrenten.
-
-::: {.notes}
-Tilskrivningsfrekvensen skal være kendt, før satser sammenlignes. Kapitlet bruger effektiv rente intuitivt. Kapitel 2 bestemmer den ud fra en hel obligations betalingsrække.
+Knyt sagen til interessekonflikten og de faktiske betalinger i kontrakten. Tilsynet kritiserede også kontrollen og opfølgningen på interne advarsler. Reformerne søgte et stærkere grundlag i faktiske handler. Kilder: FSA, pressemeddelelse 27. juni 2012; FCA, Do I need to worry about benchmark regulation?, 2. februar 2016. Fuld henvisning i bogens litteraturliste.
 :::
 
 ## Tre renter med tre funktioner {#ch01-s027}
@@ -366,7 +297,7 @@ Tilskrivningsfrekvensen skal være kendt, før satser sammenlignes. Kapitlet bru
 | Rente | Funktion | Videre i kurset |
 |---|---|---|
 | Kuponrente | Aftalte betalinger | Kapitel 2 |
-| Reference + tillæg | Variable kuponer | Kapitel 5 |
+| Reference + tillæg | Variable kuponer | Kapitel 2 og 5 |
 | Diskonteringsrente og kurve | Priser og risikomål | Kapitel 2, 3, 6 og 7 |
 
 Sammenlign altid renter på samme periode og tilskrivningsgrundlag.

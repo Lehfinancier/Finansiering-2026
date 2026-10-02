@@ -37,18 +37,20 @@ Krav: Quarto 1.8.23, TeX Live med `pdflatex`, `bibtex` og `texindy`, Python med 
 - `docs/slides/chapters/01.html` … `10.html`: browserdecks.
 - `docs/downloads/kapitel-01.pdf` … `kapitel-10.pdf`: én slide pr. side.
 - `docs/slides/chapters/00.html` og `docs/downloads/kapitel-00.pdf`: introduktion i HTML/PDF.
-- `docs/downloads/Kurs100-2026.pdf`: bog bygget fra final-arkivet.
+- `docs/downloads/Kurs100-2026.pdf`: den reviderede bog med ændringerne fra Troels-reviewet og de efterfølgende rettelser.
+- `src/book-edition.json`: bogudgave, lokal kildeplacering og hash for den publicerede PDF.
+- `scripts/sync_revised_figures.py`: eksport af reviderede TikZ-figurer til slides med bogens skrifter og farver.
 - `docs/downloads/OS1.pdf` … `OS5.pdf`: uændrede øvelsessæt uden løsninger.
 
 Gamle slidekilder bevares, men renderes ikke. Den eksplicitte render- og ressourceoversigt i `src/_quarto.yml` holder dem og løsningsfiler ude af den genererede side. Freeze og kodeeksekvering er deaktiveret i de nye decks.
 
 ## Autoritet og kontrol
 
-Kun `final_lecture_notes/Kurs100_v2.zip` og `final_exercises/OS_finansiering_2026.zip` bestemmer pensum. Hashes, aktiv inklusionskæde, dækningsmatricer, figurfortegnelse, kildekonflikter, logfiler og visuel QA ligger lokalt i `work/final-rebuild/`. Arkiver og arbejdsfiler er udeladt fra Git. De lokale rapporter hedder `REPORT.md` og `BUILD.md`.
+De oprindelige arkiver `final_lecture_notes/Kurs100_v2.zip` og `final_exercises/OS_finansiering_2026.zip` er bevaret. Den aktive bogudgave er angivet i `src/book-edition.json`; dens private LaTeX-kilder ligger i `work/troels-no-slop-2026-09-30/after_slop/`. Et fuldt build bruger denne bog og eksporterer de reviderede figurer. `--slides-only` bruger den eksisterende bog-PDF og kontrollerer dens hash. Hashes, dækningsmatricer og QA ligger lokalt i `work/final-rebuild/` og `work/troels-slides-2026-10-02/`. Arkiver og arbejdsfiler er udeladt fra Git.
 
 PDF’er fremstilles fra den samme Reveal-HTML som browserudgaven. `scripts/validate_final.py` kontrollerer slide-ID’er, sidetal, billedreferencer, lokale links, originalhashes og at kun de tilladte PDF’er er publiceringsklare. Visuel kontrol dokumenteres separat; en bestået automatisk kontrol erstatter den ikke.
 
-Forside og slides er desuden gennemgået efter no-ai-slop-reglerne. Den lokale rapport `work/no-ai-slop-2026/REPORT.md` dokumenterer ændringer og kontrol; opgaver og lektionsbog er uændrede.
+Forside og slides er gennemgået efter no-ai-slop-reglerne. Kapitel 1–8 er den 2. oktober 2026 afstemt med den reviderede bog: dagskonventioner og LIBOR, obligationskontrakten, YTM og geninvestering, PV-spænd, swapkurver, renterisiko, floaters, CPR og horisontafkast. Figurerne for YTM, prisafvigelser, kursfølsomhed og realkreditbalancen er eksporteret fra bogen. Opgaveslidene og OS1–OS5 er bevaret. Lektionsbogen har korte litteraturhenvisninger ved LIBOR, Vitec Scanrate som kilde til tabel 5.4 og årstallet 2026 på forsiden.
 
 Undervisning: tirsdag kl. 08:15–10:00 og torsdag kl. 14:15–16:00, fra 20. oktober til 26. november 2026 (uge 43–48). Modul 1 er intro + kapitel 1, modul 2–10 følger kapitel 2–10, modul 11 er buffer den 24. november, og modul 12 bruger en tidligere eksamen som eksempel den 26. november. Datoer og tider er bekræftet af underviseren. Lokale og oplysninger om den aktuelle eksamen findes i Brightspace.
 

@@ -8,12 +8,69 @@ format: revealjs
 
 Investor betaler i dag for en kontrakt om fremtidige renter og afdrag.
 
-Vi arbejder med simple fastforrentede obligationer uden konverteringsret.
+Kuponen kan være fast eller følge en referencerente. Afdragsprofilen bestemmer, hvornår hovedstolen betales tilbage.
 
-Kapitlet følger obligationsinvestoren fra betalingsprofil og nutidsværdi til handel og afkastets risiko.
+Vi følger kontraktens betalinger fra køb til udløb og ser på handel, pris og afkast.
 
 ::: {.notes}
-En obligation er en betalingsrække. Variabel rente og konverteringsret kommer senere. Hold debitors betalinger og investors modtagne beløb sammen gennem kapitlet.
+Begynd med hovedstol, kupon, afdrag og termin. En kuponbærende obligation kan godt afdrage undervejs. Kuponstruktur og afdragsprofil er to forskellige egenskaber.
+:::
+
+## Fast og variabel kupon er to kontraktvilkår {#ch02-s076}
+
+En fastforrentet obligation med 4% årlig kupon og 1.000.000 kr. hovedstol betaler 40.000 kr. i rente om året, så længe rentegrundlaget er uændret.
+
+En variabel kupon bruger en aftalt referencerente plus et tillæg.
+
+Vilkårene fastlægger også terminer, renteperiode, dagskonvention og fixing.
+
+::: {.notes}
+Kuponrenten fortæller, hvad udsteder betaler af hovedstolen. Investorens effektive rente afhænger også af købsprisen. En årlig kupon på 5% giver 5 kr. pr. 100 nominel, uanset hvilken kurs investor køber til.
+:::
+
+## En rentesats bliver til en betaling {#ch02-s073}
+
+$$CF_i^{\mathrm{rente}}=H(r_i^{\mathrm{ref}}+q)\Delta_i$$
+
+| Symbol | Betydning |
+|---|---|
+| $H$ | Hovedstol i kroner |
+| $r_i^{\mathrm{ref}}$ | Periodens årlige referencerente |
+| $q$ | Aftalt årligt tillæg |
+| $\Delta_i$ | Renteperiodens årsbrøk efter kontraktens dagtælling |
+
+::: {.notes}
+Indsæt rentesatser som decimaltal. Årsbrøken skalerer den årlige sats til den periode, som faktisk optjener rente.
+:::
+
+## 182 rentedage giver 15.166,67 kr. {#ch02-s074}
+
+Hovedstol 1.000.000 kr., CIBOR 6M 2,50%, tillæg 0,50 procentpoint.
+
+ACT/360 giver $\Delta_i=182/360$.
+
+$$CF_i^{\mathrm{rente}}=1.000.000(0{,}025+0{,}005)\frac{182}{360}$$
+
+$$=15.166{,}67\text{ kr.}$$
+
+$\Delta_i$ er renteperiodens længde. $t_i$ er tiden fra værdiansættelsen til betalingen.
+
+::: {.notes}
+To perioder med samme antal kalenderdage kan få forskellige årsbrøker efter deres konvention. Betalingen fastlægges af renteperioden, mens nutidsværdien afhænger af betalingsdagen.
+:::
+
+## Kuponvilkår og diskontering løser hver sin opgave {#ch02-s075}
+
+$$\mathrm{Kupon}_t=\mathrm{CIBOR\ 6M}_t+0{,}50\%$$
+
+Referencerenten og tillægget bestemmer betalingen.
+
+Diskonteringskurven bestemmer betalingens værdi i dag.
+
+Tillæg på forskellige referencer kan ikke sammenlignes alene: samlet rente og kontraktvilkår skal med.
+
+::: {.notes}
+Ved floaterauktioner for FRN/F-kort byder investorer på rentetillægget. I kapitel 7 bruges DESTR-baseret OIS som prisningsgrundlag. Det er forskellige roller for renterne.
 :::
 
 ## Afdragsprofilen bestemmer betalingernes timing {#ch02-s002}
@@ -213,7 +270,7 @@ Med nominel årlig rente $r$ og $m$ tilskrivninger:
 
 $$d(t)=\left(1+\frac rm\right)^{-mt}$$
 
-$A$ er betalingen, og $t$ er tiden i år. Ved 10% er 110 kr. om ét år 100 kr. værd i dag.
+$A$ er betalingen, og $t$ er tiden i år. Diskontér nu alle obligationens betalinger til samme valørdag.
 
 ::: {.notes}
 Den generelle formel kræver en nominel årlig sats med den anførte tilskrivning. I de følgende eksempler bruger vi normalt årlig effektiv rente.
@@ -273,14 +330,14 @@ En termin er selve betalingstidspunktet. Omregn til samme effektive årsrente f�
 
 ## Kurs 127,80 er en pris pr. 100 nominel {#ch02-s021}
 
-$$KV=H\frac K{100}$$
+$$V=H\frac K{100}$$
 
 $$100.000\cdot\frac{127{,}80}{100}=127.800\text{ kr.}$$
 
 Investor betaler mere end den hovedstol, der tilbagebetales ved udløb, fordi kuponen er høj relativt til markedsrenten.
 
 ::: {.notes}
-Hovedstol og kursværdi er forskellige størrelser. KV betegner her kursværdi. Kapitel 7 bruger samme bogstaver om kronevarighed, så læs symbolerne i deres sammenhæng.
+Hovedstol og kursværdi er forskellige størrelser. V betegner kursværdi i kroner. Kronevarighed har en anden betydning og indføres i kapitel 4.
 :::
 
 ## Valørdagen er afregningsdagen {#ch02-s022}
@@ -308,27 +365,27 @@ Datoerne giver 64 dage frem til kupon; originalfiguren viser 63.
 Køber har kun ejet obligationen i sidste del af perioden, men modtager hele kuponen. Kompensationen ved handel fordeler økonomisk kuponen mellem parterne.
 :::
 
-## Dagtællingen er en del af kontrakten {#ch02-s024}
+## Sælgers andel beregnes efter kontraktens regel {#ch02-s024}
 
-$$v=\frac{rHD}{nDT}$$
+$$v=C\cdot f$$
 
-$D$: dage fra seneste termin til valør. $DT$: dage i kuponperioden. $n$: terminer pr. år.
+$C$ er den fulde kupon i kroner. $f$ er den optjente andel frem til valør.
 
-| Konvention | Årsbrøk |
-|---|---|
-| ACT/ACT | Faktiske dage i forhold til faktisk kuponperiode, med faktor $1/n$ |
-| ACT/360 | Faktiske dage / 360 |
-| 30/360 | 30 dage pr. måned og 360 pr. år |
+Ved lige store, regelmæssige kuponer og ACT/ACT (ICMA):
+
+$$C=\frac{rH}{n},\qquad f=\frac{D}{DT},\qquad v=\frac{rHD}{nDT}$$
+
+$D$: forløbne dage. $DT$: dage i den konkrete kuponperiode.
 
 ::: {.notes}
-r er årlig kuponrente og H hovedstol. ACT/ACT er bogens markedskonvention for danske stats- og realkreditobligationer. ACT/360 mødes i pengemarkedet. Danmark skiftede fra 30/360 i 2001, jf. Nationalbankens Central Government Borrowing and Debt 2000.
+En hel kupon er normalt aftalt på forhånd, selv om kalenderen giver perioderne forskelligt antal dage. Ved handel fordeler ACT/ACT (ICMA) den konkrete kupon mellem køber og sælger. Den særlige formel forudsætter regelmæssige perioder og lige store kuponer. Andre konventioner og skæve perioder kræver deres egne regler.
 :::
 
 ## Danmark skiftede dagtælling i 2001 {#ch02-s025}
 
-Danske stats- og realkreditobligationer følger i bogens markedskonvention ACT/ACT.
+Danske statsobligationer bruger ACT/ACT frem for den tidligere 30/360-konvention.
 
-Danmark gik fra 30/360 til ACT/ACT i 2001.
+Skiftet blev gennemført i 2001.
 
 30/360 forekommer fortsat i ældre materiale, andre kontrakter og stiliserede eksempler. Kontrakten afgør konventionen.
 
@@ -419,18 +476,18 @@ $$y=(1.000.000/980.000)^{1/10}-1=0{,}2022\%$$
 Hele afkastet kommer her fra forskellen mellem købspris og udløbsbetaling. En lav kursgevinst fordelt på ti år giver en meget lav årlig rente.
 :::
 
-## Kuponobligationens pris er to summer {#ch02-s032}
+## Den stående obligations pris er to summer {#ch02-s032}
 
 $$P=\sum_{t=1}^{N}\frac C{(1+y)^t}+\frac H{(1+y)^N}$$
 
-For ens årlige kuponer kan samme pris skrives:
+For en stående obligation med ens årlige kuponer:
 
 $$P=C\frac{1-(1+y)^{-N}}y+\frac H{(1+y)^N}$$
 
 $C$: årlig kuponbetaling. $H$: hovedstol. $N$: antal år.
 
 ::: {.notes}
-Første led er nutidsværdien af kuponerne, andet led hovedstolen. Annuitetsformen er blot en kort måde at skrive summen på. Effektiv rente findes normalt numerisk.
+Formlen gælder det stående lån. Den generelle prisformel med CF_t dækker også afdrag undervejs. Første led er nutidsværdien af kuponerne, andet led hovedstolen. Annuitetsformen er blot en kort måde at skrive summen på. Effektiv rente findes normalt numerisk.
 :::
 
 ## Kurs 98 løfter effektiv rente over kuponen {#ch02-s033}
@@ -439,59 +496,77 @@ Første led er nutidsværdien af kuponerne, andet led hovedstolen. Annuitetsform
 
 $$980.000=\sum_{t=1}^{10}\frac{40.000}{(1+y)^t}+\frac{1.000.000}{(1+y)^{10}}$$
 
-Numerisk løsning: $y\approx4{,}25\%$.
+Numerisk løsning: $y=4{,}249656\%\approx4{,}25\%$.
 
 Investor får både kuponer og forskellen mellem 980.000 og 1.000.000 kr.
 
 ::: {.notes}
-Det er et gennemregnet undervisningseksempel. Den afrundede rente på 4,25 procent bruges også i genplaceringsregningen.
+Det er et gennemregnet undervisningseksempel. Geninvesteringsberegningerne bruger uafrundet y, så betalingernes nutidsværdi og slutformue stemmer.
 :::
 
-## Effektiv rente bliver kun afkast under bestemte vilkår {#ch02-s034}
+## Effektiv rente bestemmes af pris og betalinger {#ch02-s034}
 
-Investor kan realisere et andet afkast, fordi:
+$$P_0=\sum_{t=1}^{N}\frac{CF_t}{(1+y)^t}$$
 
-- Kuponerne genplaceres til andre renter.
-- Obligationen sælges før udløb til en anden kurs.
+$y$ er betalingsrækkens interne rente. Kuponernes senere anvendelse indgår ikke i denne beregning.
 
-I eksemplet skal de årlige 40.000 kr. genplaceres til 4,25%, hvis afkastet skal følge den effektive rente.
+Afkastet med geninvestering afhænger af, hvad betalingerne tjener frem til udløb. Ved tidligere salg tæller salgskursen også med.
 
 ::: {.notes}
-Hold forudsætningen om de aftalte betalinger fast. Reinvesteringsrisiko kaldes også genplaceringsrisiko. Det er en anden mekanisme end kursrisiko ved salg.
+Forudsæt de aftalte betalinger. Undgå formuleringen om, at YTM først bliver en intern rente, når kuponerne geninvesteres. Kilde: Forbes, Hatem og Paul (2008), s. 49–50, i bogens litteraturliste.
 :::
 
-## Genplacerede kuponer får selv rente: år 1–5 {#ch02-s035}
+## De samme betalinger diskonteres tilbage til køb {#ch02-s035}
 
-Genplaceringsrente 4,25%, kupon 40.000 kr. pr. år.
+![](../../images/final/ch02-ytm-geninvestering-a.svg){.chapter-figure style="height: 280px; max-height: 280px;"}
 
-| År | Ny betaling | Akkumuleret værdi |
-|---:|---:|---:|
-| 1 | 40.000 | 40.000 |
-| 2 | 40.000 | 81.700 |
-| 3 | 40.000 | 125.172 |
-| 4 | 40.000 | 170.492 |
-| 5 | 40.000 | 217.738 |
+$$980.000=\sum_{t=1}^{10}\frac{40.000}{(1+y)^t}+\frac{1.000.000}{(1+y)^{10}}$$
 
-År 2: $40.000\cdot1{,}0425+40.000=81.700$ kr.
+$y=4{,}249656\%$. Beregningerne bruger den uafrundede rente.
 
 ::: {.notes}
-Hvert år forrentes den samlede opsparede kuponbeholdning, før årets nye kupon lægges til. Tallene er bogens afrundede kronebeløb.
+Dette er panel A i bogens figur 2.8. Pilenes retning viser diskontering. Kuponerne har samlet nutidsværdi 320.441 kr.; hovedstolen 659.559 kr. Beløbene i figuren måles i 1.000 kr.
 :::
 
-## I år 10 kommer hovedstolen oveni {#ch02-s036}
+## Kuponkontoen vokser med geninvesteringsrenten {#ch02-s036}
 
-| År | Ny betaling | Akkumuleret værdi |
-|---:|---:|---:|
-| 6 | 40.000 | 266.992 |
-| 7 | 40.000 | 318.339 |
-| 8 | 40.000 | 371.868 |
-| 9 | 40.000 | 427.673 |
-| 10 | 1.040.000 | 1.485.849 |
+![](../../images/final/ch02-ytm-geninvestering-b.svg){.chapter-figure}
 
-Slutværdi: 1.000.000 kr. hovedstol + 400.000 kr. kuponer + 85.849 kr. rente på kuponer.
+Ved udløb lægges hovedstolen på 1.000.000 kr. til kuponkontoen.
 
 ::: {.notes}
-Tabellen bruger den afrundede effektive rente. Med den præcise rente svarer slutværdien præcist til købsprisen forrentet i ti år.
+Dette er panel B i samme figur. [Se hele bogfiguren](../../images/final/ch02-ytm-geninvestering.svg). Kurverne viser kontoen lige efter hver årlig kuponbetaling. Den sidste kupon får ingen geninvesteringsrente. Ved y står der 485.841 kr.; ved 2% står der 437.989 kr. Hovedstolen indgår først ved udløb, og kurven viser derfor ikke den samlede formue.
+:::
+
+## Diskontering og fremføring balancerer hinanden {#ch02-s077}
+
+Gang prisligningen med $(1+y)^N$:
+
+$$P_0(1+y)^N=\sum_{t=1}^{N}CF_t(1+y)^{N-t}$$
+
+$$980.000(1+y)^{10}=1.485.841{,}15\text{ kr.}$$
+
+Venstre side fremfører købsbeløbet. Højre side geninvesterer de samme betalinger til $y$.
+
+::: {.notes}
+En konstant geninvesteringsrente lig y giver identiteten. Det er en tilstrækkelig placeringsstrategi i dette eksempel; definitionen af YTM kræver ingen sådan strategi. Hold til udløb, og forudsæt aftalte betalinger uden skat eller omkostninger.
+:::
+
+## En anden geninvesteringsrente giver et andet afkast {#ch02-s078}
+
+Lad $g$ være geninvesteringsrenten og $R$ det årlige afkast:
+
+$$980.000(1+R)^{10}=1.000.000+\sum_{t=1}^{10}40.000(1+g)^{10-t}$$
+
+| Geninvestering | Slutformue, kr. | Årligt afkast |
+|---|---:|---:|
+| Til $y$ | 1.485.841,15 | $R=y\approx4{,}25\%$ |
+| Til 2% | 1.437.988,84 | $R\approx3{,}91\%$ |
+
+Købsprisen og obligationens aftalte betalinger er de samme.
+
+::: {.notes}
+Ligningen er bogens 2.11. R får købsbeløb og slutformue til at passe sammen. Ved g=2% er R=3,908947%. YTM ændres ikke af, hvilken rente investor senere opnår på kuponkontoen. Forudsæt de aftalte betalinger, beholdning til udløb og ingen skat eller omkostninger.
 :::
 
 ## Store tidlige betalinger giver genplaceringsrisiko {#ch02-s037}

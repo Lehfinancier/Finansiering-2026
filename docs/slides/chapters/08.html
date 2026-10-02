@@ -1195,6 +1195,7 @@ display:block!important;
 <p>For en inkonverterbar obligation:</p>
 <p><span class="math display">\[K_h^{dirty}=P_h(CF_{h+1},\ldots,CF_T;y_h),\qquad K_h^{clean}=K_h^{dirty}-v_h.\]</span></p>
 <p>For konverterbare obligationer afhænger betalingerne også af <span class="math inline">\(CPR\)</span>, <span class="math inline">\(UDT\)</span>, <span class="math inline">\(Gain\)</span>, <span class="math inline">\(Burnout\)</span>, debitorspænd og <span class="math inline">\(OAS\)</span>.</p>
+<p>En valgt horisont før udløb kræver en antagelse om salgskursen netop dér; købsdagens effektive rente bestemmer den ikke.</p>
 <aside class="notes">
 <p>Exit-yield er en antagelse om fremtidig prisning. I realkredit skal de forventede indfrielser samtidig beregnes med modellen fra kapitel 6–7.</p>
 <style type="text/css">
@@ -1390,8 +1391,8 @@ display:block!important;
 </thead>
 <tbody>
 <tr class="odd">
-<td>Effektiv rente, <span class="math inline">\(y\)</span></td>
-<td>Hvilken diskonteringsrente passer betalingerne til dagens pris?</td>
+<td>Effektiv rente, <span class="math inline">\(y\)</span> (YTM/IRR)</td>
+<td>Hvilken fælles diskonteringsrente passer en given betalingsrække til dagens pris?</td>
 </tr>
 <tr class="even">
 <td>Forventet horisontafkast</td>
@@ -1403,10 +1404,10 @@ display:block!important;
 </tr>
 </tbody>
 </table>
-<p>Selv ved beholdning til udløb kræver realisering af den effektive rente, at betalingerne kan geninvesteres til samme rente.</p>
+<p>YTM er en intern rente for betalingsrækken. Geninvesteres betalingerne til YTM og holdes obligationen til udløb, vokser slutformuen med denne rente. Ved en kortere horisont indgår også slutkursen.</p>
 <p>Høj købsrente kan følges af lavt kort afkast, hvis markedsrenterne stiger kraftigt.</p>
 <aside class="notes">
-<p>Vend også eksemplet ved rentefald: lav købsrente kan følges af stort kort afkast. Brug derefter varigheden til en hurtig tilnærmelse.</p>
+<p>Kapitel 2 viser slutformueregningen. Vend også eksemplet ved rentefald: lav købsrente kan følges af stort kort afkast. Brug derefter varigheden til en hurtig tilnærmelse.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1796,7 +1797,7 @@ display:block!important;
 <p>Tidsbidraget samler kortere restløbetid, pull-to-par og roll-down. Et prisbidrag bliver et afkastbidrag, når det divideres med startværdien.</p>
 <p>FIPA er modelbaseret afkastbogføring. Komponenternes præcise afgrænsning afhænger af attributionen.</p>
 <aside class="notes">
-<p>Hold fast i afstemningen. Et komponentnavn er ikke tilstrækkeligt til at vide, hvilke effekter leverandøren har lagt i det.</p>
+<p>Hold fast i afstemningen. Modellen beregner prisbidrag; det faktisk observerede afkast findes fra dirty start- og slutværdi og betalinger. Et komponentnavn fortæller ikke alene, hvilke effekter leverandøren har lagt i det.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;

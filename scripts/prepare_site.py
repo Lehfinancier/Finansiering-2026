@@ -1,5 +1,5 @@
 from pathlib import Path
-import shutil, json
+import shutil, json, hashlib
 from datetime import date,timedelta
 ROOT=Path(__file__).resolve().parents[1]
 WORK=ROOT/'work/final-rebuild'
@@ -22,8 +22,20 @@ for n in range(1,6):
     assert len(files)==1,files
     shutil.copy2(files[0],dest/f'OS{n}.pdf')
     manifest.append({'public':f'OS{n}.pdf','source':str(files[0].relative_to(ROOT))})
-book=WORK/'sources/book/main.pdf'
-if book.exists():shutil.copy2(book,dest/'Kurs100-2026.pdf')
+edition_file=ROOT/'src/book-edition.json'
+if edition_file.exists():
+    edition=json.loads(edition_file.read_text(encoding='utf-8'))
+    book=ROOT/edition['pdf_source']
+    if book.exists():
+        edition['pdf_sha256']=hashlib.sha256(book.read_bytes()).hexdigest()
+        edition_file.write_text(json.dumps(edition,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        shutil.copy2(book,dest/'Kurs100-2026.pdf')
+    else:
+        assert (dest/'Kurs100-2026.pdf').exists(),'Build the revised book before publishing.'
+        assert hashlib.sha256((dest/'Kurs100-2026.pdf').read_bytes()).hexdigest()==edition['pdf_sha256'],'Revised book download changed.'
+else:
+    book=WORK/'sources/book/main.pdf'
+    if book.exists():shutil.copy2(book,dest/'Kurs100-2026.pdf')
 (WORK/'download-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
 text='''---
 title: "Finansiering 2026"

@@ -1,8 +1,9 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlparse,unquote
-import csv,hashlib,json,re,zipfile
+import csv,hashlib,json,re,zipfile,sys
 import fitz
+sys.stdout.reconfigure(encoding='utf-8')
 ROOT=Path(__file__).resolve().parents[1];WORK=ROOT/'work/final-rebuild';DOCS=ROOT/'docs'
 errors=[];summary=[]
 def require(test,message):
@@ -53,7 +54,12 @@ for ch in range(0,11):
     summary.append({'chapter':ch,'content_slides':len(ids),'pdf_pages':len(pdf),'figures':sum(f['chapter']==ch for f in figures)})
 for row in json.loads((WORK/'download-manifest.json').read_text(encoding='utf-8')):
     require((DOCS/'downloads'/row['public']).read_bytes()==(ROOT/row['source']).read_bytes(),'Exercise PDF mismatch '+row['public'])
-require((DOCS/'downloads/Kurs100-2026.pdf').read_bytes()==(WORK/'sources/book/main.pdf').read_bytes(),'Book download mismatch')
+edition_file=ROOT/'src/book-edition.json'
+if edition_file.exists():
+    edition=json.loads(edition_file.read_text(encoding='utf-8'))
+    require(hashlib.sha256((DOCS/'downloads/Kurs100-2026.pdf').read_bytes()).hexdigest()==edition['pdf_sha256'],'Revised book download mismatch')
+else:
+    require((DOCS/'downloads/Kurs100-2026.pdf').read_bytes()==(WORK/'sources/book/main.pdf').read_bytes(),'Book download mismatch')
 expected={f'kapitel-{n:02}.pdf' for n in range(0,11)}|{f'OS{n}.pdf' for n in range(1,6)}|{'Kurs100-2026.pdf'}
 require({p.name for p in DOCS.rglob('*.pdf')}==expected,'Unexpected or missing public PDFs')
 require(len(list((DOCS/'slides').rglob('*.html')))==11,'Stale or missing public decks')

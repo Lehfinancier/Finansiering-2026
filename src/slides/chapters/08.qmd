@@ -123,6 +123,8 @@ $$K_h^{dirty}=P_h(CF_{h+1},\ldots,CF_T;y_h),\qquad K_h^{clean}=K_h^{dirty}-v_h.$
 
 For konverterbare obligationer afhænger betalingerne også af $CPR$, $UDT$, $Gain$, $Burnout$, debitorspænd og $OAS$.
 
+En valgt horisont før udløb kræver en antagelse om salgskursen netop dér; købsdagens effektive rente bestemmer den ikke.
+
 ::: {.notes}
 Exit-yield er en antagelse om fremtidig prisning. I realkredit skal de forventede indfrielser samtidig beregnes med modellen fra kapitel 6–7.
 :::
@@ -198,16 +200,16 @@ De 3,35 procent er en exit-rente; 5,37 procent er et forventet annualiseret afka
 
 | Begreb | Spørgsmål |
 |---|---|
-| Effektiv rente, $y$ | Hvilken diskonteringsrente passer betalingerne til dagens pris? |
+| Effektiv rente, $y$ (YTM/IRR) | Hvilken fælles diskonteringsrente passer en given betalingsrække til dagens pris? |
 | Forventet horisontafkast | Hvad bliver afkastet under vores exit- og geninvesteringsantagelser? |
 | Realiseret afkast | Hvad tjente investor faktisk? |
 
-Selv ved beholdning til udløb kræver realisering af den effektive rente, at betalingerne kan geninvesteres til samme rente.
+YTM er en intern rente for betalingsrækken. Geninvesteres betalingerne til YTM og holdes obligationen til udløb, vokser slutformuen med denne rente. Ved en kortere horisont indgår også slutkursen.
 
 Høj købsrente kan følges af lavt kort afkast, hvis markedsrenterne stiger kraftigt.
 
 ::: {.notes}
-Vend også eksemplet ved rentefald: lav købsrente kan følges af stort kort afkast. Brug derefter varigheden til en hurtig tilnærmelse.
+Kapitel 2 viser slutformueregningen. Vend også eksemplet ved rentefald: lav købsrente kan følges af stort kort afkast. Brug derefter varigheden til en hurtig tilnærmelse.
 :::
 
 ## Babcock kobler købsrente, varighed og horisont {#ch08-s014}
@@ -417,7 +419,7 @@ Tidsbidraget samler kortere restløbetid, pull-to-par og roll-down. Et prisbidra
 FIPA er modelbaseret afkastbogføring. Komponenternes præcise afgrænsning afhænger af attributionen.
 
 ::: {.notes}
-Hold fast i afstemningen. Et komponentnavn er ikke tilstrækkeligt til at vide, hvilke effekter leverandøren har lagt i det.
+Hold fast i afstemningen. Modellen beregner prisbidrag; det faktisk observerede afkast findes fra dirty start- og slutværdi og betalinger. Et komponentnavn fortæller ikke alene, hvilke effekter leverandøren har lagt i det.
 :::
 
 ## Tidsbidrag og kurvebidrag skal holdes adskilt {#ch08-s028}

@@ -48,7 +48,14 @@ def figures():
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--slides-only',action='store_true');p.add_argument('--skip-qa-images',action='store_true');a=p.parse_args()
     sources()
-    if not a.slides_only:book();figures()
+    if not a.slides_only:
+        edition_file=ROOT/'src/book-edition.json'
+        if edition_file.exists():
+            edition=json.loads(edition_file.read_text(encoding='utf-8'))
+            assert (ROOT/edition['build_script']).exists(),'Private revised book sources are required; use --slides-only for an existing edition.'
+            run(['python',edition['build_script']])
+            run(['python','scripts/sync_revised_figures.py'])
+        else:book();figures()
     run(['python','scripts/prepare_site.py'])
     run(['quarto','render','src'],log='quarto-build.log')
     run(['node','scripts/export_slides.cjs'],log='pdf-export.log')

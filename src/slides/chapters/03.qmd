@@ -333,13 +333,44 @@ Gabet kan afspejle statspapirers sikkerhed, likviditet og regulatoriske egenskab
 Et vedvarende gab er ikke automatisk fejlpris eller arbitrage. Statsobligationer kan handle med lavere rente end swapkurven. I kapitel 7 udtrykkes model-marked-gabet som et spænd, OAS.
 :::
 
-## Under modelkurven betyder billig i prisrummet {#ch03-s024}
+## Hver obligation sammenlignes med sin egen modelpris {#ch03-s024}
 
-![Under modelkurven betyder billig i prisrummet](../../images/final/ch03-fig004.svg){.chapter-figure}
-Trekanter under den teoretiske kurslinje har lavere markedskurs. I renterummet vender sammenligningen om: lav pris giver høj effektiv rente.
+![](../../images/final/ch03-fig004.svg){.chapter-figure}
+
+Lodret akse: markedskurs minus modelkurs, i kurspoint. Et punkt under nul har lavere markedskurs end sin egen modelkurs.
 
 ::: {.notes}
-Forklar, hvorfor retningen vender mellem pris og rente. Mindre afvigelser kan skyldes handelsstøj, likviditet og begrænsninger i modellen.
+Beregn først modelprisen fra hver obligations egen kupon- og afdragsrække på samme valgte kurve. Sammenlign derefter med dens markedskurs. Forskellige kuponer kan ikke sammenlignes med én fælles kurs–løbetidslinje. Figuren er skematisk og viser ingen observerede markedsdata. Bemærk fortegnet: grafen viser K-K*, mens NPV ovenfor er K*-K.
+:::
+
+## PV-spændet får modellen til at ramme markedets pris {#ch03-s063}
+
+For en fast betalingsrække vælges $s$, så
+
+$$P_{\mathrm{marked}}=\sum_i\frac{CF_i}{(1+z_i+s)^{t_i}}.$$
+
+Et positivt $s$ øger diskonteringen og sænker modelprisen.
+
+$z_i$ og $s$ bruger samme årlige rentekonvention. $t_i$ måles fra valør.
+
+::: {.notes}
+Prisen er dirty og har samme enhed som betalingerne. Spændet afhænger af den valgte kurve og betalingsrække. OAS i kapitel 7 bruger også en model for, hvordan konvertering ændrer betalingerne. Et PV-spænd er hverken en officiel fixing eller et fast kuponvilkår.
+:::
+
+## En lavere markedskurs kræver et positivt PV-spænd {#ch03-s064}
+
+Én betaling på 100 kr. om et år. Nulkuponrenten er 4%.
+
+$$P_{\mathrm{model}}=\frac{100}{1{,}04}=96{,}15\text{ kr.}$$
+
+Markedskursen er 95,24 kr.:
+
+$$95{,}24=\frac{100}{1+0{,}04+s}\quad\Rightarrow\quad s\approx1\%$$
+
+Spændet er omtrent 100 basispunkter. Det fortæller ikke alene, hvorfor prisen afviger.
+
+::: {.notes}
+Markedskursen er afrundet; 100/1,05=95,2381. Derfor er det beregnede spænd omtrent 1 procentpoint. Kredit, likviditet og modelvalg kan påvirke forskellen. Hold betalingen fast, når spændet findes.
 :::
 
 ## Rentekurven kan stige, være flad eller falde {#ch03-s025}
@@ -407,21 +438,25 @@ Sikkerheds- og likviditetspræmier kan gøre statsrenter til en særlig målesto
 Knyt begrænsningen til gabet på 4,71 kurspoint. Et sikkert instrument er ikke nødvendigvis den mest komplette fælles reference for alle markedets priser.
 :::
 
-## Swapmarkedet giver mange løbetider hver dag {#ch03-s031}
+## Swaprenten balancerer de to betalingsrækker {#ch03-s031}
 
-En renteswap bytter fast rente mod variabel rente.
+En renteswap bytter fast rente mod variabel rente. Ved indgåelsen vælges den faste parsats $S$, så
 
-DESTR-baserede OIS-swaps bruger akkumulerede daglige renter på det variable ben.
+$$PV_{\mathrm{fast}}=PV_{\mathrm{variabelt}}.$$
 
-Likvide swappriser over mange løbetider giver grundlag for en glat nulkuponkurve med færre særheder fra enkelte obligationsserier.
+I en enkel model med én kurve:
+
+$$S=\frac{\sum_i\alpha_iD_iF_i}{\sum_i\alpha_iD_i}$$
+
+Forwardrenterne $F_i$ vægtes med årsbrøkerne $\alpha_i$ og diskonteringsfaktorerne $D_i$.
 
 ::: {.notes}
-Den faste rente i en parswap kan behandles som kuponen på en obligation til kurs 100. Kendte korte diskonteringsfaktorer bruges til at finde den næste, som i bootstrapping.
+Forwardrenterne er udledt af priser i dag. Parsatsen er et diskonteringsvægtet gennemsnit i den simple model og ikke et uvægtet gennemsnit af sikre fremtidige fixinger. Efter indgåelsen kan swappen få positiv eller negativ værdi. Ved flere kurver bruges én til de variable renter og en anden til diskontering.
 :::
 
 ## Swapkurven bliver kursets prisningsgrundlag {#ch03-s032}
 
-Parswapens faste ben kan opfattes som en kuponobligation til kurs 100.
+I modellen med én kurve kan parswaprenter bruges til at finde diskonteringsfaktorer trin for trin.
 
 Bootstrapping udleder de swapbaserede nulkuponrenter.
 
@@ -429,7 +464,88 @@ Bootstrapping udleder de swapbaserede nulkuponrenter.
 - Kapitel 7 bruger $z_t^{\mathrm{swap}}$ og lægger OAS ovenpå.
 
 ::: {.notes}
-Swaprenter og swapbaserede nulkuponrenter er forskellige størrelser. Det er den udledte nulkuponkurve, der diskonterer de enkelte betalinger.
+Beregningen afhænger også af betalingsfrekvens, sikkerhedsstillelse og eventuelle særskilte forwardkurver. Swaprenter og swapbaserede nulkuponrenter er forskellige størrelser. Det er den udledte nulkuponkurve, der diskonterer de enkelte betalinger.
+:::
+
+## To kurver kan have hver sin opgave {#ch03-s065}
+
+| Kurve | Hvad bruges den til? |
+|---|---|
+| Fremskrivningskurve | Forwardrenter til variable kuponer, der endnu ikke er fastsat |
+| Diskonteringskurve | Betalingernes værdi i dag |
+
+Valget afhænger af aftalens reference, valuta, sikkerhedsstillelse og prisningsvilkår.
+
+En offentliggjort fixing er ét rentetal. En kurve bygges af priser på flere kontrakter.
+
+::: {.notes}
+CIBOR 3M og CIBOR 6M er referencer med hver sin renteperiode. Kurver knyttet til dem kan have lange horisonter. DESTR er daglig, men DESTR-OIS-kontrakter kan løbe i mange år. Den fælles kurve i bootstrap-eksemplet er en forenkling.
+:::
+
+## En fixing og et kurvepunkt har forskellige tidsangivelser {#ch03-s058}
+
+**CIBOR 3M** angiver tre måneder pr. renteperiode.
+
+**Étårspunktet på CIBOR 3M-kurven** sammenfatter prisfastsættelsen over det næste år med successive tremånedersperioder.
+
+Punktet er hverken en officiel CIBOR 1Y-fixing eller én fremtidig CIBOR 3M-fixing.
+
+::: {.notes}
+I den følgende tabel angiver kolonnen referenceperioden, mens rækken angiver kurvepunktets horisont.
+:::
+
+## En daglig reference kan bære en lang kurve {#ch03-s059}
+
+En renteswap bytter fast rente mod variabel rente.
+
+I en **OIS** følger den variable betaling de akkumulerede daglige renter.
+
+Priser på DESTR-baserede OIS-kontrakter giver kurvepunkter fra korte horisonter til fx 30 år.
+
+Et langt kurvepunkt sammenfatter prisfastsættelsen over hele horisonten.
+
+::: {.notes}
+OIS står for Overnight Indexed Swap. Selv om den underliggende rente gælder én dag, kan aftalen udveksle betalinger over mange år.
+:::
+
+## Referencekurvens navn og punktets horisont {#ch03-s060}
+
+Stiliserede årlige kurverenter. Kilde: bogens egen illustration.
+
+| Horisont | DESTR-baseret | CIBOR 3M | CIBOR 6M |
+|---|---:|---:|---:|
+| 3 måneder | 1,80% | 2,10% | 2,30% |
+| 6 måneder | 1,85% | 2,15% | 2,35% |
+| 9 måneder | 1,90% | 2,20% | 2,40% |
+| 1 år | 1,95% | 2,25% | 2,45% |
+
+Tallene er antagne kurvepunkter, ikke officielle fixinger.
+
+::: {.notes}
+De 1,80% i øverste række gælder den årlige kurverente knyttet til hele tremånedersperioden. Det er ikke en forudsigelse af DESTR på en bestemt dag om tre måneder.
+:::
+
+## Både horisont og reference påvirker kurverenten {#ch03-s061}
+
+![Både horisont og reference påvirker kurverenten](../../images/final/ch01-fig002.svg){.chapter-figure}
+Følg én kurve langs løbetiden. Sammenlign derefter kurver ved samme løbetid. Niveauer og afstande er illustrative.
+
+::: {.notes}
+Alle tre kurver stiger i dette eksempel. Rækkefølgen og de konstante afstande er ikke generelle regler. Markedets kurver afspejler også præmier og må ikke læses som sikre punktprognoser.
+:::
+
+## CITA er en reference for korte renteswaps {#ch03-s062}
+
+CITA fastsættes for kommende perioder og bygger på DESTR-baserede OIS-kontrakter.
+
+Fra 1. januar 2026 lægger DFBF ikke længere det tidligere faste spread til panelbankernes DESTR-OIS-tilbud.
+
+CITA vender tilbage i vilkårene for floaters i kapitel 5.
+
+Kilde: DFBF, *CITA Reformation* og benchmarkbeskrivelsen, som gengivet i final-bogen.
+
+::: {.notes}
+Hold CITA knyttet til swapmekanismen. Det er tilstrækkeligt at kunne genkende betegnelsen i kontraktvilkårene.
 :::
 
 ## Et spænd kræver en referencekurve {#ch03-s033}
@@ -460,10 +576,10 @@ Figuren vender tilbage til den vertikale dimension fra kapitlets begyndelse. Et 
 | Statskurve | Sammenligning af sikre obligationer |
 | DESTR-baseret OIS-/swapkurve | Prisfastsættelse, risiko og kapitel 7 |
 | RTL-/flekskurve | Sammenligning af danske realkreditprodukter |
-| CIBOR 3M/6M | Kuponreference i variabelt forrentede produkter |
+| CIBOR 3M-/6M-forwardkurver | Fremskrivning af endnu ikke fastsatte variable betalinger |
 
 ::: {.notes}
-CIBOR-kolonnen handler her om de korte pengemarkedsreferencer. En kurve af instrumenter knyttet til dem kan have mange horisonter, som i kapitel 1.
+En CIBOR-fixing og en CIBOR-baseret forwardkurve er forskellige størrelser. Tabellen angiver kurvens anvendelse.
 :::
 
 ## Tillæg er et kontraktvilkår, spænd er et markedsmål {#ch03-s036}
