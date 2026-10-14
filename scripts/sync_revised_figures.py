@@ -16,6 +16,7 @@ SELECT={
     'fig:kap3_teoretiske_markedspriser':'ch03-fig004',
     'fig:kap4_KonveksPrisRenteGraf':'ch04-fig004',
     'fig:realkredit_balance':'ch05-fig003',
+    'fig:kap2_vedhaengende_rente':'ch02-fig006',
 }
 
 def export():

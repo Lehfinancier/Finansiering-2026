@@ -1341,7 +1341,7 @@
     "href": "slides/chapters/04.html#ch04-s076",
     "title": "Renterisiko",
     "section": "Kupon, afdrag og løbetid flytter varigheden",
-    "text": "Kupon, afdrag og løbetid flytter varigheden\nBrug vægtene i \\(D=\\sum_i w_i t_i\\) fra bogens ligning 4.1:\n\n\n\n\n\n\n\nÆndring\nHvorfor ændres varigheden?\n\n\n\n\nTidligere afdrag: lavere varighed\nEn større del af værdien betales før udløb. Tabel 4.4: serie 4,948 år, stående 8,867 år.\n\n\nHøjere kupon: lavere varighed\nBetalingerne før udløb får større vægt. I tabel 4.3 ligger 81,70% af værdien i sidste betaling.\n\n\nLængere løbetid: normalt højere varighed\nHovedstolen betales senere og trækker gennemsnitstiden op.\n\n\n\nSammenlign samme effektive rente. Ved ændret kupon holdes hovedstol og betalingsdatoer faste; ved ændret løbetid holdes kuponrente og afdragsprofil ens.\n\nBogboks Hovedpointe 4.1 fortolker de eksisterende beregninger frem for at introducere en ny prisformel. Tabel 4.4 ændrer afdragsprofilen, ikke løbetiden eller kuponrenten. Længere løbetid er en hovedregel, ikke en universel monoton egenskab for alle kuponobligationer. Kupon- og afdragsforklaringen følger nutidsværdivægtene."
+    "text": "Kupon, afdrag og løbetid flytter varigheden\nBrug vægtene i \\(D=\\sum_i w_i t_i\\) fra bogens ligning 4.1:\n\n\n\n\n\n\n\nÆndring\nHvorfor ændres varigheden?\n\n\n\n\nTidligere afdrag: lavere varighed\nInvestoren får hovedstolen tilbage tidligere, så den gennemsnitlige ventetid på betalingerne bliver kortere. Tabel 4.4: serie 4,948 år, stående 8,867 år.\n\n\nHøjere kupon: lavere varighed\nBetalingerne før udløb får større vægt. I tabel 4.3 ligger 81,70% af værdien i sidste betaling.\n\n\nLængere løbetid: normalt højere varighed\nHovedstolen betales senere og trækker gennemsnitstiden op.\n\n\n\nSammenlign samme effektive rente. Ved ændret kupon holdes hovedstol og betalingsdatoer faste; ved ændret løbetid holdes kuponrente og afdragsprofil ens.\n\nBogboks Hovedpointe 4.1 fortolker de eksisterende beregninger frem for at introducere en ny prisformel. Tabel 4.4 ændrer afdragsprofilen, ikke løbetiden eller kuponrenten. Længere løbetid er en hovedregel, ikke en universel monoton egenskab for alle kuponobligationer. Kupon- og afdragsforklaringen følger nutidsværdivægtene."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s014",
@@ -1957,7 +1957,7 @@
     "href": "slides/chapters/02.html#ch02-s023",
     "title": "Obligationer",
     "section": "Sælger skal have sin del af næste kupon",
-    "text": "Sælger skal have sin del af næste kupon\n Køber får hele kuponen 15. november 2024. Vedhængende rente kompenserer sælger frem til valør 12. september.\nDatoerne giver 64 dage frem til kupon; originalfiguren viser 63.\n\nKøber har kun ejet obligationen i sidste del af perioden, men modtager hele kuponen. Kompensationen ved handel fordeler økonomisk kuponen mellem parterne."
+    "text": "Sælger skal have sin del af næste kupon\n Køber får hele kuponen 15. november 2024. Vedhængende rente kompenserer sælger frem til valør 12. september.\nKuponperioden er 366 dage: 302 dage før valør og 64 dage fra valør til næste termin.\n\nKøber har kun ejet obligationen i sidste del af perioden, men modtager hele kuponen. Kompensationen ved handel fordeler økonomisk kuponen mellem parterne."
   },
   {
     "objectID": "slides/chapters/02.html#ch02-s024",

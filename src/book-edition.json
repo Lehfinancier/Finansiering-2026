@@ -1,7 +1,7 @@
 {
-  "edition": "2026-10-02",
+  "edition": "2026-10-14",
   "source_directory": "work/troels-no-slop-2026-09-30/after_slop",
   "pdf_source": "work/troels-no-slop-2026-09-30/Kurs100-no-slop-2026-09-30.pdf",
   "build_script": "work/troels-no-slop-2026-09-30/build_revision.py",
-  "pdf_sha256": "4a43bdee1b0436bafba9362c17bf6b80bdf28cf62f1942a1518ca1fbf7e9623f"
+  "pdf_sha256": "e242fdb20047542a39ed5ba97fd0309ddb61391ba2dce54152074f06b08ac41d"
 }

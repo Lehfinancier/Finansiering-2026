@@ -359,7 +359,7 @@ Bogen bruger normalt to bankdages afvikling. Det historiske eksempel bevares med
 ![Sælger skal have sin del af næste kupon](../../images/final/ch02-fig006.svg){.chapter-figure}
 Køber får hele kuponen 15. november 2024. Vedhængende rente kompenserer sælger frem til valør 12. september.
 
-Datoerne giver 64 dage frem til kupon; originalfiguren viser 63.
+Kuponperioden er 366 dage: 302 dage før valør og 64 dage fra valør til næste termin.
 
 ::: {.notes}
 Køber har kun ejet obligationen i sidste del af perioden, men modtager hele kuponen. Kompensationen ved handel fordeler økonomisk kuponen mellem parterne.

@@ -219,7 +219,7 @@ Brug vægtene i $D=\sum_i w_i t_i$ fra bogens ligning 4.1:
 
 | Ændring | Hvorfor ændres varigheden? |
 |---|---|
-| Tidligere afdrag: lavere varighed | En større del af værdien betales før udløb. Tabel 4.4: serie 4,948 år, stående 8,867 år. |
+| Tidligere afdrag: lavere varighed | Investoren får hovedstolen tilbage tidligere, så den gennemsnitlige ventetid på betalingerne bliver kortere. Tabel 4.4: serie 4,948 år, stående 8,867 år. |
 | Højere kupon: lavere varighed | Betalingerne før udløb får større vægt. I tabel 4.3 ligger 81,70% af værdien i sidste betaling. |
 | Længere løbetid: normalt højere varighed | Hovedstolen betales senere og trækker gennemsnitstiden op. |
 
