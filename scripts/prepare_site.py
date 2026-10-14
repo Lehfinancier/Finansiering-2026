@@ -163,7 +163,9 @@ intro='''---
 title: "Kursusintroduktion"
 subtitle: "Finansiering 2026 · HA.jur."
 author: "Niklas Lehmann Jensen"
-format: revealjs
+format:
+  revealjs:
+    css: ../../themes/intro-history.css
 ---
 
 ## Fra boliglån til finanskriser {#intro-s001}
@@ -238,6 +240,8 @@ Henvis til universitetets kursusrum ved spørgsmål om eksamensdato og hjælpemi
 :::
 '''
 formula_preview=(ROOT/'scripts/templates/intro-formulas.qmd').read_text(encoding='utf-8')
+history=(ROOT/'scripts/templates/intro-history.qmd').read_text(encoding='utf-8')
+intro=intro.replace('## Fra boliglån til finanskriser',history+'\n\n## Fra boliglån til finanskriser')
 intro=intro.replace('## Vi skal kunne forklare det, vi regner',formula_preview+'\n\n## Vi skal kunne forklare det, vi regner')
 (ROOT/'src/slides/chapters/00.qmd').write_text(intro,encoding='utf-8')
 config='''project:
@@ -250,6 +254,7 @@ config='''project:
     - downloads/*.pdf
     - images/final/*.svg
     - images/finance-header-img.png
+    - images/history/*
     - vendor/mathjax/*
 execute:
   freeze: false

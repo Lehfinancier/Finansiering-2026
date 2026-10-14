@@ -19,6 +19,7 @@ project:
     - downloads/*.pdf
     - images/final/*.svg
     - images/finance-header-img.png
+    - images/history/*
     - vendor/mathjax/*
 execute:
   freeze: false

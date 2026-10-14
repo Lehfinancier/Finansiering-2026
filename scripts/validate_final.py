@@ -29,7 +29,7 @@ for asset in (ROOT/'src/images/final').glob('*.svg'):
 figures=json.loads((WORK/'figure-inventory.json').read_text(encoding='utf-8'))
 for ch in range(0,11):
     stem=f'{ch:02}';qmd=(ROOT/f'src/slides/chapters/{stem}.qmd').read_text(encoding='utf-8')
-    ids=re.findall(r'^## .*\{#([^}]+)',qmd,re.M)
+    ids=re.findall(r'^## .*\{#([^\s}]+)',qmd,re.M)
     require(len(ids)==len(set(ids)),f'Chapter {ch}: duplicate slide IDs')
     require('MBB' not in qmd,f'Chapter {ch}: MBB found')
     for f in [f for f in figures if f['chapter']==ch]:

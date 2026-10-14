@@ -1,0 +1,262 @@
+## Hvem betaler, når historien tager en drejning? {#intro-historie .history-slide .history-timeline}
+
+::: {.history-lead}
+Et obligationslån skaffer penge nu mod et løfte om betaling senere.
+:::
+
+![](../../images/history/timeline.svg){fig-alt="Historiske nedslag: Venedigs krigslån i 1171–72, hollandsk digelån i 1648, Bank of England i 1694, Hamiltons gældsreform i 1790, Københavns brand og kreditkasse i 1795–97, Louisiana-købet i 1803 og Liberty Bonds i 1917–18."}
+
+::: {.history-credit}
+Inspireret af Robin Wigglesworths *A Fabulous Debt*. Kilder følger på de enkelte slides.
+:::
+
+::: {.notes}
+Brug cirka 10 minutter på den historiske åbning. Bogen er inspiration til fortællingen; de konkrete oplysninger er kontrolleret mod kilderne på de følgende slides.
+
+Tidslinjen viser udvalgte begivenheder, ikke opfindelsen af al gæld eller en ubrudt kæde af fremskridt. Årstal er placeret i rækkefølge, men afstandene er ikke en tidsskala. Vi følger Venedig, Nederlandene, England og USA og vender til sidst tilbage til København som overgang til kapitel 5.
+:::
+
+## Venedig låner til en krigsflåde {#intro-venedig .history-slide}
+
+::: {.history-era}
+1171–72 → 1262 · Venedig
+:::
+
+:::: {.history-grid}
+::: {}
+- Konflikten med Byzans kræver en dyr flåde.
+- Staten tvinger velhavende borgere til at låne den penge.
+- Borgerne får et tilgodehavende hos staten.
+- Fra 1262 findes et organiseret marked for gælden.
+- Ejeren kan sælge sit krav videre og få penge før statens tilbagebetaling.
+:::
+::: {.history-art}
+![](../../images/history/venice.jpg){fig-alt="Canalettos maleri af skibe, gondoler og handelsliv ved indsejlingen til Canal Grande."}
+
+::: {.history-caption}
+Venedigs havn, malet af Canaletto i 1742–44. National Gallery of Art, public domain.
+:::
+:::
+::::
+
+::: {.history-sources}
+Kilder: [Schmelzing (2020), s. 18–19](https://www.bankofengland.co.uk/-/media/boe/files/working-paper/2020/eight-centuries-of-global-real-interest-rates-r-g-and-the-suprasecular-decline-1311-2018) · [Pezzolo (2005)](https://iris.unive.it/handle/10278/4445)
+:::
+
+::: {.notes}
+Venedig er et tidligt eksempel på omsættelig offentlig gæld. Skeln mellem tvangslånet i 1171–72 og det senere organiserede marked. Schmelzing beskriver, at det første lån ikke betalte renter i over tre årtier; fra 1262 fastsattes en årlig kupon på 5 procent. Undgå derfor at fremstille 1171-lånet som en moderne, frit købt obligation med punktlige betalinger fra starten.
+
+Spørg mundtligt: Hvad betyder muligheden for at sælge videre for den, der har lånt staten penge? Maleriet viser byen flere århundreder senere, ikke flåden i 1171.
+
+Baggrund for flåden mod Byzans: Pezzolo, kapitel 8 i The Origins of Value; redaktørernes introduktion: https://vintagequants.com/wp-content/uploads/2024/09/Goetzmann-Origins_Value_Introduction.pdf.
+:::
+
+## Et hollandsk digelån betaler stadig renter {#intro-holland .history-slide}
+
+::: {.history-era}
+1600-tallet · Nederlandene
+:::
+
+:::: {.history-grid}
+::: {}
+- Byer, provinser og vandmyndigheder bruger lån til fælles udgifter.
+- Lokale afgifter giver vandmyndighederne indtægter til renterne.
+- Et lån fra 1648 finansierer arbejde på diger og flodbredder.
+- Lånet har ingen fast udløbsdato: renterne kan fortsætte i generationer.
+- Yale ejer obligationen i dag og kan stadig opkræve renter.
+:::
+::: {.history-art}
+![](../../images/history/dutch-bond.jpg){fig-alt="Den originale hollandske obligation fra 1648, skrevet på pergament."}
+
+::: {.history-caption}
+Obligationen fra 1648. Beinecke Library, Yale University. Digital gengivelse af et historisk dokument.
+:::
+:::
+::::
+
+::: {.history-sources}
+Kilder: [Yale (2015)](https://news.yale.edu/2015/09/22/living-artifact-dutch-golden-age-yale-s-367-year-old-water-bond-still-pays-interest) · [Yale (2026)](https://som.yale.edu/story/2026/prof-rouwenhorst-discusses-yales-378-year-old-perpetual-bond-bbc)
+:::
+
+::: {.notes}
+Lånet på 1.000 Carolus-gylden blev udstedt den 15. maj 1648 af Lekdijk Bovendams. Det finansierede blandt andet anlæg, der styrede vandstrømmen og begrænsede erosion. Det er en lokal vandmyndigheds gæld, ikke et statslån fra Holland. Renten blev sænket flere gange, så man må ikke sige, at alle vilkår har været uændrede i 378 år.
+
+Forbedringen er praktisk: faste lokale indtægter og en varig organisation kan understøtte lån til anlæg, der bruges længe. Nederlandene udbyggede samtidig markeder for offentlig gæld. Det er et bredere forløb end den ene obligation. Baggrund: Goetzmann og Rouwenhorst, “Perpetuities in the Stream of History”, The Origins of Value (2005), kapitel 9; https://www.hdsr.nl/werk/watererfgoed/digitale/watererfgoedverhalen/dijkdoorbraak-1624/tijdlijn-dijkdoorbraak-1624/.
+:::
+
+## Storbritannien kan låne sig til at holde ud {#intro-england .history-slide}
+
+::: {.history-era}
+1694 → 1815 · England og senere Storbritannien
+:::
+
+:::: {.history-grid}
+::: {}
+- England bygger videre på hollandske erfaringer med offentlig gæld.
+- Bank of England oprettes i 1694 og låner staten £1,2 mio. til krig.
+- Skatter og en troværdig betalingshistorik gør store lån mulige.
+- Mod Napoleon kan briterne låne relativt billigt; fransk kredit er svagere.
+- Lån finansierer flåde, hær og allierede gennem en lang krig.
+:::
+::: {.history-art}
+![](../../images/history/napoleon.jpg){fig-alt="Jacques-Louis Davids portræt af Napoleon ved sit skrivebord i 1812."}
+
+::: {.history-caption}
+Napoleon i 1812, malet af Jacques-Louis David. National Gallery of Art, public domain.
+:::
+:::
+::::
+
+::: {.history-sources}
+Kilder: [Bank of England](https://www.bankofengland.co.uk/freedom-of-information/2020/details-of-the-bank-of-england-loan-to-the-government-in-1694) · [Bordo & White (1991)](https://www.researchwithrutgers.org/en/publications/a-tale-of-two-currencies-british-and-french-finance-during-the-na/)
+:::
+
+::: {.notes}
+Kredit gav Storbritannien mulighed for at føre krig i længere tid og støtte sine allierede. Det bidrog til koalitionernes styrke; det er ikke en enkeltstående forklaring på Napoleons nederlag. Frankrig var mere afhængigt af skatter og ydelser fra erobrede områder.
+
+Vis ikke et løsrevet britisk/fransk rentepar: kupon, markedsrente, tidspunkt og lånetype skal kunne sammenlignes. Bank of Englands første statslån i 1694 havde 8 procent i rente; det tal beskriver ikke lånevilkårene under Napoleonskrigene et århundrede senere.
+
+Hollandsk inspiration: https://dev.newtonproject.ox.ac.uk/introduction/the-financial-revolution. Bankens bidrag til krigsfinansieringen: O’Brien og Palma, https://onlinelibrary.wiley.com/doi/10.1111/ehr.13191. Parlamentarisk kontrol og skatteopkrævning udviklede sig over tid; troværdighed kom ikke fra én lov alene.
+:::
+
+## USA køber Louisiana med lånte penge {#intro-usa .history-slide}
+
+::: {.history-era}
+1790 → 1803 · USA
+:::
+
+:::: {.history-grid}
+::: {}
+- Hamilton samler krigsgæld hos forbundsstaten fra 1790.
+- Told og afgifter skal sikre, at staten betaler sine kreditorer.
+- I 1803 køber USA Louisiana af Frankrig for 15 mio. dollar.
+- Frankrig får 11,25 mio. dollar i obligationer med 6 % rente.
+- USA bliver omtrent dobbelt så stort; Napoleon får midler til sine europæiske planer.
+:::
+::: {.history-art}
+![](../../images/history/louisiana-treaty.jpg){fig-alt="Louisiana-traktatens udsmykkede omslag og seglkapsel fra 1803."}
+
+::: {.history-caption}
+Louisiana-traktatens omslag og seglkapsel, 1803. National Archives, USA. Territoriet rækker langt ud over nutidens Louisiana.
+:::
+:::
+::::
+
+::: {.history-sources}
+Kilder: [U.S. Treasury](https://home.treasury.gov/about/history/prior-secretaries/alexander-hamilton-1789-1795) · [Traktaten, 1803](https://www.archives.gov/milestone-documents/louisiana-purchase-treaty) · [Office of the Historian](https://history.state.gov/milestones/1801-1829/louisiana-purchase)
+:::
+
+::: {.notes}
+Hamiltons reformer byggede amerikansk kredit op, blandt andet med overtagelse af delstaternes krigsgæld og sikrere indtægter. USA overtog ikke allerede da Storbritanniens rolle som verdens finansielle centrum. Hamilton var heller ikke manden bag selve Louisiana-købet; det skete under Jefferson.
+
+Købesummen bestod af 11,25 mio. dollar i amerikanske 6-procents obligationer og op til 3,75 mio. dollar til amerikanske borgeres krav mod Frankrig. Betalingskonventionens artikel 2 fastlægger obligationsdelen. Britiske og hollandske finanshuse formidlede papirerne, så Frankrig kunne omsætte dem til penge.
+
+Napoleons salg hang sammen med den mislykkede ekspedition til Saint-Domingue, det senere Haiti, og udsigten til fornyet krig med Storbritannien. Territoriet var beboet af oprindelige folk; traktaten overførte Frankrigs territoriale krav og førte til yderligere amerikansk ekspansion.
+
+Gældsovertagelsen: https://home.treasury.gov/news/press-releases/hp867. Finansieringen: https://www.archives.gov/publications/prologue/2003/spring/louisiana-purchase.html.
+:::
+
+## Chaplin sælger obligationer til amerikanerne {#intro-liberty .history-slide}
+
+::: {.history-era}
+1917–18 · USA går ind i Første Verdenskrig
+:::
+
+:::: {.history-grid}
+::: {}
+- USA skal hurtigt skaffe penge til krigen mod Tyskland.
+- Fire Liberty Loan-kampagner sælger krigsobligationer til befolkningen.
+- Man kan tegne for helt ned til 50 dollar og få renter af sit lån.
+- Charlie Chaplin og andre filmstjerner trækker folk til salgsmøderne.
+- Propagandaen gør obligationskøb til en patriotisk handling og udmaler fjenden som brutal.
+:::
+::: {.history-art}
+![](../../images/history/chaplin.jpeg){fig-alt="Charlie Chaplin sammen med politikeren James Beauchamp Clark ved et Liberty Bond-arrangement ved Kongressen i 1918."}
+
+::: {.history-caption}
+Chaplin og Repræsentanternes Hus’ formand, Champ Clark, 1918. Library of Congress / U.S. Capitol Visitor Center.
+:::
+:::
+::::
+
+::: {.history-sources}
+Kilder: [Federal Reserve History](https://www.federalreservehistory.org/essays/liberty-bonds) · [U.S. Capitol Visitor Center](https://www.visitthecapitol.gov/artifact/liberty-bond-rally-us-capitol-photograph-1918) · [National Park Service](https://www.nps.gov/articles/000/over-here-over-there-america-and-world-war-i.htm)
+:::
+
+::: {.notes}
+Forklar forskellen på at donere og at låne: køberen får et værdipapir med renter og krav på tilbagebetaling. Samtidig blev salget forbundet med loyalitet og socialt pres. Beskriv fjendebilledet som samtidens propaganda, ikke som forelæserens vurdering af tyskere.
+
+Fire Liberty Loans fandt sted i 1917–18; Victory Loan fulgte i 1919. De 50 dollar er mindste pålydende i den første udstedelse. Det var stadig et betydeligt beløb for en almindelig familie.
+
+USA's økonomiske og finansielle vægt voksede under verdenskrigen. Det er en senere udvikling end Hamiltons reformer og Louisiana-købet.
+:::
+
+## Krigsindsatsen bliver et argument for rettigheder {#intro-liberty-rettigheder .history-slide}
+
+::: {.history-era}
+1917–20 · Hvem får fuldt medborgerskab?
+:::
+
+:::: {.history-grid}
+::: {}
+- Kvinder både køber obligationer og organiserer salget.
+- En samtidig opgørelse anslår kvinder til knap hver tredje køber i første kampagne.
+- Wilson bruger kvinders krigsindsats som argument for stemmeret i 1918.
+- Sorte amerikanere støtter også krigslånene og håber på større lighed.
+- Efter krigen får kvinder føderal stemmeret; racediskrimination spærrer fortsat mange vejen.
+:::
+::: {.history-art}
+![](../../images/history/women-liberty.jpg){fig-alt="Kvinder fra en Liberty Loan-komité foran en kopi af Liberty Bell i 1918."}
+
+::: {.history-caption}
+Kvindekomité ved den tredje Liberty Loan, 1918. Harris & Ewing / Library of Congress.
+:::
+:::
+::::
+
+::: {.history-sources}
+Kilder: [Clarke (1918), kap. IX](https://www.gwpda.org/wwi-www/Clarke/Clarke09.htm) · [Wilson, 30/9 1918](https://www.presidency.ucsb.edu/documents/address-the-senate-the-nineteenth-amendment) · [National Park Service](https://www.nps.gov/articles/000/over-here-over-there-america-and-world-war-i.htm)
+:::
+
+::: {.notes}
+Tallet er Ida Clyde Clarkes samtidige skøn over ANTAL købere i den første kampagne. Det er ikke en opgørelse af kvinders andel af låneprovenuet, og det er ikke et præcist administrativt totalmål for alle kampagner.
+
+Wilsons tale knytter kvinders samlede krigsindsats til stemmeret; den lover ikke stemmeret som betaling for obligationskøb. Den 19. forfatningsændring blev ratificeret i 1920 og forbød at nægte stemmeret på grund af køn. Racistiske valgregler og intimidering begrænsede fortsat mange sorte amerikaneres faktiske adgang til at stemme, også sorte kvinders.
+
+National Park Service dokumenterer både sorte amerikaneres støtte til krigsindsatsen og håbet om bedre rettigheder. Undgå et udokumenteret løfte fra politikerne om fuld lighed efter krigen. Wilson-administrationens egen politik omfattede segregation.
+
+Om sorte amerikaneres deltagelse i obligationskampagnen: https://www.nps.gov/stli/learn/historyculture/black-statue-of-liberty.htm. Om stemmerettens begrænsninger: https://home.nps.gov/articles/african-american-women-and-the-nineteenth-amendment.htm.
+:::
+
+## København skal genopbygges efter branden {#intro-koebenhavn .history-slide}
+
+::: {.history-era}
+Tilbage til Danmark · 1795–97
+:::
+
+:::: {.history-grid}
+::: {}
+- Branden i 1795 ødelægger over 900 ejendomme i København.
+- Genopbygningen kræver mere kapital, end husejerne selv har.
+- I 1797 oprettes Husejernes Kreditkasse på långivernes initiativ.
+- Obligationer skaffer penge til lån med sikkerhed i ejendommene.
+- Det bliver begyndelsen på dansk realkredit, som vi møder i kapitel 5.
+:::
+::: {.history-art}
+![](../../images/history/copenhagen.jpg){fig-alt="Historisk illustration af branden på Gammeltorv i København i 1795, med det brændende rådhus i midten."}
+
+::: {.history-caption}
+Gammeltorv og rådhuset under branden i 1795. Gengivet i *En kjøbenhavnsk Embedsmand* (1918), public domain.
+:::
+:::
+::::
+
+::: {.history-sources}
+Kilder: [Finans Danmark](https://finansdanmark.dk/realkredit/dansk-realkredit/realkredittens-historie/) · [Andersen (1947), Kreditkassen for Husejerne i Kjøbenhavn](https://jura.ku.dk/jurabog/pdf/juridiske-monografier/andersen_kreditkassen_for_husejerne_i_kjoebenhavn_1947.pdf)
+:::
+
+::: {.notes}
+Vend tilbage til Danmark efter den amerikanske historie. Et obligationsmarked kan finansiere både stater og private ejendomme. Kreditkassen fra 1797 var en forløber for det danske realkreditsystem; de senere låntagerstyrede kreditforeninger kom efter loven i 1850.
+
+Finans Danmark beskriver, at renteloftet på 4 procent gjorde sikkerhed særlig vigtig for långiverne. Gem de institutionelle detaljer og det moderne balanceprincip til kapitel 5. Her skal de studerende blot følge pengene: investorer køber obligationer, kreditkassen yder lån, og husejere bygger op igen.
+:::
