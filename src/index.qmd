@@ -13,7 +13,7 @@ Vi arbejder med renter, obligationer, dansk realkredit og finansielle kriser. I 
 ![](images/finance-header-img.png){.finance-header fig-alt="Ryan Gosling forklarer finansiel risiko med et tårn af klodser."}
 
 ::: {.course-dates}
-20. oktober – 26. november 2026 · 6 uger · 12 undervisningsmoduler
+19. oktober – 26. november 2026 · 6 uger · 12 undervisningsmoduler
 :::
 
 [Hent lektionsnoterne](downloads/Kurs100-2026.pdf){.btn .btn-primary download="Kurs100-2026.pdf"}
@@ -38,12 +38,15 @@ Vi arbejder med renter, obligationer, dansk realkredit og finansielle kriser. I 
 ::: {.course-info .meeting-times}
 ### Vi mødes to gange om ugen
 
-**Tirsdag kl. 08:15–10:00**  
-**Torsdag kl. 14:15–16:00**
+**Første gang: mandag 19. oktober kl. 16.00–18.00**, lokale **1830-211 Auditorium**.
 
-Første gang er tirsdag den **20. oktober 2026**. Sidste gang er torsdag den **26. november 2026**.
+**Tirsdage kl. 08.00–10.00** fra 20. oktober, lokale **1810-211 Auditorium**.
 
-Lokale og eventuelle ændringer fremgår af Brightspace.
+**Torsdage kl. 14.00–16.00** fra 29. oktober, lokale **1830-211 Auditorium**.
+
+Første uge mødes vi mandag og tirsdag. Fra uge 44 mødes vi tirsdag og torsdag. Sidste gang er torsdag den **26. november 2026**.
+
+Eventuelle ændringer fremgår af Brightspace.
 :::
 :::
 
@@ -62,20 +65,20 @@ Lokale og eventuelle ændringer fremgår af Brightspace.
 Vi begynder med introduktionen og kapitel 1 og følger derefter bogens kapitler i rækkefølge. Modul 11 er buffer. I modul 12 gennemgår vi en tidligere eksamen.
 
 ::: {.schedule-wrap}
-| Modul | Uge | Dato | Tid | Indhold | Læsning |
-|:---|:---|:---|:---|:---|:---|
-| 1 | 43 | Tirsdag 20/10 | 08:15–10:00 | Introduktion + Rentedannelsen | [Kapitel 1](slides/chapters/01.qmd) |
-| 2 | 43 | Torsdag 22/10 | 14:15–16:00 | Obligationsmarkedet | [Kapitel 2](slides/chapters/02.qmd) |
-| 3 | 44 | Tirsdag 27/10 | 08:15–10:00 | Rentestrukturen | [Kapitel 3](slides/chapters/03.qmd) |
-| 4 | 44 | Torsdag 29/10 | 14:15–16:00 | Risikomål | [Kapitel 4](slides/chapters/04.qmd) |
-| 5 | 45 | Tirsdag 03/11 | 08:15–10:00 | Dansk realkredit | [Kapitel 5](slides/chapters/05.qmd) |
-| 6 | 45 | Torsdag 05/11 | 14:15–16:00 | Modellering af konverteringsadfærd | [Kapitel 6](slides/chapters/06.qmd) |
-| 7 | 46 | Tirsdag 10/11 | 08:15–10:00 | Prisfastsættelse og nøgletal | [Kapitel 7](slides/chapters/07.qmd) |
-| 8 | 46 | Torsdag 12/11 | 14:15–16:00 | Obligationsafkast | [Kapitel 8](slides/chapters/08.qmd) |
-| 9 | 47 | Tirsdag 17/11 | 08:15–10:00 | Finanskrisen | [Kapitel 9](slides/chapters/09.qmd) |
-| 10 | 47 | Torsdag 19/11 | 14:15–16:00 | Pengeinstitutternes risikostyring | [Kapitel 10](slides/chapters/10.qmd) |
-| 11 | 48 | Tirsdag 24/11 | 08:15–10:00 | Buffer og opsamling | Efter behov |
-| 12 | 48 | Torsdag 26/11 | 14:15–16:00 | Tidligere eksamen som eksempel | Tidligere eksamensopgave |
+| Modul | Uge | Dato | Tid | Lokale | Indhold | Læsning |
+|:---|:---|:---|:---|:---|:---|:---|
+| 1 | 43 | Mandag 19/10 | 16.00–18.00 | 1830-211 Auditorium | Introduktion + Rentedannelsen | [Kapitel 1](slides/chapters/01.qmd) |
+| 2 | 43 | Tirsdag 20/10 | 08.00–10.00 | 1810-211 Auditorium | Obligationsmarkedet | [Kapitel 2](slides/chapters/02.qmd) |
+| 3 | 44 | Tirsdag 27/10 | 08.00–10.00 | 1810-211 Auditorium | Rentestrukturen | [Kapitel 3](slides/chapters/03.qmd) |
+| 4 | 44 | Torsdag 29/10 | 14.00–16.00 | 1830-211 Auditorium | Risikomål | [Kapitel 4](slides/chapters/04.qmd) |
+| 5 | 45 | Tirsdag 03/11 | 08.00–10.00 | 1810-211 Auditorium | Dansk realkredit | [Kapitel 5](slides/chapters/05.qmd) |
+| 6 | 45 | Torsdag 05/11 | 14.00–16.00 | 1830-211 Auditorium | Modellering af konverteringsadfærd | [Kapitel 6](slides/chapters/06.qmd) |
+| 7 | 46 | Tirsdag 10/11 | 08.00–10.00 | 1810-211 Auditorium | Prisfastsættelse og nøgletal | [Kapitel 7](slides/chapters/07.qmd) |
+| 8 | 46 | Torsdag 12/11 | 14.00–16.00 | 1830-211 Auditorium | Obligationsafkast | [Kapitel 8](slides/chapters/08.qmd) |
+| 9 | 47 | Tirsdag 17/11 | 08.00–10.00 | 1810-211 Auditorium | Finanskrisen | [Kapitel 9](slides/chapters/09.qmd) |
+| 10 | 47 | Torsdag 19/11 | 14.00–16.00 | 1830-211 Auditorium | Pengeinstitutternes risikostyring | [Kapitel 10](slides/chapters/10.qmd) |
+| 11 | 48 | Tirsdag 24/11 | 08.00–10.00 | 1810-211 Auditorium | Buffer og opsamling | Efter behov |
+| 12 | 48 | Torsdag 26/11 | 14.00–16.00 | 1830-211 Auditorium | Tidligere eksamen som eksempel | Tidligere eksamensopgave |
 
 :::
 

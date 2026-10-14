@@ -1,19 +1,23 @@
 from pathlib import Path
 import shutil, json, hashlib
-from datetime import date,timedelta
+from datetime import date
 ROOT=Path(__file__).resolve().parents[1]
 WORK=ROOT/'work/final-rebuild'
 titles=['Rentedannelsen','Obligationsmarkedet','Rentestrukturen','Risikomål','Dansk realkredit','Modellering af konverteringsadfærd','Prisfastsættelse og nøgletal','Obligationsafkast','Finanskrisen','Pengeinstitutternes risikostyring']
 exercises=['Renter og obligationer','Rentekurve og renterisiko','Realkredit og konvertering','Prisfastsættelse og nøgletal','Afkast, krise og risiko']
 chapters=['1–2','3–4','5–6','7','8–10']
 course=json.loads((ROOT/'src/course-2026.json').read_text(encoding='utf-8'))
-start=date.fromisoformat(course['first_tuesday'])
-assert start.weekday()==1 and start.year==course['year'] and course['weeks']==6
+sessions=course['sessions']
+assert len(sessions)==12
+dates=[date.fromisoformat(s['date']) for s in sessions]
+assert dates==sorted(set(dates)) and all(d.year==course['year'] for d in dates)
+assert dates[-1].isocalendar().week-dates[0].isocalendar().week+1==course['weeks']
+day_names=['Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag','Søndag']
 modules=[]
-for n in range(1,13):
-    day=start+timedelta(weeks=(n-1)//2,days=0 if n%2 else 2)
+for n,session in enumerate(sessions,1):
+    day=date.fromisoformat(session['date'])
     topic=('Introduktion + '+titles[0]) if n==1 else titles[n-1] if n<=10 else 'Buffer og opsamling' if n==11 else 'Tidligere eksamen som eksempel'
-    modules.append(dict(number=n,date=day.isoformat(),week=day.isocalendar().week,day='Tirsdag' if n%2 else 'Torsdag',time=course['tuesday_time'] if n%2 else course['thursday_time'],topic=topic,chapter=n if n<=10 else None))
+    modules.append(dict(number=n,date=day.isoformat(),week=day.isocalendar().week,day=day_names[day.weekday()],time=session['time'],room=session['room'],topic=topic,chapter=n if n<=10 else None))
 (WORK/'teaching-plan-2026.json').write_text(json.dumps(modules,ensure_ascii=False,indent=2),encoding='utf-8')
 dest=ROOT/'src/downloads';dest.mkdir(exist_ok=True)
 manifest=[]
@@ -52,7 +56,7 @@ Vi arbejder med renter, obligationer, dansk realkredit og finansielle kriser. I 
 ![](images/finance-header-img.png){.finance-header fig-alt="Ryan Gosling forklarer finansiel risiko med et tårn af klodser."}
 
 ::: {.course-dates}
-20. oktober – 26. november 2026 · 6 uger · 12 undervisningsmoduler
+19. oktober – 26. november 2026 · 6 uger · 12 undervisningsmoduler
 :::
 
 [Hent lektionsnoterne](downloads/Kurs100-2026.pdf){.btn .btn-primary download="Kurs100-2026.pdf"}
@@ -77,12 +81,15 @@ Vi arbejder med renter, obligationer, dansk realkredit og finansielle kriser. I 
 ::: {.course-info .meeting-times}
 ### Vi mødes to gange om ugen
 
-**Tirsdag kl. 08:15–10:00**  
-**Torsdag kl. 14:15–16:00**
+**Første gang: mandag 19. oktober kl. 16.00–18.00**, lokale **1830-211 Auditorium**.
 
-Første gang er tirsdag den **20. oktober 2026**. Sidste gang er torsdag den **26. november 2026**.
+**Tirsdage kl. 08.00–10.00** fra 20. oktober, lokale **1810-211 Auditorium**.
 
-Lokale og eventuelle ændringer fremgår af Brightspace.
+**Torsdage kl. 14.00–16.00** fra 29. oktober, lokale **1830-211 Auditorium**.
+
+Første uge mødes vi mandag og tirsdag. Fra uge 44 mødes vi tirsdag og torsdag. Sidste gang er torsdag den **26. november 2026**.
+
+Eventuelle ændringer fremgår af Brightspace.
 :::
 :::
 
@@ -101,13 +108,13 @@ Lokale og eventuelle ændringer fremgår af Brightspace.
 Vi begynder med introduktionen og kapitel 1 og følger derefter bogens kapitler i rækkefølge. Modul 11 er buffer. I modul 12 gennemgår vi en tidligere eksamen.
 
 ::: {.schedule-wrap}
-| Modul | Uge | Dato | Tid | Indhold | Læsning |
-|:---|:---|:---|:---|:---|:---|
+| Modul | Uge | Dato | Tid | Lokale | Indhold | Læsning |
+|:---|:---|:---|:---|:---|:---|:---|
 '''
 for m in modules:
     d=date.fromisoformat(m['date'])
     reading=f"[Kapitel {m['chapter']}](slides/chapters/{m['chapter']:02}.qmd)" if m['chapter'] else 'Efter behov' if m['number']==11 else 'Tidligere eksamensopgave'
-    text+=f"| {m['number']} | {m['week']} | {m['day']} {d:%d/%m} | {m['time']} | {m['topic']} | {reading} |\n"
+    text+=f"| {m['number']} | {m['week']} | {m['day']} {d:%d/%m} | {m['time']} | {m['room']} | {m['topic']} | {reading} |\n"
 text+='''
 :::
 
@@ -172,17 +179,18 @@ Lad de studerende nævne en situation, hvor de selv møder renter eller risiko. 
 
 ## Seks uger, to møder om ugen {#intro-s002}
 
-**20. oktober – 26. november 2026**
+**19. oktober – 26. november 2026**
 
-| Dag | Tid |
-|:---|:---|
-| Tirsdag | 08:15–10:00 |
-| Torsdag | 14:15–16:00 |
+| Dag | Tid | Lokale |
+|:---|:---|:---|
+| Mandag 19/10 | 16.00–18.00 | 1830-211 |
+| Tirsdage fra 20/10 | 08.00–10.00 | 1810-211 |
+| Torsdage fra 29/10 | 14.00–16.00 | 1830-211 |
 
-12 undervisningsmoduler. Lokale og ændringer findes på Brightspace.
+12 undervisningsmoduler. Første uge: mandag og tirsdag. Derefter: tirsdag og torsdag. Ændringer findes på Brightspace.
 
 ::: {.notes}
-Vi begynder tirsdag den 20. oktober. Bed de studerende læse kapitlet før forelæsningen og regne videre bagefter. Vis lektionsplanen på forsiden.
+Vi begynder mandag den 19. oktober kl. 16.00 i 1830-211 Auditorium. Andet modul er tirsdag den 20. oktober kl. 08.00 i 1810-211 Auditorium. Bed de studerende læse kapitlet før forelæsningen og regne videre bagefter. Vis lektionsplanen på forsiden.
 :::
 '''
 for half in range(2):

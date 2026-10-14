@@ -38,8 +38,9 @@ h2 { margin-top: 2.3rem; }
   .schedule-wrap td:nth-child(1)::before { content: "Modul "; }
   .schedule-wrap td:nth-child(2)::before { content: "Uge "; }
   .schedule-wrap td:nth-child(1), .schedule-wrap td:nth-child(2) { color: #007f80; font-size: .8rem; }
-  .schedule-wrap td:nth-child(5), .schedule-wrap td:nth-child(6) { grid-column: 1 / -1; }
-  .schedule-wrap td:nth-child(5) { font-weight: 600; }
+  .schedule-wrap td:nth-child(5), .schedule-wrap td:nth-child(6), .schedule-wrap td:nth-child(7) { grid-column: 1 / -1; }
+  .schedule-wrap td:nth-child(5)::before { content: "Lokale: "; }
+  .schedule-wrap td:nth-child(6) { font-weight: 600; }
   .schedule-wrap tr:nth-last-child(2) { background: #eaf3f0; }
 }
 .chapter-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1rem; }

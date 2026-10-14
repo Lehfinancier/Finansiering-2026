@@ -1,9 +1,20 @@
 {
   "year": 2026,
-  "first_tuesday": "2026-10-20",
   "weeks": 6,
-  "tuesday_time": "08:15–10:00",
-  "thursday_time": "14:15–16:00",
+  "sessions": [
+    {"date": "2026-10-19", "time": "16.00–18.00", "room": "1830-211 Auditorium"},
+    {"date": "2026-10-20", "time": "08.00–10.00", "room": "1810-211 Auditorium"},
+    {"date": "2026-10-27", "time": "08.00–10.00", "room": "1810-211 Auditorium"},
+    {"date": "2026-10-29", "time": "14.00–16.00", "room": "1830-211 Auditorium"},
+    {"date": "2026-11-03", "time": "08.00–10.00", "room": "1810-211 Auditorium"},
+    {"date": "2026-11-05", "time": "14.00–16.00", "room": "1830-211 Auditorium"},
+    {"date": "2026-11-10", "time": "08.00–10.00", "room": "1810-211 Auditorium"},
+    {"date": "2026-11-12", "time": "14.00–16.00", "room": "1830-211 Auditorium"},
+    {"date": "2026-11-17", "time": "08.00–10.00", "room": "1810-211 Auditorium"},
+    {"date": "2026-11-19", "time": "14.00–16.00", "room": "1830-211 Auditorium"},
+    {"date": "2026-11-24", "time": "08.00–10.00", "room": "1810-211 Auditorium"},
+    {"date": "2026-11-26", "time": "14.00–16.00", "room": "1830-211 Auditorium"}
+  ],
   "lecturer": "Niklas Lehmann Jensen",
   "email": "nlj@econ.au.dk",
   "alternative_email": "niklas@scanrate.dk"

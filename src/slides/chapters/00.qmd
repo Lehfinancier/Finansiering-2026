@@ -18,25 +18,26 @@ Lad de studerende nævne en situation, hvor de selv møder renter eller risiko. 
 
 ## Seks uger, to møder om ugen {#intro-s002}
 
-**20. oktober – 26. november 2026**
+**19. oktober – 26. november 2026**
 
-| Dag | Tid |
-|:---|:---|
-| Tirsdag | 08:15–10:00 |
-| Torsdag | 14:15–16:00 |
+| Dag | Tid | Lokale |
+|:---|:---|:---|
+| Mandag 19/10 | 16.00–18.00 | 1830-211 |
+| Tirsdage fra 20/10 | 08.00–10.00 | 1810-211 |
+| Torsdage fra 29/10 | 14.00–16.00 | 1830-211 |
 
-12 undervisningsmoduler. Lokale og ændringer findes på Brightspace.
+12 undervisningsmoduler. Første uge: mandag og tirsdag. Derefter: tirsdag og torsdag. Ændringer findes på Brightspace.
 
 ::: {.notes}
-Vi begynder tirsdag den 20. oktober. Bed de studerende læse kapitlet før forelæsningen og regne videre bagefter. Vis lektionsplanen på forsiden.
+Vi begynder mandag den 19. oktober kl. 16.00 i 1830-211 Auditorium. Andet modul er tirsdag den 20. oktober kl. 08.00 i 1810-211 Auditorium. Bed de studerende læse kapitlet før forelæsningen og regne videre bagefter. Vis lektionsplanen på forsiden.
 :::
 
 ## Renter, obligationer og realkredit {#intro-s003}
 
 | Modul | Dato | Indhold |
 |:---|:---|:---|
-| 1 | 20/10 | Intro + kapitel 1: Rentedannelsen |
-| 2 | 22/10 | Kapitel 2: Obligationsmarkedet |
+| 1 | 19/10 | Intro + kapitel 1: Rentedannelsen |
+| 2 | 20/10 | Kapitel 2: Obligationsmarkedet |
 | 3 | 27/10 | Kapitel 3: Rentestrukturen |
 | 4 | 29/10 | Kapitel 4: Risikomål |
 | 5 | 03/11 | Kapitel 5: Dansk realkredit |
