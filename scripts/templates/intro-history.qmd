@@ -238,7 +238,7 @@ Om sorte amerikaneres deltagelse i obligationskampagnen: https://www.nps.gov/stl
 ::: {}
 - Virksomheder under *investment grade* har en lavere kreditvurdering og større risiko for ikke at betale.
 - Deres obligationer kaldes *high yield* eller *junk bonds*. Investorerne kræver derfor højere renter.
-- Milken samler investorer og skaber et stort marked for nye udstedelser fra disse virksomheder.
+- Milken finder købere til nye lån, får analytikere til at vurdere risikoen og lader Drexel købe og sælge obligationerne, så investorer kan komme ud igen.
 - Flere virksomheder kan låne til investeringer og opkøb. High yield bliver en varig finansieringskilde.
 - Gælden kan også blive for tung. Milken erkender i 1990 seks lovbrud, bl.a. værdipapirsvindel.
 :::
@@ -273,11 +273,11 @@ Hold markedsudviklingen og lovbruddene adskilt i forklaringen. SEC dokumenterer 
 
 :::: {.history-grid}
 ::: {}
-- Babyboom-generationen søger bolig. Volckers rentestigninger fra 1979 dæmper inflationen, men gør boliglån dyre.
+- Babyboom-generationen søger bolig, mens Volcker bekæmper inflationen med høje renter fra 1979.
 - Boliglångivere presses mellem gamle lån med lav, fast rente og dyrere finansiering.
 - Ranieri udbygger markedet for MBS: værdipapirer betalt af renter og afdrag fra puljer af boliglån.
-- Investorer tilfører penge, så långiverne kan yde flere boliglån og nå ud over lokale opsparere.
-- Senere pakkes risikable lån i lag med forskellig tabsrisiko. Dårlige lån og undervurderet risiko bidrager til finanskrisen.
+- Efter rentechokket lokker høje renter og valg mellem kortere og længere betalingsforløb. I 2000’erne lokker højere rente end på statsobligationer sammen med høje kreditvurderinger.
+- Risikable lån pakkes senere i lag med forskellig tabsrisiko. Risikoen undervurderes, og tabene bidrager til finanskrisen.
 :::
 ::: {.history-art}
 ![](../../images/history/housing-1974.jpg){fig-alt="Et amerikansk parcelhuskvarter i Mt. Lebanon i 1974 med en beboer, der slår græs."}
@@ -304,6 +304,8 @@ Sparekassekrisen og presset fra indlånsrenter: Kenneth J. Robinson, Federal Res
 MBS står for mortgage-backed securities. Ginnie Mae garanterede de første moderne mortgage pass-through-værdipapirer i 1970. Ranieri og Salomon Brothers var siden med til at udbygge handlen og det private marked. Han opfandt ikke alle MBS alene.
 
 Babyboom-generationens indtræden på boligmarkedet var en baggrund for efterspørgslen, ikke den eneste årsag til securitisering. Bernankes tale beskriver, hvordan indlånsrentelofter og høje markedsrenter trak opsparing væk fra banker og savings and loans. Når deres finansiering forsvandt eller blev dyrere, var det svært at yde nye boliglån. Gamle fastforrentede lån faldt samtidig i værdi, når markedsrenten steg. Det betyder ikke, at ingen ville købe obligationer: nye købere kunne få en højere rente.
+
+Investorernes efterspørgsel ændrede sig over tid. Efter rentechokket kunne nye købere få høje effektive renter, enten gennem nye lån med højere rente eller ved at købe eksisterende værdipapirer til lavere kurser. Fra 1983 gjorde CMO’er det muligt at fordele betalinger i forløb med forskellig forventet løbetid, så bl.a. banker og pensionsinvestorer kunne finde papirer, der passede bedre til deres behov. Usikkerhed om førtidige indfrielser bestod. I 2000’erne søgte mange investorer højere rente end på statsobligationer, og høje ratings fik visse private MBS-trancher til at se sikre ud. Ratingen var ikke en garanti; tabene på de underliggende lån blev undervurderet. Se også FCIC (2011), kapitel 5 og 8, og Federal Reserve Bank of Boston, “Getting Secure” (1997): https://www.bostonfed.org/publications/regional-review/1997/summer/getting-secure.aspx.
 
 Når boliglån sælges til en pulje, og investorer køber værdipapirer med betalinger fra puljen, får långiveren penge til nye lån. Den mulige gevinst er bredere adgang til kapital og mindre afhængighed af lokal opsparing. Det fjerner hverken renterisiko eller risikoen for, at boligejerne ikke betaler.
 
