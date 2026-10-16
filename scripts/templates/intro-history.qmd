@@ -24,7 +24,7 @@ Tidslinjen viser udvalgte begivenheder, ikke opfindelsen af al gæld eller en ub
 
 :::: {.history-grid}
 ::: {}
-- Konflikten med Byzans kræver en dyr flåde.
+- Kejseren i Det Byzantinske Rige fængsler venetianske købmænd og beslaglægger deres ejendom. Venedig sender en flåde for at få dem frigivet.
 - Staten tvinger velhavende borgere til at låne den penge.
 - Borgerne får et tilgodehavende hos staten.
 - Fra 1262 findes et organiseret marked for gælden.
@@ -48,7 +48,9 @@ Venedig er et tidligt eksempel på omsættelig offentlig gæld. Skeln mellem tva
 
 Spørg mundtligt: Hvad betyder muligheden for at sælge videre for den, der har lånt staten penge? Maleriet viser byen flere århundreder senere, ikke flåden i 1171.
 
-Baggrund for flåden mod Byzans: Pezzolo, kapitel 8 i The Origins of Value; redaktørernes introduktion: https://vintagequants.com/wp-content/uploads/2024/09/Goetzmann-Origins_Value_Introduction.pdf.
+Den umiddelbare anledning var kejser Manuel I’s arrestationer og beslaglæggelser i 1171. Konflikten havde også en længere baggrund i handel og magtpolitik. Kilde: Donald M. Nicol, Byzantium and Venice, kapitel 7, https://www.cambridge.org/core/books/abs/byzantium-and-venice/calm-before-the-storm/5269F2A43B0DCF95E74D38E54286E5D1.
+
+Baggrund for flåden mod Det Byzantinske Rige: Pezzolo, kapitel 8 i The Origins of Value; redaktørernes introduktion: https://vintagequants.com/wp-content/uploads/2024/09/Goetzmann-Origins_Value_Introduction.pdf.
 :::
 
 ## Et hollandsk digelån betaler stadig renter {#intro-holland .history-slide}
@@ -59,8 +61,8 @@ Baggrund for flåden mod Byzans: Pezzolo, kapitel 8 i The Origins of Value; reda
 
 :::: {.history-grid}
 ::: {}
-- Byer, provinser og vandmyndigheder bruger lån til fælles udgifter.
-- Lokale afgifter giver vandmyndighederne indtægter til renterne.
+- Hollænderne gør offentlige lån til en bredere opsparingsform med skatter og afgifter til at betale renterne.
+- Långivere kan overdrage gælden eller bruge den som sikkerhed for egne lån. Pengene er dermed lettere at få adgang til igen.
 - Et lån fra 1648 finansierer arbejde på diger og flodbredder.
 - Lånet har ingen fast udløbsdato: renterne kan fortsætte i generationer.
 - Yale ejer obligationen i dag og kan stadig opkræve renter.
@@ -75,11 +77,13 @@ Obligationen fra 1648. Beinecke Library, Yale University. Digital gengivelse af 
 ::::
 
 ::: {.history-sources}
-Kilder: [Yale (2015)](https://news.yale.edu/2015/09/22/living-artifact-dutch-golden-age-yale-s-367-year-old-water-bond-still-pays-interest) · [Yale (2026)](https://som.yale.edu/story/2026/prof-rouwenhorst-discusses-yales-378-year-old-perpetual-bond-bbc)
+Kilder: [Gelderblom & Jonker (2011)](https://people.bu.edu/chamley/HSFref/GelderblomJonkerJEH11.pdf) · [Yale (2015)](https://news.yale.edu/2015/09/22/living-artifact-dutch-golden-age-yale-s-367-year-old-water-bond-still-pays-interest) · [Yale (2026)](https://som.yale.edu/story/2026/prof-rouwenhorst-discusses-yales-378-year-old-perpetual-bond-bbc)
 :::
 
 ::: {.notes}
 Lånet på 1.000 Carolus-gylden blev udstedt den 15. maj 1648 af Lekdijk Bovendams. Det finansierede blandt andet anlæg, der styrede vandstrømmen og begrænsede erosion. Det er en lokal vandmyndigheds gæld, ikke et statslån fra Holland. Renten blev sænket flere gange, så man må ikke sige, at alle vilkår har været uændrede i 378 år.
+
+Gelderblom og Jonker viser, at offentlige gældsbeviser kunne overdrages og belånes. Mange investorer kunne også få penge tilbage hos skatteopkræverne. Et fuldt udviklet marked for videresalg af provinsen Hollands gæld kom først sent i 1600-tallet; undgå at sidestille det med det tidligere aktive marked for VOC-aktier. Kilde: “Public Finance and Economic Growth: The Case of Holland in the Seventeenth Century” (2011), https://people.bu.edu/chamley/HSFref/GelderblomJonkerJEH11.pdf.
 
 Forbedringen er praktisk: faste lokale indtægter og en varig organisation kan understøtte lån til anlæg, der bruges længe. Nederlandene udbyggede samtidig markeder for offentlig gæld. Det er et bredere forløb end den ene obligation. Baggrund: Goetzmann og Rouwenhorst, “Perpetuities in the Stream of History”, The Origins of Value (2005), kapitel 9; https://www.hdsr.nl/werk/watererfgoed/digitale/watererfgoedverhalen/dijkdoorbraak-1624/tijdlijn-dijkdoorbraak-1624/.
 :::
@@ -92,7 +96,7 @@ Forbedringen er praktisk: faste lokale indtægter og en varig organisation kan u
 
 :::: {.history-grid}
 ::: {}
-- England bygger videre på hollandske erfaringer med offentlig gæld.
+- England henter inspiration i hollandske lån med skatteindtægter til renterne og værdipapirer, som investorer kan sælge videre.
 - Bank of England oprettes i 1694 og låner staten £1,2 mio. til krig.
 - Skatter og en troværdig betalingshistorik gør store lån mulige.
 - Under Napoleonskrigene har briterne lettere adgang til lån end Frankrig.
@@ -108,13 +112,15 @@ Napoleon i 1812, malet af Jacques-Louis David. National Gallery of Art, public d
 ::::
 
 ::: {.history-sources}
-Kilder: [Bank of England](https://www.bankofengland.co.uk/freedom-of-information/2020/details-of-the-bank-of-england-loan-to-the-government-in-1694) · [Bordo & White (1991)](https://www.researchwithrutgers.org/en/publications/a-tale-of-two-currencies-british-and-french-finance-during-the-na/)
+Kilder: [Newton Project, Oxford](https://dev.newtonproject.ox.ac.uk/introduction/the-financial-revolution) · [Bank of England](https://www.bankofengland.co.uk/freedom-of-information/2020/details-of-the-bank-of-england-loan-to-the-government-in-1694) · [Bordo & White (1991)](https://www.researchwithrutgers.org/en/publications/a-tale-of-two-currencies-british-and-french-finance-during-the-na/)
 :::
 
 ::: {.notes}
 Kredit gav Storbritannien mulighed for at føre krig i længere tid og støtte sine allierede. Det bidrog til koalitionernes styrke; det er ikke en enkeltstående forklaring på Napoleons nederlag. Frankrig var mere afhængigt af skatter og ydelser fra erobrede områder.
 
 Vis ikke et løsrevet britisk/fransk rentepar: kupon, markedsrente, tidspunkt og lånetype skal kunne sammenlignes. Bank of Englands første statslån i 1694 havde 8 procent i rente; det tal beskriver ikke lånevilkårene under Napoleonskrigene et århundrede senere.
+
+England kunne bygge videre på erfaringer med at knytte renter til bestemte skatteindtægter og gøre finansielle krav omsættelige. I London blev statslånene efterhånden samlet og handlet i større skala med Parlamentet og Bank of England som centrale institutioner. Det var en gradvis udvikling og ingen direkte kopi af én hollandsk bank.
 
 Hollandsk inspiration: https://dev.newtonproject.ox.ac.uk/introduction/the-financial-revolution. Bankens bidrag til krigsfinansieringen: O’Brien og Palma, https://onlinelibrary.wiley.com/doi/10.1111/ehr.13191. Parlamentarisk kontrol og skatteopkrævning udviklede sig over tid; troværdighed kom ikke fra én lov alene.
 :::
@@ -202,8 +208,8 @@ USA's økonomiske og finansielle vægt voksede under verdenskrigen. Det er en se
 - Kvinder både køber obligationer og organiserer salget.
 - Efter en samtidig opgørelse var knap hver tredje køber i første kampagne en kvinde.
 - Wilson bruger kvinders krigsindsats som argument for stemmeret i 1918.
-- Sorte amerikanere støtter også krigslånene og håber på større lighed.
-- I 1920 sikres kvinders stemmeret i forfatningen. Racistiske valgregler holder stadig mange sorte amerikanere ude.
+- Afroamerikanere støtter også krigslånene og håber på større lighed.
+- I 1920 sikres kvinders stemmeret i forfatningen. Racistiske valgregler holder stadig mange afroamerikanere ude.
 :::
 ::: {.history-art}
 ![](../../images/history/women-liberty.jpg){fig-alt="Kvinder fra en Liberty Loan-komité foran en kopi af Liberty Bell i 1918."}
@@ -221,11 +227,11 @@ Kilder: [Clarke (1918), kap. IX](https://www.gwpda.org/wwi-www/Clarke/Clarke09.h
 ::: {.notes}
 Tallet er Ida Clyde Clarkes samtidige skøn over ANTAL købere i den første kampagne. Det er ikke en opgørelse af kvinders andel af låneprovenuet, og det er ikke et præcist administrativt totalmål for alle kampagner.
 
-Wilsons tale knytter kvinders samlede krigsindsats til stemmeret; den lover ikke stemmeret som betaling for obligationskøb. Den 19. forfatningsændring blev ratificeret i 1920 og forbød at nægte stemmeret på grund af køn. Racistiske valgregler og intimidering begrænsede fortsat mange sorte amerikaneres faktiske adgang til at stemme, også sorte kvinders.
+Wilsons tale knytter kvinders samlede krigsindsats til stemmeret; den lover ikke stemmeret som betaling for obligationskøb. Den 19. forfatningsændring blev ratificeret i 1920 og forbød at nægte stemmeret på grund af køn. Racistiske valgregler og intimidering begrænsede fortsat mange afroamerikaneres faktiske adgang til at stemme, også afroamerikanske kvinders.
 
-National Park Service dokumenterer både sorte amerikaneres støtte til krigsindsatsen og håbet om bedre rettigheder. Undgå et udokumenteret løfte fra politikerne om fuld lighed efter krigen. Wilson-administrationens egen politik omfattede segregation.
+National Park Service dokumenterer både afroamerikaneres støtte til krigsindsatsen og håbet om bedre rettigheder. Undgå et udokumenteret løfte fra politikerne om fuld lighed efter krigen. Wilson-administrationens egen politik omfattede segregation.
 
-Om sorte amerikaneres deltagelse i obligationskampagnen: https://www.nps.gov/stli/learn/historyculture/black-statue-of-liberty.htm. Om stemmerettens begrænsninger: https://home.nps.gov/articles/african-american-women-and-the-nineteenth-amendment.htm.
+Om afroamerikaneres deltagelse i obligationskampagnen: https://www.nps.gov/stli/learn/historyculture/black-statue-of-liberty.htm. Om stemmerettens begrænsninger: https://home.nps.gov/articles/african-american-women-and-the-nineteenth-amendment.htm.
 :::
 
 ## Milken åbner obligationsmarkedet for flere virksomheder {#intro-milken .history-slide}
@@ -238,7 +244,7 @@ Om sorte amerikaneres deltagelse i obligationskampagnen: https://www.nps.gov/stl
 ::: {}
 - Virksomheder under *investment grade* har en lavere kreditvurdering og større risiko for ikke at betale.
 - Deres obligationer kaldes *high yield* eller *junk bonds*. Investorerne kræver derfor højere renter.
-- Milken finder købere til nye lån, får analytikere til at vurdere risikoen og lader Drexel købe og sælge obligationerne, så investorer kan komme ud igen.
+- Milken samler investorer og skaber et stort marked for nye udstedelser fra disse virksomheder.
 - Flere virksomheder kan låne til investeringer og opkøb. High yield bliver en varig finansieringskilde.
 - Gælden kan også blive for tung. Milken erkender i 1990 seks lovbrud, bl.a. værdipapirsvindel.
 :::
@@ -257,6 +263,8 @@ Kilder: [Titman (2001), s. 10–11](https://www.nber.org/papers/w8641) · [SEC (
 
 ::: {.notes}
 Milken opfandt ikke obligationer med lav kreditvurdering. Før væksten i nye udstedelser bestod markedet især af obligationer, som var blevet nedgraderet efter udstedelsen, de såkaldte fallen angels. Hos Drexel var han med til at skabe et stort marked, hvor virksomheder kunne udstede obligationer med en rating under investment grade fra starten. Det omfattede mere end virksomheder lige under grænsen.
+
+Konkret fandt Milken købere til nye lån, ansatte analytikere til at vurdere kreditrisikoen og opbyggede handel, så investorerne kunne sælge igen. Drexel Burnham Lambert var den investeringsbank, han arbejdede for.
 
 Titman beskriver, hvordan Milken opbyggede begge sider af markedet: investorer, kreditvurdering, handel og virksomheder, der ville udstede. Samfundsgevinsten kan være, at rentable investeringer får finansiering, selv om virksomheden har en lav rating. Det gør ikke ethvert lån eller gældsfinansieret opkøb rentabelt. Højere lovet rente er heller ikke en garanti for et højere afkast efter tab.
 
