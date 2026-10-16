@@ -4,14 +4,14 @@
 Et obligationslån skaffer penge nu mod et løfte om betaling senere.
 :::
 
-![](../../images/history/timeline.svg){fig-alt="Historiske nedslag: Venedigs krigslån i 1171–72, hollandsk digelån i 1648, Bank of England i 1694, Hamiltons gældsreform i 1790, Københavns brand og kreditkasse i 1795–97, Louisiana-købet i 1803 og Liberty Bonds i 1917–18."}
+![](../../images/history/timeline.svg){fig-alt="Historiske nedslag: Venedigs krigslån i 1171–72, hollandsk digelån i 1648, Bank of England i 1694, Hamiltons gældsreform i 1790, Københavns brand og kreditkasse i 1795–97, Louisiana-købet i 1803 Liberty Bonds i 1917–18, Milken og Ranieri i 1970–80’erne og finanskrisen i 2007–09."}
 
 ::: {.history-credit}
 Inspireret af Robin Wigglesworths *A Fabulous Debt*. Kilder følger på de enkelte slides.
 :::
 
 ::: {.notes}
-Brug cirka 10 minutter på den historiske åbning. Bogen er inspiration til fortællingen; de konkrete oplysninger er kontrolleret mod kilderne på de følgende slides.
+Brug cirka 12–15 minutter på den historiske åbning. Bogen er inspiration til fortællingen; de konkrete oplysninger er kontrolleret mod kilderne på de følgende slides.
 
 Tidslinjen viser udvalgte begivenheder, ikke opfindelsen af al gæld eller en ubrudt kæde af fremskridt. Årstal er placeret i rækkefølge, men afstandene er ikke en tidsskala. Vi følger Venedig, Nederlandene, England og USA og vender til sidst tilbage til København som overgang til kapitel 5.
 :::
@@ -28,7 +28,7 @@ Tidslinjen viser udvalgte begivenheder, ikke opfindelsen af al gæld eller en ub
 - Staten tvinger velhavende borgere til at låne den penge.
 - Borgerne får et tilgodehavende hos staten.
 - Fra 1262 findes et organiseret marked for gælden.
-- Ejeren kan sælge sit krav videre og få penge før statens tilbagebetaling.
+- Borgerne kan sælge deres tilgodehavender og få pengene før statens tilbagebetaling.
 :::
 ::: {.history-art}
 ![](../../images/history/venice.jpg){fig-alt="Canalettos maleri af skibe, gondoler og handelsliv ved indsejlingen til Canal Grande."}
@@ -95,7 +95,7 @@ Forbedringen er praktisk: faste lokale indtægter og en varig organisation kan u
 - England bygger videre på hollandske erfaringer med offentlig gæld.
 - Bank of England oprettes i 1694 og låner staten £1,2 mio. til krig.
 - Skatter og en troværdig betalingshistorik gør store lån mulige.
-- Mod Napoleon kan briterne låne relativt billigt; fransk kredit er svagere.
+- Under Napoleonskrigene har briterne lettere adgang til lån end Frankrig.
 - Lån finansierer flåde, hær og allierede gennem en lang krig.
 :::
 ::: {.history-art}
@@ -166,7 +166,7 @@ Gældsovertagelsen: https://home.treasury.gov/news/press-releases/hp867. Finansi
 ::: {}
 - USA skal hurtigt skaffe penge til krigen mod Tyskland.
 - Fire Liberty Loan-kampagner sælger krigsobligationer til befolkningen.
-- Man kan tegne for helt ned til 50 dollar og få renter af sit lån.
+- En obligation kan købes for 50 dollar og giver renter til køberen.
 - Charlie Chaplin og andre filmstjerner trækker folk til salgsmøderne.
 - Propagandaen gør obligationskøb til en patriotisk handling og udmaler fjenden som brutal.
 :::
@@ -200,10 +200,10 @@ USA's økonomiske og finansielle vægt voksede under verdenskrigen. Det er en se
 :::: {.history-grid}
 ::: {}
 - Kvinder både køber obligationer og organiserer salget.
-- En samtidig opgørelse anslår kvinder til knap hver tredje køber i første kampagne.
+- Efter en samtidig opgørelse var knap hver tredje køber i første kampagne en kvinde.
 - Wilson bruger kvinders krigsindsats som argument for stemmeret i 1918.
 - Sorte amerikanere støtter også krigslånene og håber på større lighed.
-- Efter krigen får kvinder føderal stemmeret; racediskrimination spærrer fortsat mange vejen.
+- I 1920 sikres kvinders stemmeret i forfatningen. Racistiske valgregler holder stadig mange sorte amerikanere ude.
 :::
 ::: {.history-art}
 ![](../../images/history/women-liberty.jpg){fig-alt="Kvinder fra en Liberty Loan-komité foran en kopi af Liberty Bell i 1918."}
@@ -226,6 +226,90 @@ Wilsons tale knytter kvinders samlede krigsindsats til stemmeret; den lover ikke
 National Park Service dokumenterer både sorte amerikaneres støtte til krigsindsatsen og håbet om bedre rettigheder. Undgå et udokumenteret løfte fra politikerne om fuld lighed efter krigen. Wilson-administrationens egen politik omfattede segregation.
 
 Om sorte amerikaneres deltagelse i obligationskampagnen: https://www.nps.gov/stli/learn/historyculture/black-statue-of-liberty.htm. Om stemmerettens begrænsninger: https://home.nps.gov/articles/african-american-women-and-the-nineteenth-amendment.htm.
+:::
+
+## Milken åbner obligationsmarkedet for flere virksomheder {#intro-milken .history-slide}
+
+::: {.history-era}
+1970–80’erne · Michael Milken, Drexel Burnham Lambert
+:::
+
+:::: {.history-grid}
+::: {}
+- Virksomheder under *investment grade* har en lavere kreditvurdering og større risiko for ikke at betale.
+- Deres obligationer kaldes *high yield* eller *junk bonds*. Investorerne kræver derfor højere renter.
+- Milken samler investorer og skaber et stort marked for nye udstedelser fra disse virksomheder.
+- Flere virksomheder kan låne til investeringer og opkøb. High yield bliver en varig finansieringskilde.
+- Gælden kan også blive for tung. Milken erkender i 1990 seks lovbrud, bl.a. værdipapirsvindel.
+:::
+::: {.history-art}
+![](../../images/history/milken.jpg){fig-alt="Michael Milken blandt publikum ved et arrangement på Reagan Library i 2026."}
+
+::: {.history-caption}
+Michael Milken i 2026. Foto: [Xuthoria / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Reagan_Foundation_2026_-_Michael_Milken_02.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+:::
+:::
+::::
+
+::: {.history-sources}
+Kilder: [Titman (2001), s. 10–11](https://www.nber.org/papers/w8641) · [SEC (1990), s. 8](https://www.sec.gov/about/annual_report/1990.pdf)
+:::
+
+::: {.notes}
+Milken opfandt ikke obligationer med lav kreditvurdering. Før væksten i nye udstedelser bestod markedet især af obligationer, som var blevet nedgraderet efter udstedelsen, de såkaldte fallen angels. Hos Drexel var han med til at skabe et stort marked, hvor virksomheder kunne udstede obligationer med en rating under investment grade fra starten. Det omfattede mere end virksomheder lige under grænsen.
+
+Titman beskriver, hvordan Milken opbyggede begge sider af markedet: investorer, kreditvurdering, handel og virksomheder, der ville udstede. Samfundsgevinsten kan være, at rentable investeringer får finansiering, selv om virksomheden har en lav rating. Det gør ikke ethvert lån eller gældsfinansieret opkøb rentabelt. Højere lovet rente er heller ikke en garanti for et højere afkast efter tab.
+
+Videre læsning fra referencerne i A Fabulous Debt: Connie Bruck, The Predators’ Ball (1988); James B. Stewart, Den of Thieves (1992). De giver baggrund for personerne og handelskulturen.
+
+Hold markedsudviklingen og lovbruddene adskilt i forklaringen. SEC dokumenterer tilståelsen af seks strafbare forhold i april 1990 og et forlig på 400 mio. dollar i tilbagebetaling af ulovlig gevinst. Domstolens fremstilling: https://law.justia.com/cases/federal/district-courts/FSupp/759/109/1473275/. Skriv ikke, at Milken blev dømt for insiderhandel; det var ikke et af de seks forhold, han erkendte.
+:::
+
+## Ranieri forbinder boliglån med Wall Street {#intro-ranieri .history-slide .history-dense}
+
+::: {.history-era}
+1970–80’erne → 2007–09 · Lewis Ranieri, Salomon Brothers
+:::
+
+:::: {.history-grid}
+::: {}
+- Babyboom-generationen søger bolig. Volckers rentestigninger fra 1979 dæmper inflationen, men gør boliglån dyre.
+- Boliglångivere presses mellem gamle lån med lav, fast rente og dyrere finansiering.
+- Ranieri udbygger markedet for MBS: værdipapirer betalt af renter og afdrag fra puljer af boliglån.
+- Investorer tilfører penge, så långiverne kan yde flere boliglån og nå ud over lokale opsparere.
+- Senere pakkes risikable lån i lag med forskellig tabsrisiko. Dårlige lån og undervurderet risiko bidrager til finanskrisen.
+:::
+::: {.history-art}
+![](../../images/history/housing-1974.jpg){fig-alt="Et amerikansk parcelhuskvarter i Mt. Lebanon i 1974 med en beboer, der slår græs."}
+
+::: {.history-caption}
+Boligliv i Mt. Lebanon, 1974. John L. Alexandrowicz / EPA, National Archives, public domain.
+:::
+
+::: {.history-bridge}
+Dansk realkredit har et balanceprincip, der knytter lån og obligationer tæt sammen. Amerikanske værdipapirer med lag af tabsrisiko er opbygget anderledes. Se kapitel 5 og 9.
+:::
+:::
+::::
+
+::: {.history-sources}
+Kilder: [Sparekassekrisen, Federal Reserve](https://www.federalreservehistory.org/essays/savings-and-loan-crisis) · [Federal Reserve (2007)](https://www.federalreserve.gov/newsevents/speech/bernanke20070831a.htm) · [FCIC (2011), s. 67–70 og 88–89](https://www.govinfo.gov/content/pkg/GPO-FCIC/pdf/GPO-FCIC.pdf)
+:::
+
+::: {.notes}
+Videre læsning fra referencerne i A Fabulous Debt: Lewis Ranieri, “The Origins of Securitization, Sources of Its Growth, and Its Future Potential”, i A Primer on Securitization (1996), s. 31–38; Michael Lewis, Liar’s Poker (1989), afsnittene om Salomon Brothers.
+
+Sparekassekrisen og presset fra indlånsrenter: Kenneth J. Robinson, Federal Reserve History, https://www.federalreservehistory.org/essays/savings-and-loan-crisis.
+
+MBS står for mortgage-backed securities. Ginnie Mae garanterede de første moderne mortgage pass-through-værdipapirer i 1970. Ranieri og Salomon Brothers var siden med til at udbygge handlen og det private marked. Han opfandt ikke alle MBS alene.
+
+Babyboom-generationens indtræden på boligmarkedet var en baggrund for efterspørgslen, ikke den eneste årsag til securitisering. Bernankes tale beskriver, hvordan indlånsrentelofter og høje markedsrenter trak opsparing væk fra banker og savings and loans. Når deres finansiering forsvandt eller blev dyrere, var det svært at yde nye boliglån. Gamle fastforrentede lån faldt samtidig i værdi, når markedsrenten steg. Det betyder ikke, at ingen ville købe obligationer: nye købere kunne få en højere rente.
+
+Når boliglån sælges til en pulje, og investorer køber værdipapirer med betalinger fra puljen, får långiveren penge til nye lån. Den mulige gevinst er bredere adgang til kapital og mindre afhængighed af lokal opsparing. Det fjerner hverken renterisiko eller risikoen for, at boligejerne ikke betaler.
+
+Skeln mellem simple MBS, tidlige CMO'er med forskellige betalingsforløb og senere opdeling af kreditrisiko i trancher. I nogle private konstruktioner tager de nederste lag tab først, mens de øverste først rammes efter større tab. Før finanskrisen blev risikable subprimelån og viderepakning i bl.a. CDO'er kombineret med svag kreditvurdering, høj gæld og for optimistiske antagelser om boligpriser. FCIC beskriver både finansieringsgevinsten og problemerne med ansvar og incitamenter gennem kæden. MBS som helhed er ikke lig med subprime, og finanskrisen kan ikke forklares med ét produkt eller én person.
+
+I dansk realkredit bliver lånet hos realkreditinstituttet, som udsteder obligationer. Balanceprincippet begrænser forskelle mellem betalinger og risici på lån og obligationer. Det er en anden konstruktion end at flytte en pulje lån til et særskilt selskab og fordele tab i lag. Begge systemer forbinder boliglån med investorer; dansk realkredit er heller ikke risikofri. Den nærmere mekanik kommer i kapitel 5, og finanskrisen i kapitel 9.
 :::
 
 ## København skal genopbygges efter branden {#intro-koebenhavn .history-slide}

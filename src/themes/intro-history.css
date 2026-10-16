@@ -12,3 +12,7 @@
 .reveal .history-timeline img { height: 390px; max-height: 390px; }
 .reveal .history-timeline .history-lead { font-size: 27px; margin-bottom: 4px; }
 .reveal .history-timeline .history-credit { font-size: 18px; color: #526770; margin-top: 4px; }
+
+.reveal .history-dense .history-grid ul { font-size: 25px; }
+.reveal .history-dense .history-art img { height: 265px; max-height: 265px; }
+.reveal .history-bridge { margin-top: 18px; padding: 14px 16px; border-left: 3px solid #008b8c; background: #edf3f1; font-size: 21px; line-height: 1.3; }
