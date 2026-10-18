@@ -7,18 +7,6 @@ format:
     css: ../../themes/intro-history.css
 ---
 
-## Niklas Lehmann Jensen {#intro-underviser .history-slide}
-
-::: {.history-era}
-Jeres underviser
-:::
-
-- **2021:** Cand.oecon.
-- **2021–2023 · Sydbank:** Analytiker inden for porteføljemanagement og risikomodeller.
-- **Siden 2023 · Scanrate:** Senioranalytiker.
-- **Fra 2022 · SDU:** Undervisning i matematik og makroøkonomi på HA Almen.
-- **Siden 2024 · AU:** Undervisning i finansiering.
-
 ## Hvem betaler, når historien tager en drejning? {#intro-historie .history-slide .history-timeline}
 
 ::: {.history-lead}
@@ -389,6 +377,18 @@ I dansk realkredit bliver lånet hos realkreditinstituttet, som udsteder obligat
 ::: {.notes}
 Lad de studerende nævne en situation, hvor de selv møder renter eller risiko. Knyt deres eksempler til spørgsmålene på sliden.
 :::
+
+## Niklas Lehmann Jensen {#intro-underviser .history-slide}
+
+::: {.history-era}
+Jeres underviser
+:::
+
+- **2021:** Cand.oecon. fra Aarhus Universitet.
+- **2021–2023 · Sydbank:** Analytiker inden for porteføljemanagement og risikomodeller.
+- **Siden 2023 · Scanrate:** Senioranalytiker.
+- **Fra 2022 · SDU:** Undervisning i matematik og makroøkonomi på HA Almen.
+- **Siden 2024 · AU:** Undervisning i finansiering.
 
 ## Seks uger, to møder om ugen {#intro-s002}
 

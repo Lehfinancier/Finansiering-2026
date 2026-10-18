@@ -247,14 +247,15 @@ bio='''## Niklas Lehmann Jensen {#intro-underviser .history-slide}
 Jeres underviser
 :::
 
-- **2021:** Cand.oecon.
+- **2021:** Cand.oecon. fra Aarhus Universitet.
 - **2021–2023 · Sydbank:** Analytiker inden for porteføljemanagement og risikomodeller.
 - **Siden 2023 · Scanrate:** Senioranalytiker.
 - **Fra 2022 · SDU:** Undervisning i matematik og makroøkonomi på HA Almen.
 - **Siden 2024 · AU:** Undervisning i finansiering.
 
 '''
-intro=intro.replace('## Fra boliglån til finanskriser',bio+history+'\n\n## Fra boliglån til finanskriser')
+intro=intro.replace('## Fra boliglån til finanskriser',history+'\n\n## Fra boliglån til finanskriser')
+intro=intro.replace('## Seks uger, to møder om ugen',bio+'## Seks uger, to møder om ugen')
 intro=intro.replace('## Vi skal kunne forklare det, vi regner',formula_preview+'\n\n## Vi skal kunne forklare det, vi regner')
 (ROOT/'src/slides/chapters/00.qmd').write_text(intro,encoding='utf-8')
 config='''project:
