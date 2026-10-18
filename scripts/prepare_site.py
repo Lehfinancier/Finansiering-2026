@@ -241,7 +241,20 @@ Henvis til universitetets kursusrum ved spørgsmål om eksamensdato og hjælpemi
 '''
 formula_preview=(ROOT/'scripts/templates/intro-formulas.qmd').read_text(encoding='utf-8')
 history=(ROOT/'scripts/templates/intro-history.qmd').read_text(encoding='utf-8')
-intro=intro.replace('## Fra boliglån til finanskriser',history+'\n\n## Fra boliglån til finanskriser')
+bio='''## Niklas Lehmann Jensen {#intro-underviser .history-slide}
+
+::: {.history-era}
+Jeres underviser
+:::
+
+- **2021:** Cand.oecon.
+- **2021–2023 · Sydbank:** Analytiker inden for porteføljemanagement og risikomodeller.
+- **Siden 2023 · Scanrate:** Senioranalytiker.
+- **Fra 2022 · SDU:** Undervisning i matematik og makroøkonomi på HA Almen.
+- **Siden 2024 · AU:** Undervisning i finansiering.
+
+'''
+intro=intro.replace('## Fra boliglån til finanskriser',bio+history+'\n\n## Fra boliglån til finanskriser')
 intro=intro.replace('## Vi skal kunne forklare det, vi regner',formula_preview+'\n\n## Vi skal kunne forklare det, vi regner')
 (ROOT/'src/slides/chapters/00.qmd').write_text(intro,encoding='utf-8')
 config='''project:
