@@ -212,6 +212,12 @@ Fem øvelsessæt til arbejdet med lektionsnoterne.
 | OS4 | Prisfastsættelse og nøgletal | 7 | [Hent OS4](downloads/OS4.pdf) |
 | OS5 | Afkast, krise og risiko | 8–10 | [Hent OS5](downloads/OS5.pdf) |
 
+## Excel-løsninger {#excel-loesninger}
+
+| Kapitel | Opgaver | Download |
+|:---|:---|:---|
+| 2 · Obligationer | 2.1–2.8 | [Hent Excel](downloads/kapitel-02-beregninger.xlsx){download="kapitel-02-beregninger.xlsx"} |
+
 ## Forberedelse
 
 Læs kapitlet før undervisningen. I eksemplerne skal du kunne forklare betalingerne og de antagelser, vi regner med. Brug spørgsmålene på slides og øvelsessættene til selv at regne efter.

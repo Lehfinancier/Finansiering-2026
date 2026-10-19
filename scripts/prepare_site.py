@@ -148,6 +148,12 @@ Fem øvelsessæt til arbejdet med lektionsnoterne.
 for n,(title,ch) in enumerate(zip(exercises,chapters),1):
     text+=f'| OS{n} | {title} | {ch} | [Hent OS{n}](downloads/OS{n}.pdf) |\n'
 text+='''
+## Excel-løsninger {#excel-loesninger}
+
+| Kapitel | Opgaver | Download |
+|:---|:---|:---|
+| 2 · Obligationer | 2.1–2.8 | [Hent Excel](downloads/kapitel-02-beregninger.xlsx){download="kapitel-02-beregninger.xlsx"} |
+
 ## Forberedelse
 
 Læs kapitlet før undervisningen. I eksemplerne skal du kunne forklare betalingerne og de antagelser, vi regner med. Brug spørgsmålene på slides og øvelsessættene til selv at regne efter.
@@ -266,6 +272,7 @@ config='''project:
 '''+''.join(f'    - slides/chapters/{n:02}.qmd\n' for n in range(0,11))+'''  resources:
     - .nojekyll
     - downloads/*.pdf
+    - downloads/kapitel-02-beregninger.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*
@@ -292,6 +299,8 @@ website:
         href: downloads/Kurs100-2026.pdf
       - text: "Øvelser"
         href: index.qmd#oevelser
+      - text: "Excel-løsninger"
+        href: index.qmd#excel-loesninger
   page-footer: "Finansiering · HA.jur. · Niklas Lehmann Jensen"
 format:
   html:

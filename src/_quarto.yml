@@ -17,6 +17,7 @@ project:
   resources:
     - .nojekyll
     - downloads/*.pdf
+    - downloads/kapitel-02-beregninger.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*
@@ -43,6 +44,8 @@ website:
         href: downloads/Kurs100-2026.pdf
       - text: "Øvelser"
         href: index.qmd#oevelser
+      - text: "Excel-løsninger"
+        href: index.qmd#excel-loesninger
   page-footer: "Finansiering · HA.jur. · Niklas Lehmann Jensen"
 format:
   html:
