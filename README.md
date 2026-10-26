@@ -43,7 +43,7 @@ Krav: Quarto 1.8.23, TeX Live med `pdflatex`, `bibtex` og `texindy`, Python med 
 - `docs/downloads/OS1.pdf` … `OS5.pdf`: uændrede øvelsessæt uden løsninger.
 - `src/downloads/kapitel-02-beregninger.xlsx` og `docs/downloads/kapitel-02-beregninger.xlsx`: Excel-løsninger til slidesættets opgave 2.1–2.8, tilgængelige under **Excel-løsninger** efter **Øvelser**.
 
-Gamle slidekilder bevares, men renderes ikke. Den eksplicitte render- og ressourceoversigt i `src/_quarto.yml` holder dem og øvrige løsningsfiler ude af den genererede side. Excel-løsningerne til kapitel 2 er medtaget som download. Freeze og kodeeksekvering er deaktiveret i de nye decks.
+Gamle slidekilder bevares, men renderes ikke. Den eksplicitte render- og ressourceoversigt i `src/_quarto.yml` holder dem og øvrige løsningsfiler ude af den genererede side. Excel-løsningerne til kapitel 2 og 3 er medtaget som download. Freeze og kodeeksekvering er deaktiveret i de nye decks.
 
 ## Autoritet og kontrol
 

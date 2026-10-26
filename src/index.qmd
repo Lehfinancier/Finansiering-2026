@@ -217,6 +217,7 @@ Fem øvelsessæt til arbejdet med lektionsnoterne.
 | Kapitel | Opgaver | Download |
 |:---|:---|:---|
 | 2 · Obligationer | 2.1–2.8 | [Hent Excel](downloads/kapitel-02-beregninger.xlsx){download="kapitel-02-beregninger.xlsx"} |
+| 3 · Rentestrukturen | 3.1–3.6 | [Hent Excel](downloads/kapitel-03-beregninger.xlsx){download="kapitel-03-beregninger.xlsx"} |
 
 ## Forberedelse
 

@@ -18,6 +18,7 @@ project:
     - .nojekyll
     - downloads/*.pdf
     - downloads/kapitel-02-beregninger.xlsx
+    - downloads/kapitel-03-beregninger.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*

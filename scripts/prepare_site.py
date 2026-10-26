@@ -153,6 +153,7 @@ text+='''
 | Kapitel | Opgaver | Download |
 |:---|:---|:---|
 | 2 · Obligationer | 2.1–2.8 | [Hent Excel](downloads/kapitel-02-beregninger.xlsx){download="kapitel-02-beregninger.xlsx"} |
+| 3 · Rentestrukturen | 3.1–3.6 | [Hent Excel](downloads/kapitel-03-beregninger.xlsx){download="kapitel-03-beregninger.xlsx"} |
 
 ## Forberedelse
 
@@ -273,6 +274,7 @@ config='''project:
     - .nojekyll
     - downloads/*.pdf
     - downloads/kapitel-02-beregninger.xlsx
+    - downloads/kapitel-03-beregninger.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*

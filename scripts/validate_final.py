@@ -62,7 +62,7 @@ else:
     require((DOCS/'downloads/Kurs100-2026.pdf').read_bytes()==(WORK/'sources/book/main.pdf').read_bytes(),'Book download mismatch')
 expected={f'kapitel-{n:02}.pdf' for n in range(0,11)}|{f'OS{n}.pdf' for n in range(1,6)}|{'Kurs100-2026.pdf'}
 require({p.name for p in DOCS.rglob('*.pdf')}==expected,'Unexpected or missing public PDFs')
-excel_downloads={'kapitel-02-beregninger.xlsx'}
+excel_downloads={'kapitel-02-beregninger.xlsx','kapitel-03-beregninger.xlsx'}
 require({p.name for p in DOCS.rglob('*.xlsx')}==excel_downloads,'Unexpected or missing Excel downloads')
 for name in excel_downloads:
     public=DOCS/'downloads'/name
