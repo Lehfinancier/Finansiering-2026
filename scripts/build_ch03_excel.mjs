@@ -70,7 +70,7 @@ for(const [r,label,year,coupon,price] of [[11,'Skatkammerbevis',1,0,98.04],[12,'
 // The one-year instrument remains a zero-coupon bond, as specified in the exercise.
 s.getRange('D11').format.fill='#F1F3F5';s.getRange('D11').format.font.color=navy;
 section(s,16,'(a–b) Find én ny diskonteringsfaktor ad gangen');
-head(s,18,['Trin / løbetid','Kupon','PV af tidlige kuponer','Pris til slutbetaling','Slutbetaling','Diskonteringsfaktor','Spotrente']);
+head(s,18,['Trin / løbetid','Kupon','PV af tidlige kuponer','Nutidsværdi af slutbetalingen','Slutbetaling','Diskonteringsfaktor','Spotrente']);
 for(let i=0;i<3;i++){
  const r=19+i,src=11+i;f(s,`B${r}`,`=C${src}`,'0');f(s,`C${r}`,`=$C$7*D${src}`);
  f(s,`D${r}`,i===0?'=0':i===1?`=C${r}*G19`:`=C${r}*SUM(G19:G20)`);
