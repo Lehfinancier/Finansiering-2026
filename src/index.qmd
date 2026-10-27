@@ -119,6 +119,8 @@ Kapitel 03
 [Vis slides](slides/chapters/03.qmd){.primary-link}
 
 [Download slides som PDF](downloads/kapitel-03.pdf){download="kapitel-03.pdf"}
+
+[Recap: kapitel 2 og overgangen til kapitel 3](slides/chapters/recap-02-03.qmd) · [PDF](downloads/recap-kapitel-02-03.pdf){download="recap-kapitel-02-03.pdf"}
 :::
 
 ::: {.chapter-card}
@@ -228,3 +230,4 @@ Se på datoen og forudsætningerne, når du læser en graf med historiske observ
 ## Eksamen og praktiske oplysninger
 
 Vi arbejder med en tidligere eksamen i modul 12 den 26. november. Den aktuelle eksamensdato, prøveform og regler for hjælpemidler fremgår af Brightspace og universitetets eksamensinformation.
+

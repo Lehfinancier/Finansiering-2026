@@ -7,6 +7,7 @@ project:
     - slides/chapters/01.qmd
     - slides/chapters/02.qmd
     - slides/chapters/03.qmd
+    - slides/chapters/recap-02-03.qmd
     - slides/chapters/04.qmd
     - slides/chapters/05.qmd
     - slides/chapters/06.qmd
@@ -55,3 +56,4 @@ format:
     anchor-sections: true
     embed-resources: true
 lang: da
+

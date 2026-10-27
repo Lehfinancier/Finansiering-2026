@@ -2405,7 +2405,7 @@
     "href": "index.html#kapitler",
     "title": "Finansiering 2026",
     "section": "Slides til de ti kapitler",
-    "text": "Slides til de ti kapitler\nÅbn slides i browseren eller hent dem som PDF. Brug piletasterne til at skifte slide og Esc til at se hele kapitlet.\n\n\n\nKapitel 01\n\n\nRentedannelsen\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 02\n\n\nObligationsmarkedet\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 03\n\n\nRentestrukturen\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 04\n\n\nRisikomål\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 05\n\n\nDansk realkredit\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 06\n\n\nModellering af konverteringsadfærd\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 07\n\n\nPrisfastsættelse og nøgletal\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 08\n\n\nObligationsafkast\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 09\n\n\nFinanskrisen\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 10\n\n\nPengeinstitutternes risikostyring\nVis slides\nDownload slides som PDF"
+    "text": "Slides til de ti kapitler\nÅbn slides i browseren eller hent dem som PDF. Brug piletasterne til at skifte slide og Esc til at se hele kapitlet.\n\n\n\nKapitel 01\n\n\nRentedannelsen\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 02\n\n\nObligationsmarkedet\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 03\n\n\nRentestrukturen\nVis slides\nDownload slides som PDF\nRecap: kapitel 2 og overgangen til kapitel 3 · PDF\n\n\n\n\nKapitel 04\n\n\nRisikomål\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 05\n\n\nDansk realkredit\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 06\n\n\nModellering af konverteringsadfærd\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 07\n\n\nPrisfastsættelse og nøgletal\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 08\n\n\nObligationsafkast\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 09\n\n\nFinanskrisen\nVis slides\nDownload slides som PDF\n\n\n\n\nKapitel 10\n\n\nPengeinstitutternes risikostyring\nVis slides\nDownload slides som PDF"
   },
   {
     "objectID": "index.html#oevelser",
@@ -4527,5 +4527,33 @@
     "title": "Finansiering 2026",
     "section": "Excel-løsninger",
     "text": "Excel-løsninger\n\n\n\nKapitel\nOpgaver\nDownload\n\n\n\n\n2 · Obligationer\n2.1–2.8\nHent Excel\n\n\n3 · Rentestrukturen\n3.1–3.6\nHent Excel"
+  },
+  {
+    "objectID": "slides/chapters/recap-02-03.html#afdragsprofilen-bestemmer-betalingernes-timing",
+    "href": "slides/chapters/recap-02-03.html#afdragsprofilen-bestemmer-betalingernes-timing",
+    "title": "Kurs 100 · Finansiering 2026",
+    "section": "Afdragsprofilen bestemmer betalingernes timing",
+    "text": "Afdragsprofilen bestemmer betalingernes timing\n\n\nStående lån\n\nHovedstolen betales ved udløb.\n\nAnnuitetslån\n\nYdelsen er konstant. Afdraget stiger.\n\nSerielån\n\nAfdraget er konstant. Ydelsen falder.\n\nSamme hovedstol og kupon kan give forskellige betalingsrækker og dermed forskellig prisfølsomhed og geninvesteringsrisiko.\n\nFigurerne viser eksempler på lån med 1 mio. kr. i hovedstol, 10 års løbetid og 4% årlig rente. Annuitetsydelsen er konstant under forudsætning af uændret rente. Tidlige afdrag giver flere penge til geninvestering og reducerer typisk rentefølsomheden sammenlignet med et stående lån."
+  },
+  {
+    "objectID": "slides/chapters/recap-02-03.html#betalingsrækken-og-værdien-i-dag",
+    "href": "slides/chapters/recap-02-03.html#betalingsrækken-og-værdien-i-dag",
+    "title": "Kurs 100 · Finansiering 2026",
+    "section": "Betalingsrækken og værdien i dag",
+    "text": "Betalingsrækken og værdien i dag\n\nHver betaling \\(CF_t\\) består af rente og eventuelt afdrag. Tidspunktet \\(t\\) bestemmer, hvor længe beløbet skal diskonteres.\n\\[P_0=\\sum_{t=1}^{N}CF_t\\,d_t\\]\nPrisen er summen af betalingernes nutidsværdier. Diskonteringsfaktoren \\(d_t\\) hører til betalingsdatoen.\n\nKontrakten bestemmer betalingsrækken. Diskonteringsfaktorerne omsætter fremtidige beløb til værdi på samme valørdag. For variable eller usikre betalinger skal betalingsrækken først fastlægges eller modelleres. I dette recap illustreres faste, kendte betalinger."
+  },
+  {
+    "objectID": "slides/chapters/recap-02-03.html#pris-og-effektiv-rente",
+    "href": "slides/chapters/recap-02-03.html#pris-og-effektiv-rente",
+    "title": "Kurs 100 · Finansiering 2026",
+    "section": "Pris og effektiv rente",
+    "text": "Pris og effektiv rente\n\n\n\n\n\\[P_0(y)=\\sum_{t=1}^{N}\\frac{CF_t}{(1+y)^t}\\]\nNår \\(y\\) stiger, falder værdien af de faste betalinger.\nDen 30-årige obligation er mere prisfølsom end den 1-årige. Kurverne er krumme.\n\nFigur 2.10: Begge obligationer har 10% kupon og 1.000 kr. i hovedstol.\n\nFiguren viser pris som funktion af én effektiv rente for hver obligation. A har 30 års løbetid og B har ét år. Ved årlige kuponer og indfrielse til pari er prisen P_0(y) = summen af 100/(1+y)^t for t fra 1 til N plus 1.000/(1+y)^N. Ved y = 10% er prisen 1.000 kr. for begge. De faste betalinger diskonteres med den samme y i figuren; det er en pris-rente-sammenhæng, ikke en beskrivelse af en observeret swapkurve. Kapitel 3 udvider beregningen til en diskonteringsfaktor for hver betalingsdato. Krumningen og forskellen i hældning følges op i kapitel 4 om renterisiko."
+  },
+  {
+    "objectID": "slides/chapters/recap-02-03.html#effektiv-rente-geninvestering-og-rentekurven",
+    "href": "slides/chapters/recap-02-03.html#effektiv-rente-geninvestering-og-rentekurven",
+    "title": "Kurs 100 · Finansiering 2026",
+    "section": "Effektiv rente, geninvestering og rentekurven",
+    "text": "Effektiv rente, geninvestering og rentekurven\n\n\n\nEffektiv rente \\(y\\) er den ene rente, der får betalingsrækkens nutidsværdi til at ramme prisen.\n\n\\[P_0=\\sum_t\\frac{CF_t}{(1+y)^t}\\]\nVed hold til udløb afhænger det realiserede afkast også af geninvesteringsrenten.\nKapitel 3: En relevant swapkurve omsættes til en diskonteringsfaktor for hver betalingsdato:\n\\[P_0=\\sum_t CF_t d_t,\\qquad d_t=\\frac{1}{(1+z_t)^t}\\]\n\n\nFiguren viser kuponkontoen i kapitel 2’s eksempel: ved geninvestering til y er kontoen ved udløb 485.841 kr., ved 2% er den 437.989 kr. Hovedstolen på 1 mio. kr. lægges til i begge tilfælde. YTM er en intern rente beregnet ud fra pris og aftalte betalinger og kræver ikke i sig selv geninvestering. Geninvestering til y er en tilstrækkelig strategi til at opnå y som årligt afkast ved hold til udløb, når betalingerne sker som aftalt og skat og omkostninger ses bort fra. I kapitel 3 udledes diskonteringsfaktorer eller nulkuponrenter fra relevante markedsinstrumenter, fx swaps, og interpoleres til betalingstidspunkterne. En swap-parrente for en løbetid er generelt ikke selv nulkuponrenten for samme løbetid. Kurvevalg og eventuelt kredit- eller likviditetsspænd afhænger af instrumentet og prisningsformålet. Formlen for z_t bruger årlig effektiv rentetilskrivning."
   }
 ]
