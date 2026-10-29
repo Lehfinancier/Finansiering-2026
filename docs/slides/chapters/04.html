@@ -1820,6 +1820,8 @@ display:block!important;
 <section id="ch04-s027" class="slide level2">
 <h2>Konveksiteten bringer estimatet tæt på kursændringen</h2>
 <p><span class="math display">\[\mathrm{Cvx}_{\mathrm{KR}}=\frac{9.147{,}283}{1{,}0245^2}\cdot0{,}01^2=0{,}872\]</span></p>
+<p><span class="math display">\[\Delta K\approx-d\Delta y_{pp}+\frac12\mathrm{Cvx}_{\mathrm{KR}}(\Delta y_{pp})^2\]</span></p>
+<p>Faktoren <span class="math inline">\(\frac12\)</span> kommer fra Taylor-approksimationens andengradsled. Her er <span class="math inline">\(d=8{,}542\)</span>, og rentestødet indsættes i procentpoint.</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -1831,17 +1833,17 @@ display:block!important;
 <tbody>
 <tr class="odd">
 <td>−1 pp</td>
-<td style="text-align: right;"><span class="math inline">\(8{,}542+0{,}436=8{,}978\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(-8{,}542(-1)+\frac12(0{,}872)(-1)^2=8{,}978\)</span></td>
 <td style="text-align: right;">+8,994</td>
 </tr>
 <tr class="even">
 <td>+1 pp</td>
-<td style="text-align: right;"><span class="math inline">\(-8{,}542+0{,}436=-8{,}106\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(-8{,}542(1)+\frac12(0{,}872)(1)^2=-8{,}106\)</span></td>
 <td style="text-align: right;">−8,122</td>
 </tr>
 </tbody>
 </table>
-<p>Begge estimater ligger tættere på end varighed alene.</p>
+<p>Konveksitetsbidraget er <span class="math inline">\(0{,}872/2=0{,}436\)</span> i begge retninger.</p>
 <aside class="notes">
 <p>Den samme positive korrektion bruges i begge retninger. Approksimationen er fortsat lokal og afskærer led af højere orden.</p>
 <style type="text/css">

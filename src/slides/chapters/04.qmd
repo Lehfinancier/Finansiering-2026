@@ -401,12 +401,16 @@ Tabellen viser konveksitetsbidragene særskilt. Brug uafrundede tal i slutberegn
 
 $$\mathrm{Cvx}_{\mathrm{KR}}=\frac{9.147{,}283}{1{,}0245^2}\cdot0{,}01^2=0{,}872$$
 
+$$\Delta K\approx-d\Delta y_{pp}+\frac12\mathrm{Cvx}_{\mathrm{KR}}(\Delta y_{pp})^2$$
+
+Faktoren $\frac12$ kommer fra Taylor-approksimationens andengradsled. Her er $d=8{,}542$, og rentestødet indsættes i procentpoint.
+
 | Stød | Varighed + konveksitet | Faktisk ændring |
 |---|---:|---:|
-| −1 pp | $8{,}542+0{,}436=8{,}978$ | +8,994 |
-| +1 pp | $-8{,}542+0{,}436=-8{,}106$ | −8,122 |
+| −1 pp | $-8{,}542(-1)+\frac12(0{,}872)(-1)^2=8{,}978$ | +8,994 |
+| +1 pp | $-8{,}542(1)+\frac12(0{,}872)(1)^2=-8{,}106$ | −8,122 |
 
-Begge estimater ligger tættere på end varighed alene.
+Konveksitetsbidraget er $0{,}872/2=0{,}436$ i begge retninger.
 
 ::: {.notes}
 Den samme positive korrektion bruges i begge retninger. Approksimationen er fortsat lokal og afskærer led af højere orden.
