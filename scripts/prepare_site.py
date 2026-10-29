@@ -125,6 +125,10 @@ text+='''
 ::: {.chapter-grid}
 '''
 for n,title in enumerate(titles,1):
+    recap = ''
+    if n in (3,4):
+        previous=n-1
+        recap=f'\n[Recap: kapitel {previous} og overgangen til kapitel {n}](slides/chapters/recap-{previous:02}-{n:02}.qmd) · [PDF](downloads/recap-kapitel-{previous:02}-{n:02}.pdf)\n'
     text+=f'''\n::: {{.chapter-card}}
 ::: {{.chapter-no}}
 Kapitel {n:02}
@@ -134,6 +138,7 @@ Kapitel {n:02}
 [Vis slides](slides/chapters/{n:02}.qmd){{.primary-link}}
 
 [Download slides som PDF](downloads/kapitel-{n:02}.pdf){{download="kapitel-{n:02}.pdf"}}
+{recap}
 :::
 '''
 text+='''\n:::
@@ -154,6 +159,8 @@ text+='''
 |:---|:---|:---|
 | 2 · Obligationer | 2.1–2.8 | [Hent Excel](downloads/kapitel-02-beregninger.xlsx){download="kapitel-02-beregninger.xlsx"} |
 | 3 · Rentestrukturen | 3.1–3.6 | [Hent Excel](downloads/kapitel-03-beregninger.xlsx){download="kapitel-03-beregninger.xlsx"} |
+| 4 · Risikomål | 4.1–4.7 | [Hent Excel](downloads/kapitel-04-beregninger.xlsx){download="kapitel-04-beregninger.xlsx"} |
+| 4 · Risikomål | Eksempel på varighed | [Hent Excel](downloads/Kapitel4_varighed_eksempel.xlsx){download="Kapitel4_varighed_eksempel.xlsx"} |
 
 ## Forberedelse
 
@@ -270,11 +277,15 @@ config='''project:
   output-dir: ../docs
   render:
     - index.qmd
-'''+''.join(f'    - slides/chapters/{n:02}.qmd\n' for n in range(0,11))+'''  resources:
+'''+''.join(f'    - slides/chapters/{n:02}.qmd\n' for n in range(0,11))+'''    - slides/chapters/recap-02-03.qmd
+    - slides/chapters/recap-03-04.qmd
+  resources:
     - .nojekyll
     - downloads/*.pdf
     - downloads/kapitel-02-beregninger.xlsx
     - downloads/kapitel-03-beregninger.xlsx
+    - downloads/kapitel-04-beregninger.xlsx
+    - downloads/Kapitel4_varighed_eksempel.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*

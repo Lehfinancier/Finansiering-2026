@@ -61,13 +61,14 @@ if edition_file.exists():
 else:
     require((DOCS/'downloads/Kurs100-2026.pdf').read_bytes()==(WORK/'sources/book/main.pdf').read_bytes(),'Book download mismatch')
 expected={f'kapitel-{n:02}.pdf' for n in range(0,11)}|{f'OS{n}.pdf' for n in range(1,6)}|{'Kurs100-2026.pdf'}
+expected |= {'recap-kapitel-02-03.pdf','recap-kapitel-03-04.pdf'}
 require({p.name for p in DOCS.rglob('*.pdf')}==expected,'Unexpected or missing public PDFs')
-excel_downloads={'kapitel-02-beregninger.xlsx','kapitel-03-beregninger.xlsx'}
+excel_downloads={'kapitel-02-beregninger.xlsx','kapitel-03-beregninger.xlsx','kapitel-04-beregninger.xlsx','Kapitel4_varighed_eksempel.xlsx'}
 require({p.name for p in DOCS.rglob('*.xlsx')}==excel_downloads,'Unexpected or missing Excel downloads')
 for name in excel_downloads:
     public=DOCS/'downloads'/name
     require(public.exists() and public.read_bytes()==(ROOT/'src/downloads'/name).read_bytes(),'Excel download mismatch: '+name)
-require(len(list((DOCS/'slides').rglob('*.html')))==11,'Stale or missing public decks')
+require(len(list((DOCS/'slides').rglob('*.html')))==13,'Stale or missing public decks')
 for path in DOCS.rglob('*'):
     if path.is_file():require(not re.search(r'loesning|løsning|_med_|\.tex$|\.qmd$',str(path.relative_to(DOCS)),re.I),f'Private source/solution output: {path}')
 for path in DOCS.rglob('*.html'):

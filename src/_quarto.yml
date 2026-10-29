@@ -9,6 +9,7 @@ project:
     - slides/chapters/03.qmd
     - slides/chapters/recap-02-03.qmd
     - slides/chapters/04.qmd
+    - slides/chapters/recap-03-04.qmd
     - slides/chapters/05.qmd
     - slides/chapters/06.qmd
     - slides/chapters/07.qmd
@@ -20,6 +21,8 @@ project:
     - downloads/*.pdf
     - downloads/kapitel-02-beregninger.xlsx
     - downloads/kapitel-03-beregninger.xlsx
+    - downloads/kapitel-04-beregninger.xlsx
+    - downloads/Kapitel4_varighed_eksempel.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*

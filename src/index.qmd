@@ -132,6 +132,8 @@ Kapitel 04
 [Vis slides](slides/chapters/04.qmd){.primary-link}
 
 [Download slides som PDF](downloads/kapitel-04.pdf){download="kapitel-04.pdf"}
+
+[Recap: kapitel 3 og overgangen til kapitel 4](slides/chapters/recap-03-04.qmd) · [PDF](downloads/recap-kapitel-03-04.pdf){download="recap-kapitel-03-04.pdf"}
 :::
 
 ::: {.chapter-card}
@@ -220,6 +222,8 @@ Fem øvelsessæt til arbejdet med lektionsnoterne.
 |:---|:---|:---|
 | 2 · Obligationer | 2.1–2.8 | [Hent Excel](downloads/kapitel-02-beregninger.xlsx){download="kapitel-02-beregninger.xlsx"} |
 | 3 · Rentestrukturen | 3.1–3.6 | [Hent Excel](downloads/kapitel-03-beregninger.xlsx){download="kapitel-03-beregninger.xlsx"} |
+| 4 · Risikomål | 4.1–4.7 | [Hent Excel](downloads/kapitel-04-beregninger.xlsx){download="kapitel-04-beregninger.xlsx"} |
+| 4 · Risikomål | Eksempel på varighed | [Hent Excel](downloads/Kapitel4_varighed_eksempel.xlsx){download="Kapitel4_varighed_eksempel.xlsx"} |
 
 ## Forberedelse
 
