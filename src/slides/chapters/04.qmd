@@ -435,34 +435,25 @@ Her ændres den effektive rente, mens betalingerne holdes faste. I kapitel 7 æn
 
 ## Procentvise risikomål vægtes med markedsværdier {#ch04-s030}
 
-For hver position:
+::: {style="font-size: 26px;"}
+For hver position $i$, hvor $P_i$ er positionens markedsværdi:
 
-$$\Delta P_i\approx-MD_iP_i\Delta y$$
+$$\Delta P_i\approx-MD_i\cdot P_i\cdot\Delta y$$
 
-Når ændringerne summeres og divideres med porteføljens værdi:
+Summér over positionerne, og dividér med porteføljens markedsværdi $P_p=\sum_i P_i$:
 
-$$\frac{\Delta P_p}{P_p}\approx-\left(\sum_i\frac{P_i}{P_p}MD_i\right)\Delta y$$
+$$\frac{\Delta P_p}{P_p}\approx-\left(\sum_i\frac{P_i}{P_p}\cdot MD_i\right)\cdot\Delta y$$
 
-Derfor er $MD_p$ markedsværdivægtet. Samme vægte bruges for Macaulay-varighed.
+Parentesen er porteføljens modificerede varighed:
+
+$$\boxed{MD_p=\sum_i\frac{P_i}{P_p}\cdot MD_i}$$
+
+Hver obligation vægtes med sin andel af porteføljens markedsværdi. Macaulay-varighed er også et procentvist mål og vægtes på samme måde.
+
+:::
 
 ::: {.notes}
 En position med dobbelt markedsværdi og samme følsomhed bidrager dobbelt til kronerisikoen. Vægtningsreglen følger af enhederne og er ikke en vilkårlig standard.
-:::
-
-## Mål pr. 100 nominel skaleres med antal enheder {#ch04-s031}
-
-$$d_i=MD_i\frac{K_i}{100}$$
-
-Positionen indeholder $H_i/100$ enheder. Samlet kronefølsomhed er
-
-$$\sum_i\frac{H_i}{100}d_i.$$
-
-Opdeling pr. 100 nominel giver
-
-$$d_p=\sum_i\frac{H_i}{\sum_jH_j}d_i.$$
-
-::: {.notes}
-Total risiko i kroner er en sum. Når totalen normaliseres pr. 100 nominel, fås et nominelt vægtet gennemsnit. Kursen er allerede indbygget i d_i.
 :::
 
 ## Vægten følger nøgletallets enhed {#ch04-s032}
@@ -472,13 +463,15 @@ Total risiko i kroner er en sum. Når totalen normaliseres pr. 100 nominel, fås
 | Macaulay- og modificeret varighed | Markedsværdi |
 | Kronevarighed, BPV og kronekonveksitet pr. 100 nominel | Nominelle beløb |
 
+$$d_i=MD_i\frac{K_i}{100}\qquad d_p=\sum_i\frac{H_i}{\sum_jH_j}d_i$$
+
 For absolut risiko i kroner skaleres hvert bidrag med $H_i/100$ og lægges sammen.
 
 ::: {.notes}
-Nominelle vægte er ikke generelt bedre eller dårligere end markedsværdivægte. Vægten bestemmes af, hvad nøgletallet allerede indeholder.
+Total risiko i kroner er en sum. Når totalen normaliseres pr. 100 nominel, fås et nominelt vægtet gennemsnit. Kursen er allerede indbygget i d_i. Vægten bestemmes af, hvad nøgletallet allerede indeholder.
 :::
 
-## To positioner med samme nominelle beløb {#ch04-s033}
+## Begge beregningsveje giver 840.000 kr. {#ch04-s034}
 
 Beløb i mio. kr., undtagen kurs og nøgletal.
 
@@ -487,26 +480,12 @@ Beløb i mio. kr., undtagen kurs og nøgletal.
 | A | 10 | 90 | 9 | 2,0 | 1,80 |
 | B | 10 | 110 | 11 | 6,0 | 6,60 |
 
-B har både større markedsværdi og højere procentvis følsomhed.
+$$MD_p=\frac{9\cdot2+11\cdot6}{20}=4{,}2\qquad d_p=\frac{10\cdot1{,}80+10\cdot6{,}60}{20}=4{,}2$$
+
+Ved +1 pp: $0{,}042\cdot20.000.000=840.000$ kr. i omtrentligt tab.
 
 ::: {.notes}
-De nominelle beløb er ens, men hver procentvis kursændring rammer flere kroner i B. Dette er den centrale vægtforskel i eksemplet.
-:::
-
-## Begge beregningsveje giver 840.000 kr. {#ch04-s034}
-
-Markedsvægtet modificeret varighed:
-
-$$MD_p=\frac{9\cdot2+11\cdot6}{20}=4{,}2$$
-
-Nominelt vægtet kronevarighed:
-
-$$d_p=\frac{10\cdot1{,}80+10\cdot6{,}60}{20}=4{,}2$$
-
-Ved +1 pp: $0{,}042\cdot20.000.000=200.000\cdot4{,}2=840.000$ kr. i omtrentligt tab.
-
-::: {.notes}
-At begge nøgletal bliver 4,2 skyldes porteføljekurs 100. Sammenfaldet gælder ikke alle porteføljer, men de beregnede kroner skal være ens.
+De nominelle beløb er ens, men hver procentvis kursændring rammer flere kroner i B. At begge nøgletal bliver 4,2 skyldes porteføljekurs 100. Sammenfaldet gælder ikke alle porteføljer, men de beregnede kroner skal være ens.
 :::
 
 ## Forkerte vægte undervurderer risikoen {#ch04-s035}
@@ -523,90 +502,48 @@ Fejlen undervægter den dyrere obligation B, som har størst renterisiko.
 Det er et gennemregnet fejl-eksempel fra kapitlet. Lad de studerende identificere, hvilken kapital det procentvise mål faktisk skal virke på.
 :::
 
-## En større portefølje: positioner og markedsværdier {#ch04-s036}
-
-| | Nominel, mio. kr. | Kurs | Markedsværdi, mio. kr. |
-|---|---:|---:|---:|
-| 1 | 10 | 99,3 | 9,930 |
-| 2 | 15 | 101,5 | 15,225 |
-| 3 | 25 | 102,8 | 25,700 |
-| Sum | 50 | | 50,855 |
-
-Den største position har også den længste varighed.
-
-::: {.notes}
-Denne tabel giver vægtene til den følgende. Kursen er markedsværdi som andel af nominel hovedstol, ikke et selvstændigt vægtningsvalg.
-:::
-
 ## Den lange position dominerer porteføljens risiko {#ch04-s037}
 
-| | Macaulay | MD | $d$ | $\mathrm{Cvx}_{KR}$ |
-|---|---:|---:|---:|---:|
-| 1 | 2,20 | 2,18 | 2,16 | 0,14 |
-| 2 | 4,80 | 4,73 | 4,80 | 0,34 |
-| 3 | 10,50 | 10,30 | 10,59 | 1,20 |
-| Portefølje | 7,17 | 7,05 | 7,17 | 0,73 |
+| Position | Nominel, mio. kr. | Kurs | Markedsværdi, mio. kr. | Macaulay | MD | $d$ | $\mathrm{Cvx}_{KR}$ |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 10 | 99,3 | 9,930 | 2,20 | 2,18 | 2,16 | 0,14 |
+| 2 | 15 | 101,5 | 15,225 | 4,80 | 4,73 | 4,80 | 0,34 |
+| 3 | 25 | 102,8 | 25,700 | 10,50 | 10,30 | 10,59 | 1,20 |
+| Portefølje | 50 | | 50,855 | 7,17 | 7,05 | 7,17 | 0,73 |
 
-De to første kolonner vægtes med markedsværdi. De sidste to med nominelle beløb.
+Macaulay og MD vægtes med markedsværdi. $d$ og $\mathrm{Cvx}_{KR}$ vægtes med nominelle beløb.
 
 ::: {.notes}
-Tallene er afrundede som i bogen. Hold derfor samme afrundingsniveau, når tabellen kontrolleres, og skeln mellem beregnede positionstal og afrundede præsentationstal.
+Kursen er markedsværdi som andel af nominel hovedstol. Tallene er afrundede som i bogen. Hold derfor samme afrundingsniveau, når tabellen kontrolleres, og skeln mellem beregnede positionstal og afrundede præsentationstal.
 :::
 
-## Porteføljens varigheder med de korrekte vægte {#ch04-s038}
-
-$$D_p=\frac{9{,}930\cdot2{,}20+15{,}225\cdot4{,}80+25{,}700\cdot10{,}50}{50{,}855}=7{,}17$$
+## Porteføljens varigheder hænger sammen via kursen {#ch04-s038}
 
 $$MD_p=\frac{9{,}930\cdot2{,}18+15{,}225\cdot4{,}73+25{,}700\cdot10{,}30}{50{,}855}=7{,}05$$
 
 $$d_p=\frac{10\cdot2{,}16+15\cdot4{,}80+25\cdot10{,}59}{50}=7{,}17$$
 
-::: {.notes}
-Enhederne mio. kr. bortfalder i vægtene. Første resultat er år, andet procentvis følsomhed og tredje kurspoint pr. procentpoint og pr. 100 nominel.
-:::
-
-## Porteføljens BPV og konveksitet i kroner {#ch04-s039}
-
-Ved +1 procentpoint:
-
-$$\text{Varighedstab}\approx\frac{7{,}17}{100}\cdot50.000.000=3.585.000\text{ kr.}$$
-
-$$BPV_{\mathrm{kr.}}=3.585.000/100=35.850\text{ kr.}$$
-
-$$\mathrm{Cvx}_{KR,p}=\frac{10\cdot0{,}14+15\cdot0{,}34+25\cdot1{,}20}{50}=0{,}73$$
-
-::: {.notes}
-Kronekonveksiteten er stadig pr. 100 nominel. Den skal skaleres til hele porteføljen, før den lægges til ændringen i kroner.
-:::
-
-## Konveksitet korrigerer tabet med et positivt bidrag {#ch04-s040}
-
-Ved et stød på ét procentpoint bliver korrektionen
-
-$$\frac12\cdot0{,}73\cdot1^2=0{,}365\text{ kurspoint}.$$
-
-For 50 mio. kr. nominel:
-
-$$\frac{0{,}365}{100}\cdot50.000.000=182.500\text{ kr.}$$
-
-Bidraget lægges positivt til varighedsestimatet for denne inkonverterbare portefølje.
-
-::: {.notes}
-Ved rentestigning reducerer den positive korrektion tabet. Ved rentefald øger den gevinsten. Fortegnet kommer fra positiv konveksitet og det kvadrerede stød.
-:::
-
-## Porteføljens nøgletal hænger sammen via kursen {#ch04-s041}
-
-$$K_p=100\frac{50{,}855}{50{,}000}=101{,}71$$
-
-$$d_p=MD_p\frac{K_p}{100}$$
-
-$$7{,}05\cdot\frac{101{,}71}{100}\approx7{,}17$$
+$$K_p=100\cdot\frac{50{,}855}{50{,}000}=101{,}71\qquad 7{,}05\cdot\frac{101{,}71}{100}\approx7{,}17$$
 
 Procent- og kroneberegningen beskriver samme økonomiske risiko.
 
 ::: {.notes}
-Sammenhængen er en nyttig enhedskontrol. Små afvigelser kan skyldes afrunding af obligationernes nøgletal.
+Enhederne mio. kr. bortfalder i vægtene. Sammenhængen $d_p=MD_pK_p/100$ er en nyttig enhedskontrol. Små afvigelser kan skyldes afrunding af obligationernes nøgletal.
+:::
+
+## Fra nøgletal til kroner ved +1 procentpoint {#ch04-s039}
+
+| | |
+|:----------------------------|:--------------------------------------------------------------------------|
+| Varighedstab: | $\displaystyle \frac{7{,}17}{100}\cdot50.000.000=3.585.000$ kr. |
+| BPV: | $\displaystyle BPV_{\mathrm{kr.}}=\frac{3.585.000}{100}=35.850$ kr. |
+| Konveksitetsbidrag: | $\displaystyle \frac12\cdot0{,}73\cdot1^2=0{,}365$ kurspoint, dvs.<br><br>$\displaystyle \frac{0{,}365}{100}\cdot50.000.000=182.500$ kr. |
+| **Samlet estimeret tab:** | $\displaystyle 3.585.000-182.500=3.402.500$ kr. |
+
+Konveksiteten lægges positivt til varighedsestimatet for denne inkonverterbare portefølje.
+
+::: {.notes}
+Kronekonveksiteten pr. 100 nominel er $\mathrm{Cvx}_{KR,p}=(10\cdot0{,}14+15\cdot0{,}34+25\cdot1{,}20)/50=0{,}73$. Ved rentestigning reducerer den positive korrektion tabet. Ved rentefald øger den gevinsten.
 :::
 
 ## Fisher–Weil bruger spotrenten ved hver betaling {#ch04-s042}

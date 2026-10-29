@@ -1894,34 +1894,17 @@ display:block!important;
 </section>
 <section id="ch04-s030" class="slide level2">
 <h2>Procentvise risikomål vægtes med markedsværdier</h2>
-<p>For hver position:</p>
-<p><span class="math display">\[\Delta P_i\approx-MD_iP_i\Delta y\]</span></p>
-<p>Når ændringerne summeres og divideres med porteføljens værdi:</p>
-<p><span class="math display">\[\frac{\Delta P_p}{P_p}\approx-\left(\sum_i\frac{P_i}{P_p}MD_i\right)\Delta y\]</span></p>
-<p>Derfor er <span class="math inline">\(MD_p\)</span> markedsværdivægtet. Samme vægte bruges for Macaulay-varighed.</p>
+<div style="font-size: 26px;">
+<p>For hver position <span class="math inline">\(i\)</span>, hvor <span class="math inline">\(P_i\)</span> er positionens markedsværdi:</p>
+<p><span class="math display">\[\Delta P_i\approx-MD_i\cdot P_i\cdot\Delta y\]</span></p>
+<p>Summér over positionerne, og dividér med porteføljens markedsværdi <span class="math inline">\(P_p=\sum_i P_i\)</span>:</p>
+<p><span class="math display">\[\frac{\Delta P_p}{P_p}\approx-\left(\sum_i\frac{P_i}{P_p}\cdot MD_i\right)\cdot\Delta y\]</span></p>
+<p>Parentesen er porteføljens modificerede varighed:</p>
+<p><span class="math display">\[\boxed{MD_p=\sum_i\frac{P_i}{P_p}\cdot MD_i}\]</span></p>
+<p>Hver obligation vægtes med sin andel af porteføljens markedsværdi. Macaulay-varighed er også et procentvist mål og vægtes på samme måde.</p>
+</div>
 <aside class="notes">
 <p>En position med dobbelt markedsværdi og samme følsomhed bidrager dobbelt til kronerisikoen. Vægtningsreglen følger af enhederne og er ikke en vilkårlig standard.</p>
-<style type="text/css">
-span.MJX_Assistive_MathML {
-position:absolute!important;
-clip: rect(1px, 1px, 1px, 1px);
-padding: 1px 0 0 0!important;
-border: 0!important;
-height: 1px!important;
-width: 1px!important;
-overflow: hidden!important;
-display:block!important;
-}</style></aside>
-</section>
-<section id="ch04-s031" class="slide level2">
-<h2>Mål pr. 100 nominel skaleres med antal enheder</h2>
-<p><span class="math display">\[d_i=MD_i\frac{K_i}{100}\]</span></p>
-<p>Positionen indeholder <span class="math inline">\(H_i/100\)</span> enheder. Samlet kronefølsomhed er</p>
-<p><span class="math display">\[\sum_i\frac{H_i}{100}d_i.\]</span></p>
-<p>Opdeling pr. 100 nominel giver</p>
-<p><span class="math display">\[d_p=\sum_i\frac{H_i}{\sum_jH_j}d_i.\]</span></p>
-<aside class="notes">
-<p>Total risiko i kroner er en sum. Når totalen normaliseres pr. 100 nominel, fås et nominelt vægtet gennemsnit. Kursen er allerede indbygget i d_i.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1958,9 +1941,10 @@ display:block!important;
 </tr>
 </tbody>
 </table>
+<p><span class="math display">\[d_i=MD_i\frac{K_i}{100}\qquad d_p=\sum_i\frac{H_i}{\sum_jH_j}d_i\]</span></p>
 <p>For absolut risiko i kroner skaleres hvert bidrag med <span class="math inline">\(H_i/100\)</span> og lægges sammen.</p>
 <aside class="notes">
-<p>Nominelle vægte er ikke generelt bedre eller dårligere end markedsværdivægte. Vægten bestemmes af, hvad nøgletallet allerede indeholder.</p>
+<p>Total risiko i kroner er en sum. Når totalen normaliseres pr. 100 nominel, fås et nominelt vægtet gennemsnit. Kursen er allerede indbygget i d_i. Vægten bestemmes af, hvad nøgletallet allerede indeholder.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -1973,8 +1957,8 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
-<section id="ch04-s033" class="slide level2">
-<h2>To positioner med samme nominelle beløb</h2>
+<section id="ch04-s034" class="slide level2">
+<h2>Begge beregningsveje giver 840.000 kr.</h2>
 <p>Beløb i mio. kr., undtagen kurs og nøgletal.</p>
 <table class="caption-top">
 <thead>
@@ -2006,30 +1990,10 @@ display:block!important;
 </tr>
 </tbody>
 </table>
-<p>B har både større markedsværdi og højere procentvis følsomhed.</p>
+<p><span class="math display">\[MD_p=\frac{9\cdot2+11\cdot6}{20}=4{,}2\qquad d_p=\frac{10\cdot1{,}80+10\cdot6{,}60}{20}=4{,}2\]</span></p>
+<p>Ved +1 pp: <span class="math inline">\(0{,}042\cdot20.000.000=840.000\)</span> kr. i omtrentligt tab.</p>
 <aside class="notes">
-<p>De nominelle beløb er ens, men hver procentvis kursændring rammer flere kroner i B. Dette er den centrale vægtforskel i eksemplet.</p>
-<style type="text/css">
-span.MJX_Assistive_MathML {
-position:absolute!important;
-clip: rect(1px, 1px, 1px, 1px);
-padding: 1px 0 0 0!important;
-border: 0!important;
-height: 1px!important;
-width: 1px!important;
-overflow: hidden!important;
-display:block!important;
-}</style></aside>
-</section>
-<section id="ch04-s034" class="slide level2">
-<h2>Begge beregningsveje giver 840.000 kr.</h2>
-<p>Markedsvægtet modificeret varighed:</p>
-<p><span class="math display">\[MD_p=\frac{9\cdot2+11\cdot6}{20}=4{,}2\]</span></p>
-<p>Nominelt vægtet kronevarighed:</p>
-<p><span class="math display">\[d_p=\frac{10\cdot1{,}80+10\cdot6{,}60}{20}=4{,}2\]</span></p>
-<p>Ved +1 pp: <span class="math inline">\(0{,}042\cdot20.000.000=200.000\cdot4{,}2=840.000\)</span> kr. i omtrentligt tab.</p>
-<aside class="notes">
-<p>At begge nøgletal bliver 4,2 skyldes porteføljekurs 100. Sammenfaldet gælder ikke alle porteføljer, men de beregnede kroner skal være ens.</p>
+<p>De nominelle beløb er ens, men hver procentvis kursændring rammer flere kroner i B. At begge nøgletal bliver 4,2 skyldes porteføljekurs 100. Sammenfaldet gælder ikke alle porteføljer, men de beregnede kroner skal være ens.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -2062,65 +2026,25 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
-<section id="ch04-s036" class="slide level2">
-<h2>En større portefølje: positioner og markedsværdier</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: right;">Nominel, mio. kr.</th>
-<th style="text-align: right;">Kurs</th>
-<th style="text-align: right;">Markedsværdi, mio. kr.</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">99,3</td>
-<td style="text-align: right;">9,930</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">101,5</td>
-<td style="text-align: right;">15,225</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">102,8</td>
-<td style="text-align: right;">25,700</td>
-</tr>
-<tr class="even">
-<td>Sum</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;">50,855</td>
-</tr>
-</tbody>
-</table>
-<p>Den største position har også den længste varighed.</p>
-<aside class="notes">
-<p>Denne tabel giver vægtene til den følgende. Kursen er markedsværdi som andel af nominel hovedstol, ikke et selvstændigt vægtningsvalg.</p>
-<style type="text/css">
-span.MJX_Assistive_MathML {
-position:absolute!important;
-clip: rect(1px, 1px, 1px, 1px);
-padding: 1px 0 0 0!important;
-border: 0!important;
-height: 1px!important;
-width: 1px!important;
-overflow: hidden!important;
-display:block!important;
-}</style></aside>
-</section>
 <section id="ch04-s037" class="slide level2">
 <h2>Den lange position dominerer porteføljens risiko</h2>
 <table class="caption-top">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
 <thead>
 <tr class="header">
-<th></th>
+<th>Position</th>
+<th style="text-align: right;">Nominel, mio. kr.</th>
+<th style="text-align: right;">Kurs</th>
+<th style="text-align: right;">Markedsværdi, mio. kr.</th>
 <th style="text-align: right;">Macaulay</th>
 <th style="text-align: right;">MD</th>
 <th style="text-align: right;"><span class="math inline">\(d\)</span></th>
@@ -2130,6 +2054,9 @@ display:block!important;
 <tbody>
 <tr class="odd">
 <td>1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">99,3</td>
+<td style="text-align: right;">9,930</td>
 <td style="text-align: right;">2,20</td>
 <td style="text-align: right;">2,18</td>
 <td style="text-align: right;">2,16</td>
@@ -2137,6 +2064,9 @@ display:block!important;
 </tr>
 <tr class="even">
 <td>2</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">101,5</td>
+<td style="text-align: right;">15,225</td>
 <td style="text-align: right;">4,80</td>
 <td style="text-align: right;">4,73</td>
 <td style="text-align: right;">4,80</td>
@@ -2144,6 +2074,9 @@ display:block!important;
 </tr>
 <tr class="odd">
 <td>3</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">102,8</td>
+<td style="text-align: right;">25,700</td>
 <td style="text-align: right;">10,50</td>
 <td style="text-align: right;">10,30</td>
 <td style="text-align: right;">10,59</td>
@@ -2151,6 +2084,9 @@ display:block!important;
 </tr>
 <tr class="even">
 <td>Portefølje</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">50,855</td>
 <td style="text-align: right;">7,17</td>
 <td style="text-align: right;">7,05</td>
 <td style="text-align: right;">7,17</td>
@@ -2158,9 +2094,9 @@ display:block!important;
 </tr>
 </tbody>
 </table>
-<p>De to første kolonner vægtes med markedsværdi. De sidste to med nominelle beløb.</p>
+<p>Macaulay og MD vægtes med markedsværdi. <span class="math inline">\(d\)</span> og <span class="math inline">\(\mathrm{Cvx}_{KR}\)</span> vægtes med nominelle beløb.</p>
 <aside class="notes">
-<p>Tallene er afrundede som i bogen. Hold derfor samme afrundingsniveau, når tabellen kontrolleres, og skeln mellem beregnede positionstal og afrundede præsentationstal.</p>
+<p>Kursen er markedsværdi som andel af nominel hovedstol. Tallene er afrundede som i bogen. Hold derfor samme afrundingsniveau, når tabellen kontrolleres, og skeln mellem beregnede positionstal og afrundede præsentationstal.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -2174,12 +2110,13 @@ display:block!important;
 }</style></aside>
 </section>
 <section id="ch04-s038" class="slide level2">
-<h2>Porteføljens varigheder med de korrekte vægte</h2>
-<p><span class="math display">\[D_p=\frac{9{,}930\cdot2{,}20+15{,}225\cdot4{,}80+25{,}700\cdot10{,}50}{50{,}855}=7{,}17\]</span></p>
+<h2>Porteføljens varigheder hænger sammen via kursen</h2>
 <p><span class="math display">\[MD_p=\frac{9{,}930\cdot2{,}18+15{,}225\cdot4{,}73+25{,}700\cdot10{,}30}{50{,}855}=7{,}05\]</span></p>
 <p><span class="math display">\[d_p=\frac{10\cdot2{,}16+15\cdot4{,}80+25\cdot10{,}59}{50}=7{,}17\]</span></p>
+<p><span class="math display">\[K_p=100\cdot\frac{50{,}855}{50{,}000}=101{,}71\qquad 7{,}05\cdot\frac{101{,}71}{100}\approx7{,}17\]</span></p>
+<p>Procent- og kroneberegningen beskriver samme økonomiske risiko.</p>
 <aside class="notes">
-<p>Enhederne mio. kr. bortfalder i vægtene. Første resultat er år, andet procentvis følsomhed og tredje kurspoint pr. procentpoint og pr. 100 nominel.</p>
+<p>Enhederne mio. kr. bortfalder i vægtene. Sammenhængen <span class="math inline">\(d_p=MD_pK_p/100\)</span> er en nyttig enhedskontrol. Små afvigelser kan skyldes afrunding af obligationernes nøgletal.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -2193,54 +2130,34 @@ display:block!important;
 }</style></aside>
 </section>
 <section id="ch04-s039" class="slide level2">
-<h2>Porteføljens BPV og konveksitet i kroner</h2>
-<p>Ved +1 procentpoint:</p>
-<p><span class="math display">\[\text{Varighedstab}\approx\frac{7{,}17}{100}\cdot50.000.000=3.585.000\text{ kr.}\]</span></p>
-<p><span class="math display">\[BPV_{\mathrm{kr.}}=3.585.000/100=35.850\text{ kr.}\]</span></p>
-<p><span class="math display">\[\mathrm{Cvx}_{KR,p}=\frac{10\cdot0{,}14+15\cdot0{,}34+25\cdot1{,}20}{50}=0{,}73\]</span></p>
+<h2>Fra nøgletal til kroner ved +1 procentpoint</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Varighedstab:</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \frac{7{,}17}{100}\cdot50.000.000=3.585.000\)</span> kr.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BPV:</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle BPV_{\mathrm{kr.}}=\frac{3.585.000}{100}=35.850\)</span> kr.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Konveksitetsbidrag:</td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle \frac12\cdot0{,}73\cdot1^2=0{,}365\)</span> kurspoint, dvs.<br><br><span class="math inline">\(\displaystyle \frac{0{,}365}{100}\cdot50.000.000=182.500\)</span> kr.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Samlet estimeret tab:</strong></td>
+<td style="text-align: left;"><span class="math inline">\(\displaystyle 3.585.000-182.500=3.402.500\)</span> kr.</td>
+</tr>
+</tbody>
+</table>
+<p>Konveksiteten lægges positivt til varighedsestimatet for denne inkonverterbare portefølje.</p>
 <aside class="notes">
-<p>Kronekonveksiteten er stadig pr. 100 nominel. Den skal skaleres til hele porteføljen, før den lægges til ændringen i kroner.</p>
-<style type="text/css">
-span.MJX_Assistive_MathML {
-position:absolute!important;
-clip: rect(1px, 1px, 1px, 1px);
-padding: 1px 0 0 0!important;
-border: 0!important;
-height: 1px!important;
-width: 1px!important;
-overflow: hidden!important;
-display:block!important;
-}</style></aside>
-</section>
-<section id="ch04-s040" class="slide level2">
-<h2>Konveksitet korrigerer tabet med et positivt bidrag</h2>
-<p>Ved et stød på ét procentpoint bliver korrektionen</p>
-<p><span class="math display">\[\frac12\cdot0{,}73\cdot1^2=0{,}365\text{ kurspoint}.\]</span></p>
-<p>For 50 mio. kr. nominel:</p>
-<p><span class="math display">\[\frac{0{,}365}{100}\cdot50.000.000=182.500\text{ kr.}\]</span></p>
-<p>Bidraget lægges positivt til varighedsestimatet for denne inkonverterbare portefølje.</p>
-<aside class="notes">
-<p>Ved rentestigning reducerer den positive korrektion tabet. Ved rentefald øger den gevinsten. Fortegnet kommer fra positiv konveksitet og det kvadrerede stød.</p>
-<style type="text/css">
-span.MJX_Assistive_MathML {
-position:absolute!important;
-clip: rect(1px, 1px, 1px, 1px);
-padding: 1px 0 0 0!important;
-border: 0!important;
-height: 1px!important;
-width: 1px!important;
-overflow: hidden!important;
-display:block!important;
-}</style></aside>
-</section>
-<section id="ch04-s041" class="slide level2">
-<h2>Porteføljens nøgletal hænger sammen via kursen</h2>
-<p><span class="math display">\[K_p=100\frac{50{,}855}{50{,}000}=101{,}71\]</span></p>
-<p><span class="math display">\[d_p=MD_p\frac{K_p}{100}\]</span></p>
-<p><span class="math display">\[7{,}05\cdot\frac{101{,}71}{100}\approx7{,}17\]</span></p>
-<p>Procent- og kroneberegningen beskriver samme økonomiske risiko.</p>
-<aside class="notes">
-<p>Sammenhængen er en nyttig enhedskontrol. Små afvigelser kan skyldes afrunding af obligationernes nøgletal.</p>
+<p>Kronekonveksiteten pr. 100 nominel er <span class="math inline">\(\mathrm{Cvx}_{KR,p}=(10\cdot0{,}14+15\cdot0{,}34+25\cdot1{,}20)/50=0{,}73\)</span>. Ved rentestigning reducerer den positive korrektion tabet. Ved rentefald øger den gevinsten.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;

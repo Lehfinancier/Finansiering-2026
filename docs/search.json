@@ -1453,84 +1453,49 @@
     "href": "slides/chapters/04.html#ch04-s030",
     "title": "Renterisiko",
     "section": "Procentvise risikomål vægtes med markedsværdier",
-    "text": "Procentvise risikomål vægtes med markedsværdier\nFor hver position:\n\\[\\Delta P_i\\approx-MD_iP_i\\Delta y\\]\nNår ændringerne summeres og divideres med porteføljens værdi:\n\\[\\frac{\\Delta P_p}{P_p}\\approx-\\left(\\sum_i\\frac{P_i}{P_p}MD_i\\right)\\Delta y\\]\nDerfor er \\(MD_p\\) markedsværdivægtet. Samme vægte bruges for Macaulay-varighed.\n\nEn position med dobbelt markedsværdi og samme følsomhed bidrager dobbelt til kronerisikoen. Vægtningsreglen følger af enhederne og er ikke en vilkårlig standard."
-  },
-  {
-    "objectID": "slides/chapters/04.html#ch04-s031",
-    "href": "slides/chapters/04.html#ch04-s031",
-    "title": "Renterisiko",
-    "section": "Mål pr. 100 nominel skaleres med antal enheder",
-    "text": "Mål pr. 100 nominel skaleres med antal enheder\n\\[d_i=MD_i\\frac{K_i}{100}\\]\nPositionen indeholder \\(H_i/100\\) enheder. Samlet kronefølsomhed er\n\\[\\sum_i\\frac{H_i}{100}d_i.\\]\nOpdeling pr. 100 nominel giver\n\\[d_p=\\sum_i\\frac{H_i}{\\sum_jH_j}d_i.\\]\n\nTotal risiko i kroner er en sum. Når totalen normaliseres pr. 100 nominel, fås et nominelt vægtet gennemsnit. Kursen er allerede indbygget i d_i."
+    "text": "Procentvise risikomål vægtes med markedsværdier For hver position \\(i\\) , hvor \\(P_i\\) er positionens markedsværdi: \\[\\Delta P_i\\approx-MD_i\\cdot P_i\\cdot\\Delta y\\] Summér over positionerne, og dividér med porteføljens markedsværdi \\(P_p=\\sum_i P_i\\) : \\[\\frac{\\Delta P_p}{P_p}\\approx-\\left(\\sum_i\\frac{P_i}{P_p}\\cdot MD_i\\right)\\cdot\\Delta y\\] Parentesen er porteføljens modificerede varighed: \\[\\boxed{MD_p=\\sum_i\\frac{P_i}{P_p}\\cdot MD_i}\\] Hver obligation vægtes med sin andel af porteføljens markedsværdi. Macaulay-varighed er også et procentvist mål og vægtes på samme måde. En position med dobbelt markedsværdi og samme følsomhed bidrager dobbelt til kronerisikoen. Vægtningsreglen følger af enhederne og er ikke en vilkårlig standard."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s032",
     "href": "slides/chapters/04.html#ch04-s032",
     "title": "Renterisiko",
     "section": "Vægten følger nøgletallets enhed",
-    "text": "Vægten følger nøgletallets enhed\n\n\n\n\n\n\n\nNøgletal\nVægt ved porteføljesammenlægning\n\n\n\n\nMacaulay- og modificeret varighed\nMarkedsværdi\n\n\nKronevarighed, BPV og kronekonveksitet pr. 100 nominel\nNominelle beløb\n\n\n\nFor absolut risiko i kroner skaleres hvert bidrag med \\(H_i/100\\) og lægges sammen.\n\nNominelle vægte er ikke generelt bedre eller dårligere end markedsværdivægte. Vægten bestemmes af, hvad nøgletallet allerede indeholder."
-  },
-  {
-    "objectID": "slides/chapters/04.html#ch04-s033",
-    "href": "slides/chapters/04.html#ch04-s033",
-    "title": "Renterisiko",
-    "section": "To positioner med samme nominelle beløb",
-    "text": "To positioner med samme nominelle beløb\nBeløb i mio. kr., undtagen kurs og nøgletal.\n\n\n\n\nNominel\nKurs\nMarkedsværdi\nMD\n\\(d\\)\n\n\n\n\nA\n10\n90\n9\n2,0\n1,80\n\n\nB\n10\n110\n11\n6,0\n6,60\n\n\n\nB har både større markedsværdi og højere procentvis følsomhed.\n\nDe nominelle beløb er ens, men hver procentvis kursændring rammer flere kroner i B. Dette er den centrale vægtforskel i eksemplet."
+    "text": "Vægten følger nøgletallets enhed Nøgletal Vægt ved porteføljesammenlægning Macaulay- og modificeret varighed Markedsværdi Kronevarighed, BPV og kronekonveksitet pr. 100 nominel Nominelle beløb \\[d_i=MD_i\\frac{K_i}{100}\\qquad d_p=\\sum_i\\frac{H_i}{\\sum_jH_j}d_i\\] For absolut risiko i kroner skaleres hvert bidrag med \\(H_i/100\\) og lægges sammen. Total risiko i kroner er en sum. Når totalen normaliseres pr. 100 nominel, fås et nominelt vægtet gennemsnit. Kursen er allerede indbygget i d_i. Vægten bestemmes af, hvad nøgletallet allerede indeholder."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s034",
     "href": "slides/chapters/04.html#ch04-s034",
     "title": "Renterisiko",
     "section": "Begge beregningsveje giver 840.000 kr.",
-    "text": "Begge beregningsveje giver 840.000 kr.\nMarkedsvægtet modificeret varighed:\n\\[MD_p=\\frac{9\\cdot2+11\\cdot6}{20}=4{,}2\\]\nNominelt vægtet kronevarighed:\n\\[d_p=\\frac{10\\cdot1{,}80+10\\cdot6{,}60}{20}=4{,}2\\]\nVed +1 pp: \\(0{,}042\\cdot20.000.000=200.000\\cdot4{,}2=840.000\\) kr. i omtrentligt tab.\n\nAt begge nøgletal bliver 4,2 skyldes porteføljekurs 100. Sammenfaldet gælder ikke alle porteføljer, men de beregnede kroner skal være ens."
+    "text": "Begge beregningsveje giver 840.000 kr. Beløb i mio. kr., undtagen kurs og nøgletal. Nominel Kurs Markedsværdi MD \\(d\\) A 10 90 9 2,0 1,80 B 10 110 11 6,0 6,60 \\[MD_p=\\frac{9\\cdot2+11\\cdot6}{20}=4{,}2\\qquad d_p=\\frac{10\\cdot1{,}80+10\\cdot6{,}60}{20}=4{,}2\\] Ved +1 pp: \\(0{,}042\\cdot20.000.000=840.000\\) kr. i omtrentligt tab. De nominelle beløb er ens, men hver procentvis kursændring rammer flere kroner i B. At begge nøgletal bliver 4,2 skyldes porteføljekurs 100. Sammenfaldet gælder ikke alle porteføljer, men de beregnede kroner skal være ens."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s035",
     "href": "slides/chapters/04.html#ch04-s035",
     "title": "Renterisiko",
     "section": "Forkerte vægte undervurderer risikoen",
-    "text": "Forkerte vægte undervurderer risikoen\nNominelt vægtet MD ville give\n\\[\\frac{10\\cdot2+10\\cdot6}{20}=4{,}0.\\]\nDet giver et estimeret tab på 800.000 kr., altså 40.000 kr. for lidt.\nFejlen undervægter den dyrere obligation B, som har størst renterisiko.\n\nDet er et gennemregnet fejl-eksempel fra kapitlet. Lad de studerende identificere, hvilken kapital det procentvise mål faktisk skal virke på."
-  },
-  {
-    "objectID": "slides/chapters/04.html#ch04-s036",
-    "href": "slides/chapters/04.html#ch04-s036",
-    "title": "Renterisiko",
-    "section": "En større portefølje: positioner og markedsværdier",
-    "text": "En større portefølje: positioner og markedsværdier\n\n\n\n\nNominel, mio. kr.\nKurs\nMarkedsværdi, mio. kr.\n\n\n\n\n1\n10\n99,3\n9,930\n\n\n2\n15\n101,5\n15,225\n\n\n3\n25\n102,8\n25,700\n\n\nSum\n50\n\n50,855\n\n\n\nDen største position har også den længste varighed.\n\nDenne tabel giver vægtene til den følgende. Kursen er markedsværdi som andel af nominel hovedstol, ikke et selvstændigt vægtningsvalg."
+    "text": "Forkerte vægte undervurderer risikoen Nominelt vægtet MD ville give \\[\\frac{10\\cdot2+10\\cdot6}{20}=4{,}0.\\] Det giver et estimeret tab på 800.000 kr., altså 40.000 kr. for lidt. Fejlen undervægter den dyrere obligation B, som har størst renterisiko. Det er et gennemregnet fejl-eksempel fra kapitlet. Lad de studerende identificere, hvilken kapital det procentvise mål faktisk skal virke på."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s037",
     "href": "slides/chapters/04.html#ch04-s037",
     "title": "Renterisiko",
     "section": "Den lange position dominerer porteføljens risiko",
-    "text": "Den lange position dominerer porteføljens risiko\n\n\n\n\nMacaulay\nMD\n\\(d\\)\n\\(\\mathrm{Cvx}_{KR}\\)\n\n\n\n\n1\n2,20\n2,18\n2,16\n0,14\n\n\n2\n4,80\n4,73\n4,80\n0,34\n\n\n3\n10,50\n10,30\n10,59\n1,20\n\n\nPortefølje\n7,17\n7,05\n7,17\n0,73\n\n\n\nDe to første kolonner vægtes med markedsværdi. De sidste to med nominelle beløb.\n\nTallene er afrundede som i bogen. Hold derfor samme afrundingsniveau, når tabellen kontrolleres, og skeln mellem beregnede positionstal og afrundede præsentationstal."
+    "text": "Den lange position dominerer porteføljens risiko Position Nominel, mio. kr. Kurs Markedsværdi, mio. kr. Macaulay MD \\(d\\) \\(\\mathrm{Cvx}_{KR}\\) 1 10 99,3 9,930 2,20 2,18 2,16 0,14 2 15 101,5 15,225 4,80 4,73 4,80 0,34 3 25 102,8 25,700 10,50 10,30 10,59 1,20 Portefølje 50 50,855 7,17 7,05 7,17 0,73 Macaulay og MD vægtes med markedsværdi. \\(d\\) og \\(\\mathrm{Cvx}_{KR}\\) vægtes med nominelle beløb. Kursen er markedsværdi som andel af nominel hovedstol. Tallene er afrundede som i bogen. Hold derfor samme afrundingsniveau, når tabellen kontrolleres, og skeln mellem beregnede positionstal og afrundede præsentationstal."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s038",
     "href": "slides/chapters/04.html#ch04-s038",
     "title": "Renterisiko",
-    "section": "Porteføljens varigheder med de korrekte vægte",
-    "text": "Porteføljens varigheder med de korrekte vægte\n\\[D_p=\\frac{9{,}930\\cdot2{,}20+15{,}225\\cdot4{,}80+25{,}700\\cdot10{,}50}{50{,}855}=7{,}17\\]\n\\[MD_p=\\frac{9{,}930\\cdot2{,}18+15{,}225\\cdot4{,}73+25{,}700\\cdot10{,}30}{50{,}855}=7{,}05\\]\n\\[d_p=\\frac{10\\cdot2{,}16+15\\cdot4{,}80+25\\cdot10{,}59}{50}=7{,}17\\]\n\nEnhederne mio. kr. bortfalder i vægtene. Første resultat er år, andet procentvis følsomhed og tredje kurspoint pr. procentpoint og pr. 100 nominel."
+    "section": "Porteføljens varigheder hænger sammen via kursen",
+    "text": "Porteføljens varigheder hænger sammen via kursen \\[MD_p=\\frac{9{,}930\\cdot2{,}18+15{,}225\\cdot4{,}73+25{,}700\\cdot10{,}30}{50{,}855}=7{,}05\\] \\[d_p=\\frac{10\\cdot2{,}16+15\\cdot4{,}80+25\\cdot10{,}59}{50}=7{,}17\\] \\[K_p=100\\cdot\\frac{50{,}855}{50{,}000}=101{,}71\\qquad 7{,}05\\cdot\\frac{101{,}71}{100}\\approx7{,}17\\] Procent- og kroneberegningen beskriver samme økonomiske risiko. Enhederne mio. kr. bortfalder i vægtene. Sammenhængen \\(d_p=MD_pK_p/100\\) er en nyttig enhedskontrol. Små afvigelser kan skyldes afrunding af obligationernes nøgletal."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s039",
     "href": "slides/chapters/04.html#ch04-s039",
     "title": "Renterisiko",
-    "section": "Porteføljens BPV og konveksitet i kroner",
-    "text": "Porteføljens BPV og konveksitet i kroner\nVed +1 procentpoint:\n\\[\\text{Varighedstab}\\approx\\frac{7{,}17}{100}\\cdot50.000.000=3.585.000\\text{ kr.}\\]\n\\[BPV_{\\mathrm{kr.}}=3.585.000/100=35.850\\text{ kr.}\\]\n\\[\\mathrm{Cvx}_{KR,p}=\\frac{10\\cdot0{,}14+15\\cdot0{,}34+25\\cdot1{,}20}{50}=0{,}73\\]\n\nKronekonveksiteten er stadig pr. 100 nominel. Den skal skaleres til hele porteføljen, før den lægges til ændringen i kroner."
-  },
-  {
-    "objectID": "slides/chapters/04.html#ch04-s040",
-    "href": "slides/chapters/04.html#ch04-s040",
-    "title": "Renterisiko",
-    "section": "Konveksitet korrigerer tabet med et positivt bidrag",
-    "text": "Konveksitet korrigerer tabet med et positivt bidrag\nVed et stød på ét procentpoint bliver korrektionen\n\\[\\frac12\\cdot0{,}73\\cdot1^2=0{,}365\\text{ kurspoint}.\\]\nFor 50 mio. kr. nominel:\n\\[\\frac{0{,}365}{100}\\cdot50.000.000=182.500\\text{ kr.}\\]\nBidraget lægges positivt til varighedsestimatet for denne inkonverterbare portefølje.\n\nVed rentestigning reducerer den positive korrektion tabet. Ved rentefald øger den gevinsten. Fortegnet kommer fra positiv konveksitet og det kvadrerede stød."
-  },
-  {
-    "objectID": "slides/chapters/04.html#ch04-s041",
-    "href": "slides/chapters/04.html#ch04-s041",
-    "title": "Renterisiko",
-    "section": "Porteføljens nøgletal hænger sammen via kursen",
-    "text": "Porteføljens nøgletal hænger sammen via kursen\n\\[K_p=100\\frac{50{,}855}{50{,}000}=101{,}71\\]\n\\[d_p=MD_p\\frac{K_p}{100}\\]\n\\[7{,}05\\cdot\\frac{101{,}71}{100}\\approx7{,}17\\]\nProcent- og kroneberegningen beskriver samme økonomiske risiko.\n\nSammenhængen er en nyttig enhedskontrol. Små afvigelser kan skyldes afrunding af obligationernes nøgletal."
+    "section": "Fra nøgletal til kroner ved +1 procentpoint",
+    "text": "Fra nøgletal til kroner ved +1 procentpoint Varighedstab: \\(\\displaystyle \\frac{7{,}17}{100}\\cdot50.000.000=3.585.000\\) kr. BPV: \\(\\displaystyle BPV_{\\mathrm{kr.}}=\\frac{3.585.000}{100}=35.850\\) kr. Konveksitetsbidrag: \\(\\displaystyle \\frac12\\cdot0{,}73\\cdot1^2=0{,}365\\) kurspoint, dvs. \\(\\displaystyle \\frac{0{,}365}{100}\\cdot50.000.000=182.500\\) kr. Samlet estimeret tab: \\(\\displaystyle 3.585.000-182.500=3.402.500\\) kr. Konveksiteten lægges positivt til varighedsestimatet for denne inkonverterbare portefølje. Kronekonveksiteten pr. 100 nominel er \\(\\mathrm{Cvx}_{KR,p}=(10\\cdot0{,}14+15\\cdot0{,}34+25\\cdot1{,}20)/50=0{,}73\\) . Ved rentestigning reducerer den positive korrektion tabet. Ved rentefald øger den gevinsten."
   },
   {
     "objectID": "slides/chapters/04.html#ch04-s042",
