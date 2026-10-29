@@ -22,10 +22,16 @@ for n,session in enumerate(sessions,1):
 dest=ROOT/'src/downloads';dest.mkdir(exist_ok=True)
 manifest=[]
 for n in range(1,6):
-    files=list((WORK/'sources/exercises').glob(f'OS{n}*/*_uden_loesninger.pdf'))
-    assert len(files)==1,files
-    shutil.copy2(files[0],dest/f'OS{n}.pdf')
-    manifest.append({'public':f'OS{n}.pdf','source':str(files[0].relative_to(ROOT))})
+    if n == 2:
+        # OS2 is a revised public edition: exercise 2.3 ends at part (d).
+        source=dest/'OS2.pdf'
+        assert source.exists(), 'The revised OS2 download is missing.'
+    else:
+        files=list((WORK/'sources/exercises').glob(f'OS{n}*/*_uden_loesninger.pdf'))
+        assert len(files)==1,files
+        source=files[0]
+        shutil.copy2(source,dest/f'OS{n}.pdf')
+    manifest.append({'public':f'OS{n}.pdf','source':str(source.relative_to(ROOT))})
 edition_file=ROOT/'src/book-edition.json'
 if edition_file.exists():
     edition=json.loads(edition_file.read_text(encoding='utf-8'))
