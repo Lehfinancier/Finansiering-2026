@@ -147,6 +147,8 @@ Kapitel 05
 [Download slides som PDF](downloads/kapitel-05.pdf){download="kapitel-05.pdf"}
 
 [Recap: kapitel 4 og overgangen til kapitel 5 (PDF)](downloads/recap-kapitel-04-05.pdf)
+
+Supplerende materiale: [F3-eksemplet – mellemregninger (PDF)](downloads/F3_mellemregninger.pdf)
 :::
 
 ::: {.chapter-card}

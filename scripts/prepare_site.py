@@ -135,6 +135,8 @@ for n,title in enumerate(titles,1):
     if n in (3,4):
         previous=n-1
         recap=f'\n[Recap: kapitel {previous} og overgangen til kapitel {n}](slides/chapters/recap-{previous:02}-{n:02}.qmd) · [PDF](downloads/recap-kapitel-{previous:02}-{n:02}.pdf)\n'
+    if n == 5:
+        recap='\n[Recap: kapitel 4 og overgangen til kapitel 5 (PDF)](downloads/recap-kapitel-04-05.pdf)\n\nSupplerende materiale: [F3-eksemplet – mellemregninger (PDF)](downloads/F3_mellemregninger.pdf)\n'
     text+=f'''\n::: {{.chapter-card}}
 ::: {{.chapter-no}}
 Kapitel {n:02}
