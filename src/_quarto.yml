@@ -23,6 +23,8 @@ project:
     - downloads/kapitel-03-beregninger.xlsx
     - downloads/kapitel-04-beregninger.xlsx
     - downloads/Kapitel4_varighed_eksempel.xlsx
+    - downloads/Kapitel5_opgaver_vejledende_loesninger.xlsx
+    - downloads/Kapitel5_F3_funding.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*

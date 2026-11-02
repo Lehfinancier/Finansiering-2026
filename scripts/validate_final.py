@@ -63,7 +63,7 @@ else:
 expected={f'kapitel-{n:02}.pdf' for n in range(0,11)}|{f'OS{n}.pdf' for n in range(1,6)}|{'Kurs100-2026.pdf'}
 expected |= {'recap-kapitel-02-03.pdf','recap-kapitel-03-04.pdf','recap-kapitel-04-05.pdf','F3_mellemregninger.pdf'}
 require({p.name for p in DOCS.rglob('*.pdf')}==expected,'Unexpected or missing public PDFs')
-excel_downloads={'kapitel-02-beregninger.xlsx','kapitel-03-beregninger.xlsx','kapitel-04-beregninger.xlsx','Kapitel4_varighed_eksempel.xlsx'}
+excel_downloads={'kapitel-02-beregninger.xlsx','kapitel-03-beregninger.xlsx','kapitel-04-beregninger.xlsx','Kapitel4_varighed_eksempel.xlsx','Kapitel5_opgaver_vejledende_loesninger.xlsx','Kapitel5_F3_funding.xlsx'}
 require({p.name for p in DOCS.rglob('*.xlsx')}==excel_downloads,'Unexpected or missing Excel downloads')
 for name in excel_downloads:
     public=DOCS/'downloads'/name

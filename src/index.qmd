@@ -148,7 +148,7 @@ Kapitel 05
 
 [Recap: kapitel 4 og overgangen til kapitel 5 (PDF)](downloads/recap-kapitel-04-05.pdf)
 
-Supplerende materiale: [F3-eksemplet – mellemregninger (PDF)](downloads/F3_mellemregninger.pdf)
+Supplerende materiale: [F3-eksemplet – mellemregninger (PDF)](downloads/F3_mellemregninger.pdf) · [F3-funding i Excel](downloads/Kapitel5_F3_funding.xlsx){download="Kapitel5_F3_funding.xlsx"}
 :::
 
 ::: {.chapter-card}
@@ -228,6 +228,8 @@ Fem øvelsessæt til arbejdet med lektionsnoterne.
 | 3 · Rentestrukturen | 3.1–3.6 | [Hent Excel](downloads/kapitel-03-beregninger.xlsx){download="kapitel-03-beregninger.xlsx"} |
 | 4 · Risikomål | 4.1–4.7 | [Hent Excel](downloads/kapitel-04-beregninger.xlsx){download="kapitel-04-beregninger.xlsx"} |
 | 4 · Risikomål | Eksempel på varighed | [Hent Excel](downloads/Kapitel4_varighed_eksempel.xlsx){download="Kapitel4_varighed_eksempel.xlsx"} |
+| 5 · Dansk realkredit | 5.1–5.4 | [Hent Excel](downloads/Kapitel5_opgaver_vejledende_loesninger.xlsx){download="Kapitel5_opgaver_vejledende_loesninger.xlsx"} |
+| 5 · Dansk realkredit | F3-funding: ét lån, flere obligationer | [Hent Excel](downloads/Kapitel5_F3_funding.xlsx){download="Kapitel5_F3_funding.xlsx"} |
 
 ## Forberedelse
 
