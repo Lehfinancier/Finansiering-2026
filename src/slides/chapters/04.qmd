@@ -18,9 +18,9 @@ Rentestigningerne i 2022 viste mekanismen for lange sikre obligationer. Kreditri
 
 ## Investor ser kurstabet, før vi beregner varigheden {#ch04-s023}
 
-![Kursen på den stående obligation ved forskellige effektive renter](../../images/final/ch04-fig004.svg){.chapter-figure}
+![Kursen på den stående obligation og varighedens tangent ved forskellige effektive renter](../../images/final/recap04-pris-rente.svg){.chapter-figure}
 
-Samme ti betalinger, ny effektiv årlig rente: Når renten stiger, falder kursen. Tangenten viser det lokale estimat, som vi senere beregner med varighed.
+Samme ti betalinger, ny effektiv årlig rente: Når renten stiger, falder kursen. Tangenten undervurderer kursstigningen ved rentefald og overvurderer kursfaldet ved rentestigning.
 
 ::: {.notes}
 Grafen skal vise bogens eksakte diskonterede kurs for ni kuponer på 2,25 og en slutbetaling på 102,25. Første termin ligger 296/365 år efter valør. Ved 2,45% er dirty-kursen 98,696. Grafen er flyttet frem, så investorens kurstab kommer før notation og mellemregninger.
