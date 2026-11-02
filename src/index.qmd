@@ -145,6 +145,8 @@ Kapitel 05
 [Vis slides](slides/chapters/05.qmd){.primary-link}
 
 [Download slides som PDF](downloads/kapitel-05.pdf){download="kapitel-05.pdf"}
+
+[Recap: kapitel 4 og overgangen til kapitel 5 (PDF)](downloads/recap-kapitel-04-05.pdf)
 :::
 
 ::: {.chapter-card}
