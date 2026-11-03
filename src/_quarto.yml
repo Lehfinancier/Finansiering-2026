@@ -25,6 +25,7 @@ project:
     - downloads/Kapitel4_varighed_eksempel.xlsx
     - downloads/Kapitel5_opgaver_vejledende_loesninger.xlsx
     - downloads/Kapitel5_F3_funding.xlsx
+    - downloads/kap6_opgaver.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*

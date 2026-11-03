@@ -160,6 +160,10 @@ Kapitel 06
 [Vis slides](slides/chapters/06.qmd){.primary-link}
 
 [Download slides som PDF](downloads/kapitel-06.pdf){download="kapitel-06.pdf"}
+
+[Recap: kapitel 5 og overgangen til kapitel 6 (PDF)](downloads/recap-kapitel-05-06.pdf)
+
+Supplerende materiale: [Vejledende løsninger til opgave 6.1–6.5 (PDF)](downloads/kap6_loesninger.pdf) · [Regneark til opgaverne](downloads/kap6_opgaver.xlsx){download="kap6_opgaver.xlsx"}
 :::
 
 ::: {.chapter-card}
@@ -230,6 +234,7 @@ Fem øvelsessæt til arbejdet med lektionsnoterne.
 | 4 · Risikomål | Eksempel på varighed | [Hent Excel](downloads/Kapitel4_varighed_eksempel.xlsx){download="Kapitel4_varighed_eksempel.xlsx"} |
 | 5 · Dansk realkredit | 5.1–5.4 | [Hent Excel](downloads/Kapitel5_opgaver_vejledende_loesninger.xlsx){download="Kapitel5_opgaver_vejledende_loesninger.xlsx"} |
 | 5 · Dansk realkredit | F3-funding: ét lån, flere obligationer | [Hent Excel](downloads/Kapitel5_F3_funding.xlsx){download="Kapitel5_F3_funding.xlsx"} |
+| 6 · Konverteringsadfærd | 6.1–6.5 | [Hent Excel](downloads/kap6_opgaver.xlsx){download="kap6_opgaver.xlsx"} · [Løsninger (PDF)](downloads/kap6_loesninger.pdf) |
 
 ## Forberedelse
 

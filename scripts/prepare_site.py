@@ -137,6 +137,8 @@ for n,title in enumerate(titles,1):
         recap=f'\n[Recap: kapitel {previous} og overgangen til kapitel {n}](slides/chapters/recap-{previous:02}-{n:02}.qmd) · [PDF](downloads/recap-kapitel-{previous:02}-{n:02}.pdf)\n'
     if n == 5:
         recap='\n[Recap: kapitel 4 og overgangen til kapitel 5 (PDF)](downloads/recap-kapitel-04-05.pdf)\n\nSupplerende materiale: [F3-eksemplet – mellemregninger (PDF)](downloads/F3_mellemregninger.pdf) · [F3-funding i Excel](downloads/Kapitel5_F3_funding.xlsx){download="Kapitel5_F3_funding.xlsx"}\n'
+    if n == 6:
+        recap='\n[Recap: kapitel 5 og overgangen til kapitel 6 (PDF)](downloads/recap-kapitel-05-06.pdf)\n\nSupplerende materiale: [Vejledende løsninger til opgave 6.1–6.5 (PDF)](downloads/kap6_loesninger.pdf) · [Regneark til opgaverne](downloads/kap6_opgaver.xlsx){download="kap6_opgaver.xlsx"}\n'
     text+=f'''\n::: {{.chapter-card}}
 ::: {{.chapter-no}}
 Kapitel {n:02}
@@ -171,6 +173,7 @@ text+='''
 | 4 · Risikomål | Eksempel på varighed | [Hent Excel](downloads/Kapitel4_varighed_eksempel.xlsx){download="Kapitel4_varighed_eksempel.xlsx"} |
 | 5 · Dansk realkredit | 5.1–5.4 | [Hent Excel](downloads/Kapitel5_opgaver_vejledende_loesninger.xlsx){download="Kapitel5_opgaver_vejledende_loesninger.xlsx"} |
 | 5 · Dansk realkredit | F3-funding: ét lån, flere obligationer | [Hent Excel](downloads/Kapitel5_F3_funding.xlsx){download="Kapitel5_F3_funding.xlsx"} |
+| 6 · Konverteringsadfærd | 6.1–6.5 | [Hent Excel](downloads/kap6_opgaver.xlsx){download="kap6_opgaver.xlsx"} · [Løsninger (PDF)](downloads/kap6_loesninger.pdf) |
 
 ## Forberedelse
 
@@ -298,6 +301,7 @@ config='''project:
     - downloads/Kapitel4_varighed_eksempel.xlsx
     - downloads/Kapitel5_opgaver_vejledende_loesninger.xlsx
     - downloads/Kapitel5_F3_funding.xlsx
+    - downloads/kap6_opgaver.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*
