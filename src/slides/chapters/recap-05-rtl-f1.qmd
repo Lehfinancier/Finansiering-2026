@@ -6,10 +6,34 @@ format:
 ---
 
 <!--
-To slides til recap 5–6, indsat lige efter "RTL: fast rente frem til næste refinansiering".
+Ændringer til recap 5–6: første slide erstatter "Floateren: kuponen følger referencen" (slide 4).
+De to F1/F3-slides indsættes lige efter "RTL: fast rente frem til næste refinansiering".
 Figur: scripts/make_recap05_f1_figure.py → images/final/recap05-f1-rente-kurs.svg.
 Talgrundlag: F1 R = (1+c)/k − 1. F3 lån A er Astrup Jensen (2020), eks. 11.4; lån B er konstrueret med lavere kurser.
 -->
+
+## Floateren: låntager bærer renterisikoen
+
+::: {.columns}
+::: {.column width="50%"}
+![](../../images/final/ch05-fig013.svg){style="width: 100%; max-height: 300px; object-fit: contain;" fig-alt="Martsfixingen bestemmer kuponen ved betalingerne 1. juli og 1. oktober; septemberfixingen bestemmer de næste to."}
+:::
+::: {.column width="50%"}
+$$\text{Kupon}_t=\text{reference ved fixing}_t+q$$
+
+**Låntager:** renten fastsættes på ny ved hver fixing, typisk hvert halve år. Stiger referencerenten, stiger ydelsen.
+
+**Investor:** kuponen følger markedet, så kursen holder sig tæt på 100.
+:::
+:::
+
+Jo kortere rentebinding, jo oftere kan ydelsen stige: F-kort hvert halve år, F3 hvert tredje år, fast rente aldrig.
+
+[**Pensum:** slide 45–53 i kapitel 5 (auktion, marginer og asset swap) er ikke pensum. I skal kunne forklare, hvorfor floateren giver låntager mere renterisiko.]{style="font-size: 0.8em; color: #526770;"}
+
+::: {.notes}
+Svarer til kapitel 5, slide 44. Låntager bærer budgetrisikoen: ydelsen følger den korte rente. Investor har lav kursfølsomhed, fordi kuponen tilpasses ved hver fixing. Auktion på tillæg, fixingmetoder, quoted/discount margin og asset swap (kapitel 5, slide 45–53) er taget ud af pensum.
+:::
 
 ## F1: auktionskursen bestemmer låntagers rente
 
