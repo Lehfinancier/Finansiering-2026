@@ -41,14 +41,14 @@ Excel-arkets ligningssystem sørger kun for, at betalingerne passer hvert år. R
 
 | Kupon 1% på alle | Kurs 1-årig | Kurs 2-årig | Kurs 3-årig | Eff. rente 3-årig | Låntagers rente $\bar R$ |
 |---|---:|---:|---:|---:|---:|
-| Lån A (bogen) | 99,0 | 97,5 | 96,0 | 2,40% | **2,40%** |
-| Lån B (ringere auktion) | 98,5 | 96,0 | 94,0 | 3,13% | **3,12%** |
+| Lån A (bogen) | 99,0 | 97,5 | 96,0 | 2,398% | **2,395%** |
+| Lån B (ringere auktion) | 98,5 | 96,0 | 94,0 | 3,126% | **3,122%** |
 
 Lavere kurs → mere nominelt skal udstedes for at skaffe $RG_0$ → mere skal betales tilbage via renten.
 
-Den treårige obligation skaffer 96–97% af provenuet, så $\bar R$ ligger tæt på dens effektive rente.
+Den treårige obligation skaffer 96–97% af provenuet, så $\bar R$ ligger tæt på dens effektive rente, men lidt under, fordi de korte obligationer har lavere renter.
 
-De to små obligationer udstedes også ved lånets start. De får betalingerne til investorerne i år 1 og 2 til at matche låntagers faste ydelse præcist (balanceprincippet).
+De to små obligationer sælges også ved lånets start, typisk ved at udstede flere af stående obligationer, der allerede handles i markedet. De får betalingerne til investorerne i år 1 og 2 til at matche låntagers faste ydelse.
 
 ::: {.notes}
 Lån A er Astrup Jensen (2020), eksempel 11.4: N1 = 13.541, N2 = 13.676, N3 = 1.013.813 kr. og R = 2,3951%. Lån B med samme opskrift: N1 = 20.594, N2 = 20.800, N3 = 1.021.008 kr. og R = 3,1218%. Effektive renter på de korte obligationer: A 2,02% og 2,29%, B 2,54% og 3,09%. Uden hjælpeobligationerne ville låntagers ydelse i år 1 og 2 (ca. 2,4% af RG0) overstige kuponen på den treårige (ca. 1%), så ind- og udbetalinger ikke matchede. Overskuddet bruges til at indfri de små obligationer, så kurstabet fordeles jævnt over de tre år.
