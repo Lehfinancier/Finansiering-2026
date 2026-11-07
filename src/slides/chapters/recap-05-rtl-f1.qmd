@@ -1,0 +1,55 @@
+---
+pagetitle: "Recap: hvad bestemmer renten på et RTL-lån?"
+format:
+  revealjs:
+    title-slide: false
+---
+
+<!--
+To slides til recap 5–6, indsat lige efter "RTL: fast rente frem til næste refinansiering".
+Figur: scripts/make_recap05_f1_figure.py → images/final/recap05-f1-rente-kurs.svg.
+Talgrundlag: F1 R = (1+c)/k − 1. F3 lån A er Astrup Jensen (2020), eks. 11.4; lån B er konstrueret med lavere kurser.
+-->
+
+## F1: auktionskursen bestemmer låntagers rente
+
+::: {.columns}
+::: {.column width="44%"}
+Én etårig obligation, kupon $c$, kurs $k_0$:
+
+År 0: $k_0N=RG_0$\
+År 1: $(1+c)N=(1+\bar R)RG_0$
+
+$$\bar R=\frac{1+c}{k_0}-1=\underbrace{\frac{c}{k_0}}_{\text{kupon}}+\underbrace{\frac{1-k_0}{k_0}}_{\text{kurstab}}$$
+
+$c=1\%$, $k_0=0{,}99$: $\bar R=1{,}01\%+1{,}01\%=2{,}02\%$.
+
+**Lav kurs → højere rente.** En høj kupon er ikke dyr i sig selv.
+:::
+::: {.column width="56%"}
+![](../../images/final/recap05-f1-rente-kurs.svg){style="height: 440px; max-height: 440px;" fig-alt="Låntagers F1-rente som funktion af auktionskursen for kupon 1, 2 og 3 procent."}
+:::
+:::
+
+::: {.notes}
+Isolér N i år 0 og sæt ind i år 1: RG0 går ud, og R = (1+c)/k0 − 1. Det er den etårige obligations effektive rente, y_1 i kursformlen på forrige slide. Med RG0 = 1 mio. kr., c = 1% og kurs 99 skal der udstedes N = 1.010.101 kr. nominelt; låntager betaler 20.202 kr. i rente, og ny funding giver 1 mio. kr. Kurstabet på 1 kurspoint betales over ét år. Kurs 98 giver 3,06%. Høj kupon: investor betaler overkurs, så 3% til kurs 101 (1,98%) koster næsten det samme som 1% til kurs 99 (2,02%). Samme kupon: lavere kurs → højere rente. Samme kurs: højere kupon → højere rente. Renten er før bidrag.
+:::
+
+## F3: samme logik med tre obligationer
+
+Excel-arkets ligningssystem sørger kun for, at betalingerne passer hvert år. Renten drives af kurserne.
+
+| Kupon 1% på alle | Kurs 1-årig | Kurs 2-årig | Kurs 3-årig | Eff. rente 3-årig | Låntagers rente $\bar R$ |
+|---|---:|---:|---:|---:|---:|
+| Lån A (bogen) | 99,0 | 97,5 | 96,0 | 2,40% | **2,40%** |
+| Lån B (ringere auktion) | 98,5 | 96,0 | 94,0 | 3,13% | **3,12%** |
+
+Lavere kurs → mere nominelt skal udstedes for at skaffe $RG_0$ → mere skal betales tilbage via renten.
+
+Den treårige obligation skaffer 96–97% af provenuet, så $\bar R$ ligger tæt på dens effektive rente.
+
+**Til eksamen:** forklar forskellen på to RTL-renter ud fra kurserne i forhold til kuponerne.
+
+::: {.notes}
+Lån A er Astrup Jensen (2020), eksempel 11.4: N1 = 13.541, N2 = 13.676, N3 = 1.013.813 kr. og R = 2,3951%. Lån B med samme opskrift: N1 = 20.594, N2 = 20.800, N3 = 1.021.008 kr. og R = 3,1218%. Effektive renter på de korte obligationer: A 2,02% og 2,29%, B 2,54% og 3,09%. Eksamensformulering: giv F3-renten for to lån samt kurser og kuponer, og bed de studerende forklare forskellen.
+:::
