@@ -48,6 +48,8 @@ Lavere kurs → mere nominelt skal udstedes for at skaffe $RG_0$ → mere skal b
 
 Den treårige obligation skaffer 96–97% af provenuet, så $\bar R$ ligger tæt på dens effektive rente.
 
+De to små obligationer udstedes også ved lånets start. De får betalingerne til investorerne i år 1 og 2 til at matche låntagers faste ydelse præcist (balanceprincippet).
+
 ::: {.notes}
-Lån A er Astrup Jensen (2020), eksempel 11.4: N1 = 13.541, N2 = 13.676, N3 = 1.013.813 kr. og R = 2,3951%. Lån B med samme opskrift: N1 = 20.594, N2 = 20.800, N3 = 1.021.008 kr. og R = 3,1218%. Effektive renter på de korte obligationer: A 2,02% og 2,29%, B 2,54% og 3,09%.
+Lån A er Astrup Jensen (2020), eksempel 11.4: N1 = 13.541, N2 = 13.676, N3 = 1.013.813 kr. og R = 2,3951%. Lån B med samme opskrift: N1 = 20.594, N2 = 20.800, N3 = 1.021.008 kr. og R = 3,1218%. Effektive renter på de korte obligationer: A 2,02% og 2,29%, B 2,54% og 3,09%. Uden hjælpeobligationerne ville låntagers ydelse i år 1 og 2 (ca. 2,4% af RG0) overstige kuponen på den treårige (ca. 1%), så ind- og udbetalinger ikke matchede. Overskuddet bruges til at indfri de små obligationer, så kurstabet fordeles jævnt over de tre år.
 :::
