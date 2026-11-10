@@ -20,12 +20,12 @@ format:
 :::
 :::
 
-5% NYK 2053, pr. 100 nominel fra 1. januar 2025. **Akserne har forskellig skala.** Den grønne rates periode er ikke dokumenteret. Kilde: Vitec Scanrate.
+5% NYK 2053, pr. 100 nominel fra 1. januar 2025. **Akserne har forskellig skala.** Den grønne kurve viser Scanrates konverteringsrate. Kilde: Vitec Scanrate.
 
 Når låntager indfrier, bortfalder de senere renter og afdrag på lånet. Investor skal ofte geninvestere pengene til en lavere rente.
 
 ::: {.notes}
-Recap af kapitel 6 og overgang til kapitel 7. Sammenlign betalingstidspunkter og den lange hale, ikke søjlernes højder direkte. Figuren til venstre har en venstre akse til 1,8, figuren til højre til 14. Den grønne leverandørrates periode er ikke dokumenteret og skal ikke aflæses som kapitlets kvartals-CPR. Begge figurer er fra den aktive bogs kapitel 6. Låntager har retten til pariindfrielse; investor ejer derfor en betalingsrække, som låntager kan afbryde. Spørg: Hvorfor er en høj kupon mindre værd, hvis låntager kan indfri netop efter et rentefald?
+Recap af kapitel 6 og overgang til kapitel 7. Sammenlign betalingstidspunkter og den lange hale, ikke søjlernes højder direkte. Figuren til venstre har en venstre akse til 1,8, figuren til højre til 14. Den grønne kurve er Scanrates konverteringsrate og aflæses på højre akse. Begge figurer er fra den aktive bogs kapitel 6 med Vitec Scanrate som kilde. Låntager har retten til pariindfrielse; investor ejer derfor en betalingsrække, som låntager kan afbryde. Spørg: Hvorfor er en høj kupon mindre værd, hvis låntager kan indfri netop efter et rentefald?
 :::
 
 ## Hvad får investor udbetalt ved 3% CPR?
