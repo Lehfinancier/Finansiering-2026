@@ -175,6 +175,8 @@ Kapitel 07
 [Vis slides](slides/chapters/07.qmd){.primary-link}
 
 [Download slides som PDF](downloads/kapitel-07.pdf){download="kapitel-07.pdf"}
+
+[Recap: kapitel 6 og overgangen til kapitel 7 (PDF)](downloads/recap-kapitel-06-07.pdf)
 :::
 
 ::: {.chapter-card}

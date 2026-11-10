@@ -139,6 +139,8 @@ for n,title in enumerate(titles,1):
         recap='\n[Recap: kapitel 4 og overgangen til kapitel 5 (PDF)](downloads/recap-kapitel-04-05.pdf)\n\nSupplerende materiale: [F3-eksemplet – mellemregninger (PDF)](downloads/F3_mellemregninger.pdf) · [F3-funding i Excel](downloads/Kapitel5_F3_funding.xlsx){download="Kapitel5_F3_funding.xlsx"}\n'
     if n == 6:
         recap='\n[Recap: kapitel 5 og overgangen til kapitel 6 (PDF)](downloads/recap-kapitel-05-06.pdf)\n\nSupplerende materiale: [Vejledende løsninger til opgave 6.1–6.5 (PDF)](downloads/kap6_loesninger.pdf) · [Regneark til opgaverne](downloads/kap6_opgaver.xlsx){download="kap6_opgaver.xlsx"}\n'
+    if n == 7:
+        recap='\n[Recap: kapitel 6 og overgangen til kapitel 7 (PDF)](downloads/recap-kapitel-06-07.pdf)\n'
     text+=f'''\n::: {{.chapter-card}}
 ::: {{.chapter-no}}
 Kapitel {n:02}
