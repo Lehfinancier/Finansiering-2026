@@ -177,6 +177,8 @@ Kapitel 07
 [Download slides som PDF](downloads/kapitel-07.pdf){download="kapitel-07.pdf"}
 
 [Recap: kapitel 6 og overgangen til kapitel 7 (PDF)](downloads/recap-kapitel-06-07.pdf)
+
+Supplerende materiale: [Vejledende løsninger til opgave 7.1–7.6 (PDF)](downloads/kap7_loesninger.pdf) · [Regneark til opgaverne](downloads/kap7_opgaver.xlsx){download="kap7_opgaver.xlsx"}
 :::
 
 ::: {.chapter-card}
@@ -237,6 +239,7 @@ Fem øvelsessæt til arbejdet med lektionsnoterne.
 | 5 · Dansk realkredit | 5.1–5.4 | [Hent Excel](downloads/Kapitel5_opgaver_vejledende_loesninger.xlsx){download="Kapitel5_opgaver_vejledende_loesninger.xlsx"} |
 | 5 · Dansk realkredit | F3-funding: ét lån, flere obligationer | [Hent Excel](downloads/Kapitel5_F3_funding.xlsx){download="Kapitel5_F3_funding.xlsx"} |
 | 6 · Konverteringsadfærd | 6.1–6.5 | [Hent Excel](downloads/kap6_opgaver.xlsx){download="kap6_opgaver.xlsx"} · [Løsninger (PDF)](downloads/kap6_loesninger.pdf) |
+| 7 · Prisfastsættelse og nøgletal | 7.1–7.6 | [Hent Excel](downloads/kap7_opgaver.xlsx){download="kap7_opgaver.xlsx"} · [Løsninger (PDF)](downloads/kap7_loesninger.pdf) |
 
 ## Forberedelse
 

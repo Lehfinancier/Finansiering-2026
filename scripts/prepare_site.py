@@ -140,7 +140,7 @@ for n,title in enumerate(titles,1):
     if n == 6:
         recap='\n[Recap: kapitel 5 og overgangen til kapitel 6 (PDF)](downloads/recap-kapitel-05-06.pdf)\n\nSupplerende materiale: [Vejledende løsninger til opgave 6.1–6.5 (PDF)](downloads/kap6_loesninger.pdf) · [Regneark til opgaverne](downloads/kap6_opgaver.xlsx){download="kap6_opgaver.xlsx"}\n'
     if n == 7:
-        recap='\n[Recap: kapitel 6 og overgangen til kapitel 7 (PDF)](downloads/recap-kapitel-06-07.pdf)\n'
+        recap='\n[Recap: kapitel 6 og overgangen til kapitel 7 (PDF)](downloads/recap-kapitel-06-07.pdf)\n\nSupplerende materiale: [Vejledende løsninger til opgave 7.1–7.6 (PDF)](downloads/kap7_loesninger.pdf) · [Regneark til opgaverne](downloads/kap7_opgaver.xlsx){download="kap7_opgaver.xlsx"}\n'
     text+=f'''\n::: {{.chapter-card}}
 ::: {{.chapter-no}}
 Kapitel {n:02}
@@ -176,6 +176,7 @@ text+='''
 | 5 · Dansk realkredit | 5.1–5.4 | [Hent Excel](downloads/Kapitel5_opgaver_vejledende_loesninger.xlsx){download="Kapitel5_opgaver_vejledende_loesninger.xlsx"} |
 | 5 · Dansk realkredit | F3-funding: ét lån, flere obligationer | [Hent Excel](downloads/Kapitel5_F3_funding.xlsx){download="Kapitel5_F3_funding.xlsx"} |
 | 6 · Konverteringsadfærd | 6.1–6.5 | [Hent Excel](downloads/kap6_opgaver.xlsx){download="kap6_opgaver.xlsx"} · [Løsninger (PDF)](downloads/kap6_loesninger.pdf) |
+| 7 · Prisfastsættelse og nøgletal | 7.1–7.6 | [Hent Excel](downloads/kap7_opgaver.xlsx){download="kap7_opgaver.xlsx"} · [Løsninger (PDF)](downloads/kap7_loesninger.pdf) |
 
 ## Forberedelse
 
@@ -304,6 +305,7 @@ config='''project:
     - downloads/Kapitel5_opgaver_vejledende_loesninger.xlsx
     - downloads/Kapitel5_F3_funding.xlsx
     - downloads/kap6_opgaver.xlsx
+    - downloads/kap7_opgaver.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*

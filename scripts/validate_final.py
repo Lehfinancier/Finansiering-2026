@@ -61,15 +61,15 @@ if edition_file.exists():
 else:
     require((DOCS/'downloads/Kurs100-2026.pdf').read_bytes()==(WORK/'sources/book/main.pdf').read_bytes(),'Book download mismatch')
 expected={f'kapitel-{n:02}.pdf' for n in range(0,11)}|{f'OS{n}.pdf' for n in range(1,6)}|{'Kurs100-2026.pdf'}
-expected |= {'recap-kapitel-02-03.pdf','recap-kapitel-03-04.pdf','recap-kapitel-04-05.pdf','F3_mellemregninger.pdf','recap-kapitel-05-06.pdf','recap-kapitel-06-07.pdf','kap6_loesninger.pdf'}
+expected |= {'recap-kapitel-02-03.pdf','recap-kapitel-03-04.pdf','recap-kapitel-04-05.pdf','F3_mellemregninger.pdf','recap-kapitel-05-06.pdf','recap-kapitel-06-07.pdf','kap6_loesninger.pdf','kap7_loesninger.pdf'}
 require({p.name for p in DOCS.rglob('*.pdf')}==expected,'Unexpected or missing public PDFs')
-excel_downloads={'kapitel-02-beregninger.xlsx','kapitel-03-beregninger.xlsx','kapitel-04-beregninger.xlsx','Kapitel4_varighed_eksempel.xlsx','Kapitel5_opgaver_vejledende_loesninger.xlsx','Kapitel5_F3_funding.xlsx','kap6_opgaver.xlsx'}
+excel_downloads={'kapitel-02-beregninger.xlsx','kapitel-03-beregninger.xlsx','kapitel-04-beregninger.xlsx','Kapitel4_varighed_eksempel.xlsx','Kapitel5_opgaver_vejledende_loesninger.xlsx','Kapitel5_F3_funding.xlsx','kap6_opgaver.xlsx','kap7_opgaver.xlsx'}
 require({p.name for p in DOCS.rglob('*.xlsx')}==excel_downloads,'Unexpected or missing Excel downloads')
 for name in excel_downloads:
     public=DOCS/'downloads'/name
     require(public.exists() and public.read_bytes()==(ROOT/'src/downloads'/name).read_bytes(),'Excel download mismatch: '+name)
 require(len(list((DOCS/'slides').rglob('*.html')))==13,'Stale or missing public decks')
-public_solution_files={'Kapitel5_opgaver_vejledende_loesninger.xlsx','kap6_loesninger.pdf'}  # bevidst publicerede kapitelløsninger
+public_solution_files={'Kapitel5_opgaver_vejledende_loesninger.xlsx','kap6_loesninger.pdf','kap7_loesninger.pdf'}  # bevidst publicerede kapitelløsninger
 for path in DOCS.rglob('*'):
     if path.is_file() and path.name not in public_solution_files:require(not re.search(r'loesning|løsning|_med_|\.tex$|\.qmd$',str(path.relative_to(DOCS)),re.I),f'Private source/solution output: {path}')
 for path in DOCS.rglob('*.html'):

@@ -1,0 +1,384 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage{lmodern,amsmath,amssymb,booktabs,array,tabularx,xcolor}
+\usepackage[margin=2.3cm,top=2.5cm,bottom=2.3cm,headheight=14pt]{geometry}
+\usepackage{fancyhdr,enumitem,tcolorbox,titlesec,microtype}
+\definecolor{navy}{HTML}{193D50}
+\definecolor{teal}{HTML}{008D91}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small KURS 100 $\cdot$ Finansiering 2026}
+\fancyhead[R]{\small Kapitel 7: vejledende løsninger}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\AtBeginDocument{\setlength{\abovedisplayskip}{7pt}\setlength{\belowdisplayskip}{7pt}\setlength{\abovedisplayshortskip}{4pt}\setlength{\belowdisplayshortskip}{4pt}}
+\setlist[itemize]{leftmargin=1.3em,itemsep=3pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=1.5em,itemsep=3pt,topsep=3pt}
+\titleformat{\section}{\large\bfseries\color{navy}}{}{0pt}{}[\color{teal}\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries\color{navy}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{8pt}{9pt}
+\titlespacing*{\subsection}{0pt}{9pt}{3pt}
+\tcbset{colback=black!2,colframe=black!20,boxrule=0.4pt,arc=2pt,left=7pt,right=7pt,top=5pt,bottom=5pt,fonttitle=\bfseries,coltitle=navy,colbacktitle=black!6}
+\newcommand{\opgave}[1]{\section*{#1}}
+\newcommand{\del}[1]{\subsection*{#1}}
+\newcommand{\pp}{\text{pp}}
+\newcommand{\bp}{\text{bp}}
+\begin{document}
+{\Large\bfseries\color{navy} Prisfastsættelse og nøgletal}\par
+Vejledende løsninger til opgave 7.1--7.6
+
+Kurser og betalinger er pr. 100 nominel, medmindre andet er angivet. Vi regner med uafrundede tal og afrunder først svarene. Excel-filen følger samme opgavenumre.
+
+\opgave{Opgave 7.1: fra betalingsrækker til modelpris}
+\begin{tcolorbox}[title=Opgavebeskrivelse]
+Beregn stiværdier og modelpris. Sammenlign med separate gennemsnit af betalinger og diskonteringsfaktorer, og forklar prisningsvægtene.
+\begin{center}\begin{tabular}{lrrrrr}\toprule
+Sti & Vægt & Betaling 1 & Betaling 2 & DF 1 & DF 2\\\midrule
+A & 0,40 & 13,05 & 89,3025 & 0,990 & 0,985\\
+B & 0,60 & 5,21 & 97,2405 & 0,990 & 0,975\\\bottomrule
+\end{tabular}\end{center}
+\end{tcolorbox}
+\del{(a) Beregn først nutidsværdien på hver sti}
+En stiværdi er summen af de diskonterede betalinger på netop den sti:
+\[
+\begin{aligned}
+P^{(A)}&=13{,}05\cdot0{,}990+89{,}3025\cdot0{,}985=100{,}8824625,\\
+P^{(B)}&=5{,}21\cdot0{,}990+97{,}2405\cdot0{,}975=99{,}9673875.
+\end{aligned}
+\]
+Dernæst bruges prisningsvægtene:
+\[
+P_{\mathrm{model}}=0{,}40\cdot100{,}8824625+0{,}60\cdot99{,}9673875
+=\boxed{100{,}3334175}.
+\]
+\del{(b) Hvorfor skal betaling og faktor høre til samme sti?}
+Renten påvirker både låntagernes indfrielse og den rente, investor diskonterer med. På sti A kommer mere af hovedstolen tidligt tilbage. På sti B kommer mere senere. Hver betalingsrække skal derfor værdiansættes med de faktorer, som hører til samme renteforløb.
+
+\del{(c) Separate gennemsnit giver en anden pris}
+De vægtede gennemsnit bliver:
+\[
+\begin{aligned}
+\overline{CF}_1&=0{,}40\cdot13{,}05+0{,}60\cdot5{,}21=8{,}346, &\overline{DF}_1&=0{,}990,\\
+\overline{CF}_2&=0{,}40\cdot89{,}3025+0{,}60\cdot97{,}2405=94{,}0653,
+&\overline{DF}_2&=0{,}979.
+\end{aligned}
+\]
+Prisen med denne metode er
+\[
+8{,}346\cdot0{,}990+94{,}0653\cdot0{,}979=100{,}3524687.
+\]
+Det er $100{,}3524687-100{,}3334175=\mathbf{0{,}0190512}$ kurspoint for højt. På termin 2 hører den store betaling på B sammen med den lave faktor 0,975. Gennemsnit hver for sig bryder denne sammenhæng.
+
+\del{(d) Er 0,40 en prognosesandsynlighed?}
+Nej. Det er en \textbf{prisningsvægt}. Den bruges sammen med modellens diskonteringsfaktorer til at prissætte risiko. Den siger ikke, at sti A vil forekomme i 40\% af de faktiske forløb. En prognosesandsynlighed forsøger derimod at beskrive, hvor sandsynligt et forløb faktisk er.
+
+\newpage
+\opgave{Opgave 7.2: konverteringsrettens værdi}
+\begin{tcolorbox}[title=Opgavebeskrivelse]
+På næste termin betales 4 i rente pr. 100 oprindelig nominel. Ingen ordinære afdrag. Diskonteringsrenten frem til terminen er 2\%.
+\begin{center}\small\begin{tabular}{lrrr}\toprule
+Scenarie & Vægt & CPR & Værdi pr. 100 fortsættende\\\midrule
+Højere rente & 0,30 & 0\% & 94\\
+Mellemste rente & 0,40 & 0\% & 100\\
+Lavere rente & 0,30 & 30\% & 108\\\bottomrule
+\end{tabular}\end{center}
+Sammenlign priser med og uden den ekstraordinære indfrielse.
+\end{tcolorbox}
+\del{(a) Lavere rente: hvad betales, og hvad bliver tilbage?}
+Der indfries $0{,}30\cdot100=30$ til pari. Investor får både renten og indfrielsen:
+\[
+\text{Betaling}=4+30=\boxed{34}.
+\]
+Der er $100-30=70$ nominel tilbage. Værdien 108 gælder pr. 100 \emph{fortsættende} nominel, så værdien af de tilbageværende 70 er
+\[
+\text{Fortsættende værdi}=\frac{70}{100}\cdot108=\boxed{75{,}60}.
+\]
+De 75,60 er en værdi på terminen, ikke endnu en kontant betaling. Betaling og fortsættende værdi udgør tilsammen $34+75{,}60=109{,}60$.
+
+\del{(b) Den konverterbare pris i dag}
+I de to andre scenarier sker ingen indfrielse. Derfor er de samlede værdier henholdsvis $4+94=98$ og $4+100=104$.
+\[
+P_{\mathrm{konv}}=\frac{0{,}30\cdot98+0{,}40\cdot104+0{,}30\cdot109{,}60}{1{,}02}
+=\boxed{101{,}8431}.
+\]
+
+\del{(c) Pris uden indfrielsen og optionens værdi}
+Uden den ekstraordinære indfrielse er der også 100 nominel tilbage ved lavere rente. Den samlede værdi bliver da $4+108=112$. De øvrige scenarier ændres ikke:
+\[
+P_{\mathrm{uden}}=\frac{0{,}30\cdot98+0{,}40\cdot104+0{,}30\cdot112}{1{,}02}
+=102{,}5490196.
+\]
+Konverteringsrettens værdi i denne sammenligning er
+\[
+V_{\mathrm{call}}=P_{\mathrm{uden}}-P_{\mathrm{konv}}
+=102{,}5490196-101{,}8431373=\boxed{0{,}7059\text{ kurspoint}}.
+\]
+
+\del{(d) Hvor kommer forskellen fra?}
+Ved lavere rente får investor 100 for en del, som ellers havde værdi 108. Tabet er $30\%\cdot(108-100)=2{,}40$. Vægtning og diskontering giver samme optionsværdi:
+\[
+V_{\mathrm{call}}=\frac{0{,}30\cdot2{,}40}{1{,}02}=0{,}7058824.
+\]
+Låntager ejer retten, og investor har afgivet den: $P_{\mathrm{konv}}=P_{\mathrm{uden}}-V_{\mathrm{call}}$.
+De oplyste fortsættelsesværdier bevares i begge beregninger.
+
+\newpage
+\opgave{Opgave 7.3: OAS fra diskontering til kalibrering}
+\begin{tcolorbox}[title=Opgavebeskrivelse]
+Årlige betalinger: 6, 6 og 106. Swapkurvens renter for de tre tidspunkter: 2,0\%, 2,2\% og 2,4\%. Alle renter har årlig rentetilskrivning. Betalingerne er faste under OAS-kalibreringen.
+\[
+P(s)=\frac{6}{1{,}020+s}+\frac{6}{(1{,}022+s)^2}+\frac{106}{(1{,}024+s)^3}.
+\]
+Beregn priserne ved $s=0$ og $s=0{,}005$. Find et interval for OAS ved markedskurs 109,50, og forklar, hvordan intervallet kan indsnævres.
+\end{tcolorbox}
+\del{(a) To priser med samme betalinger}
+OAS lægges til renten for \emph{hver} betaling. Ved OAS = 0:
+\[
+\begin{aligned}
+P(0)&=\frac{6}{1{,}020}+\frac{6}{1{,}022^2}+\frac{106}{1{,}024^3}\\
+&=5{,}8823529+5{,}7444633+98{,}7201929=\boxed{110{,}3470}.
+\end{aligned}
+\]
+OAS = 0,50\% skrives som decimaltallet 0,005:
+\[
+\begin{aligned}
+P(0{,}005)&=\frac{6}{1{,}025}+\frac{6}{1{,}027^2}+\frac{106}{1{,}029^3}\\
+&=5{,}8536585+5{,}6886651+97{,}2881043=\boxed{108{,}8304}.
+\end{aligned}
+\]
+Højere OAS giver lavere nutidsværdi af de samme betalinger.
+
+\del{(b) OAS skal være positivt og under 50 bp}
+Modelprisen ved OAS = 0 er højere end markedskursen. Vi skal derfor øge diskonteringen for at få modelprisen ned. Da
+\[
+108{,}8304<109{,}50<110{,}3470,
+\]
+ligger løsningen mellem $0$ og $0{,}005$, dvs. \textbf{mellem 0 og 50 bp}.
+
+\del{(c) Prøv en rente, beregn en pris, og justér}
+En enkel metode er at halvere intervallet:
+\begin{enumerate}
+\item Prøv 25 bp. Prisen bliver 109,5851, som er for høj. OAS skal være højere.
+\item Prøv midten af 25 og 50 bp: 37,5 bp. Prisen bliver 109,2069, som er for lav. OAS skal være lavere.
+\item Fortsæt mellem 25 og 37,5 bp. Hver beregning indsnævrer intervallet.
+\end{enumerate}
+Ved fortsat indsnævring fås
+\[
+\boxed{OAS\approx27{,}8070\ \bp=0{,}278070\%=0{,}00278070}.
+\]
+Dette giver modelpris 109,50. I Excel vises halveringen trin for trin. Man kan også bruge \emph{Målsøgning}: sæt modelprisen i D20 til 109,50 ved at ændre OAS i B12 på arket 7.3.
+
+\newpage
+\opgave{Opgave 7.3: hvad fortæller OAS?}
+\del{(d) Hvorfor kan ændret CPR give en anden OAS?}
+CPR afgør, hvor meget hovedstol der kommer tilbage tidligt, og hvor mange fremtidige kuponer investor får. En ny CPR-antagelse kan derfor give en ny modelpris, selv om swapkurven og OAS er uændrede.
+
+Hvis markedskursen stadig er den samme, skal OAS justeres, indtil den nye modelpris igen rammer markedet. Derfor afhænger den beregnede OAS også af konverteringsmodellen.
+
+For en højkuponobligation vil mere pariindfrielse typisk sænke modelprisen. For at komme tilbage til samme markedskurs kan modellen da kræve et lavere OAS. Retningen er ikke ens for alle obligationer; den afhænger af de betalinger, som ændres.
+
+\begin{tcolorbox}[title=To forskellige ændringer]
+\textbf{Under én OAS-kalibrering:} Betalingerne holdes fast, mens OAS justeres.
+
+\textbf{Ved en ny CPR-antagelse:} Først beregnes nye betalinger. Derefter kalibreres OAS på ny til den samme markedskurs.
+\end{tcolorbox}
+
+\del{(e) OAS, debitorspænd og kreditrisiko}
+\textbf{Debitorspændet påvirker låntager.} Det lægges til swapkurven for at beskrive låntagers refinansieringsvilkår. Et højere debitorspænd gør det nye lån dyrere. Det kan sænke Gain og CPR og dermed ændre investors betalinger.
+
+\textbf{OAS påvirker investors diskontering.} Det er det spænd, der får modelprisen til at svare til markedskursen, når de øvrige modelantagelser fastholdes. Det er en beregnet størrelse; markedet giver os kursen.
+
+\textbf{OAS er ikke kun kreditrisiko.} Det kan også afspejle likviditet, udbud og efterspørgsel samt fejl i modellens renter eller konverteringsantagelser. To modeller kan derfor beregne forskellig OAS for samme markedskurs.
+
+\del{Hvad betyder negativt OAS?}
+Et negativt OAS sænker diskonteringsrenten og løfter modelprisen. Det er nødvendigt, når markedskursen er \textbf{højere} end modelprisen ved OAS = 0. Det betyder ikke, at obligationen er uden risiko.
+
+\begin{center}\begin{tabular}{lll}\toprule
+Ved OAS = 0 & For at ramme markedet & OAS\\\midrule
+Modelpris over markedskurs & Mere diskontering & Positivt\\
+Modelpris under markedskurs & Mindre diskontering & Negativt\\\bottomrule
+\end{tabular}\end{center}
+
+I denne opgave er betalingerne allerede fastlagt. Vi træner diskontering og kalibrering. I en fuld model kommer de usikre betalinger fra rente- og konverteringsmodellen.
+
+\newpage
+\opgave{Opgave 7.4: varighed og konveksitet}
+\begin{tcolorbox}[title=Opgavebeskrivelse]
+Modellen bruger en flad 3\%-kurve, OAS = 0 og poolfaktor 1. Ved parallelle rentestød genberegnes modellens CPR og betalinger; øvrige input fastholdes.
+\begin{center}\begin{tabular}{lrr}\toprule
+Modelpris & NYK 6\% 2053 & NYK 1\% 2050\\\midrule
+Startkurs & 104,91238 & 78,00841\\
+15 bp ned & 104,97581 & 78,97836\\
+15 bp op & 104,80074 & 77,04093\\\bottomrule
+\end{tabular}\end{center}
+Beregn kronevarighed, PVBP og kronekonveksitet. Forklar forskellen mellem obligationerne og mellem negativ varighed og negativ konveksitet.
+\end{tcolorbox}
+\del{(a) Kronevarighed og PVBP}
+Med $h=0{,}15$ procentpoint er
+\[
+KV=\frac{P(-h)-P(+h)}{2h},\qquad PVBP=\frac{KV}{100}.
+\]
+For de to obligationer:
+\[
+\begin{aligned}
+KV_{6\%}&=\frac{104{,}97581-104{,}80074}{2\cdot0{,}15}=0{,}5835667,\\
+KV_{1\%}&=\frac{78{,}97836-77{,}04093}{2\cdot0{,}15}=6{,}4581000.
+\end{aligned}
+\]
+KV måles i \textbf{kurspoint pr. procentpoint}. PVBP måles i \textbf{kurspoint pr. basispunkt}. Dermed er PVBP henholdsvis \textbf{0,0058357} og \textbf{0,0645810}.
+
+\del{(b) Kronekonveksitet og enheder}
+\[
+\begin{aligned}
+\mathrm{Cvx}_{6\%}&=\frac{104{,}97581+104{,}80074-2\cdot104{,}91238}{0{,}15^2}
+=\boxed{-2{,}1426667},\\
+\mathrm{Cvx}_{1\%}&=\frac{78{,}97836+77{,}04093-2\cdot78{,}00841}{0{,}15^2}
+=\boxed{0{,}1097778}.
+\end{aligned}
+\]
+Enheden er kurspoint pr. procentpoint i anden. Husk:
+\[
+15\ \bp=0{,}15\text{ procentpoint}=0{,}0015\text{ i decimalrente}.
+\]
+Formlen bruger procentpoint, så vi indsætter 0,15. Med 0,0015 bliver nævneren $100^2=10.000$ gange mindre og tallet tilsvarende større. Det er da et mål i en anden enhed.
+
+\del{(c--d) Hvad viser tallene?}
+Lavkuponen har den største KV. Dens betalinger forventes at fortsætte længe. Højkuponen indfries lettere ved rentefald, så investor mister en del af de attraktive kuponer. Det begrænser kursgevinsten. Ved rentestigning kan konverteringen aftage, og betalingerne blive længere.
+
+\textbf{Begge obligationer har positiv varighed.} Højkuponen har samtidig negativ konveksitet: kurven krummer nedad. Negativ varighed ville betyde, at en lille rentestigning \emph{hæver} prisen. Det er ikke det, tallene viser.
+
+\newpage
+\opgave{Opgave 7.4: frivillig udvidelse med $\pm50$ bp}
+\del{Brug både varighed og konveksitet}
+Kapitlets approksimation er
+\[
+\boxed{\Delta P\approx-KV\,\Delta y_{\pp}+\frac12\mathrm{Cvx}_{\mathrm{KR}}(\Delta y_{\pp})^2}.
+\]
+Her er $\Delta y_{\pp}$ renteændringen i procentpoint. Et rentefald på 50 bp er $-0{,}50$ procentpoint, og en rentestigning på 50 bp er $+0{,}50$ procentpoint.
+
+\del{NYK 6\% 2053}
+Ved 50 bp ned:
+\[
+\begin{aligned}
+\Delta P&\approx-0{,}5835667\cdot(-0{,}50)
++\tfrac12\cdot(-2{,}1426667)\cdot(-0{,}50)^2\\
+&=0{,}2917833-0{,}2678333=\boxed{+0{,}0239500}.
+\end{aligned}
+\]
+Ved 50 bp op:
+\[
+\Delta P\approx-0{,}2917833-0{,}2678333=\boxed{-0{,}5596167}.
+\]
+Konveksitetsleddet er negativt i begge retninger. Det reducerer den beregnede gevinst ved rentefald og øger det beregnede tab ved rentestigning.
+
+\del{NYK 1\% 2050}
+Ved 50 bp ned:
+\[
+\begin{aligned}
+\Delta P&\approx-6{,}4581\cdot(-0{,}50)
++\tfrac12\cdot0{,}1097778\cdot(-0{,}50)^2\\
+&=3{,}22905+0{,}0137222=\boxed{+3{,}2427722}.
+\end{aligned}
+\]
+Ved 50 bp op:
+\[
+\Delta P\approx-3{,}22905+0{,}0137222=\boxed{-3{,}2153278}.
+\]
+
+\begin{center}\begin{tabular}{lrrr}\toprule
+Obligation og stød & Varighedsled & Konveksitetsled & Kursændring\\\midrule
+6\%, 50 bp ned & $+0{,}2918$ & $-0{,}2678$ & $+0{,}0240$\\
+6\%, 50 bp op & $-0{,}2918$ & $-0{,}2678$ & $-0{,}5596$\\
+1\%, 50 bp ned & $+3{,}2291$ & $+0{,}0137$ & $+3{,}2428$\\
+1\%, 50 bp op & $-3{,}2291$ & $+0{,}0137$ & $-3{,}2153$\\\bottomrule
+\end{tabular}\end{center}
+Alle tal i tabellen er kurspoint. En estimeret ny kurs findes ved at lægge kursændringen til startkursen.
+
+\del{Hvorfor kan en fuld modelkørsel give et andet svar?}
+KV og konveksitet er målt tæt på udgangspunktet med stød på 15 bp. Ved et større stød på 50 bp kan CPR, de forventede betalinger og prisens krumning ændre sig betydeligt. Approksimationen bruger stadig de oprindelige nøgletal.
+
+En fuld modelkørsel beregner derimod nye betalinger og nye diskonteringsfaktorer ved hele rentestødet, mens OAS fastholdes. Især det meget lille estimerede plus for højkuponen ved rentefald bør derfor ikke opfattes som et præcist scenariefacit.
+
+\newpage
+\opgave{Opgave 7.5: CPR, pari og kronevarighed}
+\begin{tcolorbox}[title=Opgavebeskrivelse]
+Brug CPR-forsøget fra 4. september 2026. Raterne er årlige. Kurver og OAS holdes fast, og OAS genkalibreres ikke.
+\begin{center}\begin{tabular}{rrrrr}\toprule
+ & \multicolumn{2}{c}{NYK 6\% 2053} & \multicolumn{2}{c}{NYK 1\% 2050}\\
+Årlig CPR & Kurs & KV & Kurs & KV\\\midrule
+2\% & 114,00 & 6,75 & 85,92 & 5,00\\
+10\% & 105,06 & 2,34 & 95,20 & 2,03\\
+\bottomrule
+\end{tabular}\end{center}
+Tabellen viser de to niveauer, der sammenlignes i opgaven. Hele tabellen er med i Excel.
+\end{tcolorbox}
+\del{(a) Omregn via den andel, der bliver tilbage}
+\[
+CPR_{\mathrm{kvartal}}=1-(1-0{,}10)^{1/4}=0{,}0259963\approx\boxed{2{,}60\%}.
+\]
+Omvendt giver 5\% kvartalsvis CPR
+\[
+CPR_{\text{år}}=1-(1-0{,}05)^4=0{,}18549375\approx\boxed{18{,}55\%}.
+\]
+Vi ganger de tilbageværende andele sammen. At gange 5\% med fire ville overse, at hvert kvartals CPR virker på en mindre restgæld.
+
+\del{(b) Kursændringer fra 2\% til 10\% årlig CPR}
+\[
+\begin{aligned}
+\Delta P_{6\%}&=105{,}06-114{,}00=\boxed{-8{,}94\text{ kurspoint}},\\
+\Delta P_{1\%}&=95{,}20-85{,}92=\boxed{+9{,}28\text{ kurspoint}}.
+\end{aligned}
+\]
+\del{(c) Hvorfor er fortegnene forskellige?}
+For højkuponen forsvinder flere attraktive kuponer, når hovedstolen indfries tidligere til 100. Derfor falder kursen. For lavkuponen er tidligere betaling af 100 mere værd end de lave kuponer og den senere hovedstol, som den erstatter. Derfor stiger kursen i dette forsøg.
+
+\del{(d) KV falder i begge eksempler}
+KV falder fra 6,75 til 2,34 for højkuponen og fra 5,00 til 2,03 for lavkuponen. Faldet er henholdsvis \textbf{4,41 og 2,97 kurspoint pr. procentpoint}. Investor får hovedstolen tidligere tilbage, så betalingerne er udsat for renteændringer i kortere tid.
+
+Den valgte CPR holdes også fast under det rentestød, som måler KV. Denne KV medtager derfor \emph{ikke} en CPR-reaktion på renteændringen. I opgave 7.4 genberegnes CPR derimod ved rentestødet.
+
+\del{(e) Hvorfor er delivery option slået fra for lavkuponen?}
+Låntager kan normalt købe obligationer tilbage under kurs 100 og indfri med dem. Det er billigere end at betale 100. Denne mulighed er slået fra i forsøget med lavkuponen, så vi kan isolere virkningen af tidligere \textbf{pariindfrielse}.
+
+Resultatet er et kontrolleret følsomhedsforsøg. Det er ikke en prognose om, at låntagerne faktisk vil vælge at betale 100, når de kan købe obligationerne billigere.
+
+\newpage
+\opgave{Opgave 7.6: debitorspænd og OAS}
+\begin{tcolorbox}[title=Opgavebeskrivelse]
+NYK 6\% 2053, modelberegning 4. september 2026. De to forsøg har hver sin kalibrering. CPR er den samlede rate over de første fire fremtidige terminer.
+\begin{center}\small\begin{tabular}{lrrrr}\toprule
+Forsøg & Stød, bp & CPR & Kurs & Ændring, point\\\midrule
+Debitorspænd & $-100$ & 53,56\% & 103,92 & $-1{,}90$\\
+ & 0 & 32,08\% & 105,83 & 0,00\\
+ & $+100$ & 13,87\% & 108,90 & $+3{,}08$\\\midrule
+OAS & $-100$ & 32,11\% & 109,23 & $+3{,}40$\\
+ & 0 & 32,11\% & 105,83 & 0,00\\
+ & $+100$ & 32,11\% & 102,73 & $-3{,}09$\\\bottomrule
+\end{tabular}\end{center}
+Kursændringerne er aflæst i bogens egen kolonne. Afrundede kursniveauer kan give 0,01 kurspoints forskel ved direkte subtraktion.
+\end{tcolorbox}
+\del{(a) Debitorspænd $+100$ bp}
+CPR falder fra \textbf{32,08\% til 13,87\%}, dvs. 18,21 procentpoint. Kursen stiger \textbf{3,08 kurspoint}. Højere debitorspænd gør refinansiering dyrere. Gain falder, færre låntagere konverterer, og investor får større sandsynlighed for at beholde de høje kuponer.
+
+\del{(b) OAS $+100$ bp}
+Kursen falder \textbf{3,09 kurspoint}. Betalingerne er de samme, men diskonteringsrenten er højere. Derfor falder nutidsværdien. CPR står fortsat på 32,11\%.
+
+\del{(c) Hvad ændres, og hvad holdes fast?}
+\textbf{Debitorspændsstød:} Refinansieringskurve, Gain, CPR og betalinger ændres. Swapkurven, rentestierne og investors OAS holdes fast.
+
+\textbf{OAS-stød:} Kun investors diskonteringsspænd ændres. Rentestier, refinansieringskurve, CPR og betalinger holdes fast. I begge forsøg holdes startpuljen og de øvrige modelinput fast.
+
+For en lavkupon langt under pari kan refinansiering stadig være uattraktiv efter et fald i debitorspændet. Så ændres CPR kun lidt, og priseffekten kan være lille.
+
+\del{(d) Er lige store stød symmetriske?}
+Nej. Debitorspænd giver $-1{,}90$ point ved $-100$ bp og $+3{,}08$ ved $+100$ bp. OAS giver henholdsvis $+3{,}40$ og $-3{,}09$ point. Lige store stød giver altså ikke lige store gevinster og tab.
+
+Dette er samlede ændringer ved store stød. De kan ikke uden videre bruges som lokale varigheder eller ændringer pr. bp. En lokal spændfølsomhed måles med små stød omkring udgangspunktet i det relevante spænd.
+
+\del{(e) Beviser samme CPR i fire terminer, at alle betalinger er ens?}
+Nej. Den samlede rate viser hverken fordelingen mellem de fire terminer eller betalingerne senere. Bed om rente, ordinært afdrag, ekstraordinært udtræk og restgæld \textbf{termin for termin} før og efter stødet. I en model med rentestier sammenlignes betalingerne på de samme stier med de samme vægte.
+
+Faste betalinger er en forudsætning for OAS-forsøget. Fireterminstallet alene beviser det ikke.
+\end{document}
