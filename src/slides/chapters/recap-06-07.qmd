@@ -33,26 +33,41 @@ Recap af kapitel 6 og overgang til kapitel 7. Sammenlign betalingstidspunkter og
 **CPR** er den indfriede andel af den planlagte restgæld efter ordinært afdrag. Her er alle rater pr. kvartal.
 
 ::: {.columns}
-::: {.column width="45%"}
-$$EXT_t=CPR_t(1-ORD_t)$$
-$$UDT_t=ORD_t+EXT_t$$
-$$CF_t=I_t+N_{t-1}UDT_t$$
-$$N_t=N_{t-1}(1-UDT_t)$$
+::: {.column style="width: 56%; font-size: 26px;"}
+$$\begin{aligned}
+EXT_t&=CPR_t(1-ORD_t)\\
+&=0{,}03(1-0{,}004)=0{,}02988
+\end{aligned}$$
 
-$ORD$, $EXT$ og $UDT$ er andele af begyndelsesrestgælden. $I$ er rentebetalingen, og $N$ er restgælden.
+$$\begin{aligned}
+UDT_t&=ORD_t+EXT_t\\
+&=0{,}004+0{,}02988=0{,}03388
+\end{aligned}$$
+
+$$\begin{aligned}
+CF_t&=I_t+N_{t-1}UDT_t\\
+&=1{,}25+100\cdot0{,}03388=4{,}638
+\end{aligned}$$
+
+$$\begin{aligned}
+N_t&=N_{t-1}(1-UDT_t)\\
+&=100(1-0{,}03388)=96{,}612
+\end{aligned}$$
 :::
-::: {.column style="width: 55%; font-size: 26px;"}
-**Eksempel: begyndelsesrestgæld 100**
+::: {.column style="width: 44%; font-size: 26px;"}
+**Begyndelsesrestgæld $N_{t-1}=100$**
 
 $ORD=0{,}4\%$, $CPR=3\%$, $I_t=1{,}25$.
 
 | Betaling / restgæld | Beløb |
 |---|---:|
 | Ordinært afdrag<br><span style="font-size: 0.82em;">$100\cdot0{,}004$</span> | 0,400 |
-| Ekstraordinært udtræk<br><span style="font-size: 0.82em;">$EXT=0{,}03(1-0{,}004)=0{,}02988$</span><br><span style="font-size: 0.82em;">$100\cdot EXT=100\cdot0{,}02988$</span> | 2,988 |
+| Ekstraordinært udtræk<br><span style="font-size: 0.82em;">$100\cdot EXT_t=100\cdot0{,}02988$</span> | 2,988 |
 | Rente (oplyst) | 1,250 |
-| **Samlet betaling**<br><span style="font-size: 0.82em;">$UDT=0{,}004+0{,}02988=0{,}03388$</span><br><span style="font-size: 0.82em;">$CF=1{,}25+100\cdot0{,}03388$</span> | **4,638** |
-| **Restgæld bagefter**<br><span style="font-size: 0.82em;">$N_t=100(1-0{,}03388)$</span> | **96,612** |
+| **Samlet betaling, $CF_t$** | **4,638** |
+| **Restgæld bagefter, $N_t$** | **96,612** |
+
+$ORD$, $EXT$ og $UDT$ er andele af begyndelsesrestgælden. $I_t$ er rentebetalingen.
 :::
 :::
 
