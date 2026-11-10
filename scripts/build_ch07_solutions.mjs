@@ -63,9 +63,10 @@ line(s,36,'Prisningsvægte bruges sammen med modellens faktorer til at prissætt
 line(s,38,'Priser og betalinger er pr. 100 nominel. DF er en faktor, ikke en rente.');
 
 s=sheets['7.2'];section(s,5,'Input: rente og nominel');
-val(s,'A6','Rente på næste termin');input(s,'B6',4,'0.00');
+val(s,'A6','Rentebetaling pr. 100 nominel');input(s,'B6',4,'0.00');
 val(s,'A7','Diskonteringsrente pr. termin');input(s,'B7',.02,pct);
-val(s,'A8','Oprindelig nominel / pari');input(s,'B8',100,'0.00');
+val(s,'A8','Beregningsgrundlag (fast)');formula(s,'B8','=100','0.00');
+val(s,'C8','Alle beløb og kurser beregnes pr. 100 nominel.');s.getRange('C8:H8').format.font.color='#595959';
 head(s,10,['Scenarie','Vægt','CPR','Værdi pr. 100 fortsættende']);
 [['Højere rente',.3,0,94],['Mellemste rente',.4,0,100],['Lavere rente',.3,.3,108]].forEach((a,i)=>{val(s,'A'+(11+i),a[0]);a.slice(1).forEach((v,j)=>input(s,String.fromCharCode(66+j)+(11+i),v,j===1?pct:'0.00'));});
 section(s,15,'(a–b) Betaling og værdi på terminen');
@@ -86,9 +87,9 @@ line(s,38,'Investor har solgt retten til låntager: konverterbar pris = pris ude
 s=sheets['7.3'];section(s,5,'Input: faste årlige betalinger');
 head(s,6,['År','Betaling','Swapkurvens rente']);
 [[1,6,.02],[2,6,.022],[3,106,.024]].forEach((a,i)=>a.forEach((v,j)=>input(s,String.fromCharCode(65+j)+(7+i),v,j===2?pct:'0.00')));
-val(s,'A11','Markedskurs');input(s,'B11',109.5,'0.00');val(s,'A12','Prøv et OAS');input(s,'B12',.002780699908,pct);
+val(s,'A11','Markedskurs');input(s,'B11',109.5,'0.00');val(s,'A12','Prøv et OAS');input(s,'B12',.002780699908,'0.000000%');
 section(s,14,'(a) Diskontér hver betaling');head(s,15,['År','PV ved OAS = 0','PV ved OAS = 0,50%','PV ved valgt OAS']);
-val(s,'A16','OAS');input(s,'B16',0,pct);input(s,'C16',.005,pct);formula(s,'D16','=B12',pct);
+val(s,'A16','OAS');input(s,'B16',0,pct);input(s,'C16',.005,pct);formula(s,'D16','=B12','0.000000%');
 for(let i=0;i<3;i++){const r=17+i,k=7+i;formula(s,'A'+r,`=A${k}`,'0');for(const c of ['B','C','D'])formula(s,c+r,`=$B${k}/(1+$C${k}+${c}$16)^$A${k}`,'0.000000');}
 val(s,'A20','Modelpris');for(const c of ['B','C','D'])formula(s,c+'20',`=SUM(${c}17:${c}19)`,'0.000000');total(s,20,'D');
 val(s,'A21','Modelpris − markedskurs');for(const c of ['B','C','D'])formula(s,c+'21',`=${c}20-$B$11`,'0.000000');
@@ -122,6 +123,9 @@ line(s,6,'Flad 3%-kurve, OAS = 0 og poolfaktor = 1. Ved rentestød genberegnes C
 head(s,8,['Modelinput','NYK 6% 2053','NYK 1% 2050']);
 [['Startkurs',104.91238,78.00841],['Kurs ved 15 bp ned',104.97581,78.97836],['Kurs ved 15 bp op',104.80074,77.04093]].forEach((a,i)=>{val(s,'A'+(9+i),a[0]);input(s,'B'+(9+i),a[1],'0.00000');input(s,'C'+(9+i),a[2],'0.00000');});
 val(s,'A13','Rentestød, bp');input(s,'B13',15,'0');val(s,'A14','Samme stød, procentpoint');formula(s,'B14','=B13/100');val(s,'A15','Samme stød, decimalrente');formula(s,'B15','=B13/10000');
+val(s,'D13','Ændrer du stødet, skal stødkurserne også ændres.');
+val(s,'D14','B10:C11 skal være modelpriser for det nye stød.');
+val(s,'D15','Excel genkører ikke konverteringsmodellen.');s.getRange('D13:H15').format.font.color='#595959';
 section(s,17,'(a–b) Beregn varighed og konveksitet');head(s,18,['Risikomål','NYK 6% 2053','NYK 1% 2050']);
 val(s,'A19','Kronevarighed, point/pp');val(s,'A20','PVBP, point/bp');val(s,'A21','Kronekonveksitet, point/pp²');
 for(const c of ['B','C']){formula(s,c+'19',`=(${c}10-${c}11)/(2*$B$14)`,'0.000000');formula(s,c+'20',`=${c}19/100`,'0.000000');formula(s,c+'21',`=(${c}10+${c}11-2*${c}9)/$B$14^2`,'0.000000');}
@@ -141,7 +145,6 @@ head(s,37,['Obligation','Stød, bp','Stød, pp','Varighedsled','Konveksitetsled'
 for(let i=0;i<4;i++){const r=38+i,c=i<2?'B':'C';val(s,'A'+r,i<2?'NYK 6% 2053':'NYK 1% 2050');input(s,'B'+r,i%2===0?-50:50,'0');formula(s,'C'+r,`=B${r}/100`);formula(s,'D'+r,`=-${c}$19*C${r}`,signed);formula(s,'E'+r,`=0.5*${c}$21*C${r}^2`,signed);formula(s,'F'+r,`=D${r}+E${r}`,signed);formula(s,'G'+r,`=${c}$9+F${r}`);}
 line(s,43,'Nøgletallene er målt tæt på startkursen. Ved 50 bp kan CPR og prisens krumning ændre sig meget.');
 line(s,44,'En fuld modelkørsel beregner betalingerne igen ved det større stød og kan derfor give et andet svar.');
-line(s,49,'Input er oplyste modelresultater. Excel beregner risikomålene; det genkører ikke konverteringsmodellen.');
 
 s=sheets['7.5'];section(s,5,'(a) Omregn mellem år og kvartal');
 val(s,'A6','Årlig CPR');input(s,'B6',.1,pct);result(s,7,'Tilsvarende kvartals-CPR','=1-(1-B6)^(1/4)','0.0000%');
@@ -150,6 +153,7 @@ line(s,12,'Regn på den andel, der bliver tilbage. Fire kvartaler med 5% CPR eft
 section(s,14,'Input fra CPR-forsøget, 4. september 2026');
 head(s,15,['Årlig CPR','6%: kurs','6%: KV','1%: kurs','1%: KV']);
 [[0,123.44,11.45,77.14,7.41],[.02,114,6.75,85.92,5],[.05,108.41,3.99,91.63,3.26],[.1,105.06,2.34,95.2,2.03],[.2,102.91,1.27,97.48,1.16]].forEach((a,i)=>a.forEach((v,j)=>input(s,String.fromCharCode(65+j)+(16+i),v,j===0?pct:'0.00')));
+line(s,21,'Aflæste modelresultater: kurser og CPR genberegnes ikke i Excel.');
 section(s,22,'(b og d) Fra 2% til 10% årlig CPR');head(s,23,['Ændring','NYK 6% 2053','NYK 1% 2050']);
 val(s,'A24','Kursændring, kurspoint');formula(s,'B24','=B19-B17',signed);formula(s,'C24','=D19-D17',signed);total(s,24,'C');
 val(s,'A25','Relativ kursændring');formula(s,'B25','=B24/B17',pct);formula(s,'C25','=C24/D17',pct);
@@ -169,6 +173,7 @@ line(s,42,'Kilde til modeltabellen: kapitel 7, CPR-forsøget. KV måles i kurspo
 
 s=sheets['7.6'];section(s,5,'Input: NYK 6% 2053, modelberegning 4. september 2026');
 line(s,6,'CPR nedenfor dækker de første fire fremtidige terminer. De to forsøg har hver sin kalibrering.');
+line(s,7,'Aflæste modelresultater: kurser og CPR genberegnes ikke i Excel.');
 head(s,8,['Debitorspændsstød, bp','CPR, fire terminer','Kurs','Oplyst kursændring']);
 [[-100,.5356,103.92,-1.9],[0,.3208,105.83,0],[100,.1387,108.9,3.08]].forEach((a,i)=>a.forEach((v,j)=>input(s,String.fromCharCode(65+j)+(9+i),v,j===1?pct:j===0?'0':'0.00')));
 head(s,13,['OAS-stød, bp','CPR, fire terminer','Kurs','Oplyst kursændring']);
@@ -206,7 +211,7 @@ for(const [sh,cell,x,tol=1e-8] of expected){const actual=sheets[sh].getRange(cel
 input(sheets['7.5'],'B6',0,pct);wb.recalculate();if(sheets['7.5'].getRange('B7').values[0][0]!==0)throw Error('CPR recalculation failed');
 input(sheets['7.5'],'B6',.1,pct);
 input(sheets['7.3'],'B12',.005,pct);wb.recalculate();if(Math.abs(sheets['7.3'].getRange('D20').values[0][0]-108.83042786792595)>1e-8)throw Error('OAS recalculation failed');
-input(sheets['7.3'],'B12',.002780699908,pct);wb.recalculate();
+input(sheets['7.3'],'B12',.002780699908,'0.000000%');wb.recalculate();
 console.log((await wb.inspect({kind:'match',searchTerm:'#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A|#NUM!|#NULL!|#SPILL!|#CALC!',options:{useRegex:true,maxResults:40},summary:'Formula errors'})).ndjson);
 for(const [name,last] of Object.entries(extents)){
  const preview=await wb.render({sheetName:name,range:`A1:H${last}`,scale:1.4});
