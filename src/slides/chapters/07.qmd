@@ -64,10 +64,10 @@ Undervisningsantagelser: restgæld 100, kvartalskupon 1,25 og udløb efter to kv
 | A: tidlig indfrielse | 0,50 | 101,25 | 0 | 0,990 | 0,985 |
 | B: ordinært udløb | 0,50 | 1,25 | 101,25 | 0,990 | 0,975 |
 
-På A falder renten og lånet indfries; på B stiger renten og lånet fortsætter.
+Første kvartals rente (1,01%) er kendt i dag, så $DF_1$ er ens. Ved termin 1 falder kvartalsrenten til 0,51% på A, og lånet indfries; på B stiger den til 1,54%, og lånet fortsætter.
 
 ::: {.notes}
-Tabellen er et gennemregnet undervisningseksempel fra bogen. Lad først de studerende forklare, hvorfor anden betaling på sti A er nul.
+Tabellen er et gennemregnet undervisningseksempel fra bogen. Lad først de studerende forklare, hvorfor anden betaling på sti A er nul. Kvartalsrenterne følger af faktorerne: 1/0,990 − 1 = 1,01% i første kvartal på begge stier, derefter 0,990/0,985 − 1 = 0,51% på A og 0,990/0,975 − 1 = 1,54% på B. Rentebevægelsen viser sig ved termin 1 og kan derfor kun påvirke DF_2; den samme nye rente får låntager på A til at indfri.
 :::
 
 ## Modelprisen bliver 100,10 {#ch07-s006}
