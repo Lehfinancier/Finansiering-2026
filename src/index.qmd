@@ -190,6 +190,8 @@ Kapitel 08
 [Vis slides](slides/chapters/08.qmd){.primary-link}
 
 [Download slides som PDF](downloads/kapitel-08.pdf){download="kapitel-08.pdf"}
+
+[Recap: kapitel 7 og overgangen til kapitel 8 (PDF)](downloads/recap-kapitel-07-08.pdf)
 :::
 
 ::: {.chapter-card}
