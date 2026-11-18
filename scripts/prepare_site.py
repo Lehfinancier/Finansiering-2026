@@ -142,7 +142,9 @@ for n,title in enumerate(titles,1):
     if n == 7:
         recap='\n[Recap: kapitel 6 og overgangen til kapitel 7 (PDF)](downloads/recap-kapitel-06-07.pdf)\n\nSupplerende materiale: [Vejledende løsninger til opgave 7.1–7.6 (PDF)](downloads/kap7_loesninger.pdf) · [Regneark til opgaverne](downloads/kap7_opgaver.xlsx){download="kap7_opgaver.xlsx"}\n'
     if n == 8:
-        recap='\n[Recap: kapitel 7 og overgangen til kapitel 8 (PDF)](downloads/recap-kapitel-07-08.pdf)\n'
+        recap='\n[Recap: kapitel 7 og overgangen til kapitel 8 (PDF)](downloads/recap-kapitel-07-08.pdf)\n\nSupplerende materiale: [Vejledende løsninger til opgave 8.1–8.5 (PDF)](downloads/kap8_loesninger.pdf) · [Regneark til opgaverne](downloads/kap8_opgaver.xlsx){download="kap8_opgaver.xlsx"}\n\nBogeksempel: [Fra effektiv rente til horisontafkast (Excel)](downloads/kap8_horisontafkast.xlsx){download="kap8_horisontafkast.xlsx"}\n'
+    if n == 9:
+        recap='\n[Recap: kapitel 8 og overgangen til kapitel 9 (PDF)](downloads/recap-kapitel-08-09.pdf)\n'
     text+=f'''\n::: {{.chapter-card}}
 ::: {{.chapter-no}}
 Kapitel {n:02}
@@ -179,6 +181,8 @@ text+='''
 | 5 · Dansk realkredit | F3-funding: ét lån, flere obligationer | [Hent Excel](downloads/Kapitel5_F3_funding.xlsx){download="Kapitel5_F3_funding.xlsx"} |
 | 6 · Konverteringsadfærd | 6.1–6.5 | [Hent Excel](downloads/kap6_opgaver.xlsx){download="kap6_opgaver.xlsx"} · [Løsninger (PDF)](downloads/kap6_loesninger.pdf) |
 | 7 · Prisfastsættelse og nøgletal | 7.1–7.6 | [Hent Excel](downloads/kap7_opgaver.xlsx){download="kap7_opgaver.xlsx"} · [Løsninger (PDF)](downloads/kap7_loesninger.pdf) |
+| 8 · Obligationsafkast | 8.1–8.5 | [Hent Excel](downloads/kap8_opgaver.xlsx){download="kap8_opgaver.xlsx"} · [Løsninger (PDF)](downloads/kap8_loesninger.pdf) |
+| 8 · Obligationsafkast | Bogeksempel: horisontafkast | [Hent Excel](downloads/kap8_horisontafkast.xlsx){download="kap8_horisontafkast.xlsx"} |
 
 ## Forberedelse
 
@@ -308,6 +312,8 @@ config='''project:
     - downloads/Kapitel5_F3_funding.xlsx
     - downloads/kap6_opgaver.xlsx
     - downloads/kap7_opgaver.xlsx
+    - downloads/kap8_opgaver.xlsx
+    - downloads/kap8_horisontafkast.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*

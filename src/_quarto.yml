@@ -27,6 +27,8 @@ project:
     - downloads/Kapitel5_F3_funding.xlsx
     - downloads/kap6_opgaver.xlsx
     - downloads/kap7_opgaver.xlsx
+    - downloads/kap8_opgaver.xlsx
+    - downloads/kap8_horisontafkast.xlsx
     - images/final/*.svg
     - images/finance-header-img.png
     - images/history/*
